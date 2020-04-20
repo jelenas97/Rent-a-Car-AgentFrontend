@@ -1,0 +1,45 @@
+import { ConfigService } from './config.service';
+import { ApiService } from './api.service';
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import {HttpHeaders} from '@angular/common/http';
+
+@Injectable()
+export class UserService {
+
+  constructor(private apiService: ApiService, private config: ConfigService) {
+
+  }
+
+  getMyInfo() {
+    return this.apiService.get(this.config.whoAmIUrl)
+      .pipe(map(user => {
+        localStorage.setItem('currentUser', JSON.stringify(user)); // sacuvaju se osnovni podaci o ulogovanom useru
+        console.log(JSON.parse(localStorage.getItem('currentUser')));
+        console.log(user.authorities[0].authority);
+        return user;
+      }));
+  }
+  editInfo(user) {
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.config.editUserUrl, JSON.stringify(user), editHeaders)
+      .pipe(map((res) => {
+        console.log(res);
+      }));
+  }
+
+  changePassword(user) {
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.config.passChangeUrl, JSON.stringify(user), editHeaders)
+      .pipe(map((res) => {
+        console.log(res);
+      }));
+  }
+
+}
