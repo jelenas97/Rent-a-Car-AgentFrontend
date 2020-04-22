@@ -1,0 +1,9 @@
+<div class="gridclass">
+    <mat-grid-list cols = "5" rowHeight = "500px">
+        <div *ngFor="let advertisement of advertisements;" >
+            <mat-grid-tile >
+                 <app-advertisement [advertisement] = "advertisement" ></app-advertisement>
+            </mat-grid-tile>
+        </div>       
+     </mat-grid-list>
+</div>
