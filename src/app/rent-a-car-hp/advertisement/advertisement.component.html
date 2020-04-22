@@ -1,0 +1,55 @@
+
+<div class="card">
+
+   
+    <div class="flip-card">
+  
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+           
+            <img class="picture-card" src="{{advertisement.image}}" alt="Avatar">
+          </div>
+          <div class="flip-card-back">
+            <h1>Car name</h1>
+            <table style="width:100%">
+                <tr>
+                    <td>Brand:</td>
+                    <td>{{advertisement.carBrand}}</td>
+                </tr>
+                <tr>
+                    <td>Class:</td>
+                    <td> {{advertisement.carClass}}  </td>
+                </tr>
+                <tr>
+                    <td>Fuel:</td>
+                    <td>{{advertisement.fuelType}}</td>
+                </tr>
+                <tr>
+                    <td>Mileage:</td>
+                    <td>{{advertisement.mileage}}</td>
+                </tr>
+                <tr>
+                    <td>Limit:</td>
+                    <td>{{advertisement.kilometresLimit}} km</td>
+                </tr>
+                <tr>
+                  <td>Kid seats:</td>
+                  <td>{{advertisement.kidSeats}}</td>
+                </tr>
+                <tr>
+                  <td>Transmission:</td>
+                  <td>{{advertisement.transmissionType}}</td>
+                </tr>
+
+               
+              </table>
+          </div>
+        </div>
+      </div>
+
+    <h1>Car name</h1>
+    <p class="price">{{advertisement.price}}$</p>
+    <p class="discount">Limited: -{{advertisement.discount}}% </p>
+    <p><button>Add to Cart</button></p>
+  </div>
+  

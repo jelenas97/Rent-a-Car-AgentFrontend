@@ -1,0 +1,12 @@
+.tp-container {
+  
+    background: rgb(255, 255, 255);
+    min-height: 565px;
+ }
+ .tp-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+    width:100px;   
+ }

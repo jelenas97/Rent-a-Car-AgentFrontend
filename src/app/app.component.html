@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<p>Klikni me hue hue</p>
-<a routerLink="/foo">Click</a>
-</body>
-</html>
+<mat-toolbar color = "primary">
+
+      <button mat-mini-fab aria-label="Example icon button with a home icon" routerLink="/homepage">
+        <mat-icon>home</mat-icon>
+      </button>
+
+  <span></span>
+  <span class = "filler"></span>
+  
+  <button mat-mini-fab aria-label="Example icon button with a home icon" routerLink="/foo">
+
+    <mat-icon matBadge="3" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
+    
+  </button>
+
+
+
+</mat-toolbar>
+
 <router-outlet></router-outlet>
