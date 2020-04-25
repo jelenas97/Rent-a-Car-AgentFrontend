@@ -25,11 +25,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+
 //components
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
 import {FooComponent} from './foo/foo.component';
-import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component'
+import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
+import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component'
 
 
 @NgModule({
@@ -38,7 +41,8 @@ import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/a
     FooComponent,
     RentACarHpComponent,
     AdvertisementComponent,
-    AdvertisementListComponent
+    AdvertisementListComponent,
+    CarProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,8 @@ import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/a
     MatDatepickerModule,
     MatFormFieldModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [FooService, MatDatepickerModule],
   bootstrap: [AppComponent]

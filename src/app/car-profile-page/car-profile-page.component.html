@@ -1,0 +1,34 @@
+<br/>
+<div class="row">
+    <div class="column">
+        <img class="profile-image" mat-card-image name="profile-picture" src="{{car.image}}">
+    </div>     
+    <div class="column col-md-5 car-info">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+        </mat-card-header>
+        <mat-card-title><b>Car name</b></mat-card-title>
+        <mat-card-content>
+            <br/>
+            <p class="border-bottom">Brand:  {{car.carBrand}} </p>
+            <p class="border-bottom">Model:  {{car.carModel}}</p>
+            <p class="border-bottom">Transmission:  {{car.transmissionType}} </p>
+            <p class="border-bottom">Class:  {{car.carClass}} </p>
+            <p class="border-bottom">Fuel:  {{car.fuelType}} </p>
+            <p class="border-bottom">Mileage:  {{car.mileage}} </p>
+            <p class="border-bottom">Limit:  {{car.limit}} </p>
+            <p class="border-bottom">Collision Damage Waiver:  {{car.collisionDamageWaiver}} </p>
+            <p class="border-bottom">Kid seats:  {{car.kidSeats}} </p>
+        </mat-card-content>
+        <br/>
+    </mat-card>
+    </div>
+    <div class="column imageGallery">
+        <div class="row ">
+            <div *ngFor="let image of car.imageGallery">
+                <img class="image-from-gallery" src="{{image}}"/>
+            </div>
+        </div>
+    </div>
+  </div>

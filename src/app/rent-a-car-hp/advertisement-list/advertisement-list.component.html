@@ -1,5 +1,5 @@
 <div class="gridclass">
-    <mat-grid-list cols = "5" rowHeight = "500px">
+    <mat-grid-list cols = "5" rowHeight = "500px" [gutterSize]="'2px'">
         <div *ngFor="let advertisement of advertisements;" >
             <mat-grid-tile >
                  <app-advertisement [advertisement] = "advertisement" ></app-advertisement>
