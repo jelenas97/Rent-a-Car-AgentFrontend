@@ -1,3 +1,4 @@
+import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {FooComponent} from './foo/foo.component';
@@ -7,7 +8,8 @@ import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 
 const routes: Routes = [
   {path: 'foo', component: FooComponent},
-  {path: 'homepage', component:RentACarHpComponent }
+  {path: 'homepage', component:RentACarHpComponent },
+  {path: 'car-profile-page', component:CarProfilePageComponent}
 ];
 
 @NgModule({

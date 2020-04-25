@@ -18,12 +18,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatCardModule} from '@angular/material/card';
 
 //components
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
 import {FooComponent} from './foo/foo.component';
-import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component'
+import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
+import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component'
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/a
     FooComponent,
     RentACarHpComponent,
     AdvertisementComponent,
-    AdvertisementListComponent
+    AdvertisementListComponent,
+    CarProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/a
     MatGridListModule,
     MatBadgeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [FooService],
   bootstrap: [AppComponent]
