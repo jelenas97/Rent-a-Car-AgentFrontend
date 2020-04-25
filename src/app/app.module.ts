@@ -18,6 +18,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 
 // components
@@ -50,7 +56,14 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     MatIconModule,
     MatSidenavModule,
     MatGridListModule,
+    MatNativeDateModule,
     MatBadgeModule,
+    MatSelectModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
     FormsModule,
     HttpClientModule,
     MatCardModule,
@@ -61,6 +74,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   providers: [
     FooService,
     LoginService,
+    MatDatepickerModule,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],

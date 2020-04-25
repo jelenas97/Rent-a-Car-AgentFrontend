@@ -9,11 +9,17 @@ import { Advertisement } from 'src/app/shared/model/Advertisement';
 export class AdvertisementComponent implements OnInit {
   
   @Input("advertisement") advertisement : Advertisement;
+  ads : Advertisement[] = [];
   constructor() {
-  
+
    }
 
   ngOnInit() {
   }
-
+  addToCart(advertisement : Advertisement){
+   
+    this.ads.push(advertisement);
+    
+    console.log(this.ads);
+  }
 }
