@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingModule } from 'ng-starrating';
 
 //services
 import {FooService} from './foo/foo.service';
@@ -25,7 +26,8 @@ import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
 import {FooComponent} from './foo/foo.component';
 import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
-import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component'
+import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
+import { CarRatingComponent } from './car-profile-page/car-rating/car-rating.component'
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { CarProfilePageComponent } from './car-profile-page/car-profile-page.com
     RentACarHpComponent,
     AdvertisementComponent,
     AdvertisementListComponent,
-    CarProfilePageComponent
+    CarProfilePageComponent,
+    CarRatingComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,9 @@ import { CarProfilePageComponent } from './car-profile-page/car-profile-page.com
     MatBadgeModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    NgbModule,
+    RatingModule
   ],
   providers: [FooService],
   bootstrap: [AppComponent]

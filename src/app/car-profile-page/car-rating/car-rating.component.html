@@ -1,0 +1,7 @@
+<div class="rate-car">
+    <ngb-rating [(rate)]="currentRate" (rate)="onRate($event)"  checkedcolor="black" uncheckedcolor="white"></ngb-rating>
+    <hr>
+    <p>Rate with: <b>{{currentRate}}</b></p>
+    <br/>
+    <starrating></starrating>
+</div>
