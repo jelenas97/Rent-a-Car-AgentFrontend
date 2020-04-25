@@ -1,6 +1,8 @@
 export class Advertisement {
     
     id: Number;
+    name : String;
+    rate : Number;
     kilometresLimit: Number;
     discount : Number;
     cwd : Boolean;

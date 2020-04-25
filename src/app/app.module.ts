@@ -18,6 +18,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 
 //components
@@ -46,12 +53,19 @@ import { CarProfilePageComponent } from './car-profile-page/car-profile-page.com
     MatIconModule,
     MatSidenavModule,
     MatGridListModule,
+    MatNativeDateModule,
     MatBadgeModule,
+    MatSelectModule,
+    MatTreeModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
     FormsModule,
     HttpClientModule,
     MatCardModule
   ],
-  providers: [FooService],
+  providers: [FooService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
