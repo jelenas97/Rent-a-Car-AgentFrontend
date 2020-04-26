@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "Rent-a-Car-AgentFrontend"
+  "defaultProject": "Rent-a-Car-AgentFrontend",
+  "cli": {
+    "analytics": "53239a20-c91d-4041-8392-d9429c84c5e9"
+  }
 }

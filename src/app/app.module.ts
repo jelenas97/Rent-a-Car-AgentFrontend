@@ -26,6 +26,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
 
 // components
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
@@ -37,6 +39,7 @@ import { CarRatingComponent } from './car-profile-page/car-rating/car-rating.com
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component'
 
 
 @NgModule({
@@ -48,7 +51,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     AdvertisementListComponent,
     CarProfilePageComponent,
     CarRatingComponent,
-    LoginComponent
+    LoginComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,
@@ -67,11 +71,14 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     MatDividerModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatCardModule,
     FormsModule,
     HttpClientModule,
     MatCardModule,
     NgbModule,
-    RatingModule
+    RatingModule,
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule
@@ -83,6 +90,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],
-  entryComponents: [LoginComponent]
+  entryComponents: [ //ovo mora da se doda za dijaloge
+    LoginComponent,
+    ShopCartComponent
+  ]
+
 })
 export class AppModule { }

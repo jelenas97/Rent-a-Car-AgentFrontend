@@ -7,10 +7,14 @@
   <span></span>
   <span class = "filler"></span>
 
+
   <a routerLink="/login" class="text-white mr-3">Login</a>
 
-  <button mat-mini-fab aria-label="Example icon button with a home icon" routerLink="/foo">
-    <mat-icon matBadge="3" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
+  <button mat-mini-fab style="margin-left:10px;" (click) = "openCart()">
+
+    <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
+     
   </button>
+
 </mat-toolbar>
 <router-outlet></router-outlet>
