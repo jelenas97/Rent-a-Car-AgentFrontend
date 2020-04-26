@@ -1,0 +1,87 @@
+<div class="jumbotron requested-rents" >
+    <div class="requested-rents-title">
+        <h3>Pending rents</h3>
+        <p class="lead">Here you can see a list of your pending rents.</p>
+    </div>
+</div>
+<br/>
+<div class=" requested-rents-table" >
+<table class="table requested-rents-table">
+    <thead>
+        <tr>
+            <th scope="col" > Ad id</th>
+            <th scope="col"> Car brand </th>
+            <th scope="col"> Car class </th>
+            <th scope="col"> Rent price </th>
+            <th scope="col"> Transmission type </th>
+            <th scope="col"> Fuel type </th>
+            <th scope="col"> Ad name </th>
+            <th scope="col">  </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let advertisement of advertisements'>
+            <td> {{advertisement.id}} </td>
+            <td> {{advertisement.carBrand}} </td>
+            <td> {{advertisement.carClass}} </td>
+            <td> {{advertisement.price}} </td>
+            <td> {{advertisement.transmissionType}} </td>
+            <td> {{advertisement.fuelType}} </td>
+            <td> {{advertisement.name}} </td>
+            <td>
+                <button class="btn btn-secondary cancel-btn" type="button" (click)="cancelRent(advertisement)">
+                    Cancel
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<br/>
+
+<div class="jumbotron requested-rents" >
+    <div class="requested-rents-title">
+        <h3>Rent history</h3>
+        <p class="lead">Here you can see a list of your rent history.</p>
+    </div>
+</div>
+<br/>
+<div class=" requested-rents-table" >
+<table class="table requested-rents-table">
+    <thead>
+        <tr>
+            <th scope="col" > Ad id</th>
+            <th scope="col"> Car brand </th>
+            <th scope="col"> Car class </th>
+            <th scope="col"> Rent price </th>
+            <th scope="col"> Transmission type </th>
+            <th scope="col"> Fuel type </th>
+            <th scope="col"> Ad name </th>
+            <th scope="col">  </th>
+            <th scope="col">  </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let advertisement of advertisements'>
+            <td> {{advertisement.id}} </td>
+            <td> {{advertisement.carBrand}} </td>
+            <td> {{advertisement.carClass}} </td>
+            <td> {{advertisement.price}} </td>
+            <td> {{advertisement.transmissionType}} </td>
+            <td> {{advertisement.fuelType}} </td>
+            <td> {{advertisement.name}} </td>
+            <td>
+                <button class="btn btn-secondary" type="button" (click)="rateCar(advertisement)">
+                    Rate
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-secondary" type="button" (click)="commentCar(advertisement)">
+                   Add comment
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br/><br/>
+</div>
