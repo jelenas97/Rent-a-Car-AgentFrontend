@@ -75,9 +75,15 @@
             <option value="mileage">Mileage</option>
          </select>
          <button class="btn-primary"  (click) = "changeDirection()" ><mat-icon>{{arrow}}</mat-icon></button>
+         <button mat-mini-fab style="margin-left:10px;" (click) = "openCart()">
+
+          <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
+          
+        </button>
+
       </div>
 
-      <app-advertisement-list *ngIf="showAdds" [advertisements] = "advertisements"></app-advertisement-list>
+      <app-advertisement-list *ngIf="showAdds" [advertisements] = "advertisements" (notify)="onNotify($event)" ></app-advertisement-list>
       <div class="center">
          <button class="btn btn-primary" [disabled] = "leftArrow" (click)="previousAds()"><mat-icon>arrow_left</mat-icon></button>
          --

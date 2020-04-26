@@ -26,13 +26,16 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
 
 //components
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
 import {FooComponent} from './foo/foo.component';
 import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
-import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component'
+import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
+import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component'
 
 
 @NgModule({
@@ -42,7 +45,8 @@ import { CarProfilePageComponent } from './car-profile-page/car-profile-page.com
     RentACarHpComponent,
     AdvertisementComponent,
     AdvertisementListComponent,
-    CarProfilePageComponent
+    CarProfilePageComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,
@@ -61,11 +65,17 @@ import { CarProfilePageComponent } from './car-profile-page/car-profile-page.com
     MatDividerModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatCardModule,
     FormsModule,
-    HttpClientModule,
-    MatCardModule
+    HttpClientModule
+    
   ],
   providers: [FooService, MatDatepickerModule],
+  entryComponents: [ //ovo mora da se doda za dijaloge
+    ShopCartComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

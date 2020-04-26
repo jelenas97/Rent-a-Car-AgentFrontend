@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Advertisement } from '../shared/model/Advertisement';
+import { MatDialog } from '@angular/material';
 import {Sort} from '@angular/material/sort';
+import { ShopCartComponent } from '../rent-a-car-hp/shop-cart/shop-cart.component'
 @Component({
   selector: 'app-rent-a-car-hp',
   templateUrl: './rent-a-car-hp.component.html',
@@ -10,28 +12,28 @@ export class RentACarHpComponent implements OnInit {
 
   all_ads : Advertisement[] = [
   {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 4000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1,transmissionType : "automatic",fuelType : "petrol",rate:1,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg",mileage : 3000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 3,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car B"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://image.made-in-china.com/2f0j00zFJQUkHsbDpb/4-Wheel-Small-Electric-Car-Professional-Design-2-Doors.jpg",mileage : 50000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 2,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 4,transmissionType : "automatic",fuelType : "petrol",rate:5,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://www.pvnautoparts.com/image/pvnautoparts/image/cache/data/Car%20Photos/cNBc5ZMb1568434447-256x256.jpg",mileage : 1000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 5,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:2.5,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:4.5,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:2,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:0,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 2222222.99,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
-  {id: 1, kilometresLimit: 200,discount : 40,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"}
-  ]
+  {id: 2, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg",mileage : 3000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 3,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car B"},
+  {id: 3, kilometresLimit: 200,discount : 10,cwd : true,image : "https://image.made-in-china.com/2f0j00zFJQUkHsbDpb/4-Wheel-Small-Electric-Car-Professional-Design-2-Doors.jpg",mileage : 50000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 2,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 4, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 4,transmissionType : "automatic",fuelType : "petrol",rate:5,name:"Car A"},
+  {id: 5, kilometresLimit: 200,discount : 10,cwd : true,image : "https://www.pvnautoparts.com/image/pvnautoparts/image/cache/data/Car%20Photos/cNBc5ZMb1568434447-256x256.jpg",mileage : 1000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 5,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 6, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:2.5,name:"Car A"},
+  {id: 7, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:4.5,name:"Car A"},
+  {id: 8, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 9, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 10, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:2,name:"Car A"},
+  {id: 11, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 12, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:0,name:"Car A"},
+  {id: 13, kilometresLimit: 200,discount : 10,cwd : true,image : "https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 2222222.99,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 14, kilometresLimit: 200,discount : 20,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"},
+  {id: 15, kilometresLimit: 200,discount : 40,cwd : true,image : "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",mileage : 20000,kidSeats : 0,availableTracking : true,carClass : "SUV",carBrand : "BMW",price : 1000000,transmissionType : "automatic",fuelType : "petrol",rate:3,name:"Car A"}
+  ];
   advertisements : any;
   startIndex : any;
   numberOfAds : any;
   leftArrow : Boolean;
   rightArrow : Boolean;
   showAdds : Boolean;
-  sortedAdvertisements : Advertisement;
+  sortedAdvertisements : any;
   count : Number[] = [
    1,2,3,4,5,6,7,8
   ]
@@ -42,19 +44,23 @@ export class RentACarHpComponent implements OnInit {
   //car search params
   place :any; startDate:Date; endDate:Date;
 
-  constructor() { }
+  cartAds : Advertisement[] = [];
+
+  constructor(private _dialog: MatDialog) { }
   
 
   ngOnInit() {
     this.advertisements = this.all_ads;
-    this.sortedAdvertisements = this.advertisements;
+    this.sortedAdvertisements = this.all_ads;
     this.sortParameter = "price";
-    this.isAsc = true;
+    this.isAsc = false;
     this.showAds();
     
   }
 
   showAds(){
+    console.log(this.all_ads);
+
     this.sortData(this.sortParameter,this.isAsc);
     this.showAdds = false;
     var start = 0;
@@ -70,7 +76,7 @@ export class RentACarHpComponent implements OnInit {
     var left = this.numberOfAds - this.startIndex;
     var num = 0;
     //if there is any left we can click next
-    if(left >= 10){
+    if(left > 10){
      this.rightArrow = false;
      num = 10;
     }else{
@@ -84,11 +90,13 @@ export class RentACarHpComponent implements OnInit {
     this.advertisements = [];
     var start = this.startIndex - num;
     var end = this.startIndex;
+
+    console.log(this.advertisements);
+    console.log(this.sortedAdvertisements);
     for(start; start<end; start++ ){
       this.advertisements.push(this.sortedAdvertisements[start]);
     }
     this.showAdds = true;
-   
   }
   previousAds(){
     this.rightArrow = false; 
@@ -101,7 +109,7 @@ export class RentACarHpComponent implements OnInit {
   }
 
   sortData(tag:any,isAsc:any) {
-    console.log("RADi");
+    this.advertisements = this.all_ads;
     const data = this.advertisements.slice();
     this.sortedAdvertisements = data.sort((a, b) => {
       const isAsc = true;
@@ -127,10 +135,10 @@ export class RentACarHpComponent implements OnInit {
   changeDirection(){
     if( this.arrow == "arrow_upward"){
       this.arrow = "arrow_downward";
-      this.isAsc = true;
+      this.isAsc = false;
     }else{
       this.arrow = "arrow_upward";
-      this.isAsc = false;
+      this.isAsc = true;
     }
     this.showAds();
   }
@@ -141,6 +149,28 @@ export class RentACarHpComponent implements OnInit {
     console.log("Pretrazujem : " + this.place + " start date: " +  this.startDate + " end date: " + this.endDate)
 
   }
+  public onNotify(ad:any):void {
+    const foundIndex = this.all_ads.findIndex(({ id }) => id === ad.id);
+    this.all_ads = this.all_ads.filter((_, index) => index !== foundIndex);
+    this.advertisements = this.all_ads;
+    this.sortedAdvertisements = this.advertisements;
+    this.showAds();
+    this.cartAds.push(ad);
+  }
+  openCart(){
+    let dialog = this._dialog.open(ShopCartComponent, {
+        // id: this._patientId,
+      width: '30%',
+      data: this.cartAds,
+    });
+    dialog.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // reference the closeMessage property here
+      console.log(dialog.componentInstance.advertisements);
+      this.cartAds = dialog.componentInstance.advertisements;
+    });
+  }
+
 
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
