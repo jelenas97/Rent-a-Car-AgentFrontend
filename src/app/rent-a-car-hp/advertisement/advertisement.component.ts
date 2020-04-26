@@ -1,5 +1,5 @@
-import { Component, OnInit,Input,Output, EventEmitter  } from '@angular/core';
-import { Advertisement } from 'src/app/shared/model/Advertisement';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Advertisement} from '../../shared/model/advertisement';
 
 @Component({
   selector: 'app-advertisement',
@@ -7,19 +7,20 @@ import { Advertisement } from 'src/app/shared/model/Advertisement';
   styleUrls: ['./advertisement.component.css']
 })
 export class AdvertisementComponent implements OnInit {
-  
-  @Input("advertisement") advertisement : Advertisement;
-  ads : Advertisement[] = [];
+
+  @Input('advertisement') advertisement: Advertisement;
+  ads: Advertisement[] = [];
   @Output() notify = new EventEmitter<Advertisement>();
+
   constructor() {
 
-   }
+  }
 
   ngOnInit() {
   }
 
-  addToCart(advertisement : any) {
+  addToCart(advertisement: any) {
     this.notify.emit(advertisement);
   }
- 
+
 }

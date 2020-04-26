@@ -1,6 +1,6 @@
-import { Advertisement } from './model/Advertisement';
+import {Advertisement} from './model/advertisement';
 
 export class GlobalCart {
-    public static  cartAds : Advertisement[] = [];
-    
+  public static cartAds: Advertisement[] = [];
+
 }
