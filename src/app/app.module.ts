@@ -47,7 +47,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     AdvertisementComponent,
     AdvertisementListComponent,
     CarProfilePageComponent,
-    CarRatingComponent
+    CarRatingComponent,
     LoginComponent
   ],
   imports: [
