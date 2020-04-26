@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output, EventEmitter  } from '@angular/core';
 import { Advertisement } from 'src/app/shared/model/Advertisement';
 
 @Component({
@@ -10,16 +10,16 @@ export class AdvertisementComponent implements OnInit {
   
   @Input("advertisement") advertisement : Advertisement;
   ads : Advertisement[] = [];
+  @Output() notify = new EventEmitter<Advertisement>();
   constructor() {
 
    }
 
   ngOnInit() {
   }
-  addToCart(advertisement : Advertisement){
-   
-    this.ads.push(advertisement);
-    
-    console.log(this.ads);
+
+  addToCart(advertisement : any) {
+    this.notify.emit(advertisement);
   }
+ 
 }
