@@ -1,0 +1,11 @@
+.center{
+    margin-right: auto;
+    margin-left: auto; 
+}
+#mat-dialog-content {
+    background-color: red;
+}
+.mat-dialog-container {
+    padding: 0px !important;
+    background: transparent !important;
+  }

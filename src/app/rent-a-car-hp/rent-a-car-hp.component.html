@@ -1,37 +1,33 @@
-<mat-sidenav-container class = "tp-container">
-    <mat-sidenav mode = "side" opened>
-    
-  
+<mat-sidenav-container class="tp-container">
+  <mat-sidenav mode="side" opened>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field>
+      <mat-label>Select place</mat-label>
+      <mat-select [(value)]="place">
+        <mat-option value="Novi Sad">Novi Sad</mat-option>
+        <mat-option value="Beograd">Beograd</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <div id="picker">
+      <mat-label>Start date</mat-label> <br>
+
+      <input matInput [matDatepicker]="picker" [(ngModel)]="startDate" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker disabled="false"></mat-datepicker>
+
       <mat-divider></mat-divider>
+      <mat-label>End date</mat-label> <br>
 
-       <mat-form-field>
-         <mat-label>Select place</mat-label>
-         <mat-select [(value)]="place">
-           <mat-option value="Novi Sad">Novi Sad</mat-option>
-           <mat-option value="Beograd">Beograd</mat-option>
-         </mat-select>
-       </mat-form-field>
-
-       <mat-divider></mat-divider>
-      <div id="picker">
-         <mat-label>Start date</mat-label> <br>
-       
-         <input matInput [matDatepicker]="picker" [(ngModel)]="startDate" disabled>
-         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-         <mat-datepicker #picker disabled="false"></mat-datepicker>
-   
-         <mat-divider></mat-divider>
-   
-         <mat-label>End date</mat-label> <br>
-           
-         <input matInput [matDatepicker]="picker2" [(ngModel)]="endDate" disabled> 
-         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-         <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+      <input matInput [matDatepicker]="picker2" [(ngModel)]="endDate" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 disabled="false"></mat-datepicker>
       <div>
-            
-
       </div>
-  
       <mat-divider></mat-divider>
 
       <mat-form-field>
@@ -41,53 +37,58 @@
           <mat-option value="BMW">BMW</mat-option>>
         </mat-select>
       </mat-form-field>
-      <div *ngFor="let item of count" >
-         <mat-divider></mat-divider>
+      <div *ngFor="let item of count">
+        <mat-divider></mat-divider>
 
-         <mat-form-field>
-            <mat-label>Select class</mat-label>
-            <mat-select [(value)]="brand">
-              <mat-option>None</mat-option>
-              <mat-option value="BMW">BMW</mat-option>>
-            </mat-select>
-          </mat-form-field>
-         </div>
+        <mat-form-field>
+          <mat-label>Select class</mat-label>
+          <mat-select [(value)]="brand">
+            <mat-option>None</mat-option>
+            <mat-option value="BMW">BMW</mat-option>>
+          </mat-select>
+        </mat-form-field>
       </div>
+    </div>
 
-      <div class="center">
-        --
-        <button class="btn btn-primary" (click)="searchAds()"> Search </button>
-        --
+    <div class="center">
+      --
+      <button class="btn btn-primary" (click)="searchAds()"> Search </button>
+      --
 
-      </div>
-         
-   
-     
-  
-    </mat-sidenav>
+    </div>
+  </mat-sidenav>
 
-    <mat-sidenav-content>
-      
-      <div class="right">
-         <select   #mySelect style="width: 170px;" (change)="change(mySelect.value)">
-            <option value="price">Price</option>
-            <option value="rate">Rate</option>
-            <option value="mileage">Mileage</option>
-         </select>
-         <button class="btn-primary"  (click) = "changeDirection()" ><mat-icon>{{arrow}}</mat-icon></button>
-      </div>
+  <mat-sidenav-content>
 
-      <app-advertisement-list *ngIf="showAdds" [advertisements] = "advertisements"></app-advertisement-list>
-      <div class="center">
-         <button class="btn btn-primary" [disabled] = "leftArrow" (click)="previousAds()"><mat-icon>arrow_left</mat-icon></button>
-         --
-         <button class="btn btn-primary" [disabled] = "rightArrow" (click)="nextAds()" ><mat-icon>arrow_right</mat-icon></button>
-      </div>
-     
-   </mat-sidenav-content>
+    <div class="right">
+      <select #mySelect style="width: 170px;" (change)="change(mySelect.value)">
+        <option value="price">Price</option>
+        <option value="rate">Rate</option>
+        <option value="mileage">Mileage</option>
+      </select>
+      <button class="btn-primary" (click)="changeDirection()">
+        <mat-icon>{{arrow}}</mat-icon>
+      </button>
 
- 
-    
-  </mat-sidenav-container>
 
-  <!--   -->
+    </div>
+
+    <app-advertisement-list *ngIf="showAdds" [advertisements]="advertisements" (notify)="onNotify($event)">
+    </app-advertisement-list>
+    <div class="center">
+      <button class="btn btn-primary" [disabled]="leftArrow" (click)="previousAds()">
+        <mat-icon>arrow_left</mat-icon>
+      </button>
+      --
+      <button class="btn btn-primary" [disabled]="rightArrow" (click)="nextAds()">
+        <mat-icon>arrow_right</mat-icon>
+      </button>
+    </div>
+
+  </mat-sidenav-content>
+
+
+
+</mat-sidenav-container>
+
+<!--   -->
