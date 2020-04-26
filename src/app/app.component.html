@@ -6,7 +6,15 @@
 
   <span></span>
   <span class = "filler"></span>
-  
+
+
+  <a routerLink="/login" class="text-white mr-3">Login</a>
+
+  <button mat-mini-fab style="margin-left:10px;" (click) = "openCart()">
+
+    <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
+     
+  </button>
 
 </mat-toolbar>
 

@@ -29,7 +29,7 @@ export class ShopCartComponent implements OnInit {
 
     const foundIndex = this.advertisements.findIndex(({ id }) => id === ad.id);
     this.advertisements = this.advertisements.filter((_, index) => index !== foundIndex);
-  
+    console.log(this.advertisements);
   }
 
 }
