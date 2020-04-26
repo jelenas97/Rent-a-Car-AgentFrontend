@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingModule } from 'ng-starrating';
 
 // services
 import {FooService} from './foo/foo.service';
@@ -32,6 +33,7 @@ import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisem
 import {FooComponent} from './foo/foo.component';
 import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
 import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
+import { CarRatingComponent } from './car-profile-page/car-rating/car-rating.component'
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -45,6 +47,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     AdvertisementComponent,
     AdvertisementListComponent,
     CarProfilePageComponent,
+    CarRatingComponent
     LoginComponent
   ],
   imports: [
@@ -67,6 +70,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     FormsModule,
     HttpClientModule,
     MatCardModule,
+    NgbModule,
+    RatingModule
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule
