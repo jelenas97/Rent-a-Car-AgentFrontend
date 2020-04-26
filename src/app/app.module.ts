@@ -32,7 +32,8 @@ import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
 import {FooComponent} from './foo/foo.component';
 import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
-import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component'
+import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
+import { NewAdvertisementComponent } from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component'
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CarProfilePageComponent } from './car-profile-page/car-profile-page.com
     RentACarHpComponent,
     AdvertisementComponent,
     AdvertisementListComponent,
-    CarProfilePageComponent
+    CarProfilePageComponent,
+    NewAdvertisementComponent
   ],
   imports: [
     BrowserModule,
