@@ -1,3 +1,4 @@
+import { RequestedAndHistoryRentsComponent } from './requested-and-history-rents/requested-and-history-rents.component';
 import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,8 +16,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'homepage', component:RentACarHpComponent },
   {path: 'car-profile-page', component:CarProfilePageComponent},
-  {path: 'new-advertisement', component:NewAdvertisementComponent}
+  {path: 'new-advertisement', component:NewAdvertisementComponent},
 
+  {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent}
 ];
 
 @NgModule({
