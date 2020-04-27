@@ -15,19 +15,18 @@ export class CarProfilePageComponent implements OnInit {
     image: "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg" ,
     mileage: 50000,
     kidSeats: 1,
-    carClass: "SUV",
-    carBrand: "BMW",
-    transmissionType: "Automatic",
-    carModel: "M5",
-    fuelType: "Petrol",
-    collisionDamageWaiver: "Yes",
+    carClass: {id: 1, name: "SUV"},
+    carBrand: {id: 1, name: "BMW", models: [{id: 1, name:"M5"}]},
+    transmissionType: {id: 1, name: "Automatic"},
+    fuelType: {id: 1, name: "Petrol"},
+    collisionDamageWaiver: true,
     imageGallery: [
       "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
       "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
       "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
       "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
       "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg"
-      
+
   ]
   }
 
