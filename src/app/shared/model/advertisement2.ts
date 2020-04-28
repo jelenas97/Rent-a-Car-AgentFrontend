@@ -2,6 +2,7 @@ import {CarClass} from "./car-class";
 import {CarBrand} from "./car-brand";
 import {TransmissionType} from "./transmission-type";
 import {FuelType} from "./fuel-type";
+import {CarModel} from "./car-model";
 
 export class Advertisement2 {
 
@@ -17,9 +18,12 @@ export class Advertisement2 {
   availableTracking : Boolean;
   carClass : CarClass;
   carBrand : CarBrand;
+  carModel: CarModel;
   transmissionType : TransmissionType;
   fuelType : FuelType;
   price : Number;
+  imageGallery: any;
+
 
   constructor(){}
 }

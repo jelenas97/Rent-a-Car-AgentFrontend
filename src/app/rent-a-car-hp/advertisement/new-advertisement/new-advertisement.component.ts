@@ -13,6 +13,7 @@ import {Advertisement2} from "../../../shared/model/advertisement2";
   styleUrls: ['./new-advertisement.component.css']
 })
 export class NewAdvertisementComponent implements OnInit {
+  images: [];
 
   carBrands: CarBrand[] = [
     {id:1, name:"Toyota", models: [{id:1,name: "Yaris"}]},
@@ -47,10 +48,11 @@ export class NewAdvertisementComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.advertisement.carBrand = new CarBrand();
   }
 
-  updateBrand(value: CarBrand) {
-    this.selectedCarBrand = this.carBrands.find(e => e.id == value.id);
+  updateBrand(value: number) {
+    this.selectedCarBrand = this.advertisement.carBrand;
     this.carModels = this.selectedCarBrand.models;
   }
 
@@ -76,4 +78,24 @@ export class NewAdvertisementComponent implements OnInit {
   onSubmit() {
     console.log(this.advertisement);
   }
+
+  onFileChange(event) {
+    if (event.target.files && event.target.files[0]) {
+      this.images = [];
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+
+        reader.onload = (event:any) => {
+          console.log(event.target.result);
+          // @ts-ignore
+          this.images.push(event.target.result);
+          this.advertisement.imageGallery = this.images;
+        }
+
+        reader.readAsDataURL(event.target.files[i]);
+      }
+    }
+  }
+
 }
