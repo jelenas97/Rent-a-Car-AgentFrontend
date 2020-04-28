@@ -1,5 +1,5 @@
-<div class="bg col-lg-12 pt-0 mt-0">
-<section class="container min-container py-md-5 mt-4">
+<div class="bg col-lg-12 ">
+<section class="container min-container ">
 <div class="card-panel p-sm-5 position-relative">
   <div class="text-center">
     <h1 class="h2 mt-5">Login to your account</h1>
@@ -11,21 +11,31 @@
       <input class="form-control rounded-0 pl-5" id="username"
              name="username"
              type="text"
-             required="">
+             required="" placeholder="Username">
     </div>
-    <label for="password" class="pull-left sr-only">Password</label>
-    <div class="position-relative">
-      <fa-icon class="fa fa-user fa-lg position-absolute" [icon]="faPassword"></fa-icon>
+    <div class="position-relative pt-3">
+      <fa-icon class="fa fa-user fa-lg position-absolute pt-3" [icon]="faPassword"></fa-icon>
       <input class="form-control rounded-0 pl-5" id="password"
              name="password"
              type="text"
-             required="">
+             required="" placeholder="Password">
     </div>
-    <div class="text-center my-4">
-      <button class="btn mat-flat-button" type="submit">Log in</button>
+
+    <div class="row">
+      <div class="text-left col-lg-6 my-4">
+        <button class="btn mat-flat-button pr-5" type="submit">Forgot password?</button>
+      </div>
+      <div class="text-right col-lg-6 my-4 pl-5">
+        <button class="btn mat-flat-button" type="submit">Log in</button>
+      </div>
     </div>
   </form>
-</div>
+
+  <div class="text-center">
+    <button class="btn mat-flat-button mt-3">Doesn't have account? <a routerLink="/registration">Sign in</a></button>
+  </div>
+
+  </div>
 
 </section>
 </div>

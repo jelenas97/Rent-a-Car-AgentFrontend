@@ -2,14 +2,10 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0 5px 40px, rgba(0, 0, 0, 0.1) 0 5px 10px;
   border-bottom: 10px solid transparent;
   transition: box-shadow 0.25s;
-  padding: 20px;
-  margin: 0.5rem 0 1rem;
   border-radius: 2px;
   background-color: #fff;
-  opacity: 0.85;
+  opacity: 0.80;
 }
-
-/* Font Awesome Icons */
 
 .form-group a fa-icon {
   margin: 0 auto;
@@ -24,16 +20,13 @@
 
 .bg {
   background-image: url("../images/bg.jpg");
-  /* Full height */
   height: 100%;
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.7;
+  opacity: 0.75;
 
 }
-
 
 .form-control:focus {
   box-shadow: none;
@@ -45,9 +38,6 @@
   border-bottom-color: gray;
 }
 
-
-/* Media Queries */
-
 @media (min-width: 768px) {
   .min-container {
     max-width: 550px;
@@ -55,7 +45,7 @@
 }
 
 .min-container {
-  margin: 0 auto;
+  padding-top: 9rem;
 }
 
 
