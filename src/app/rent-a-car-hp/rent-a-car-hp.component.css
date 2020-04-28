@@ -35,3 +35,12 @@
 .mat-form-field, #picker{
    margin-left : 10px;
 }
+
+.inpClass {
+   margin-left: 10px;
+   width : 120px;
+}
+
+.dateInp{
+   width: 170px;
+}

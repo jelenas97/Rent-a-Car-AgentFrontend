@@ -12,6 +12,8 @@ export class ConfigService {
   passChangeUrl = this.authUrl + '/changePassword';
   whoAmIUrl = this.serverUrl + '/users/currentUser';
   editUserUrl = this.serverUrl + '/users/editUser';
+  private adminUrl = this.serverUrl + '/api/admin';
+  private codebookUrl = this.serverUrl + '/codebook';
 
   get login_url(): string {
     return this.loginUrl;
@@ -33,5 +35,12 @@ export class ConfigService {
   get passChange_url(): string {
     return this.passChangeUrl;
   }
+  get adminPage(): string {
+    return this.adminUrl;
+  }
+  get getCodebook(): string {
+    return this.codebookUrl;
+  }
+
 
 }

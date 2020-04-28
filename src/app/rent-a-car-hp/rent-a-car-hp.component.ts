@@ -4,6 +4,8 @@ import { Advertisement } from '../shared/model/Advertisement';
 import { Sort } from '@angular/material/sort';
 import { ShopCartComponent } from '../rent-a-car-hp/shop-cart/shop-cart.component'
 import { GlobalCart } from '../shared/global'
+import { CodebookService } from '../service/codebook.service';
+import { CodeBook } from '../shared/model/codeBook';
 @Component({
   selector: 'app-rent-a-car-hp',
   templateUrl: './rent-a-car-hp.component.html',
@@ -41,11 +43,16 @@ export class RentACarHpComponent implements OnInit {
   sortParameter: any;
   isAsc: any;
   arrow: String = "arrow_downward";
-
   //car search params
-  place: any; startDate: Date; endDate: Date; brand : any;
+  place: any; startDate: Date; endDate: Date; brand : any; fuelType:any; carClass: any; limitMileage: any;
+  transmissionType:any; carModel:any; dmg: any; seats: any; mileage: any; minPrice: any; maxPrice: any;
 
-  constructor() { }
+  codeBook : any;
+  showSearch : any = false;
+  advanceSearch : any = false;
+
+
+  constructor(private _codebookService : CodebookService) { }
 
 
   ngOnInit() {
@@ -60,6 +67,19 @@ export class RentACarHpComponent implements OnInit {
     this.sortParameter = "price";
     this.isAsc = false;
     this.showAds();
+    // this._codebookService.getCodeBookInfo().subscribe(codeBook => {
+    //   this.codeBook = codeBook;
+    //   this.showSearch = true;
+      
+    // })
+    var cdbk = new CodeBook;
+     cdbk.carBrands = 'aaaa';
+     cdbk.carClasses = "SAASAs";
+     cdbk.carModels = "DSsdsd";
+     cdbk.fuelTypes = "";
+     cdbk.transmissionTypes = "";
+    this.codeBook = cdbk;
+    this.advanceSearch = true;
 
   }
 

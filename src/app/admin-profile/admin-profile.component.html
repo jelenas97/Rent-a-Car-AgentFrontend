@@ -1,0 +1,15 @@
+<mat-drawer-container class="tp-container" >
+    <mat-drawer mode="side" opened>
+
+        <mat-list>
+            <mat-list-item> <button class="btn-primary btns">Code book</button> </mat-list-item>
+
+        </mat-list>
+        
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="container" *ngIf = "show">
+            <app-code-book [codeBook] = "codeBook"></app-code-book>
+        </div>
+    </mat-drawer-content>
+  </mat-drawer-container>

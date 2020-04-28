@@ -1,0 +1,13 @@
+.tp-container {
+  
+    background: rgb(255, 255, 255);
+    min-height: 565px;
+ }
+ .btns{
+     width: 150px;
+ }
+ .container{
+     border: 1px solid red;
+     margin:40px;
+     min-height: 400px;
+ }

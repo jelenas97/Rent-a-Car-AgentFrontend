@@ -1,0 +1,49 @@
+<div>
+
+
+  <table>
+    <tr>
+      <td>
+        <table >
+          <tr><td>Brand</td> </tr>
+          <tr *ngFor="let brand of codeBook.carBrands;"><th> {{brand}} </th></tr>
+          <tr> <th><button>new brand</button></th> </tr>
+        </table>
+      </td>
+      <td>
+        <table >
+          <tr><td>Fuel type:</td> </tr>
+          <tr *ngFor="let type of codeBook.fuelTypes;"><th> {{type}} </th></tr>
+          <tr> <th><button>new fuel</button></th> </tr>
+        </table>
+      </td>
+      <td>
+        <table >
+          <tr><td>Car class:</td> </tr>
+          <tr *ngFor="let class of codeBook.carClasses;"><th> {{class}} </th></tr>
+          <tr> <th><button>new class</button></th> </tr>
+        </table>
+      </td>
+      <td>
+        <table >
+          <tr><td>Car models:</td> </tr>
+          <tr *ngFor="let model of codeBook.carModels;"><th> {{model}} </th></tr>
+          <tr> <th><button>new model</button></th> </tr>
+        </table>
+      </td>
+      <td>
+        <table >
+          <tr><td>Transmission type:</td> </tr>
+          <tr *ngFor="let type of codeBook.transmissionTypes;"><th> {{type}} </th></tr>
+          <tr> <th><button>new type</button></th> </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  
+
+  
+      
+  
+ 
+</div>

@@ -28,7 +28,9 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatListModule} from '@angular/material/list';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
 // components
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
@@ -39,7 +41,9 @@ import { CarRatingComponent } from './car-profile-page/car-rating/car-rating.com
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component'
+import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { CodeBookComponent } from './admin-profile/code-book/code-book.component'
 
 
 @NgModule({
@@ -52,7 +56,9 @@ import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component
     CarProfilePageComponent,
     CarRatingComponent,
     LoginComponent,
-    ShopCartComponent
+    ShopCartComponent,
+    AdminProfileComponent,
+    CodeBookComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +80,8 @@ import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component
     MatRadioModule,
     MatDialogModule,
     MatCardModule,
+    MatListModule,
+    MatTableModule,
     FormsModule,
     HttpClientModule,
     MatCardModule,

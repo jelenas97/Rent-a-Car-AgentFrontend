@@ -1,0 +1,17 @@
+.mat-option{
+    color: black
+}
+th, td {
+    /* border-top: 1px solid #ddd;*/
+     text-align: left;
+   }
+ td {
+     border-top: 1px solid #ddd;
+ }
+ th:hover {
+    background: 
+    linear-gradient(rgb(255, 255, 255) 0%, rgb(54, 45, 177) 90%), 
+    linear-gradient(to right, rgb(113, 113, 121) 0%, rgb(90, 199, 233) 90%);
+  
+    background-blend-mode: screen, difference, lighten;
+ }

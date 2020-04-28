@@ -13,6 +13,8 @@ export class AppComponent {
   cartAds : Advertisement[] = GlobalCart.cartAds;
   constructor(private _dialog: MatDialog) { }
   ngOnInit() {
+  //  window.sessionStorage.setItem("111",this.cartAds);
+    
   }
 
   openCart(){
