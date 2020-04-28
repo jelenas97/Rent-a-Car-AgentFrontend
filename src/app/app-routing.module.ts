@@ -6,6 +6,7 @@ import {FooComponent} from './foo/foo.component';
 import {CommonModule} from '@angular/common';
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import {LoginComponent} from './login/login.component';
+import {RegistrationComponent} from './registration/registration.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'homepage', component: RentACarHpComponent },
   {path: 'car-profile-page', component: CarProfilePageComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent},
   {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent}
 ];
 
