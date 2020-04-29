@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Car } from 'src/app/shared/model/Car';
+import {Component, OnInit} from '@angular/core';
+import {Car} from '../shared/model/car';
 
 @Component({
   selector: 'app-car-profile-page',
@@ -8,11 +8,11 @@ import { Car } from 'src/app/shared/model/Car';
 })
 export class CarProfilePageComponent implements OnInit {
 
-  //@Input("car") car: Car;
-  car: Car={
+  // @Input("car") car: Car;
+  car: Car = {
     id: 1,
     limit: 300,
-    image: "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg" ,
+    image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
     mileage: 50000,
     kidSeats: 1,
     carClass: {id: 1, name: "SUV"},
@@ -21,16 +21,17 @@ export class CarProfilePageComponent implements OnInit {
     fuelType: {id: 1, name: "Petrol"},
     collisionDamageWaiver: true,
     imageGallery: [
-      "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
-      "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
-      "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
-      "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg",
-      "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg"
+      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
+      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
+      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
+      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
+      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg'
 
-  ]
+    ]
+  };
+
+  constructor() {
   }
-
-  constructor() { }
 
   ngOnInit() {
   }

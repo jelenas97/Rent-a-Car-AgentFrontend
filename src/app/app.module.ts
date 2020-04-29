@@ -44,6 +44,8 @@ import { NewAdvertisementComponent } from './rent-a-car-hp/advertisement/new-adv
 import { RequestedAndHistoryRentsComponent } from './requested-and-history-rents/requested-and-history-rents.component';
 import { CancelRentDialogComponent } from './requested-and-history-rents/cancel-rent-dialog/cancel-rent-dialog.component';
 import { CommentCarDialogComponent } from './requested-and-history-rents/comment-car-dialog/comment-car-dialog.component'
+import {RegistrationComponent} from "./registration/registration.component";
+import {RegistrationService} from "./registration/registration.service";
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { CommentCarDialogComponent } from './requested-and-history-rents/comment
     ShopCartComponent,
     RequestedAndHistoryRentsComponent,
     CancelRentDialogComponent,
-    CommentCarDialogComponent
+    CommentCarDialogComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +99,7 @@ import { CommentCarDialogComponent } from './requested-and-history-rents/comment
     FooService,
     LoginService,
     MatDatepickerModule,
+    RegistrationService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],
