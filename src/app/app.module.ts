@@ -43,7 +43,9 @@ import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
-import { CodeBookComponent } from './admin-profile/code-book/code-book.component'
+import { CodeBookComponent } from './admin-profile/code-book/code-book.component';
+import { CreateDialogComponent } from './admin-profile/code-book/create-dialog/create-dialog.component';
+import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component'
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { CodeBookComponent } from './admin-profile/code-book/code-book.component
     LoginComponent,
     ShopCartComponent,
     AdminProfileComponent,
-    CodeBookComponent
+    CodeBookComponent,
+    CreateDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output ,EventEmitter } from '@angular/core';
-import { Advertisement } from 'src/app/shared/model/Advertisement';
-
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Advertisement} from 'src/app/shared/model/Advertisement';
 
 
 @Component({
@@ -10,15 +9,17 @@ import { Advertisement } from 'src/app/shared/model/Advertisement';
 })
 export class AdvertisementListComponent implements OnInit {
 
-  @Input("advertisements") advertisements : any;
+  @Input('advertisements') advertisements: any;
   @Output() notify = new EventEmitter<Advertisement>();
-  constructor() { }
-  ngOnInit() {
-   
+
+  constructor() {
   }
-  //sortData(sort: Sort) {
-    public onNotify(ad:any):void {
+
+  ngOnInit() {
+
+  }
+  public onNotify(ad: any): void {
     this.notify.emit(ad);
-    }
+  }
 
 }

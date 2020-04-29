@@ -1,17 +1,36 @@
-.mat-option{
-    color: black
-}
-th, td {
-    /* border-top: 1px solid #ddd;*/
-     text-align: left;
-   }
- td {
-     border-top: 1px solid #ddd;
+
+ 
+ th {
+    margin-left: auto;
+    margin-right : auto;
+    text-align: center;
  }
- th:hover {
-    background: 
-    linear-gradient(rgb(255, 255, 255) 0%, rgb(54, 45, 177) 90%), 
-    linear-gradient(to right, rgb(113, 113, 121) 0%, rgb(90, 199, 233) 90%);
-  
-    background-blend-mode: screen, difference, lighten;
+ table {
+     margin-top : 20px;
+     margin-left : 40px;
+     margin-right : 40px;
  }
+
+ th {
+     border : 1px solid black;
+    
+ }
+ .firstRow, .firstRow:hover {
+     background-color: lightgray;
+ }
+ .lastRow, .lastRow:hover {
+    background-color: white;
+
+ }
+ th:hover{
+     background-color : blueviolet;
+ }
+
+ button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+  }

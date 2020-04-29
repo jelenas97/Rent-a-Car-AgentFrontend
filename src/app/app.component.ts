@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {GlobalCart } from '../app/shared/global'
-import { Advertisement } from './shared/model/Advertisement';
-import { MatDialog } from '@angular/material';
-import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component';
+import {Component, OnInit} from '@angular/core';
+import {GlobalCart} from '../app/shared/global'
+import {Advertisement} from './shared/model/Advertisement';
+import {MatDialog} from '@angular/material';
+import {ShopCartComponent} from './rent-a-car-hp/shop-cart/shop-cart.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,15 +11,12 @@ import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component
 })
 export class AppComponent {
   title = 'Rent-a-Car-AgentFrontend';
-  cartAds : Advertisement[] = GlobalCart.cartAds;
-  constructor(private _dialog: MatDialog) { }
-  ngOnInit() {
-  //  window.sessionStorage.setItem("111",this.cartAds);
-    
-  }
+  cartAds: Advertisement[] = GlobalCart.cartAds;
 
-  openCart(){
-    let dialog = this._dialog.open(ShopCartComponent, {
+  constructor(private dialog: MatDialog) {
+  }
+  openCart() {
+    const dialog = this.dialog.open(ShopCartComponent, {
       width: '30%',
       data: this.cartAds,
     });
@@ -26,7 +24,6 @@ export class AppComponent {
       GlobalCart.cartAds = dialog.componentInstance.advertisements;
       this.cartAds = GlobalCart.cartAds;
     });
- 
   }
 }
 

@@ -18,7 +18,7 @@
       <div>
       </div>
       <mat-divider></mat-divider>
-     
+
     </div>
 
     <mat-divider></mat-divider>
@@ -34,7 +34,7 @@
     <mat-divider></mat-divider>
 
     <div *ngIf="advanceSearch">
- 
+
       <mat-divider></mat-divider>
       <mat-form-field>
         <mat-label>Brand</mat-label>
@@ -43,7 +43,7 @@
           <mat-option *ngFor="let brand of codeBook.carBrands;" value="{{brand}}">{{brand}}</mat-option>>
         </mat-select>
       </mat-form-field>
-  
+
       <mat-divider></mat-divider>
 
       <mat-form-field>
@@ -55,7 +55,7 @@
       </mat-form-field>
 
       <mat-divider></mat-divider>
-      
+
         <mat-form-field>
         <mat-label>Class</mat-label>
         <mat-select [(value)]="carClass">
@@ -63,7 +63,7 @@
           <mat-option *ngFor="let class of codeBook.carClasses;" value="{{class}}">{{class}}</mat-option>>
         </mat-select>
       </mat-form-field>
-      
+
       <mat-divider></mat-divider>
 
       <mat-form-field>
@@ -73,9 +73,9 @@
           <mat-option *ngFor="let model of codeBook.carModels;" value="{{model}}">{{model}}</mat-option>>
         </mat-select>
       </mat-form-field>
-      
+
       <mat-divider></mat-divider>
-      
+
       <mat-form-field>
         <mat-label>Transmission type</mat-label>
         <mat-select [(value)]="transmissionType">
@@ -83,9 +83,9 @@
           <mat-option *ngFor="let type of codeBook.transmissionTypes;" value="{{type}}">{{type}}</mat-option>>
         </mat-select>
       </mat-form-field>
-      
+
       <mat-divider></mat-divider>
-            
+
       <mat-form-field>
         <mat-label>Collision damage</mat-label>
         <mat-select [(value)]="dmg">
@@ -94,7 +94,7 @@
           <mat-option value="Yes">No</mat-option>
         </mat-select>
       </mat-form-field>
-      
+
       <mat-divider></mat-divider>
       <mat-form-field>
         <mat-label>Kid seats</mat-label>
@@ -105,17 +105,9 @@
           <mat-option value="Yes">Three</mat-option>
         </mat-select>
       </mat-form-field>
-      
+
       <mat-divider></mat-divider>
 
-      <!-- <mat-form-field>
-        <mat-label>Mileage:</mat-label>
-        <mat-select [(value)]="mileage">
-          <mat-option>None</mat-option>
-          <mat-option value="Yes">Yes</mat-option>
-          <mat-option value="Yes">No</mat-option>
-        </mat-select>
-      </mat-form-field> -->
       <table>
         <tr>
           <td>  <mat-label style="margin-left:10px;">Mileage: </mat-label> </td>
@@ -126,7 +118,7 @@
           <td>  <mat-label style="margin-left:10px;">Limit: </mat-label> </td>
           <td>    <input matInput [(ngModel)]="limitMileage" class="inpClass" ></td>
         </tr>
-        
+
         <tr> <td colspan="2"><mat-divider></mat-divider> </td> </tr>
         <tr>
           <td>  <mat-label style="margin-left:10px;">Min price: </mat-label> </td>
@@ -138,10 +130,10 @@
           <td>    <input matInput [(ngModel)]="maxPrice" class="inpClass" ></td>
         </tr>
       </table>
- 
-    
-   
-  
+
+
+
+
       <mat-divider></mat-divider>
 
     </div>
@@ -152,7 +144,7 @@
     --
       <button class="btn btn-primary" (click)="searchAds()"> Search </button>
      --
-     
+
     </div>
   </mat-sidenav>
 

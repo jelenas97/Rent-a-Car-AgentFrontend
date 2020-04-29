@@ -1,34 +1,41 @@
 <div>
-<h3 *ngIf="advertisements.length == 0">Your shop cart is empty!</h3>
-<div *ngIf="advertisements.length != 0">
-   
-    <div mat-dialog-content >
+  <h3 *ngIf="advertisements.length == 0">Your shop cart is empty!</h3>
+  <div *ngIf="advertisements.length != 0">
 
-          <div class='table-responsive' style="margin-bottom: 2%;">
-            <table class='table' style="margin-top: 5%;">
-            
-                <tr> <th>Image</th><th class='names'>Name</th> <th class='names'>Price</th> <th class='names'> Remove </th> </tr> 
-                <tr *ngFor="let ad of advertisements"> 
-                  <td ><img src="{{ad.image}}" alt=""  height='50' width='50' /></td>
-                  <td>{{ad.name}}</td> <td  class='item'>{{ad.price}}</td> 
-              
-                  
-                    <td><button class="btn btn-secondary" (click) = "remove(ad)">remove</button></td>
-                </tr> 
-            </table>
-           
-        </div>
+    <div mat-dialog-content>
+
+      <div class='table-responsive' style="margin-bottom: 2%;">
+        <table class='table' style="margin-top: 5%;">
+
+          <tr>
+            <th>Image</th>
+            <th class='names'>Name</th>
+            <th class='names'>Price</th>
+            <th class='names'> Remove</th>
+          </tr>
+          <tr *ngFor="let ad of advertisements">
+            <td><img src="{{ad.image}}" alt="" height='50' width='50'/></td>
+            <td>{{ad.name}}</td>
+            <td class='item'>{{ad.price}}</td>
+
+
+            <td>
+              <button class="btn btn-secondary" (click)="remove(ad)">remove</button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
     </div>
-</div>
-<div mat-dialog-actions>
-  <mat-radio-group aria-label="Select an option">
-    <mat-radio-button value="1">Bundle</mat-radio-button>
-    <mat-radio-button value="2"> Each</mat-radio-button>
-  </mat-radio-group>
+  </div>
+  <div mat-dialog-actions>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="1">Bundle</mat-radio-button>
+      <mat-radio-button value="2"> Each</mat-radio-button>
+    </mat-radio-group>
     <div class="center">
-  
-        <button class="btn btn-primary mr-1"> Reserve </button>
-        <button class="btn btn-secondary" (click) = "Cancel()" >Cancel</button>
-     </div>
+
+      <button class="btn btn-primary mr-1"> Reserve</button>
+      <button class="btn btn-secondary" (click)="Cancel()">Cancel</button>
     </div>
-    
+  </div>
