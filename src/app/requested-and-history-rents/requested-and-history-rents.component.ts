@@ -2,8 +2,8 @@ import { CancelRentDialogComponent } from './cancel-rent-dialog/cancel-rent-dial
 import { CommentCarDialogComponent } from './comment-car-dialog/comment-car-dialog.component';
 import { CarRatingDialogComponent } from './car-rating-dialog/car-rating-dialog.component';
 import { Component, OnInit } from '@angular/core';
-import { Advertisement } from '../shared/model/Advertisement';
 import { MatDialog } from '@angular/material';
+import {Advertisement} from '../shared/model/advertisement';
 
 @Component({
   selector: 'app-requested-and-history-rents',
@@ -31,7 +31,7 @@ export class RequestedAndHistoryRentsComponent implements OnInit {
 
     });
     dialog.afterClosed().subscribe(data => {
-    
+
     });
 
   }
@@ -42,17 +42,17 @@ export class RequestedAndHistoryRentsComponent implements OnInit {
 
     });
     dialog.afterClosed().subscribe(data => {
-    
+
     });
   }
 
   commentCar(advertisement) {
     let dialog = this._dialog.open(CommentCarDialogComponent, {
       width: '30%'
-      
+
     });
     dialog.afterClosed().subscribe(data => {
-    
+
     });
   }
 
