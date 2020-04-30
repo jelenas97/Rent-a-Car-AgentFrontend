@@ -39,7 +39,8 @@ import { CarRatingDialogComponent } from './requested-and-history-rents/car-rati
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component';
+import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component'
+import { NewAdvertisementComponent } from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component'
 import { RequestedAndHistoryRentsComponent } from './requested-and-history-rents/requested-and-history-rents.component';
 import { CancelRentDialogComponent } from './requested-and-history-rents/cancel-rent-dialog/cancel-rent-dialog.component';
 import { CommentCarDialogComponent } from './requested-and-history-rents/comment-car-dialog/comment-car-dialog.component'
@@ -54,6 +55,8 @@ import {RegistrationService} from "./registration/registration.service";
     RentACarHpComponent,
     AdvertisementComponent,
     AdvertisementListComponent,
+    CarProfilePageComponent,
+    NewAdvertisementComponent,
     CarProfilePageComponent,
     CarRatingDialogComponent,
     LoginComponent,

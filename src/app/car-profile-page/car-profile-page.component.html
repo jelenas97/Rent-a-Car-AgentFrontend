@@ -2,7 +2,7 @@
 <div class="row">
     <div class="column">
         <img class="profile-image" mat-card-image name="profile-picture" src="{{car.image}}">
-    </div>     
+    </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">
         <mat-card-header>
@@ -11,11 +11,11 @@
         <mat-card-title><b>Car name</b></mat-card-title>
         <mat-card-content>
             <br/>
-            <p class="border-bottom">Brand:  {{car.carBrand}} </p>
-            <p class="border-bottom">Model:  {{car.carModel}}</p>
-            <p class="border-bottom">Transmission:  {{car.transmissionType}} </p>
-            <p class="border-bottom">Class:  {{car.carClass}} </p>
-            <p class="border-bottom">Fuel:  {{car.fuelType}} </p>
+            <p class="border-bottom">Brand:  {{car.carBrand.name}} </p>
+            <p class="border-bottom">Model:  {{car.carBrand.models[0].name}}</p>
+            <p class="border-bottom">Transmission:  {{car.transmissionType.name}} </p>
+            <p class="border-bottom">Class:  {{car.carClass.name}} </p>
+            <p class="border-bottom">Fuel:  {{car.fuelType.name}} </p>
             <p class="border-bottom">Mileage:  {{car.mileage}} </p>
             <p class="border-bottom">Limit:  {{car.limit}} </p>
             <p class="border-bottom">Collision Damage Waiver:  {{car.collisionDamageWaiver}} </p>
