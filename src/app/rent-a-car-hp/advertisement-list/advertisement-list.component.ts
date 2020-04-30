@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Advertisement} from 'src/app/shared/model/Advertisement';
+
+import {Advertisement} from '../../shared/model/advertisement';
 
 
 @Component({
@@ -14,7 +15,6 @@ export class AdvertisementListComponent implements OnInit {
 
   constructor() {
   }
-
   ngOnInit() {
 
   }

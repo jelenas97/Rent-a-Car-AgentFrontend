@@ -30,22 +30,27 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-// components
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import { AdvertisementComponent } from './rent-a-car-hp/advertisement/advertisement.component';
 import {FooComponent} from './foo/foo.component';
 import { AdvertisementListComponent } from './rent-a-car-hp/advertisement-list/advertisement-list.component';
 import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
-import { CarRatingComponent } from './car-profile-page/car-rating/car-rating.component'
+import { CarRatingDialogComponent } from './requested-and-history-rents/car-rating-dialog/car-rating-dialog.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { CodeBookComponent } from './admin-profile/code-book/code-book.component';
 import { CreateDialogComponent } from './admin-profile/code-book/create-dialog/create-dialog.component';
-import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component'
+import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { ShopCartComponent } from './rent-a-car-hp/shop-cart/shop-cart.component';
+import { NewAdvertisementComponent } from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
+import { RequestedAndHistoryRentsComponent } from './requested-and-history-rents/requested-and-history-rents.component';
+import { CancelRentDialogComponent } from './requested-and-history-rents/cancel-rent-dialog/cancel-rent-dialog.component';
+import { CommentCarDialogComponent } from './requested-and-history-rents/comment-car-dialog/comment-car-dialog.component';
+import {RegistrationComponent} from './registration/registration.component';
+import {RegistrationService} from './registration/registration.service';
+
 
 
 @NgModule({
@@ -56,13 +61,19 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
     AdvertisementComponent,
     AdvertisementListComponent,
     CarProfilePageComponent,
-    CarRatingComponent,
+    NewAdvertisementComponent,
+    CarProfilePageComponent,
+    CarRatingDialogComponent,
     LoginComponent,
     ShopCartComponent,
     AdminProfileComponent,
     CodeBookComponent,
     CreateDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    RequestedAndHistoryRentsComponent,
+    CancelRentDialogComponent,
+    CommentCarDialogComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -99,10 +110,11 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
     FooService,
     LoginService,
     MatDatepickerModule,
+    RegistrationService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],
-  entryComponents: [ //ovo mora da se doda za dijaloge
+  entryComponents: [ // ovo mora da se doda za dijaloge
     LoginComponent,
     ShopCartComponent
   ]

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GlobalCart} from '../app/shared/global'
+import {GlobalCart} from './shared/global';
 import {Advertisement} from './shared/model/Advertisement';
 import {MatDialog} from '@angular/material';
 import {ShopCartComponent} from './rent-a-car-hp/shop-cart/shop-cart.component';

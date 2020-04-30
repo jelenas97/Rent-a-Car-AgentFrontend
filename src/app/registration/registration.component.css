@@ -11,6 +11,7 @@
   margin: 0 auto;
   font-size: 5rem;
   font-style: normal;
+  padding-right: 2rem;
 }
 
 .min-container .card-panel form .fa {
@@ -40,7 +41,7 @@
 
 @media (min-width: 768px) {
   .min-container {
-    max-width: 550px;
+    max-width: 950px;
   }
 }
 
