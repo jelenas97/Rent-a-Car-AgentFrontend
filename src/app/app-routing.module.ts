@@ -6,7 +6,8 @@ import {FooComponent} from './foo/foo.component';
 import {CommonModule} from '@angular/common';
 import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
 import {LoginComponent} from './login/login.component';
-import {NewAdvertisementComponent} from "./rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component";
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
 import {RegistrationComponent} from './registration/registration.component';
 
 
@@ -15,11 +16,11 @@ const routes: Routes = [
   {path: 'homepage', component: RentACarHpComponent },
   {path: 'car-profile-page', component: CarProfilePageComponent},
   {path: 'login', component: LoginComponent},
+  {path : 'profile', component : AdminProfileComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'homepage', component:RentACarHpComponent },
-  {path: 'car-profile-page', component:CarProfilePageComponent},
-  {path: 'new-advertisement', component:NewAdvertisementComponent},
-
+  {path: 'homepage', component: RentACarHpComponent },
+  {path: 'car-profile-page', component: CarProfilePageComponent},
+  {path: 'new-advertisement', component: NewAdvertisementComponent},
   {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent}
 ];
 

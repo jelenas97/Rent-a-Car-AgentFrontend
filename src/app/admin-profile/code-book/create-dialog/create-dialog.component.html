@@ -1,0 +1,13 @@
+<div>
+  <div mat-dialog-content>
+    <h5>Insert new type: <input [(ngModel)]="newType" class="inpClass" matInput></h5>
+
+  </div>
+</div>
+<div mat-dialog-actions>
+  <div class="center">
+
+    <button (click)="Create()" class="btn btn-primary mr-1"> Create</button>
+    <button (click)="Cancel()" class="btn btn-secondary">Cancel</button>
+  </div>
+</div>
