@@ -3,9 +3,9 @@
       <button mat-mini-fab aria-label="Example icon button with a home icon" routerLink="/homepage">
         <mat-icon>home</mat-icon>
       </button>
-      <button mat-mini-fab aria-label="Example icon button with a home icon" routerLink="/new-advertisement">
-        <mat-icon>add_box</mat-icon>
-      </button>
+  <button aria-label="Example icon button with a home icon" mat-mini-fab routerLink="/new-advertisement">
+    <mat-icon>add_box</mat-icon>
+  </button>
 
   <span></span>
   <span class = "filler"></span>
@@ -15,8 +15,8 @@
   </button>
 
 
-  <a routerLink="/login" class="text-white mr-3">Login</a>
-  <a routerLink="/registration" class="text-white mr-3">Sign in</a>
+  <a class="text-white mr-3" routerLink="/login">Login</a>
+  <a class="text-white mr-3" routerLink="/registration">Sign in</a>
 
 
   <button mat-mini-fab style="margin-left:10px;" (click) = "openCart()">
@@ -24,7 +24,6 @@
     <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
 
   </button>
-
 
 
 </mat-toolbar>

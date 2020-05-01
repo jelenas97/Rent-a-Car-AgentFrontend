@@ -40,7 +40,7 @@
         <mat-label>Brand</mat-label>
         <mat-select [(value)]="brand">
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let brand of codeBook.carBrands;" value="{{brand}}">{{brand}}</mat-option>>
+          <mat-option *ngFor="let brand of codeBook.carBrands; " value="{{brand}}" (click)="showModels(brand)" >{{brand}}</mat-option>>
         </mat-select>
       </mat-form-field>
 
@@ -65,17 +65,20 @@
       </mat-form-field>
 
       <mat-divider></mat-divider>
+      <div *ngIf="showModel">
+
+
 
       <mat-form-field>
         <mat-label>Model</mat-label>
         <mat-select [(value)]="carModel">
           <mat-option>None</mat-option>
-          <mat-option *ngFor="let model of codeBook.carModels;" value="{{model}}">{{model}}</mat-option>>
+          <mat-option *ngFor="let model of models;" value="{{model}}">{{model}}</mat-option>>
         </mat-select>
       </mat-form-field>
 
       <mat-divider></mat-divider>
-
+      </div>
       <mat-form-field>
         <mat-label>Transmission type</mat-label>
         <mat-select [(value)]="transmissionType">

@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {GlobalCart} from '../shared/global';
 import {Advertisement} from '../shared/model/advertisement';
-import { Sort } from '@angular/material/sort';
-import { ShopCartComponent } from '../rent-a-car-hp/shop-cart/shop-cart.component';
-import { GlobalCart } from '../shared/global';
-import { CodebookService } from '../service/codebook.service';
-import { CodeBook } from '../shared/model/codeBook';
+import {CodebookService} from '../service/codebook.service';
+import {ModelService} from '../service/model.service';
+
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -66,9 +64,10 @@ export class RentACarHpComponent implements OnInit {
   codeBook: any;
   showSearch: any = false;
   advanceSearch: any = false;
+  showModel: any = false;
+  models: any;
 
-
-  constructor(private codebookService: CodebookService) { }
+  constructor(private codebookService: CodebookService, private modelService: ModelService) { }
 
 
   ngOnInit() {
@@ -182,6 +181,17 @@ export class RentACarHpComponent implements OnInit {
       console.log('ERROR');
     }
     console.log('Pretrazujem : ' + this.place + ' start date: ' + this.startDate + ' end date: ' + this.endDate);
+
+  }
+  showModels(brand: any) {
+    this.showModel = false;
+    this.modelService.getModels(brand).subscribe(models => {
+      this.models = models;
+      console.log(this.brand);
+      console.log(this.models);
+      this.showModel = true;
+    });
+
 
   }
 

@@ -1,12 +1,12 @@
-import { RequestedAndHistoryRentsComponent } from './requested-and-history-rents/requested-and-history-rents.component';
-import { CarProfilePageComponent } from './car-profile-page/car-profile-page.component';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {RequestedAndHistoryRentsComponent} from './requested-and-history-rents/requested-and-history-rents.component';
+import {CarProfilePageComponent} from './car-profile-page/car-profile-page.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {FooComponent} from './foo/foo.component';
 import {CommonModule} from '@angular/common';
-import { RentACarHpComponent } from './rent-a-car-hp/rent-a-car-hp.component';
+import {RentACarHpComponent} from './rent-a-car-hp/rent-a-car-hp.component';
 import {LoginComponent} from './login/login.component';
-import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import {AdminProfileComponent} from './admin-profile/admin-profile.component';
 import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
 import {RegistrationComponent} from './registration/registration.component';
 

@@ -1,5 +1,5 @@
 
- 
+
  th {
     margin-left: auto;
     margin-right : auto;
@@ -7,13 +7,13 @@
  }
  table {
      margin-top : 20px;
-     margin-left : 40px;
-     margin-right : 40px;
+     margin-left : 35px;
+     margin-right : 35px;
  }
 
  th {
      border : 1px solid black;
-    
+
  }
  .firstRow, .firstRow:hover {
      background-color: lightgray;

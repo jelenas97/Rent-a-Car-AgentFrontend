@@ -2,3 +2,10 @@
   margin-right: auto;
   margin-left: auto;
 }
+.linkBtn {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  text-decoration: underline;
+  cursor: pointer;
+}
