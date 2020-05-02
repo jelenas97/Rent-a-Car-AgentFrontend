@@ -5,14 +5,14 @@
     <div id="picker">
       <mat-label>Start date</mat-label> <br>
 
-      <input class="dateInp"  matInput [matDatepicker]="picker" [(ngModel)]="startDate" disabled>
+      <input class="dateInp"  matInput [matDatepicker]="picker" [(ngModel)]="searchDto.startDate" disabled>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker disabled="false"></mat-datepicker>
 
       <mat-divider></mat-divider>
       <mat-label>End date</mat-label> <br>
 
-      <input class="dateInp"  matInput [matDatepicker]="picker2" [(ngModel)]="endDate" disabled>
+      <input class="dateInp"  matInput [matDatepicker]="picker2" [(ngModel)]="searchDto.endDate" disabled>
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2 disabled="false"></mat-datepicker>
       <div>
@@ -25,7 +25,7 @@
 
     <mat-form-field>
       <mat-label>Place</mat-label>
-      <mat-select [(value)]="place">
+      <mat-select [(value)]="searchDto.place">
         <mat-option value="Novi Sad">Novi Sad</mat-option>
         <mat-option value="Beograd">Beograd</mat-option>
       </mat-select>
@@ -38,7 +38,7 @@
       <mat-divider></mat-divider>
       <mat-form-field>
         <mat-label>Brand</mat-label>
-        <mat-select [(value)]="brand">
+        <mat-select [(value)]="searchDto.brand">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let brand of codeBook.carBrands; " value="{{brand}}" (click)="showModels(brand)" >{{brand}}</mat-option>>
         </mat-select>
@@ -48,7 +48,7 @@
 
       <mat-form-field>
         <mat-label>Fuel</mat-label>
-        <mat-select [(value)]="fuelType">
+        <mat-select [(value)]="searchDto.fuelType">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let type of codeBook.fuelTypes;" value="{{type}}">{{type}}</mat-option>>
         </mat-select>
@@ -58,7 +58,7 @@
 
         <mat-form-field>
         <mat-label>Class</mat-label>
-        <mat-select [(value)]="carClass">
+        <mat-select [(value)]="searchDto.carClass">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let class of codeBook.carClasses;" value="{{class}}">{{class}}</mat-option>>
         </mat-select>
@@ -71,7 +71,7 @@
 
       <mat-form-field>
         <mat-label>Model</mat-label>
-        <mat-select [(value)]="carModel">
+        <mat-select [(value)]="searchDto.carModel">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let model of models;" value="{{model}}">{{model}}</mat-option>>
         </mat-select>
@@ -81,7 +81,7 @@
       </div>
       <mat-form-field>
         <mat-label>Transmission type</mat-label>
-        <mat-select [(value)]="transmissionType">
+        <mat-select [(value)]="searchDto.transmissionType">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let type of codeBook.transmissionTypes;" value="{{type}}">{{type}}</mat-option>>
         </mat-select>
@@ -91,7 +91,7 @@
 
       <mat-form-field>
         <mat-label>Collision damage</mat-label>
-        <mat-select [(value)]="dmg">
+        <mat-select [(value)]="searchDto.dmg">
           <mat-option>None</mat-option>
           <mat-option value="Yes">Yes</mat-option>
           <mat-option value="Yes">No</mat-option>
@@ -101,7 +101,7 @@
       <mat-divider></mat-divider>
       <mat-form-field>
         <mat-label>Kid seats</mat-label>
-        <mat-select [(value)]="seats">
+        <mat-select [(value)]="searchDto.seats">
           <mat-option>None</mat-option>
           <mat-option value="Yes">One</mat-option>
           <mat-option value="Yes">Two</mat-option>
@@ -114,23 +114,23 @@
       <table>
         <tr>
           <td>  <mat-label style="margin-left:10px;">Mileage: </mat-label> </td>
-          <td>    <input matInput [(ngModel)]="mileage" class="inpClass" ></td>
+          <td>    <input matInput [(ngModel)]="searchDto.mileage" class="inpClass" ></td>
         </tr>
         <tr> <td colspan="2"><mat-divider></mat-divider> </td> </tr>
         <tr>
           <td>  <mat-label style="margin-left:10px;">Limit: </mat-label> </td>
-          <td>    <input matInput [(ngModel)]="limitMileage" class="inpClass" ></td>
+          <td>    <input matInput [(ngModel)]="searchDto.limitMileage" class="inpClass" ></td>
         </tr>
 
         <tr> <td colspan="2"><mat-divider></mat-divider> </td> </tr>
         <tr>
           <td>  <mat-label style="margin-left:10px;">Min price: </mat-label> </td>
-          <td>    <input matInput [(ngModel)]="minPrice" class="inpClass" ></td>
+          <td>    <input matInput [(ngModel)]="searchDto.minPrice" class="inpClass" ></td>
         </tr>
         <tr> <td colspan="2"><mat-divider></mat-divider> </td> </tr>
         <tr>
           <td>  <mat-label style="margin-left:10px;">Max price: </mat-label> </td>
-          <td>    <input matInput [(ngModel)]="maxPrice" class="inpClass" ></td>
+          <td>    <input matInput [(ngModel)]="searchDto.maxPrice" class="inpClass" ></td>
         </tr>
       </table>
 

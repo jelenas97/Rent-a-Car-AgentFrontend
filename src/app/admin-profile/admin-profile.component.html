@@ -3,6 +3,7 @@
 
         <mat-list>
             <mat-list-item> <button class="btn-primary" (click) = "openCodebook()" >Code book</button> </mat-list-item>
+            <mat-list-item> <button class="btn-primary" (click) = "showUsers()" >Users</button> </mat-list-item>
 
         </mat-list>
 
@@ -11,5 +12,8 @@
         <div class="container" *ngIf = "show">
             <app-code-book  [codeBook] = "codeBook" (notify)="onNotify()"></app-code-book>
         </div>
+      <div class="container"  *ngIf = "showUser">
+        <app-users-list [users] = "users"></app-users-list>
+      </div>
     </mat-drawer-content>
   </mat-drawer-container>

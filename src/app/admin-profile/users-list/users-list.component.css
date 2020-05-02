@@ -1,0 +1,32 @@
+table {
+  width:45%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border: 1px solid black;
+  text-align: center;
+}
+.firstRow, .firstRow:hover {
+  background-color: lightgray;
+}
+.statusRow:hover{
+
+
+}
+td {
+  border-top: 1px solid black;
+
+}
+tr:hover{
+  background-color: snow;
+}
+.ACTIVE{
+  background-color: #acffaf;
+}
+.BLOCKED{
+  background-color: #ff9090;
+}
+.DELETED{
+  background-color: blueviolet;
+}
+

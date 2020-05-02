@@ -3,8 +3,9 @@ import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import {HttpHeaders} from '@angular/common/http';
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
 
   constructor(private apiService: ApiService, private config: ConfigService) {
@@ -25,7 +26,7 @@ export class UserService {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     });
-    return this.apiService.put(this.config.editUserUrl, JSON.stringify(user), editHeaders)
+    return this.apiService.put(this.config.user_url, JSON.stringify(user), editHeaders)
       .pipe(map((res) => {
         console.log(res);
       }));
@@ -37,6 +38,22 @@ export class UserService {
       'Content-Type': 'application/json'
     });
     return this.apiService.put(this.config.passChangeUrl, JSON.stringify(user), editHeaders)
+      .pipe(map((res) => {
+        console.log(res);
+      }));
+  }
+  getUsers() {
+    return this.apiService.get(this.config.user_url)
+      .pipe(map(users => {
+        return users;
+      }));
+  }
+  changeStatus(user) {
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.config.user_url + '/changeStatus', JSON.stringify(user), editHeaders)
       .pipe(map((res) => {
         console.log(res);
       }));

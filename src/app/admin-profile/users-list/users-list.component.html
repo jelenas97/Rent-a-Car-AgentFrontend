@@ -1,0 +1,28 @@
+<div class="container register-form pt-lg-4" >
+  <div class="card my-5">
+
+    <div class="card-body">
+      <h5 class="card-header" style="text-align:center">Representation of all users in system.</h5>
+      <table>
+        <tr class="firstRow">
+          <th>ID</th>
+          <th>USERNAME</th>
+          <th>EMAIL</th>
+          <th>STATUS</th>
+        </tr>
+        <tr *ngFor="let user of users" class="{{user.status}}">
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td class="statusRow">
+            <select [value]="user.status" (change)="changeStatus(user)" id="{{user.id}}">
+              <option  value="ACTIVE">ACTIVE</option>
+              <option value="BLOCKED">BLOCKED</option>
+              <option value="DELETED">DELETED</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import {GlobalCart} from '../shared/global';
 import {Advertisement} from '../shared/model/advertisement';
 import {CodebookService} from '../service/codebook.service';
 import {ModelService} from '../service/model.service';
+import {SearchDto} from "../shared/model/search-dto";
 
 
 @Component({
@@ -58,11 +59,9 @@ export class RentACarHpComponent implements OnInit {
   isAsc: any;
   arrow: any = 'arrow_downward';
   // car search params
-  place: any; startDate: Date; endDate: Date; brand: any; fuelType: any; carClass: any; limitMileage: any;
-  transmissionType: any; carModel: any; dmg: any; seats: any; mileage: any; minPrice: any; maxPrice: any;
+  searchDto: SearchDto = new SearchDto();
 
   codeBook: any;
-  showSearch: any = false;
   advanceSearch: any = false;
   showModel: any = false;
   models: any;
@@ -177,18 +176,18 @@ export class RentACarHpComponent implements OnInit {
   }
 
   searchAds() {
-    if (this.place == null || this.startDate == null || this.endDate == null) {
+    if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
       console.log('ERROR');
+    } else {
+      console.log(this.searchDto);
     }
-    console.log('Pretrazujem : ' + this.place + ' start date: ' + this.startDate + ' end date: ' + this.endDate);
+
 
   }
   showModels(brand: any) {
     this.showModel = false;
     this.modelService.getModels(brand).subscribe(models => {
       this.models = models;
-      console.log(this.brand);
-      console.log(this.models);
       this.showModel = true;
     });
 
