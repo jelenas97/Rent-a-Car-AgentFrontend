@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CodeBook} from '../shared/model/codeBook';
 import {CodebookService} from '../service/codebook.service';
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'app-admin-profile',
@@ -9,11 +10,13 @@ import {CodebookService} from '../service/codebook.service';
 })
 export class AdminProfileComponent implements OnInit {
 
-  constructor(private codebookService: CodebookService) {
+  constructor(private codebookService: CodebookService, private userService: UserService) {
   }
 
   codeBook: CodeBook;
   show = false;
+  showUser = false;
+  users: any;
 
   ngOnInit(): void {
   }
@@ -21,6 +24,12 @@ export class AdminProfileComponent implements OnInit {
     this.codebookService.getCodeBookInfo().subscribe(codeBook => {
       this.codeBook = codeBook;
       this.show = true;
+    });
+  }
+  showUsers() {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+      this.showUser = true;
     });
   }
   onNotify() {

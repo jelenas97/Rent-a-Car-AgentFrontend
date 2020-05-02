@@ -52,8 +52,12 @@ import {CancelRentDialogComponent} from './requested-and-history-rents/cancel-re
 import {CommentCarDialogComponent} from './requested-and-history-rents/comment-car-dialog/comment-car-dialog.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
+import { UsersListComponent } from './admin-profile/users-list/users-list.component';
 import { AdvertisementService } from './service/advertisement.service';
 
+
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +78,8 @@ import { AdvertisementService } from './service/advertisement.service';
     RequestedAndHistoryRentsComponent,
     CancelRentDialogComponent,
     CommentCarDialogComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
