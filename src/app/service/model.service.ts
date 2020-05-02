@@ -9,11 +9,11 @@ export class ModelService {
   constructor(private apiService: ApiService) {
   }
 
-  newModel(name: string) {
+  newModel(name: string, brand: string) {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.apiService.post('http://localhost:8080/model' , name, editHeaders).pipe(
+    return this.apiService.post('http://localhost:8080/model/' + brand , name, editHeaders).pipe(
       map(result => {
         console.log('New model added' + result);
 
@@ -28,4 +28,12 @@ export class ModelService {
       })
     );
   }
+  getModels(brand: string) {
+    return this.apiService.get('http://localhost:8080/model/' + brand).pipe(
+      map(result => {
+        return result;
+      })
+    );
+  }
+
 }

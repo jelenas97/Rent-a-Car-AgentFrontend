@@ -7,7 +7,7 @@ import {ConfirmDialogComponent} from '../../shared/dialogs/confirm-dialog/confir
 import {ClassService} from '../../service/class.service';
 import {FuelService} from '../../service/fuel.service';
 import {ModelService} from '../../service/model.service';
-import {TransmissionService} from "../../service/transmission.service";
+import {TransmissionService} from '../../service/transmission.service';
 
 @Component({
   selector: 'app-code-book',
@@ -17,7 +17,9 @@ import {TransmissionService} from "../../service/transmission.service";
 export class CodeBookComponent implements OnInit {
   @Input('codeBook') codeBook: CodeBook;
   @Output() notify = new EventEmitter();
-
+  models: any;
+  brand: any;
+  selectedModel: any = false;
   constructor(private dialog: MatDialog, private brandService: BrandService, private classService: ClassService,
               private fuelService: FuelService, private modelService: ModelService, private tranService: TransmissionService) {
   }
@@ -36,8 +38,10 @@ export class CodeBookComponent implements OnInit {
     });
   }
   removeBrand(model: any) {
+    this.brand = model;
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
+      data : 'Brand',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(result);
@@ -45,7 +49,15 @@ export class CodeBookComponent implements OnInit {
         this.brandService.deleteBrand(model).subscribe(message => {
         });
         this.onNotify();
+      } else if (result === 'Select_model') {
+        this.modelService.getModels(model).subscribe(models => {
+          this.models = models;
+          this.selectedModel = true;
+        });
+      //  this.onNotify();
       }
+
+
     });
   }
   addNewClass() {
@@ -99,7 +111,7 @@ export class CodeBookComponent implements OnInit {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      this.modelService.newModel(result).subscribe(message => {
+      this.modelService.newModel(result, this.brand).subscribe(message => {
       });
       this.onNotify();
     });

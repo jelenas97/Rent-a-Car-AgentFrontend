@@ -1,6 +1,9 @@
 <div>
   <div mat-dialog-content>
     <h5>Do you want to delete item?</h5>
+    <div *ngIf="data == 'Brand'">
+      Or click here to open brand and see <button class="linkBtn" (click) = "Open()"> models </button>
+    </div>
   </div>
 </div>
 <div mat-dialog-actions>

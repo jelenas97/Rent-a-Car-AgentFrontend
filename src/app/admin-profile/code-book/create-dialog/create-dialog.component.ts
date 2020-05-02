@@ -8,11 +8,13 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 })
 export class CreateDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<any>) {
+  constructor(public dialogRef: MatDialogRef<any>,) {
+
   }
 
   newType: any;
   ngOnInit(): void {
+
   }
   Cancel(): void {
     this.onClose();
@@ -25,6 +27,7 @@ export class CreateDialogComponent implements OnInit {
     console.log(this.newType);
     this.dialogRef.close(this.newType);
   }
+
 
 
 }
