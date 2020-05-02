@@ -53,8 +53,11 @@ import {CommentCarDialogComponent} from './requested-and-history-rents/comment-c
 import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
 import { UsersListComponent } from './admin-profile/users-list/users-list.component';
+import { AdvertisementService } from './service/advertisement.service';
 
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +117,7 @@ import { UsersListComponent } from './admin-profile/users-list/users-list.compon
     LoginService,
     MatDatepickerModule,
     RegistrationService,
+    AdvertisementService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],

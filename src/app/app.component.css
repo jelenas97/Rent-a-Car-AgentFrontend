@@ -4,3 +4,11 @@
  .gap {
     margin-right: 10px;
  }
+
+ button.profile-icon{
+    margin-right: 1em;
+ }
+
+ button.new-advertisement{
+   margin-left: 1em;
+}
