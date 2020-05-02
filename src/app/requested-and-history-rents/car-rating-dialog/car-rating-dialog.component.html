@@ -1,15 +1,16 @@
 <div class="rate-car" >
 
-    <p><b>Ad id: </b></p>
-    <p><b>Car model: </b></p>
-    <p><b>Car class: </b></p>
+    <div  mat-dialog-content>
+        <p><b>Ad id: {{_advertisement.id}} </b></p>
+        <p><b>Car brand: {{_advertisement.carBrand}} </b></p>
+        <p><b>Car class: {{_advertisement.carClass}} </b></p>
     <br/>
-    <ngb-rating [(rate)]="currentRate" (rate)="onRate($event)"  checkedcolor="black" uncheckedcolor="white"></ngb-rating>
-    <hr>
-    <p>Rate with: <b>{{currentRate}}</b></p>
-    <br/>
-    <div>
-        <star-rating (rate)="onRate($event)" value="3" totalstars="5"  checkedcolor="black" uncheckedcolor="red" size="50px" readonly="false" ></star-rating>
     </div>
-    <button class="btn btn-secondary"  (click)="onSubmit()">Submit</button>
+    <ngb-rating [(rate)]="_rate" (rate)="onRate($event)" [readonly]="false"  checkedcolor="black" uncheckedcolor="white"></ngb-rating>
+    <hr>
+    <p>Rate with: <b>{{_rate}}</b></p>
+    <br/>
+    <div mat-dialog-actions>
+         <button class="btn btn-secondary"  (click)="onSubmit()"> Submit</button>
+    </div>
 </div>
