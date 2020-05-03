@@ -1,0 +1,54 @@
+<div style="width: 33%; display:inline-block" >
+  <div>
+      <jqxChart #myChart
+                [height]="500"
+                [title]="'Vehicles with most kilometres driven'"
+                [description]="''"
+                [showLegend]="true"
+                [enableAnimations]="true"
+                [padding]="padding"
+                [titlePadding]="titlePadding"
+                [source]="dataAdapter1"
+                [xAxis]="xAxis1"
+                [seriesGroups]="seriesGroups1"
+                [colorScheme]="'scheme02'">
+      </jqxChart>
+  </div>
+</div>
+
+<div style="width: 33%; display:inline-block" >
+  <div>
+    <jqxChart #myChart
+              [height]="500"
+              [title]="'Best rated vehicles'"
+              [description]="''"
+              [showLegend]="true"
+              [enableAnimations]="true"
+              [padding]="padding"
+              [titlePadding]="titlePadding"
+              [source]="dataAdapter2"
+              [xAxis]="xAxis1"
+              [seriesGroups]="seriesGroups2"
+              [colorScheme]="'scheme01'">
+    </jqxChart>
+  </div>
+</div>
+
+<div style="width: 33%; display:inline-block" >
+  <div>
+    <jqxChart #myChart
+              [height]="500"
+              [title]="'Most commented vehicles'"
+              [description]="''"
+              [showLegend]="true"
+              [enableAnimations]="true"
+              [padding]="padding"
+              [titlePadding]="titlePadding"
+              [source]="dataAdapter3"
+              [xAxis]="xAxis1"
+              [seriesGroups]="seriesGroups3"
+              [colorScheme]="'scheme16'">
+    </jqxChart>
+  </div>
+</div>
+
