@@ -54,6 +54,8 @@ import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
 import { UsersListComponent } from './admin-profile/users-list/users-list.component';
 import { AdvertisementService } from './service/advertisement.service';
+import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
+import {jqxChartModule} from "jqwidgets-ng/jqxchart";
 
 
 // @ts-ignore
@@ -79,7 +81,8 @@ import { AdvertisementService } from './service/advertisement.service';
     CancelRentDialogComponent,
     CommentCarDialogComponent,
     RegistrationComponent,
-    UsersListComponent
+    UsersListComponent,
+    AdvertisementStatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +113,8 @@ import { AdvertisementService } from './service/advertisement.service';
     RatingModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    jqxChartModule
   ],
   providers: [
     FooService,

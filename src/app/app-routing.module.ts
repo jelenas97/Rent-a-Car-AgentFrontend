@@ -9,6 +9,7 @@ import {LoginComponent} from './login/login.component';
 import {AdminProfileComponent} from './admin-profile/admin-profile.component';
 import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
 import {RegistrationComponent} from './registration/registration.component';
+import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'homepage', component: RentACarHpComponent },
   {path: 'car-profile-page', component: CarProfilePageComponent},
   {path: 'new-advertisement', component: NewAdvertisementComponent},
-  {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent}
+  {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent},
+  {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent}
 ];
 
 @NgModule({
