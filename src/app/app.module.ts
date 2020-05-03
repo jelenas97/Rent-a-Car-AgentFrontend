@@ -37,7 +37,7 @@ import {AdvertisementComponent} from './rent-a-car-hp/advertisement/advertisemen
 import {FooComponent} from './foo/foo.component';
 import {AdvertisementListComponent} from './rent-a-car-hp/advertisement-list/advertisement-list.component';
 import {CarProfilePageComponent} from './car-profile-page/car-profile-page.component';
-import {CarRatingDialogComponent} from './requested-and-history-rents/car-rating-dialog/car-rating-dialog.component';
+import {CarRatingDialogComponent} from './client-profile/history-rents/car-rating-dialog/car-rating-dialog.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './login/login.service';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -47,15 +47,24 @@ import {CreateDialogComponent} from './admin-profile/code-book/create-dialog/cre
 import {ConfirmDialogComponent} from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import {ShopCartComponent} from './rent-a-car-hp/shop-cart/shop-cart.component';
 import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
-import {RequestedAndHistoryRentsComponent} from './requested-and-history-rents/requested-and-history-rents.component';
-import {CancelRentDialogComponent} from './requested-and-history-rents/cancel-rent-dialog/cancel-rent-dialog.component';
-import {CommentCarDialogComponent} from './requested-and-history-rents/comment-car-dialog/comment-car-dialog.component';
+import {RequestedRentsComponent} from './client-profile/requested-rents/requested-rents.component';
+import {CancelRentDialogComponent} from './client-profile/requested-rents/cancel-rent-dialog/cancel-rent-dialog.component';
+import {CommentCarDialogComponent} from './client-profile/history-rents/comment-car-dialog/comment-car-dialog.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
 import {RegisterNewUserService} from './admin-profile/register-new-user/registerNewUser.service';
+import { UsersListComponent } from './admin-profile/users-list/users-list.component';
+import { AdvertisementService } from './service/advertisement.service';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { AgentProfileComponent } from './agent-profile/agent-profile.component';
+import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
+import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
+import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
 
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,11 +82,18 @@ import {RegisterNewUserService} from './admin-profile/register-new-user/register
     CodeBookComponent,
     CreateDialogComponent,
     ConfirmDialogComponent,
-    RequestedAndHistoryRentsComponent,
+    RequestedRentsComponent,
     CancelRentDialogComponent,
     CommentCarDialogComponent,
     RegistrationComponent,
     RegisterNewUserComponent,
+    RegistrationComponent,
+    UsersListComponent,
+    ClientProfileComponent,
+    AgentProfileComponent,
+    HistoryRentsComponent,
+    ClientInfoComponent,
+    AgentInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -115,8 +131,8 @@ import {RegisterNewUserService} from './admin-profile/register-new-user/register
     LoginService,
     MatDatepickerModule,
     RegistrationService,
-    RegisterNewUserService,
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+    AdvertisementService,
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],
   entryComponents: [ // ovo mora da se doda za dijaloge

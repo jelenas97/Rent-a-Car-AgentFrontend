@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {GlobalCart} from './shared/global';
 import {MatDialog} from '@angular/material';
 import {ShopCartComponent} from './rent-a-car-hp/shop-cart/shop-cart.component';

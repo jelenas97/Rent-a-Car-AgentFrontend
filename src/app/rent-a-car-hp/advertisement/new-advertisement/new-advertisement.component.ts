@@ -91,7 +91,7 @@ export class NewAdvertisementComponent implements OnInit {
           // @ts-ignore
           this.images.push(event.target.result);
           this.advertisement.imageGallery = this.images;
-        }
+        };
 
         reader.readAsDataURL(event.target.files[i]);
       }

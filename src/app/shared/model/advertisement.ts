@@ -1,20 +1,21 @@
 export class Advertisement {
-    
-    id: Number;
-    name : String;
-    rate : Number;
-    kilometresLimit: Number;
-    discount : Number;
-    cwd : Boolean;
-    image : String;
-    mileage : Number;
-    kidSeats : Number;
-    availableTracking : Boolean;
-    carClass : String;
-    carBrand : String;
-    transmissionType : String;
-    fuelType : String;
-    price : Number;
 
-    constructor(){}
+    id: any;
+    name: string;
+    rate: any;
+    kilometresLimit: any;
+    discount: any;
+    cwd: any;
+    image: string;
+    mileage: any;
+    kidSeats: any;
+    availableTracking: any;
+    carClass: string;
+    carBrand: string;
+    transmissionType: string;
+    fuelType: string;
+    price: any;
+    model: any;
+
+    constructor() {}
 }

@@ -1,0 +1,12 @@
+<div>
+    <p><b>Ad id: {{_advertisement.id}} </b></p>
+    <p><b>Car brand:{{_advertisement.carBrand}} </b></p>
+    <p><b>Car class: {{_advertisement.carClass}}</b></p>
+    <br/>
+    <form (ngSubmit)="addComment()" #addCommentForm="ngForm">
+        <label>Comment:</label>
+        <textarea name="content" [(ngModel)]="_content" rows="5" cols="70"></textarea>
+        <br/><br/>
+        <button [disabled]="!addCommentForm.form.valid" class="btn btn-secondary"  type="submit"> Submit </button>
+    </form>
+</div>

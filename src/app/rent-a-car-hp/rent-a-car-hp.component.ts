@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {GlobalCart} from '../shared/global';
 import {Advertisement} from '../shared/model/advertisement';
 import {CodebookService} from '../service/codebook.service';
+import {ModelService} from '../service/model.service';
+import {SearchDto} from '../shared/model/search-dto';
+import {AdvertisementService} from '../service/advertisement.service';
+
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -11,280 +15,7 @@ import {CodebookService} from '../service/codebook.service';
 export class RentACarHpComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
-  all_ads: Advertisement[] = [
-
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 1,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 4000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 1,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 2,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg',
-      mileage: 3000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 3,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car B'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 3,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://image.made-in-china.com/2f0j00zFJQUkHsbDpb/4-Wheel-Small-Electric-Car-Professional-Design-2-Doors.jpg',
-      mileage: 50000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 2,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 4,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 4,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 5,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 5,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://www.pvnautoparts.com/image/pvnautoparts/image/cache/data/Car%20Photos/cNBc5ZMb1568434447-256x256.jpg',
-      mileage: 1000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 5,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 6,
-      kilometresLimit: 200,
-      discount: 20,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 2.5,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 7,
-      kilometresLimit: 200,
-      discount: 20,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 4.5,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 8,
-      kilometresLimit: 200,
-      discount: 20,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 9,
-      kilometresLimit: 200,
-      discount: 20,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 10,
-      kilometresLimit: 200,
-      discount: 20,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 2,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 11,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 12,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 0,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 13,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 2222222.99,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 14,
-      kilometresLimit: 200,
-      discount: 20,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    },
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 15,
-      kilometresLimit: 200,
-      discount: 40,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 20000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 1000000,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 3,
-      name: 'Car A'
-    }
-
-  ];
+  all_ads: Advertisement[];
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -296,27 +27,15 @@ export class RentACarHpComponent implements OnInit {
   isAsc: any;
   arrow: any = 'arrow_downward';
   // car search params
-  place: any;
-  startDate: Date;
-  endDate: Date;
-  brand: any;
-  fuelType: any;
-  carClass: any;
-  limitMileage: any;
-  transmissionType: any;
-  carModel: any;
-  dmg: any;
-  seats: any;
-  mileage: any;
-  minPrice: any;
-  maxPrice: any;
+  searchDto: SearchDto = new SearchDto();
 
   codeBook: any;
-  showSearch: any = false;
   advanceSearch: any = false;
+  showModel: any = false;
+  models: any;
 
-
-  constructor(private codebookService: CodebookService) {
+  constructor(private codebookService: CodebookService, private modelService: ModelService,
+              private advertisementService: AdvertisementService) {
   }
 
 
@@ -326,18 +45,6 @@ export class RentACarHpComponent implements OnInit {
       this.advanceSearch = true;
 
     });
-
-
-    for (const ad of GlobalCart.cartAds) {
-      const foundIndex = this.all_ads.findIndex(({id}) => id === ad.id);
-      this.all_ads = this.all_ads.filter((_, index) => index !== foundIndex);
-    }
-
-    this.advertisements = this.all_ads;
-    this.sortedAdvertisements = this.all_ads;
-    this.sortParameter = 'price';
-    this.isAsc = false;
-    this.showAds();
 
 
   }
@@ -427,11 +134,36 @@ export class RentACarHpComponent implements OnInit {
   }
 
   searchAds() {
-    if (this.place == null || this.startDate == null || this.endDate == null) {
+    console.log('Search DTO: ' + JSON.stringify(this.searchDto));
+    if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
       console.log('ERROR');
+    } else {
+      this.advertisementService.searchAdvertisements(this.searchDto).subscribe(foundAds => {
+        console.log('Founds ads :');
+        console.log(foundAds);
+        this.all_ads = foundAds;
+        this.removeCartAds();
+      });
     }
-    console.log('Pretrazujem : ' + this.place + ' start date: ' + this.startDate + ' end date: ' + this.endDate);
+  }
+  removeCartAds() {
+    for (const ad of GlobalCart.cartAds) {
+      const foundIndex = this.all_ads.findIndex(({id}) => id === ad.id);
+      this.all_ads = this.all_ads.filter((_, index) => index !== foundIndex);
+    }
+    this.advertisements = this.all_ads;
+    this.sortedAdvertisements = this.all_ads;
+    this.sortParameter = 'price';
+    this.isAsc = false;
+    this.showAds();
+  }
 
+  showModels(brand: any) {
+    this.showModel = false;
+    this.modelService.getModels(brand).subscribe(models => {
+      this.models = models;
+      this.showModel = true;
+    });
   }
 
   public onNotify(ad: any): void {
@@ -443,7 +175,6 @@ export class RentACarHpComponent implements OnInit {
     GlobalCart.cartAds.push(ad);
   }
 }
-
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

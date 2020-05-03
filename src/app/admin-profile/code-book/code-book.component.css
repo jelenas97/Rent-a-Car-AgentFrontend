@@ -1,5 +1,5 @@
 
- 
+
  th {
     margin-left: auto;
     margin-right : auto;
@@ -7,13 +7,13 @@
  }
  table {
      margin-top : 20px;
-     margin-left : 40px;
-     margin-right : 40px;
+     margin-left : 30px;
+     margin-right : 30px;
  }
 
  th {
      border : 1px solid black;
-    
+
  }
  .firstRow, .firstRow:hover {
      background-color: lightgray;
@@ -33,4 +33,13 @@
     color: red;
     text-decoration: underline;
     cursor: pointer;
+  }
+
+ table.coodebook-table{
+      width: 10em;
+      height: 10em;
+  }
+
+  div.card{
+      width: 75em;
   }

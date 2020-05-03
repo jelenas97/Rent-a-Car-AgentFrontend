@@ -1,45 +1,56 @@
-<div>
+<div class="container register-form pt-lg-4" >
+<div class="card my-5">
+
+  <div class="card-body">
+    <h5 class="card-header" style="text-align:center">You can select row to delete item, or click link to add new one.</h5>
   <table>
     <tr>
-      <td>
-        <table >
-          <tr><th class="firstRow">-- Car models --</th> </tr>
-          <tr *ngFor="let model of codeBook.carModels;" (click) = "removeModel(model)"><th> {{model}} </th></tr>
-          <tr> <th class="lastRow"><button (click) = "addNewModel()">Add new model!</button></th> </tr>
-        </table>
-      </td>
+
      <td>
-      <table >
+      <table class="coodebook-table" >
         <tr><th class="firstRow">-- Car class --</th> </tr>
         <tr *ngFor="let class of codeBook.carClasses;" (click) = "removeClass(class)"><th> {{class}} </th></tr>
         <tr> <th class="lastRow"><button (click) = "addNewClass()">Add new class!</button></th> </tr>
       </table>
     </td>
      <td>
-      <table >
+      <table  class="coodebook-table" >
         <tr><th class="firstRow">-- Fuel type --</th> </tr>
         <tr *ngFor="let type of codeBook.fuelTypes;" (click) = "removeFuel(type)"><th> {{type}} </th></tr>
         <tr> <th class="lastRow"><button (click) = "addNewFuel()">Add new fuel!</button></th> </tr>
       </table>
     </td>
+
      <td>
-      <table >
-        <tr><th class="firstRow">-- Brand --</th> </tr>
-        <tr *ngFor="let brand of codeBook.carBrands;" (click) = "removeBrand(brand)"><th> {{brand}} </th></tr>
-        <tr> <th class="lastRow"><button  (click) = "addNewBrand()">Add new brand!</button></th> </tr>
-      </table>
-    </td>
-     <td>
-      <table >
+      <table  class="coodebook-table"  >
         <tr><th class="firstRow">-- Transmission --</th> </tr>
         <tr *ngFor="let type of codeBook.transmissionTypes;" (click) = "removeTransmission(type)"><th> {{type}} </th></tr>
         <tr> <th class="lastRow"><button (click) = "addNewTransmission()">Add new type!</button></th> </tr>
       </table>
     </td>
+
+    <td>
+      <table  class="coodebook-table"  >
+        <tr><th class="firstRow">-- Brand --</th> </tr>
+        <tr *ngFor="let brand of codeBook.carBrands;" (click) = "removeBrand(brand)"><th> {{brand}} </th></tr>
+        <tr> <th class="lastRow"><button  (click) = "addNewBrand()">Add new brand!</button></th> </tr>
+      </table>
+    </td>
+          <td>
+            <table >
+            <div *ngIf="!selectedModel">   First select brand  </div>
+              <tr><th class="firstRow" >-- Car models --</th> </tr>
+            <div *ngIf="selectedModel">
+                            <tr *ngFor="let model of models;" (click) = "removeModel(model)"><th> {{model}} </th></tr>
+                            <tr> <th class="lastRow"><button (click) = "addNewModel()">Add new model!</button></th> </tr>
+            </div>
+
+            </table>
+          </td>
     </tr>
   </table>
-
-
-
-
+  </div>
 </div>
+</div>
+
+

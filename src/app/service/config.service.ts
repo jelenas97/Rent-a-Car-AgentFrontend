@@ -11,9 +11,10 @@ export class ConfigService {
   private signUpUrl = this.authUrl + '/signup';
   passChangeUrl = this.authUrl + '/changePassword';
   whoAmIUrl = this.serverUrl + '/users/currentUser';
-  editUserUrl = this.serverUrl + '/users/editUser';
-  private adminUrl = this.serverUrl + '/api/admin';
+  private userUrl = this.serverUrl + '/users';
+  private adminUrl = this.serverUrl + '/admin';
   private codebookUrl = this.serverUrl + '/codebook';
+  private advertisementUrl = this.serverUrl + '/advertisement';
 
   get login_url(): string {
     return this.loginUrl;
@@ -26,8 +27,8 @@ export class ConfigService {
   get whoAmI_url(): string {
     return this.whoAmIUrl;
   }
-  get editUser_url(): string {
-    return this.editUserUrl;
+  get user_url(): string {
+    return this.userUrl;
   }
   get server_url(): string {
     return this.serverUrl;
@@ -41,6 +42,8 @@ export class ConfigService {
   get getCodebook(): string {
     return this.codebookUrl;
   }
-
+  get getAds_url(): string {
+    return this.advertisementUrl;
+  }
 
 }
