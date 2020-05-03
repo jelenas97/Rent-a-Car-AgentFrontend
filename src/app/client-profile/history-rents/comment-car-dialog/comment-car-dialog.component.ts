@@ -11,14 +11,16 @@ import { NotifierService } from 'angular-notifier';
 })
 export class CommentCarDialogComponent implements OnInit {
 
+
 _content: String;
  _advertisement: any;
  _date: any;
  _comment: Comment;
 
+
   constructor(public dialogRef: MatDialogRef<any>,  @Inject(MAT_DIALOG_DATA) public data: any,
    private _calendar: NgbCalendar) {
-    
+
       this._date =_calendar.getToday();
    }
 
@@ -38,7 +40,7 @@ _content: String;
       console.log(this._comment);
       this.dialogRef.close();
     }
-    
+
   }
 
 }
