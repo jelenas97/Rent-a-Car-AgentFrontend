@@ -1,5 +1,5 @@
 import { filter } from 'rxjs/operators';
-import { AdvertisementService } from './../../service/advertisement.service';
+import { AdvertisementService } from '../../../service/advertisement.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 

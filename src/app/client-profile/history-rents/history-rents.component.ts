@@ -1,16 +1,16 @@
-import { CancelRentDialogComponent } from './cancel-rent-dialog/cancel-rent-dialog.component';
-import { CommentCarDialogComponent } from './comment-car-dialog/comment-car-dialog.component';
 import { CarRatingDialogComponent } from './car-rating-dialog/car-rating-dialog.component';
+import { CommentCarDialogComponent } from './comment-car-dialog/comment-car-dialog.component';
+import { Advertisement } from './../../shared/model/advertisement';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import {Advertisement} from '../shared/model/advertisement';
+
 
 @Component({
-  selector: 'app-requested-and-history-rents',
-  templateUrl: './requested-and-history-rents.component.html',
-  styleUrls: ['./requested-and-history-rents.component.css']
+  selector: 'app-history-rents',
+  templateUrl: './history-rents.component.html',
+  styleUrls: ['./history-rents.component.css']
 })
-export class RequestedAndHistoryRentsComponent implements OnInit {
+export class HistoryRentsComponent implements OnInit {
 
   _clientId: any =1;
   advertisements: Advertisement[] = [
@@ -24,20 +24,6 @@ export class RequestedAndHistoryRentsComponent implements OnInit {
   constructor(private _dialog: MatDialog) { }
 
   ngOnInit(): void {
-
-   /* this._route.paramMap.subscribe(params => { this._customerId = params.get('id'); });*/
-  }
-
-  cancelRent(advertisement){
-    let dialog = this._dialog.open(CancelRentDialogComponent, {
-      width: '30%',
-      data: {_advertisement : advertisement, _advertisements : this.advertisements, _clientId : this._clientId},
-
-    });
-    dialog.afterClosed().subscribe(data => {
-      this.advertisements=data;
-    });
-
   }
 
   rateCar(advertisement) {
