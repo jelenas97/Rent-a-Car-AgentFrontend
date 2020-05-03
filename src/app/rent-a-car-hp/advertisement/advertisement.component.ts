@@ -9,7 +9,6 @@ import {Advertisement} from '../../shared/model/advertisement';
 export class AdvertisementComponent implements OnInit {
 
   @Input('advertisement') advertisement: Advertisement;
-  ads: Advertisement[] = [];
   @Output() notify = new EventEmitter<Advertisement>();
 
   constructor() {

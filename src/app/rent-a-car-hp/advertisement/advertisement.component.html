@@ -1,57 +1,57 @@
-
 <div class="card">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-           
-            <img class="picture-card" src="{{advertisement.image}}" alt="Avatar">
-          </div>
-          <div class="flip-card-back">
-            <h3 style="background-color: rgb(93, 42, 85);" >{{advertisement.name}}</h3>
-            <table style="width:100%">
-                <tr>
-                    <td>Brand:</td>
-                    <td>{{advertisement.carBrand}}</td>
-                </tr>
-                <tr>
-                    <td>Class:</td>
-                    <td> {{advertisement.carClass}}  </td>
-                </tr>
-                <tr>
-                    <td>Fuel:</td>
-                    <td>{{advertisement.fuelType}}</td>
-                </tr>
-                <tr>
-                    <td>Mileage:</td>
-                    <td>{{advertisement.mileage}} km</td>
-                </tr>
-                <tr>
-                    <td>Limit:</td>
-                    <td>{{advertisement.kilometresLimit}} km</td>
-                </tr>
-                <tr>
-                  <td>Kid seats:</td>
-                  <td>{{advertisement.kidSeats}}</td>
-                </tr>
-                <tr>
-                  <td>Transmission:</td>
-                  <td>{{advertisement.transmissionType}}</td>
-                </tr>
-                <tr>
-                  <td>Rate:</td>
-                  <td>{{advertisement.rate}}</td>
-                </tr>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
 
-               
-              </table>
-          </div>
-        </div>
+        <img class="picture-card" src="{{advertisement.image}}" alt="Avatar">
       </div>
+      <div class="flip-card-back">
+        <h3 style="background-color: rgb(93, 42, 85);">{{advertisement.name}}</h3>
+        <table style="width:100%">
+          <tr>
+            <td>Brand:</td>
+            <td>{{advertisement.carBrand}}</td>
+          </tr>
+          <tr>
+            <td>Model:</td>
+            <td>{{advertisement.model}}</td>
+          </tr>
+          <tr>
+            <td>Class:</td>
+            <td> {{advertisement.carClass}}  </td>
+          </tr>
+          <tr>
+            <td>Fuel:</td>
+            <td>{{advertisement.fuelType}}</td>
+          </tr>
+          <tr>
+            <td>Mileage:</td>
+            <td>{{advertisement.mileage}} km</td>
+          </tr>
 
-    <h1> <a routerLink="/car-profile-page"> {{advertisement.name}} </a>  </h1>
-    <p class="price">{{advertisement.price}}$</p>
-    <p class="discount">Limited: -{{advertisement.discount}}% </p>
-    <p><button (click) = "addToCart(advertisement)" >Add to Cart</button></p>
-
+          <tr>
+            <td>Kid seats:</td>
+            <td>{{advertisement.kidSeats}}</td>
+          </tr>
+          <tr>
+            <td>Gear:</td>
+            <td>{{advertisement.transmissionType}}</td>
+          </tr>
+          <tr>
+            <td>Rate:</td>
+            <td>{{advertisement.rate}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
-  
+
+  <h1><a routerLink="/car-profile-page"> {{advertisement.name}} </a></h1>
+  <p class="price">{{advertisement.price}}$/day</p>
+  <p class="discount">Discount: -{{advertisement.discount}}% </p>
+  <p>
+    <button (click)="addToCart(advertisement)">Add to Cart</button>
+  </p>
+
+</div>
+
