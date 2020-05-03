@@ -16,11 +16,6 @@ th{
     width: 8em;
 }
 
-div.requested-rents-table{
-    margin-right: 350px;
-    margin-left: 150px;
-}
-
 button.cancel-btn:hover {
     background-color: red;
     

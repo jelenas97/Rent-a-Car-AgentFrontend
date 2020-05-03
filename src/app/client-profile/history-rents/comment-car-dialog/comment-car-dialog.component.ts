@@ -1,4 +1,4 @@
-import { Comment } from './../../shared/model/comment';
+import { Comment } from '../../../shared/model/comment';
 import { Component, OnInit , Inject} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material'
 import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
@@ -11,10 +11,12 @@ import { NotifierService } from 'angular-notifier';
 })
 export class CommentCarDialogComponent implements OnInit {
 
-   _content: String;
-  _advertisement: any;
-   _date: any;
-   _comment: Comment;
+
+_content: String;
+ _advertisement: any;
+ _date: any;
+ _comment: Comment;
+
 
   constructor(public dialogRef: MatDialogRef<any>,  @Inject(MAT_DIALOG_DATA) public data: any,
    private _calendar: NgbCalendar) {

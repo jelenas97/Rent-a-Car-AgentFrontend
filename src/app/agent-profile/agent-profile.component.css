@@ -1,0 +1,21 @@
+div.client-profile{
+    margin-left: 10em;
+    margin-top: 5em;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 20em;
+    height: 25em;
+    text-align: center;
+    font-family: arial;
+    margin-top: 5em;
+  }
+
+mat-drawer-content{
+    height: 93vh;
+}
+
+p.info{
+    font-size: 1.4em;
+}

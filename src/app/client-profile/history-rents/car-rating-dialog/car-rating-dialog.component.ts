@@ -1,5 +1,5 @@
-import { AdvertisementService } from './../../service/advertisement.service';
-import { Rate } from './../../shared/model/rate';
+import { AdvertisementService } from '../../../service/advertisement.service';
+import { Rate } from '../../../shared/model/rate';
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { NotifierService } from 'angular-notifier';
@@ -50,6 +50,7 @@ export class CarRatingDialogComponent implements OnInit {
       }, 2000)
       this.dialogRef.close();
     })*/
+    this.dialogRef.close();
   }
   
 }

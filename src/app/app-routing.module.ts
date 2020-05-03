@@ -1,4 +1,7 @@
-import {RequestedAndHistoryRentsComponent} from './requested-and-history-rents/requested-and-history-rents.component';
+import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
+import { AgentProfileComponent } from './agent-profile/agent-profile.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+import {RequestedRentsComponent} from './client-profile/requested-rents/requested-rents.component';
 import {CarProfilePageComponent} from './car-profile-page/car-profile-page.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
@@ -10,7 +13,6 @@ import {AdminProfileComponent} from './admin-profile/admin-profile.component';
 import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
 import {RegistrationComponent} from './registration/registration.component';
 
-
 const routes: Routes = [
   {path: 'foo', component: FooComponent},
   {path: 'homepage', component: RentACarHpComponent },
@@ -21,7 +23,10 @@ const routes: Routes = [
   {path: 'homepage', component: RentACarHpComponent },
   {path: 'car-profile-page', component: CarProfilePageComponent},
   {path: 'new-advertisement', component: NewAdvertisementComponent},
-  {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent}
+  {path: 'requested-and-history-rents', component: RequestedRentsComponent},
+  {path: 'client-profile', component : ClientProfileComponent},
+  {path: 'agent-profile', component: AgentProfileComponent}
+
 ];
 
 @NgModule({
