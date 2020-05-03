@@ -132,6 +132,7 @@ import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.compon
     MatDatepickerModule,
     RegistrationService,
     AdvertisementService,
+    RegisterNewUserService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],

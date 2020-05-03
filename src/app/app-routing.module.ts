@@ -24,9 +24,8 @@ const routes: Routes = [
   {path: 'homepage', component: RentACarHpComponent},
   {path: 'car-profile-page', component: CarProfilePageComponent},
   {path: 'new-advertisement', component: NewAdvertisementComponent},
-  {path: 'requested-and-history-rents', component: RequestedAndHistoryRentsComponent},
-  {path: 'admin/user', component: RegisterNewUserComponent},
   {path: 'requested-and-history-rents', component: RequestedRentsComponent},
+  {path: 'admin/user', component: RegisterNewUserComponent},
   {path: 'client-profile', component : ClientProfileComponent},
   {path: 'agent-profile', component: AgentProfileComponent}
 
