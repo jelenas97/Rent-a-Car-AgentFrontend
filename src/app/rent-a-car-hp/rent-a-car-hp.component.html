@@ -93,8 +93,8 @@
         <mat-label>Collision damage</mat-label>
         <mat-select [(value)]="searchDto.dmg">
           <mat-option>None</mat-option>
-          <mat-option value="Yes">Yes</mat-option>
-          <mat-option value="Yes">No</mat-option>
+          <mat-option value='true'>Yes</mat-option>
+          <mat-option value='false'>No</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -103,9 +103,9 @@
         <mat-label>Kid seats</mat-label>
         <mat-select [(value)]="searchDto.seats">
           <mat-option>None</mat-option>
-          <mat-option value="Yes">One</mat-option>
-          <mat-option value="Yes">Two</mat-option>
-          <mat-option value="Yes">Three</mat-option>
+          <mat-option value="1">One</mat-option>
+          <mat-option value="2">Two</mat-option>
+          <mat-option value="3">Three</mat-option>
         </mat-select>
       </mat-form-field>
 

@@ -10,13 +10,18 @@ import {ConfigService} from './config.service';
 export class AdvertisementService {
   constructor(private apiService: ApiService, private configService: ConfigService) {
   }
+
   searchAdvertisements(searchDto: SearchDto) {
-    return this.apiService.get(this.configService.getAds_url, JSON.stringify(searchDto)).pipe(
+    const header = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.post(this.configService.getAds_url + '/searchAds', searchDto, header).pipe(
       map(result => {
         return result;
       })
     );
   }
+
   rateAdvertisement(rate: any) {
     const editHeaders = new HttpHeaders({
       Accept: 'application/json',

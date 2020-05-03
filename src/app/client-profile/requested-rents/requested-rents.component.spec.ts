@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestedAndHistoryRentsComponent } from './requested-and-history-rents.component';
+import { RequestedRentsComponent } from './requested-rents.component';
 
 describe('RequestedAndHistoryRentsComponent', () => {
-  let component: RequestedAndHistoryRentsComponent;
-  let fixture: ComponentFixture<RequestedAndHistoryRentsComponent>;
+  let component: RequestedRentsComponent;
+  let fixture: ComponentFixture<RequestedRentsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestedAndHistoryRentsComponent ]
+      declarations: [ RequestedRentsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestedAndHistoryRentsComponent);
+    fixture = TestBed.createComponent(RequestedRentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
