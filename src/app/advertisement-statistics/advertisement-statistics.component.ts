@@ -49,9 +49,9 @@ export class AdvertisementStatisticsComponent implements OnInit {
     ];
 
   dataAdapter2:  any[] = [
-    { Car: 'Audi Q5', Rating: 7.3},
+    { Car: 'Audi Q5', Rating: 9},
     { Car: 'BMW M5', Rating: 8.2},
-    { Car: 'Audi TT', Rating: 9}
+    { Car: 'Audi TT', Rating: 7.3}
   ];
 
   seriesGroups2: any[] =
