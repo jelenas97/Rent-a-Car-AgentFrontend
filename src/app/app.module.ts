@@ -63,6 +63,7 @@ import { ClientInfoComponent } from './client-profile/client-info/client-info.co
 import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
 import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
 import {jqxChartModule} from "jqwidgets-ng/jqxchart";
+import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
 
 
 // @ts-ignore
@@ -97,7 +98,8 @@ import {jqxChartModule} from "jqwidgets-ng/jqxchart";
     AgentProfileComponent,
     HistoryRentsComponent,
     ClientInfoComponent,
-    AgentInfoComponent
+    AgentInfoComponent,
+    ApprovingCommentsComponent
   ],
   imports: [
     BrowserModule,

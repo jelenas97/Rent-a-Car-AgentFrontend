@@ -15,6 +15,8 @@ export class ConfigService {
   private adminUrl = this.serverUrl + '/admin';
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
+  private commentUrl = this.serverUrl + '/comments';
+
 
   get login_url(): string {
     return this.loginUrl;
@@ -44,6 +46,9 @@ export class ConfigService {
   }
   get getAds_url(): string {
     return this.advertisementUrl;
+  }
+  get getComment_url(): string{
+    return this.commentUrl;
   }
 
 }

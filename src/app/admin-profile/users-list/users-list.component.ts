@@ -3,7 +3,7 @@ import {User} from '../../shared/model/user';
 import {ConfirmDialogComponent} from '../../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {UserService} from '../../service/user.service';
-import {CodeBook} from "../../shared/model/codeBook";
+
 
 @Component({
   selector: 'app-users-list',

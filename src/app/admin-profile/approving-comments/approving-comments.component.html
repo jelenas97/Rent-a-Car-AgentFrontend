@@ -1,0 +1,30 @@
+<div class="container register-form pt-lg-4" >
+  <div class="card my-5">
+
+    <div class="card-body">
+      <h5 class="card-header" style="text-align:center">Representation of all users in system.</h5>
+      <table>
+        <tr class="firstRow">
+          <th>CLIENT</th>
+          <th></th>
+          <th >CONTENT</th>
+          <th></th>
+          <th>DATE</th>
+          <th>STATUS</th>
+        </tr>
+        <tr *ngFor="let comment of comments" class="{{comment.status}}">
+          <td>{{comment.client_id}}</td>
+          <td colspan="3"> {{comment.content}}</td>
+          <td> {{comment.date}}</td>
+          <td class="statusRow">
+            <select [value]="comment.status" (change)="changeStatus(comment)" id="{{comment.id}}">
+              <option  value="UNPROCESSED">UNPROCESSED</option>
+              <option value="APPROVED">APPROVED</option>
+              <option value="REJECTED">REJECTED</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

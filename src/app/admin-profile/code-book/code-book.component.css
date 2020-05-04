@@ -1,20 +1,24 @@
 
-
+td {
+  color:black;
+}
  th {
     margin-left: auto;
     margin-right : auto;
     text-align: center;
+    color: black;
+   border : 1px solid black;
+ }
+ h5{
+   color:black;
  }
  table {
      margin-top : 20px;
-     margin-left : 30px;
+     margin-left : 20px;
      margin-right : 30px;
  }
 
- th {
-     border : 1px solid black;
 
- }
  .firstRow, .firstRow:hover {
      background-color: lightgray;
  }
@@ -23,7 +27,7 @@
 
  }
  th:hover{
-     background-color : blueviolet;
+   background-color: snow;
  }
 
  button {
@@ -41,5 +45,8 @@
   }
 
   div.card{
-      width: 75em;
+      width: auto;
+  }
+  .carModels{
+    width: 120px;
   }
