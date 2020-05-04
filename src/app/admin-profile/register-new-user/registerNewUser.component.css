@@ -1,0 +1,66 @@
+@media (min-width: 768px) {
+  .min-container {
+    max-width: 950px;
+    padding-top: 9rem;
+  }
+}
+
+.card-panel {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 40px, rgba(0, 0, 0, 0.1) 0 5px 10px;
+  transition: box-shadow 0.25s;
+  border-radius: 2px;
+  background-color: #fff;
+  opacity: 0.88;
+}
+
+.form-control {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-bottom-color: gray;
+  max-width: 350px;
+}
+
+.form-control:focus{
+  box-shadow: none;
+}
+
+.form-group a fa-icon {
+  margin: 0 auto;
+  font-size: 5rem;
+  font-style: normal;
+  padding-right: 2rem;
+}
+
+.min-container .card-panel form .fa {
+  top: 9px;
+  left: 1rem;
+}
+
+.min-container .card-panel form {
+  padding-top: 90px;
+  padding-left: 17px;
+}
+
+.bg {
+  background-image: url("../../images/building.jpeg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.75;
+
+}
+
+.register-text {
+  padding-top: 230px;
+  font-size: 200%;
+  font-family: Optima, sans-serif;
+}
+
+.buttons {
+  padding-top: 40px;
+}
+
+.btn{
+  box-shadow: none;
+}

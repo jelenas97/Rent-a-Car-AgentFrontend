@@ -1,7 +1,7 @@
-export class Rate {
-    name: String;
-    address: String;
-    BRN: any;
-    
-    constructor(){}
+export class Agent {
+  username: string;
+  password: string;
+  email: string;
+  firstName: string;
+  lastName: string;
 }
