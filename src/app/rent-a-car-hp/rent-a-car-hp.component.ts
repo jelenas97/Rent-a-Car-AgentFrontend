@@ -15,7 +15,11 @@ import {AdvertisementService} from '../service/advertisement.service';
 export class RentACarHpComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
-  all_ads: Advertisement[];
+  // all_ads: Advertisement[];
+  all_ads: Advertisement[] = [
+    // tslint:disable-next-line:max-line-length
+    { id: 1, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "Car A" },
+    ];
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -33,7 +37,7 @@ export class RentACarHpComponent implements OnInit {
   advanceSearch: any = false;
   showModel: any = false;
   models: any;
-
+  opened: any = true;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
               private advertisementService: AdvertisementService) {
   }
@@ -46,7 +50,7 @@ export class RentACarHpComponent implements OnInit {
 
     });
 
-
+    this.removeCartAds();
   }
 
   showAds() {
@@ -174,6 +178,9 @@ export class RentACarHpComponent implements OnInit {
     this.showAds();
     GlobalCart.cartAds.push(ad);
   }
+  // changeOpened() {
+  //   this.opened = !this.opened;
+  // }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);

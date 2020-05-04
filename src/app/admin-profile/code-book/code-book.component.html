@@ -1,4 +1,4 @@
-<div class="container register-form pt-lg-4" >
+<div class="container register-form pt-lg-5" >
 <div class="card my-5">
 
   <div class="card-body">
@@ -37,9 +37,9 @@
       </table>
     </td>
           <td>
-            <table >
-            <div *ngIf="!selectedModel">   First select brand  </div>
-              <tr><th class="firstRow" >-- Car models --</th> </tr>
+            <table class="carModels" >
+            <div *ngIf="!selectedModel"> <h5>First select brand   </h5>    </div>
+              <tr><th class="firstRow " >-- Car models --</th> </tr>
             <div *ngIf="selectedModel">
                             <tr *ngFor="let model of models;" (click) = "removeModel(model)"><th> {{model}} </th></tr>
                             <tr> <th class="lastRow"><button (click) = "addNewModel()">Add new model!</button></th> </tr>
