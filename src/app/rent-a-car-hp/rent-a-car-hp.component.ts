@@ -35,7 +35,8 @@ export class RentACarHpComponent implements OnInit {
   models: any;
 
   constructor(private codebookService: CodebookService, private modelService: ModelService,
-              private advertisementService: AdvertisementService) { }
+              private advertisementService: AdvertisementService) {
+  }
 
 
   ngOnInit() {

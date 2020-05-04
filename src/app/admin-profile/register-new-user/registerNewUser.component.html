@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="bg">
+<section class="container min-container">
+  <div class="card-panel p-0 m-0 position-relative">
+      <div class="row">
+
+        <div class="col-6 text-center" style="background-color: #343961; height: 650px">
+          <div class="col-8 offset-3 text-left">
+          <p class="text-white register-text"><b>Register <br>New User</b></p>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="row justify-content-center buttons">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked (click)="companyForm()">Company
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off" (click)="agentForm()">Agent
+              </label>
+            </div>
+          </div>
+
+          <form class="form2" *ngIf="company==true">
+            <div class="form-group position-relative col-11 pl-4">
+              <fa-icon class="fa fa-user fa-lg position-absolute pl-2" [icon]="faCompany"></fa-icon>
+              <input [(ngModel)]="companyObj.name" type="text" class="form-control rounded-0 pl-4"
+                       placeholder="Company name" required="" name="name">
+            </div>
+
+            <div class="form-group position-relative col-11 pl-4 pt-4">
+              <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faEmail"></fa-icon>
+              <input [(ngModel)]="agentObj.username" type="text" class="form-control rounded-0 pl-4"
+                     placeholder="Email" required="" name="email">
+            </div>
+
+            <div class="form-group position-relative col-11 pl-4 pt-4">
+              <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faAddress"></fa-icon>
+              <input [(ngModel)]="companyObj.address" type="text" class="form-control rounded-0 pl-4" required=""
+                     placeholder="Address" name="address">
+            </div>
+
+            <div class="form-group position-relative col-lg-11 pl-4 pt-4">
+              <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faCity"></fa-icon>
+              <input [(ngModel)]="companyObj.city" type="text" class="form-control rounded-0 pl-5"
+                     required="" placeholder="City" name="city">
+            </div>
+
+            <div class="form-group position-relative col-11 pt-4 pl-4 pb-4 ">
+              <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faInd"></fa-icon>
+              <input [(ngModel)]="companyObj.pib" type="text" class="form-control rounded-0 pl-5"
+                     required="" placeholder="PIB" name="pib">
+            </div>
+
+            <div class="row justify-content-end">
+              <button type="submit" class="btn mr-5" (click)="onCompanySubmit()">Save</button>
+            </div>
+          </form>
+
+          <form class="pb-4 form1" *ngIf="agent==true">
+          <div class="form-group position-relative col-11 pl-4">
+            <fa-icon class="fa fa-user fa-lg position-absolute pl-2" [icon]=""></fa-icon>
+            <input [(ngModel)]="agentObj.firstName" type="text" class="form-control rounded-0 pl-4"
+            placeholder="First Name" required="" name="firstName">
+          </div>
+
+           <div class="form-group position-relative col-11 pl-4 pt-4">
+            <fa-icon class="fa fa-user fa-lg position-absolute pl-2" [icon]=""></fa-icon>
+            <input [(ngModel)]="agentObj.lastName" type="text" class="form-control rounded-0 pl-4"
+            placeholder="Last Name" required="" name="lastName">
+          </div>
+
+          <div class="form-group position-relative col-11 pl-4 pt-4">
+            <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faEmail"></fa-icon>
+            <input [(ngModel)]="agentObj.email" type="text" class="form-control rounded-0 pl-4"
+                   placeholder="Email" required="" name="email">
+          </div>
+
+          <div class="form-group position-relative col-11 pl-4 pt-4">
+            <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faUser"></fa-icon>
+            <input [(ngModel)]="agentObj.username" type="text" class="form-control rounded-0 pl-4"
+                   placeholder="Username" required="" name="username">
+          </div>
+
+          <div class="form-group position-relative col-11 pl-4 pt-4 pb-4">
+            <fa-icon class="fa fa-user fa-lg position-absolute pl-2 pt-4" [icon]="faPassword"></fa-icon>
+            <input [(ngModel)]="agentObj.password" type="text" class="form-control rounded-0 pl-4"
+                   placeholder="Password" required="" name="password">
+          </div>
+
+
+          <div class="row justify-content-end">
+            <button type="submit" class="btn mr-5" (click)="onAgentSubmit()">Save</button>
+          </div>
+
+
+          </form>
+
+        </div>
+      </div>
+  </div>
+</section>
+</div>
+</body>
+</html>

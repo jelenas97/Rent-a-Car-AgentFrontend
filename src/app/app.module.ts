@@ -52,6 +52,8 @@ import {CancelRentDialogComponent} from './client-profile/requested-rents/cancel
 import {CommentCarDialogComponent} from './client-profile/history-rents/comment-car-dialog/comment-car-dialog.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
+import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
+import {RegisterNewUserService} from './admin-profile/register-new-user/registerNewUser.service';
 import { UsersListComponent } from './admin-profile/users-list/users-list.component';
 import { AdvertisementService } from './service/advertisement.service';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
@@ -85,6 +87,8 @@ import {jqxChartModule} from "jqwidgets-ng/jqxchart";
     RequestedRentsComponent,
     CancelRentDialogComponent,
     CommentCarDialogComponent,
+    RegistrationComponent,
+    RegisterNewUserComponent,
     RegistrationComponent,
     UsersListComponent,
     AdvertisementStatisticsComponent,
@@ -133,6 +137,7 @@ import {jqxChartModule} from "jqwidgets-ng/jqxchart";
     MatDatepickerModule,
     RegistrationService,
     AdvertisementService,
+    RegisterNewUserService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],
@@ -142,4 +147,5 @@ import {jqxChartModule} from "jqwidgets-ng/jqxchart";
   ]
 
 })
-export class AppModule { }
+export class AppModule {
+}
