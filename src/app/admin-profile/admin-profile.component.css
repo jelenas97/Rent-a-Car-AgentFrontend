@@ -3,8 +3,9 @@
     background: rgb(255, 255, 255);
     min-height: 565px;
  }
- .btns{
+button{
      width: 150px;
+  border-radius: 100%;
  }
  .container{
      /* border: 1px solid red; */

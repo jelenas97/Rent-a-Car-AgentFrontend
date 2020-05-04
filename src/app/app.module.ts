@@ -61,6 +61,7 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
 import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
 import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
+import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
 
 
 // @ts-ignore
@@ -93,7 +94,8 @@ import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.compon
     AgentProfileComponent,
     HistoryRentsComponent,
     ClientInfoComponent,
-    AgentInfoComponent
+    AgentInfoComponent,
+    ApprovingCommentsComponent
   ],
   imports: [
     BrowserModule,

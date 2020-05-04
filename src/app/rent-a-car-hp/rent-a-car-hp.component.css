@@ -1,5 +1,5 @@
 .tp-container {
-  
+
     background: rgb(255, 255, 255);
     min-height: 565px;
  }
@@ -8,21 +8,21 @@
     align-content: center;
     align-items: center;
     height: 60px;
-    width:100px;   
+    width:100px;
  }
  .center{
    display: flex;
    align-items: center;
    justify-content: center;
    margin-right: auto;
-   margin-left: auto; 
+   margin-left: auto;
 }
 .right{
    margin-top:10px;
    display: flex;
    align-items: right;
    justify-content: right;
-   margin-left: 830px; 
+   margin-left: 830px;
    margin-right: auto;
 }
 .btn {
@@ -43,4 +43,16 @@
 
 .dateInp{
    width: 170px;
+}
+.matContent{
+  width: auto;
+  min-height: 565px;
+  background-image: url("https://www.capital.ba/wp-content/uploads/2014/07/renta-car.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+.noOpacity{
+
 }
