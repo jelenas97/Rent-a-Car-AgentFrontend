@@ -1,3 +1,5 @@
+import { RentRequestService } from './../../service/rent-request.service';
+import { RentRequest } from './../../shared/model/rent-request';
 import { CarRatingDialogComponent } from './car-rating-dialog/car-rating-dialog.component';
 import { CommentCarDialogComponent } from './comment-car-dialog/comment-car-dialog.component';
 import { Advertisement } from '../../shared/model/advertisement';
@@ -12,34 +14,30 @@ import { MatDialog } from '@angular/material';
 })
 export class HistoryRentsComponent implements OnInit {
 
-  _clientId: any =1;
-  advertisements: Advertisement[] = [
-    { id: 1, kilometresLimit: 200, discount: 10, cwd: true, image: "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg", mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "Car A", model: "ddw" },
-    { id: 4, kilometresLimit: 200, discount: 10, cwd: true, image: "https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg", mileage: 20000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 4, transmissionType: "automatic", fuelType: "petrol", rate: 5, name: "Car A", model: "ddw" },
-    { id: 2, kilometresLimit: 200, discount: 10, cwd: true, image: "https://pbs.twimg.com/profile_images/739172838100328448/bm6PG0Bv.jpg", mileage: 3000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 3, transmissionType: "automatic", fuelType: "petrol", rate: 3, name: "Car B", model: "ddw" },
-    { id: 3, kilometresLimit: 200, discount: 10, cwd: true, image: "https://image.made-in-china.com/2f0j00zFJQUkHsbDpb/4-Wheel-Small-Electric-Car-Professional-Design-2-Doors.jpg", mileage: 50000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 2, transmissionType: "automatic", fuelType: "petrol", rate: 3, name: "Car A", model: "ddw" },
-    { id: 5, kilometresLimit: 200, discount: 10, cwd: true, image: "https://www.pvnautoparts.com/image/pvnautoparts/image/cache/data/Car%20Photos/cNBc5ZMb1568434447-256x256.jpg", mileage: 1000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 5, transmissionType: "automatic", fuelType: "petrol", rate: 3, name: "Car A", model: "ddw" },
-  ];
+  _clientId: any =8;
+  _historyRentRequests : RentRequest[];
 
-  constructor(private _dialog: MatDialog) { }
+
+  constructor(private _dialog: MatDialog,  private _rentRequestService : RentRequestService) { }
 
   ngOnInit(): void {
+    this.getHistoryRentRequests(this._clientId);
   }
 
-  rateCar(advertisement) {
+  rateCar(historyRentRequest) {
     let dialog = this._dialog.open(CarRatingDialogComponent, {
       width: '30%',
-      data: { _advertisement : advertisement,  _clientId : this._clientId}
+      data: { _historyRentRequest : historyRentRequest,  _clientId : this._clientId}
     });
     dialog.afterClosed().subscribe(data => {
 
     });
   }
 
-  commentCar(advertisement) {
+  commentCar(historyRentRequest) {
     let dialog = this._dialog.open(CommentCarDialogComponent, {
       width: '30%',
-      data:  { _advertisement : advertisement,  _clientId : this._clientId}
+      data:  { _historyRentRequest : historyRentRequest,  _clientId : this._clientId}
 
     });
     dialog.afterClosed().subscribe(data => {
@@ -47,5 +45,11 @@ export class HistoryRentsComponent implements OnInit {
     });
   }
 
+  getHistoryRentRequests(id:string){
+    this._rentRequestService.getHistoryRentRequests(id).subscribe(historyRentRequests=> {
+      console.log(historyRentRequests);
+      this._historyRentRequests=historyRentRequests;
+    })
+  }
 
 }

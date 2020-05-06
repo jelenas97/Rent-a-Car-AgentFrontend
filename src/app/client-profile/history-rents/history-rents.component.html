@@ -9,33 +9,29 @@
 <table class="table requested-rents-table">
     <thead>
         <tr>
-            <th scope="col" > Ad id</th>
-            <th scope="col"> Car brand </th>
-            <th scope="col"> Car class </th>
-            <th scope="col"> Rent price </th>
-            <th scope="col"> Transmission type </th>
-            <th scope="col"> Fuel type </th>
-            <th scope="col"> Ad name </th>
+            <th scope="col" > Request id</th>
+            <th scope="col"> Rent start </th>
+            <th scope="col"> Rent end </th>
+            <th scope="col"> Rent request status </th>
+            <th scope="col"> Car details</th>
             <th scope="col">  </th>
             <th scope="col">  </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let advertisement of advertisements'>
-            <td> {{advertisement.id}} </td>
-            <td> {{advertisement.carBrand}} </td>
-            <td> {{advertisement.carClass}} </td>
-            <td> {{advertisement.price}} </td>
-            <td> {{advertisement.transmissionType}} </td>
-            <td> {{advertisement.fuelType}} </td>
-            <td> {{advertisement.name}} </td>
+        <tr *ngFor='let historyRentRequest of _historyRentRequests'>
+            <td> {{historyRentRequest.id}} </td>
+            <td> {{historyRentRequest.startDateTime}} </td>
+            <td> {{historyRentRequest.endDateTime}} </td>
+            <td> {{historyRentRequest.rentRequestStatus}} </td>
+            <td> {{historyRentRequest.cars}} </td>
             <td>
-                <button class="btn btn-secondary" type="button" (click)="rateCar(advertisement)">
+                <button class="btn btn-secondary" type="button" (click)="rateCar(historyRentRequest)">
                     Rate
                 </button>
             </td>
             <td>
-                <button class="btn btn-secondary" type="button" (click)="commentCar(advertisement)">
+                <button class="btn btn-secondary" type="button" (click)="commentCar(historyRentRequest)">
                    Add comment
                 </button>
             </td>
