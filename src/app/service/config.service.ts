@@ -16,6 +16,7 @@ export class ConfigService {
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
   private commentUrl = this.serverUrl + '/comments';
+  private rentRequestUrl= this.serverUrl+ '/rentRequest';
 
 
   get login_url(): string {
@@ -49,6 +50,9 @@ export class ConfigService {
   }
   get getComment_url(): string{
     return this.commentUrl;
+  }
+  get getRentRequests(): string {
+    return this.rentRequestUrl;
   }
 
 }
