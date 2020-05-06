@@ -61,6 +61,8 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
 import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
 import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
+import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
+import {jqxChartModule} from "jqwidgets-ng/jqxchart";
 import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
 
 
@@ -89,6 +91,8 @@ import { ApprovingCommentsComponent } from './admin-profile/approving-comments/a
     RegistrationComponent,
     RegisterNewUserComponent,
     RegistrationComponent,
+    UsersListComponent,
+    AdvertisementStatisticsComponent,
     UsersListComponent,
     ClientProfileComponent,
     AgentProfileComponent,
@@ -126,7 +130,8 @@ import { ApprovingCommentsComponent } from './admin-profile/approving-comments/a
     RatingModule,
     FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    jqxChartModule
   ],
   providers: [
     FooService,

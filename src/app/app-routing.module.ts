@@ -12,6 +12,7 @@ import {LoginComponent} from './login/login.component';
 import {AdminProfileComponent} from './admin-profile/admin-profile.component';
 import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
 import {RegistrationComponent} from './registration/registration.component';
+import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
 
 const routes: Routes = [
@@ -27,13 +28,12 @@ const routes: Routes = [
   {path: 'requested-and-history-rents', component: RequestedRentsComponent},
   {path: 'admin/user', component: RegisterNewUserComponent},
   {path: 'client-profile', component : ClientProfileComponent},
-  {path: 'agent-profile', component: AgentProfileComponent}
-
+  {path: 'agent-profile', component: AgentProfileComponent},
+  {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
