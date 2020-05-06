@@ -1,6 +1,8 @@
+import { RentRequestService } from './../service/rent-request.service';
 import { HistoryRentsComponent } from './history-rents/history-rents.component';
 import { RequestedRentsComponent } from './requested-rents/requested-rents.component';
 import { Component, OnInit } from '@angular/core';
+import { RentRequest } from '../shared/model/rent-request';
 
 @Component({
   selector: 'app-client-profile',
@@ -9,9 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientProfileComponent implements OnInit {
 
-  constructor() { }
-
-  //requestedAndHistoryRents : RequestedAndHistoryRentsComponent;
+  constructor(private rentRequestService: RentRequestService) { }
 
   showClientInfo=true;
   show=false;
@@ -27,7 +27,7 @@ export class ClientProfileComponent implements OnInit {
     this.showHistoryRents=false;
   }
 
-  openRequestAndHistoryRents(){
+  openRentRequests(){
     this.showHistoryRents=false;
     this.show=true;
     this.showClientInfo=false;
