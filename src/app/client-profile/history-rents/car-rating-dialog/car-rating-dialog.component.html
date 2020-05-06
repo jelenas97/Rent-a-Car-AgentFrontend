@@ -1,12 +1,11 @@
 <div class="rate-car" >
 
     <div  mat-dialog-content>
-        <p><b>Ad id: {{_advertisement.id}} </b></p>
-        <p><b>Car brand: {{_advertisement.carBrand}} </b></p>
-        <p><b>Car class: {{_advertisement.carClass}} </b></p>
+        <p><b>Ad id: {{_historyRentRequest.advertisementId}} </b></p>
+        <p><b>Car details: {{_historyRentRequest.cars}} </b></p>
     <br/>
     </div>
-    <ngb-rating [(rate)]="_rate" (rate)="onRate($event)" [readonly]="false"  checkedcolor="black" uncheckedcolor="white"></ngb-rating>
+    <ngb-rating [(rate)]="_rate" (rate)="onRate($event)" [readonly]="false"></ngb-rating>
     <hr>
     <p>Rate with: <b>{{_rate}}</b></p>
     <br/>
