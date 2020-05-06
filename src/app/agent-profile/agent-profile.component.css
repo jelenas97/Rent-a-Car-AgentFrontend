@@ -19,3 +19,8 @@ mat-drawer-content{
 p.info{
     font-size: 1.4em;
 }
+
+button{
+    width: 150px;
+    border-radius: 100%;
+}

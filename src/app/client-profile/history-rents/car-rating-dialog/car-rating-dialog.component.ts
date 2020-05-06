@@ -1,4 +1,5 @@
-import { AdvertisementService } from '../../../service/advertisement.service';
+import { AdvertisementService } from './../../../service/advertisement.service';
+import { RentRequestService } from './../../../service/rent-request.service';
 import { Rate } from '../../../shared/model/rate';
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
@@ -12,34 +13,32 @@ import { NotifierService } from 'angular-notifier';
 export class CarRatingDialogComponent implements OnInit {
 
    _rate : any =0;
-  private checkedcolor:"black";
-  private uncheckedcolor:"white";
+
   private _clientId : any;
   private rate : Rate;
  // private hide =true;
 
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any,
-  private _advertisementService : AdvertisementService/*, private _notifier: NotifierService*/) { }
+  private _rentRequestService : RentRequestService, private _advertisementService : AdvertisementService/*, private _notifier: NotifierService*/) { }
 
-  _advertisement: any;
+  _historyRentRequest:any;
 
   ngOnInit() {
-    this._advertisement = this.data._advertisement;
+    console.log(this.data);
+    this._historyRentRequest=this.data._historyRentRequest;
     this._clientId = this.data._clientId;
   }
 
   onRate($event:{oldValue:number, newValue:number, starRating:CarRatingDialogComponent}) {
     alert(`Old Value:${$event.oldValue}, 
-      New Value: ${$event.newValue}, 
-      Checked Color: ${$event.starRating.checkedcolor}, 
-      Unchecked Color: ${$event.starRating.uncheckedcolor}`);
+      New Value: ${$event.newValue}`);
   }
 
   onSubmit(){
     this.rate = new Rate();
     this.rate.client_id = this._clientId;
     this.rate.rate = this._rate;
-    this.rate.advertisement_id=this._advertisement.id;
+    this.rate.advertisement_id=this._historyRentRequest.advertisementId;
 
     console.log(this.rate);
 
