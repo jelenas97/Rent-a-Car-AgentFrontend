@@ -16,7 +16,7 @@ export class ConfigService {
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
   private commentUrl = this.serverUrl + '/comments';
-  private rentRequestUrl= this.serverUrl+ '/rentRequest';
+  private rentRequestUrl= this.serverUrl + '/rentRequest';
 
 
   get login_url(): string {
