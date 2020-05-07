@@ -1,5 +1,6 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {Rent} from "../../shared/model/rent";
 
 @Component({
   selector: 'app-shop-cart',
@@ -11,12 +12,12 @@ export class ShopCartComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
-  advertisements: any;
+  advertisements: Rent[];
   empty = true;
 
   ngOnInit() {
     this.advertisements = this.data;
-    console.log(this.advertisements.length);
+ //   console.log(this.advertisements.length);
   }
 
   onCancelDialog() {
@@ -38,6 +39,10 @@ export class ShopCartComponent implements OnInit {
     const foundIndex = this.advertisements.findIndex(({id}) => id === ad.id);
     this.advertisements = this.advertisements.filter((_, index) => index !== foundIndex);
     console.log(this.advertisements);
+  }
+  reserve() {
+   let a  = true;
+   a = false;
   }
 
 }

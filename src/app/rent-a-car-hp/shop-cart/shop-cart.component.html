@@ -14,9 +14,9 @@
             <th class='names'> Remove</th>
           </tr>
           <tr *ngFor="let ad of advertisements">
-            <td><img src="{{ad.image}}" alt="" height='50' width='50'/></td>
-            <td>{{ad.name}}</td>
-            <td class='item'>{{ad.price}}</td>
+            <td><img src="{{ad.advertisement.image}}" alt="" height='50' width='50'/></td>
+            <td>{{ad.advertisement.name}}</td>
+            <td class='item'>{{ad.advertisement.price}}</td>
 
 
             <td>
@@ -35,7 +35,7 @@
     </mat-radio-group>
     <div class="center">
 
-      <button class="btn btn-primary mr-1"> Reserve</button>
+      <button class="btn btn-primary mr-1" (click) = "reserve()"> Reserve</button>
       <button class="btn btn-secondary" (click)="Cancel()">Cancel</button>
     </div>
   </div>

@@ -3,6 +3,7 @@ import {GlobalCart} from './shared/global';
 import {MatDialog} from '@angular/material';
 import {ShopCartComponent} from './rent-a-car-hp/shop-cart/shop-cart.component';
 import {Advertisement} from './shared/model/advertisement';
+import {Rent} from "./shared/model/rent";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import {Advertisement} from './shared/model/advertisement';
 })
 export class AppComponent {
   title = 'Rent-a-Car-AgentFrontend';
-  cartAds: Advertisement[] = GlobalCart.cartAds;
+  cartAds: Rent[] = GlobalCart.cartAds;
 
   constructor(private dialog: MatDialog) {
   }

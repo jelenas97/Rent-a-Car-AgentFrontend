@@ -5,6 +5,7 @@ import {CodebookService} from '../service/codebook.service';
 import {ModelService} from '../service/model.service';
 import {SearchDto} from '../shared/model/search-dto';
 import {AdvertisementService} from '../service/advertisement.service';
+import {Rent} from '../shared/model/rent';
 
 
 @Component({
@@ -18,8 +19,11 @@ export class RentACarHpComponent implements OnInit {
   // all_ads: Advertisement[];
   all_ads: Advertisement[] = [
     // tslint:disable-next-line:max-line-length
-    { id: 1, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "Car A" },
-    ];
+    { id: 1, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "1" },
+    { id: 2, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "2" },
+    { id: 3, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "3" },
+
+  ];
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -176,11 +180,8 @@ export class RentACarHpComponent implements OnInit {
     this.advertisements = this.all_ads;
     this.sortedAdvertisements = this.advertisements;
     this.showAds();
-    GlobalCart.cartAds.push(ad);
+    GlobalCart.cartAds.push(new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad));
   }
-  // changeOpened() {
-  //   this.opened = !this.opened;
-  // }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
