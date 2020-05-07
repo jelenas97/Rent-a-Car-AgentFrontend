@@ -20,8 +20,8 @@ export class CancelRentDialogComponent implements OnInit {
   yesCancelRent(){
 
     //cancel na back-u
-    this.data._advertisements = this.data._advertisements.filter(x => x.id !== this.data._advertisement.id);
-    this.dialogRef.close(this.data._advertisements);
+    this.data._rentRequests = this.data._rentRequests.filter(x => x.id !== this.data._rentRequest.id);
+    this.dialogRef.close(this.data._rentRequests);
    
   }
 

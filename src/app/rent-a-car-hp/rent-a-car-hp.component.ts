@@ -6,6 +6,7 @@ import {ModelService} from '../service/model.service';
 import {SearchDto} from '../shared/model/search-dto';
 import {AdvertisementService} from '../service/advertisement.service';
 import {Rent} from '../shared/model/rent';
+import {RentRequestService} from "../service/rent-request.service";
 
 
 @Component({
@@ -43,7 +44,7 @@ export class RentACarHpComponent implements OnInit {
   models: any;
   opened: any = true;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
-              private advertisementService: AdvertisementService) {
+              private advertisementService: AdvertisementService, private rentService: RentRequestService) {
   }
 
 
@@ -180,7 +181,13 @@ export class RentACarHpComponent implements OnInit {
     this.advertisements = this.all_ads;
     this.sortedAdvertisements = this.advertisements;
     this.showAds();
-    GlobalCart.cartAds.push(new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad));
+    const senderId = 1;
+    // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
+    const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
+    GlobalCart.cartAds.push(request);
+    // console.log(request);
+    // this.rentService.sentRequest(request).subscribe(foundAds => {
+    // });
   }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {

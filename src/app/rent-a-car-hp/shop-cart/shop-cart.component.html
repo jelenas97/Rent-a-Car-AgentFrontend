@@ -29,9 +29,9 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <mat-radio-group aria-label="Select an option">
-      <mat-radio-button value="1">Bundle</mat-radio-button>
-      <mat-radio-button value="2"> Each</mat-radio-button>
+    <mat-radio-group aria-label="Select an option" [value]="bundle">
+      <mat-radio-button value="true">Bundle</mat-radio-button>
+      <mat-radio-button value="false"> Each</mat-radio-button>
     </mat-radio-group>
     <div class="center">
 

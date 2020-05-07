@@ -1,6 +1,8 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {Rent} from "../../shared/model/rent";
+import {Rent} from '../../shared/model/rent';
+import {RequestHolder} from '../../shared/model/request-holder';
+import {GlobalCart} from "../../shared/global";
 
 @Component({
   selector: 'app-shop-cart',
@@ -14,7 +16,8 @@ export class ShopCartComponent implements OnInit {
 
   advertisements: Rent[];
   empty = true;
-
+  requestHolder: RequestHolder;
+  bundle: any;
   ngOnInit() {
     this.advertisements = this.data;
  //   console.log(this.advertisements.length);
@@ -41,8 +44,12 @@ export class ShopCartComponent implements OnInit {
     console.log(this.advertisements);
   }
   reserve() {
-   let a  = true;
-   a = false;
+    this.requestHolder = new RequestHolder();
+    this.requestHolder.bundle = this.bundle;
+    this.requestHolder.rentRequests = GlobalCart.cartAds;
+
+    console.log(this.requestHolder);
+
   }
 
 }

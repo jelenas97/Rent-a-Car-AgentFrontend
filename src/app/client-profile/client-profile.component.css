@@ -15,3 +15,8 @@ div.client-profile{
 mat-drawer-content{
     height: 93vh;
 }
+
+button{
+    width: 150px;
+    border-radius: 100%;
+}

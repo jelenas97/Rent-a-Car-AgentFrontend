@@ -10,10 +10,20 @@ div.requested-rents-title{
 
 table.requested-rents-table{
     text-align: center;
+    background-color: #48494B;
 }
 
 th{
     width: 8em;
+    color: white;
+}
+
+td{
+    color: white;
+}
+
+h3, p{
+    color: black;
 }
 
 button.cancel-btn:hover {

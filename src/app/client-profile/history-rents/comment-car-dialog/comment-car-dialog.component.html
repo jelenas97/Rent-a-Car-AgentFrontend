@@ -1,7 +1,6 @@
 <div>
-    <p><b>Ad id: {{_advertisement.id}} </b></p>
-    <p><b>Car brand:{{_advertisement.carBrand}} </b></p>
-    <p><b>Car class: {{_advertisement.carClass}}</b></p>
+    <p><b>Ad id: {{_historyRentRequest.advertisementId}} </b></p>
+    <p><b>Car details:{{_historyRentRequest.cars}} </b></p>
     <br/>
     <form (ngSubmit)="addComment()" #addCommentForm="ngForm">
         <label>Comment:</label>
