@@ -17,14 +17,14 @@ import {RentRequestService} from "../service/rent-request.service";
 export class RentACarHpComponent implements OnInit {
 
   // tslint:disable-next-line:variable-name
-  // all_ads: Advertisement[];
-  all_ads: Advertisement[] = [
-    // tslint:disable-next-line:max-line-length
-    { id: 1, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "1" },
-    { id: 2, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "2" },
-    { id: 3, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "3" },
-
-  ];
+  all_ads: Advertisement[];
+  // all_ads: Advertisement[] = [
+  //   // tslint:disable-next-line:max-line-length
+  //   { id: 1, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "1" },
+  //   { id: 2, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "2" },
+  //   { id: 3, kilometresLimit: 200, discount: 10, model: 'model', cwd: true, image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg', mileage: 4000, kidSeats: 0, availableTracking: true, carClass: "SUV", carBrand: "BMW", price: 1, transmissionType: "automatic", fuelType: "petrol", rate: 1, name: "3" },
+  //
+  // ];
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -44,7 +44,7 @@ export class RentACarHpComponent implements OnInit {
   models: any;
   opened: any = true;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
-              private advertisementService: AdvertisementService, private rentService: RentRequestService) {
+              private advertisementService: AdvertisementService) {
   }
 
 
@@ -55,7 +55,7 @@ export class RentACarHpComponent implements OnInit {
 
     });
 
-    this.removeCartAds();
+  //  this.removeCartAds();
   }
 
   showAds() {
@@ -157,7 +157,7 @@ export class RentACarHpComponent implements OnInit {
   }
   removeCartAds() {
     for (const ad of GlobalCart.cartAds) {
-      const foundIndex = this.all_ads.findIndex(({id}) => id === ad.id);
+      const foundIndex = this.all_ads.findIndex(({id}) => id === ad.advertisementId);
       this.all_ads = this.all_ads.filter((_, index) => index !== foundIndex);
     }
     this.advertisements = this.all_ads;
@@ -181,13 +181,11 @@ export class RentACarHpComponent implements OnInit {
     this.advertisements = this.all_ads;
     this.sortedAdvertisements = this.advertisements;
     this.showAds();
-    const senderId = 1;
+    const senderId = 8;
     // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
     const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
     GlobalCart.cartAds.push(request);
-    // console.log(request);
-    // this.rentService.sentRequest(request).subscribe(foundAds => {
-    // });
+
   }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {

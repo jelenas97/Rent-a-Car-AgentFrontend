@@ -29,7 +29,7 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <mat-radio-group aria-label="Select an option" [value]="bundle">
+    <mat-radio-group aria-label="Select an option"  [(ngModel)]="bundle">
       <mat-radio-button value="true">Bundle</mat-radio-button>
       <mat-radio-button value="false"> Each</mat-radio-button>
     </mat-radio-group>
@@ -39,3 +39,4 @@
       <button class="btn btn-secondary" (click)="Cancel()">Cancel</button>
     </div>
   </div>
+</div>

@@ -2,13 +2,13 @@ import construct = Reflect.construct;
 import {Advertisement} from './advertisement';
 
 export class Rent {
-  id: any;
+  advertisementId: any;
   startDateTime: any;
   endDateTime: any;
   senderId: any;
   advertisement: Advertisement;
-  constructor(id: any, start: Date, end: Date, ad: Advertisement, senderId: any) {
-    this.id = id;
+  constructor(advertisementId: any, start: Date, end: Date, ad: Advertisement, senderId: any) {
+    this.advertisementId = advertisementId;
     this.startDateTime = start;
     this.endDateTime = end;
     this.advertisement = ad;

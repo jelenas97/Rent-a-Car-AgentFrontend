@@ -2,7 +2,9 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Rent} from '../../shared/model/rent';
 import {RequestHolder} from '../../shared/model/request-holder';
-import {GlobalCart} from "../../shared/global";
+import {GlobalCart} from '../../shared/global';
+import {AdvertisementService} from '../../service/advertisement.service';
+import {RentRequestService} from '../../service/rent-request.service';
 
 @Component({
   selector: 'app-shop-cart',
@@ -11,7 +13,8 @@ import {GlobalCart} from "../../shared/global";
 })
 export class ShopCartComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any,
+              private rentService: RentRequestService) {
   }
 
   advertisements: Rent[];
@@ -39,7 +42,7 @@ export class ShopCartComponent implements OnInit {
 
   remove(ad: any) {
 
-    const foundIndex = this.advertisements.findIndex(({id}) => id === ad.id);
+    const foundIndex = this.advertisements.findIndex(({advertisementId}) => advertisementId === ad.id);
     this.advertisements = this.advertisements.filter((_, index) => index !== foundIndex);
     console.log(this.advertisements);
   }
@@ -47,8 +50,11 @@ export class ShopCartComponent implements OnInit {
     this.requestHolder = new RequestHolder();
     this.requestHolder.bundle = this.bundle;
     this.requestHolder.rentRequests = GlobalCart.cartAds;
-
     console.log(this.requestHolder);
+    this.rentService.sentRequest(this.requestHolder).subscribe(foundAds => {
+      this.Cancel();
+    });
+
 
   }
 
