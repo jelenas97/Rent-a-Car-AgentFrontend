@@ -1,9 +1,8 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Rent} from '../../shared/model/rent';
 import {RequestHolder} from '../../shared/model/request-holder';
 import {GlobalCart} from '../../shared/global';
-import {AdvertisementService} from '../../service/advertisement.service';
 import {RentRequestService} from '../../service/rent-request.service';
 
 @Component({
@@ -41,10 +40,12 @@ export class ShopCartComponent implements OnInit {
   }
 
   remove(ad: any) {
-
-    const foundIndex = this.advertisements.findIndex(({advertisementId}) => advertisementId === ad.id);
-    this.advertisements = this.advertisements.filter((_, index) => index !== foundIndex);
+    console.log(ad);
     console.log(this.advertisements);
+    const foundIndex = this.advertisements.findIndex(({advertisementId}) => advertisementId === ad.advertisementId);
+
+    this.advertisements = this.advertisements.filter((_, index) => index !== foundIndex);
+
   }
   reserve() {
     this.requestHolder = new RequestHolder();

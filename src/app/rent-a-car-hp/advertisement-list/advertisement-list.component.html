@@ -1,5 +1,5 @@
 <div *ngIf="show" class="gridClass">
-  <mat-grid-list [cols]="numOfAds2" [gutterSize]="'10px'" rowHeight="500px">
+  <mat-grid-list [cols]="numOfAds2" [gutterSize]="'0.3rem'" rowHeight="30rem">
         <div *ngFor="let advertisement of advertisements;" >
             <mat-grid-tile >
                  <app-advertisement [advertisement] = "advertisement" (notify)="onNotify($event)" ></app-advertisement>

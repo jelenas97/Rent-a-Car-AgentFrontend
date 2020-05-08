@@ -2,6 +2,9 @@
 
     background: rgb(255, 255, 255);
     min-height: 565px;
+  height: 100%;
+  width: 100%;
+
  }
  .tp-section {
     display: flex;
@@ -46,13 +49,8 @@
 .matContent{
   width: auto;
   min-height: 565px;
-  height: auto;
-  background-image: url("https://www.capital.ba/wp-content/uploads/2014/07/renta-car.jpg");
+  background-image: url("../images/renta-car.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
-
-}
-.noOpacity{
-
+  height: 100%;
 }

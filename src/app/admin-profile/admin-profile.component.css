@@ -2,6 +2,7 @@
 
     background: rgb(255, 255, 255);
     min-height: 565px;
+  height: 100%
  }
 button{
      width: 150px;
@@ -11,4 +12,5 @@ button{
      /* border: 1px solid red; */
      margin:40px;
      min-height: 400px;
+   height: 100%
  }
