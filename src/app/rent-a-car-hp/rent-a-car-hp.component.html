@@ -153,15 +153,14 @@
 
   <mat-sidenav-content class="matContent">
     <div>
-
-
     </div>
-    <p><button mat-button (click)="sidenav.toggle()" >
+    <p>
+      <button (click)="sidenav.toggle()" (mouseup)="changeNumAd()" mat-button>
      <div *ngIf="opened"> Hide </div>
       <div *ngIf="!opened"> Show </div>
     </button></p>
     <div class="right" *ngIf="showAdds" >
-      <select #mySelect style="width: 170px;" (change)="change(mySelect.value)">
+      <select #mySelect (change)="change(mySelect.value)" style="width: 100%;">
         <option value="price">Price</option>
         <option value="rate">Rate</option>
         <option value="mileage">Mileage</option>
@@ -172,9 +171,11 @@
 
 
     </div>
+    <div *ngIf="showAdds">
+      <app-advertisement-list (notify)="onNotify($event)" [advertisements]="advertisements" [numOfAds]="numOfAds">
+      </app-advertisement-list>
+    </div>
 
-    <app-advertisement-list *ngIf="showAdds" [advertisements]="advertisements" (notify)="onNotify($event)">
-    </app-advertisement-list>
     <div class="center" *ngIf="showAdds">
       <button class="btn btn-primary" [disabled]="leftArrow" (click)="previousAds()">
         <mat-icon>arrow_left</mat-icon>

@@ -18,12 +18,11 @@
    margin-left: auto;
 }
 .right{
-   margin-top:10px;
+  margin-top: 5px;
    display: flex;
-   align-items: right;
    justify-content: right;
-   margin-left: 830px;
-   margin-right: auto;
+  margin-left: 87%;
+  margin-right: 10px;
 }
 .btn {
    margin-left: 15px;
@@ -47,6 +46,7 @@
 .matContent{
   width: auto;
   min-height: 565px;
+  height: auto;
   background-image: url("https://www.capital.ba/wp-content/uploads/2014/07/renta-car.jpg");
   background-repeat: no-repeat;
   background-size: cover;
