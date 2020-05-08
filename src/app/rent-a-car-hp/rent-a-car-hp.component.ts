@@ -68,7 +68,7 @@ export class RentACarHpComponent implements OnInit {
 
     });
 //Ovo ukloni
-    this.removeCartAds();
+  //  this.removeCartAds();
   }
 
   showAds() {
