@@ -202,18 +202,6 @@ export class RentACarHpComponent implements OnInit {
   }
 
   public changeNumAd() {
-    console.log(this.opened);
-    if (this.opened) {
-      this.numOfAds = 12;
-
-    } else {
-      this.numOfAds = 10;
-    }
-    console.log(this.numOfAds);
-    this.showAdds = false;
-    this.showAdds = true;
-    // this.removeCartAds();
-
   }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
