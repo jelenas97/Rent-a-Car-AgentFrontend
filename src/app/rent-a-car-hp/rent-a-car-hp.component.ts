@@ -160,6 +160,7 @@ export class RentACarHpComponent implements OnInit {
     if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
       console.log('ERROR');
     } else {
+      console.log("RADI?");
       this.advertisementService.searchAdvertisements(this.searchDto).subscribe(foundAds => {
         console.log('Founds ads :');
         console.log(foundAds);

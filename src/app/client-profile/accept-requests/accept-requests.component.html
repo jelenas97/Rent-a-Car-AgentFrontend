@@ -15,12 +15,12 @@
         <td> {{rent.endDateTime}} </td>
         <td> {{rent.senderId}}</td>
         <td>
-          <button [disabled]=holder.bundle class="btn-primary">
+          <button (click)="acceptOne(rent)" [disabled]=holder.bundle class="btn-primary">
             <mat-icon>done</mat-icon>
           </button>
         </td>
         <td>
-          <button [disabled]=holder.bundle class="btn-danger">
+          <button (click)="rejectOne(rent)" [disabled]=holder.bundle class="btn-danger">
             <mat-icon>close</mat-icon>
           </button>
         </td>
@@ -28,8 +28,8 @@
       <tr *ngIf="holder.bundle">
         <td colspan="1"></td>
         <td colspan="2">
-          <button class="btn-primary" style="margin-right: 10px">Accept all</button>
-          <button class="btn-danger">Reject all</button>
+          <button (click)="acceptAll(holder)" class="btn-primary" style="margin-right: 10px">Accept all</button>
+          <button (click)="rejectAll(holder)" class="btn-danger">Reject all</button>
         </td>
         <td colspan="3"></td>
       </tr>
