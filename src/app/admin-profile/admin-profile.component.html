@@ -2,9 +2,13 @@
     <mat-drawer mode="side" opened>
 
         <mat-list>
-            <mat-list-item> <button class="btn-dark" (click) = "openCodebook()" >Code book</button> </mat-list-item>
+          <mat-list-item>
+            <button (click)="openCodebook()" class="btn-primary">Code book</button>
+          </mat-list-item>
             <mat-list-item> <button class="btn-primary" (click) = "showUsers()" >Users</button> </mat-list-item>
-            <mat-list-item> <button class="btn-dark" (click) = "showComments()" >Comments</button> </mat-list-item>
+          <mat-list-item>
+            <button (click)="showComments()" class="btn-primary">Comments</button>
+          </mat-list-item>
         </mat-list>
 
     </mat-drawer>

@@ -47,7 +47,7 @@ export class ClientProfileComponent implements OnInit {
   }
 
   onNotify() {
-    this.openRentRequests();
+    this.acceptOrRejectRequests();
   }
 
 

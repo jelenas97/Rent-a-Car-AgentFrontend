@@ -2,7 +2,7 @@ div.requested-rents {
   margin-top: 4em;
   padding-top: 1em;
   padding-bottom: 0.7em;
-  width: 70%;
+  width: 85%;
 
 }
 
@@ -13,7 +13,7 @@ div.requested-rents-title {
 table.requested-rents-table {
   text-align: center;
   background-color: #48494B;
-  width: 70%;
+  width: 85%;
   border-style: groove;
 
 

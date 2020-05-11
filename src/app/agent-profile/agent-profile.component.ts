@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-agent-profile',
@@ -9,16 +9,27 @@ export class AgentProfileComponent implements OnInit {
 
   constructor() { }
 
-  showAgentInfo=true;
+  showAgentInfo = true;
+  showAccept = false;
 
   ngOnInit(): void {
   }
 
-  openAgentInfo(){
-    this.showAgentInfo=true;
-
+  openAgentInfo() {
+    this.hideAll();
+    this.showAgentInfo = true;
   }
 
+  acceptRequests() {
+    this.hideAll();
+    this.showAccept = true;
+  }
+
+  hideAll() {
+    this.showAgentInfo = false;
+    this.showAccept = false;
+  }
   onNotify() {
+    this.acceptRequests();
   }
 }

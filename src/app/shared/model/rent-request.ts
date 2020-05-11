@@ -8,7 +8,5 @@ export class RentRequest {
     cars: any;
 
   constructor() {
-    this.startDateTime = this.startDateString;
-    this.endDateTime = this.endDateString;
   }
 }
