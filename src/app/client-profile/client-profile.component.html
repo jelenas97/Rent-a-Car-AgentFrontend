@@ -5,6 +5,9 @@
             <mat-list-item> <button class="btn-primary" (click) = "openClientInfo()" > Profile info</button> </mat-list-item>
             <mat-list-item> <button class="btn-primary" (click) = "openRentRequests()" >Rent requests</button> </mat-list-item>
             <mat-list-item> <button class="btn-primary" (click) = "openHistoryRents()" >Rent history</button> </mat-list-item>
+          <mat-list-item>
+            <button (click)="acceptOrRejectRequests()" class="btn-primary"> Accept requests</button>
+          </mat-list-item>
         </mat-list>
 
     </mat-drawer>
@@ -19,8 +22,8 @@
         <div class="container" *ngIf = "showHistoryRents">
             <app-history-rents (notify)="onNotify()"></app-history-rents>
         </div>
-        <div>
-            
+      <div *ngIf="showAccept" class="container">
+        <app-accept-requests></app-accept-requests>
         </div>
 
     </mat-drawer-content>

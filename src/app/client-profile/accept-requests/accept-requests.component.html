@@ -1,0 +1,41 @@
+<div class="jumbotron requested-rents">
+  <div class="requested-rents-title">
+    <h3>Rent requests</h3>
+    <p class="lead">Here you can accept or reject rent requests.</p>
+  </div>
+</div>
+<br/>
+<div class=" requested-rents-table">
+  <div class="requests">
+    <table *ngFor="let holder of requestHolders" class="table requested-rents-table">
+      <tbody>
+      <tr *ngFor="let rent of holder.rentRequests">
+        <td> {{rent.cars}} </td>
+        <td> {{rent.startDateTime}}</td>
+        <td> {{rent.endDateTime}} </td>
+        <td> {{rent.senderId}}</td>
+        <td>
+          <button [disabled]=holder.bundle class="btn-primary">
+            <mat-icon>done</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button [disabled]=holder.bundle class="btn-danger">
+            <mat-icon>close</mat-icon>
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="holder.bundle">
+        <td colspan="1"></td>
+        <td colspan="2">
+          <button class="btn-primary" style="margin-right: 10px">Accept all</button>
+          <button class="btn-danger">Reject all</button>
+        </td>
+        <td colspan="3"></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <br/><br/>
+</div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,9 @@ export class ConfigService {
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
   private commentUrl = this.serverUrl + '/comments';
-  private rentRequestUrl= this.serverUrl + '/rentRequest';
+  private rentRequestUrl = this.serverUrl + '/rentRequest';
+  private requestHolderUrl = this.serverUrl + '/requestHolder';
+
 
 
   get login_url(): string {
@@ -53,6 +55,10 @@ export class ConfigService {
   }
   get getRentRequests(): string {
     return this.rentRequestUrl;
+  }
+
+  get getRequestHolder_url(): string {
+    return this.requestHolderUrl;
   }
 
 }

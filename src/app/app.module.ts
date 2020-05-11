@@ -54,16 +54,17 @@ import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
 import {RegisterNewUserService} from './admin-profile/register-new-user/registerNewUser.service';
-import { UsersListComponent } from './admin-profile/users-list/users-list.component';
-import { AdvertisementService } from './service/advertisement.service';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
-import { AgentProfileComponent } from './agent-profile/agent-profile.component';
-import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
-import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
-import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
+import {UsersListComponent} from './admin-profile/users-list/users-list.component';
+import {AdvertisementService} from './service/advertisement.service';
+import {ClientProfileComponent} from './client-profile/client-profile.component';
+import {AgentProfileComponent} from './agent-profile/agent-profile.component';
+import {HistoryRentsComponent} from './client-profile/history-rents/history-rents.component';
+import {ClientInfoComponent} from './client-profile/client-info/client-info.component';
+import {AgentInfoComponent} from './agent-profile/agent-info/agent-info.component';
 import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
 import {jqxChartModule} from "jqwidgets-ng/jqxchart";
-import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
+import {ApprovingCommentsComponent} from './admin-profile/approving-comments/approving-comments.component';
+import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
 
 
 // @ts-ignore
@@ -99,7 +100,8 @@ import { ApprovingCommentsComponent } from './admin-profile/approving-comments/a
     HistoryRentsComponent,
     ClientInfoComponent,
     AgentInfoComponent,
-    ApprovingCommentsComponent
+    ApprovingCommentsComponent,
+    AcceptRequestsComponent
   ],
   imports: [
     BrowserModule,
