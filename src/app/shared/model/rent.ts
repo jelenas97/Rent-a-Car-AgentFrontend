@@ -5,6 +5,8 @@ export class Rent {
   startDateTime: any;
   endDateTime: any;
   senderId: any;
+  startDateString: any;
+  endDateString: any;
   advertisement: Advertisement;
   cars: any;
   constructor(advertisementId: any, start: Date, end: Date, ad: Advertisement, senderId: any) {

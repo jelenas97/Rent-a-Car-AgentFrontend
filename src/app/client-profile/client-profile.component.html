@@ -23,7 +23,7 @@
             <app-history-rents (notify)="onNotify()"></app-history-rents>
         </div>
       <div *ngIf="showAccept" class="container">
-        <app-accept-requests></app-accept-requests>
+        <app-accept-requests (notify)="onNotify()"></app-accept-requests>
         </div>
 
     </mat-drawer-content>

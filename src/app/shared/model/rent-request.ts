@@ -3,6 +3,12 @@ export class RentRequest {
     startDateTime: any;
     endDateTime: any;
     rentRequestStatus: any;
+  startDateString: any;
+  endDateString: any;
     cars: any;
-    constructor() {}
+
+  constructor() {
+    this.startDateTime = this.startDateString;
+    this.endDateTime = this.endDateString;
+  }
 }

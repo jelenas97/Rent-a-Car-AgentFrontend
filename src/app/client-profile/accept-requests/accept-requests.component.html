@@ -11,8 +11,8 @@
       <tbody>
       <tr *ngFor="let rent of holder.rentRequests">
         <td> {{rent.cars}} </td>
-        <td> {{rent.startDateTime}}</td>
-        <td> {{rent.endDateTime}} </td>
+        <td> {{rent.startDateString}}</td>
+        <td> {{rent.endDateString}} </td>
         <td> {{rent.senderId}}</td>
         <td>
           <button (click)="acceptOne(rent)" [disabled]=holder.bundle class="btn-primary">
