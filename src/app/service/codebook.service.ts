@@ -14,4 +14,11 @@ export class CodebookService {
       return result;
     }));
   }
+
+  getCodeBookInfoModel() {
+    console.log('Code book info');
+    return this.apiService.get(this.config.getCodebook + '/getCodeBookInfoModel').pipe(map(result => {
+      return result;
+    }));
+  }
 }

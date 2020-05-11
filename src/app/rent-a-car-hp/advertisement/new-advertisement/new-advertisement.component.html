@@ -12,7 +12,7 @@
           <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.carBrand"
                   (change)="updateBrand($event.target.value)" class="custom-select">
               <option disabled selected value> -- select an option -- </option>
-              <option *ngFor="let brand of carBrands" [ngValue]="brand" >
+              <option *ngFor="let brand of codeBook.carBrands" [ngValue]="brand" >
                 {{brand.name}}
               </option>
             </select>
@@ -21,7 +21,7 @@
         <div class="ml-1">
           <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.carModel"
                  (change)="updateModel($event.target.value)" class="custom-select">
-              <option *ngFor="let model of advertisement.carBrand.models" [ngValue]="model">
+              <option *ngFor="let model of advertisement.carBrand.carModels" [ngValue]="model">
                 {{model.name}}
               </option>
             </select>
@@ -29,8 +29,8 @@
         <label>Class</label>
         <div class="ml-1">
           <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.carClass"
-                  (change)="updateClass($event.target.value)" class="custom-select">
-            <option *ngFor="let class of carClass" [ngValue]="class">
+                   class="custom-select">
+            <option *ngFor="let class of codeBook.carClasses" [ngValue]="class">
               {{class.name}}
             </option>
           </select>
@@ -38,8 +38,8 @@
         <label>Transmission type</label>
         <div class="ml-1">
           <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.transmissionType"
-                  (change)="updateTransmissionType($event.target.value)" class="custom-select">
-            <option *ngFor="let transmissionType of transmissionTypes" [ngValue]="transmissionType">
+                   class="custom-select">
+            <option *ngFor="let transmissionType of codeBook.transmissionTypes" [ngValue]="transmissionType">
               {{transmissionType.name}}
             </option>
           </select>
@@ -47,8 +47,8 @@
         <label>Fuel type</label>
         <div class="ml-1">
           <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.fuelType"
-                  (change)="updateFuelType($event.target.value)" class="custom-select">
-            <option *ngFor="let fuelType of fuelTypes" value={{fuelType.id}}>
+                   class="custom-select">
+            <option *ngFor="let fuelType of codeBook.fuelTypes" [ngValue]="fuelType">
               {{fuelType.name}}
             </option>
           </select>

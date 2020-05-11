@@ -16,7 +16,7 @@ export class CarProfilePageComponent implements OnInit {
     mileage: 50000,
     kidSeats: 1,
     carClass: {id: 1, name: 'SUV'},
-    carBrand: {id: 1, name: 'BMW', models: [{id: 1, name: 'M5'}]},
+    carBrand: {id: 1, name: 'BMW', carModels: [{id: 1, name: 'M5'}]},
     transmissionType: {id: 1, name: 'Automatic'},
     fuelType: {id: 1, name: 'Petrol'},
     collisionDamageWaiver: true,

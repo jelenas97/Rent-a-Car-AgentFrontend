@@ -5,7 +5,7 @@ export class CarBrand{
 
   id: Number;
   name: String;
-  models: CarModel[];
+  carModels: CarModel[];
   constructor(){}
 
 
