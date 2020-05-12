@@ -33,4 +33,10 @@ export class AdvertisementService {
       })
     );
   }
+
+  getAllAdvertisements() {
+    return this.apiService.get(this.configService.getAds_url).pipe(map(result => {
+      return result;
+    }));
+  }
 }
