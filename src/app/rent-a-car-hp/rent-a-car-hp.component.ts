@@ -47,10 +47,10 @@ export class RentACarHpComponent implements OnInit {
 
     });
 
-    this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
+    /*this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
       this.all_ads = foundAds;
       this.removeCartAds();
-    });
+    });*/
   }
 
   showAds() {
