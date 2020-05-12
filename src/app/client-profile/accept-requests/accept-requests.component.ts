@@ -19,7 +19,7 @@ export class AcceptRequestsComponent implements OnInit {
   @Output() notify = new EventEmitter();
   ngOnInit(): void {
     // id logovanog treba!!!
-    this.holderService.getRequestHolders(1).subscribe(foundHolders => {
+    this.holderService.getRequestHolders(3).subscribe(foundHolders => {
       this.requestHolders = foundHolders;
     });
   }

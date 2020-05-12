@@ -55,7 +55,7 @@ export class RentACarHpComponent implements OnInit {
   showModel: any = false;
   models: any;
   opened: any = true;
-  numOfAds: any = 12;
+  numOfAds: any = 6;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
               private advertisementService: AdvertisementService) {
   }
@@ -201,9 +201,7 @@ export class RentACarHpComponent implements OnInit {
     // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
     const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
     GlobalCart.cartAds.push(request);
-
   }
-
   public changeNumAd() {
   }
 }
