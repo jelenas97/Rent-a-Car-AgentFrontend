@@ -17,8 +17,6 @@
             <td><img src="{{ad.advertisement.image}}" alt="" height='50' width='50'/></td>
             <td>{{ad.advertisement.name}}</td>
             <td class='item'>{{ad.advertisement.price}}</td>
-
-
             <td>
               <button class="btn btn-secondary" (click)="remove(ad)">remove</button>
             </td>
@@ -29,13 +27,13 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <mat-radio-group aria-label="Select an option"  [(ngModel)]="bundle">
+    <mat-radio-group [(ngModel)]="bundle" aria-label="Select an option">
+      <mat-radio-button value="false">Each</mat-radio-button>
       <mat-radio-button value="true">Bundle</mat-radio-button>
-      <mat-radio-button value="false"> Each</mat-radio-button>
     </mat-radio-group>
     <div class="center">
 
-      <button class="btn btn-primary mr-1" (click) = "reserve()"> Reserve</button>
+      <button (click)="reserve()" [disabled]="advertisements.length == 0" class="btn btn-primary mr-1"> Reserve</button>
       <button class="btn btn-secondary" (click)="Cancel()">Cancel</button>
     </div>
   </div>

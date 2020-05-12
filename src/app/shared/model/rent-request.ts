@@ -3,6 +3,10 @@ export class RentRequest {
     startDateTime: any;
     endDateTime: any;
     rentRequestStatus: any;
+  startDateString: any;
+  endDateString: any;
     cars: any;
-    constructor() {}
+
+  constructor() {
+  }
 }

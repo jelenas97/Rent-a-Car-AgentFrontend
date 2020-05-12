@@ -1,0 +1,53 @@
+<div class="jumbotron requested-rents">
+  <div class="requested-rents-title">
+    <h3>Rent requests</h3>
+    <p class="lead">Here you can accept or reject rent requests.</p>
+  </div>
+</div>
+<br/>
+<div class=" requested-rents-table">
+  <div class="requests">
+    <table *ngFor="let holder of requestHolders" class="table requested-rents-table">
+      <!--      <thead>-->
+      <!--      <tr>-->
+      <!--        <th scope="col" > Car name</th>-->
+      <!--        <th scope="col"> Rent start </th>-->
+      <!--        <th scope="col"> Rent end </th>-->
+      <!--        <th scope="col"> Client id</th>-->
+      <!--        <th scope="col">  </th>-->
+      <!--        <th scope="col">  </th>-->
+      <!--      </tr>-->
+      <!--      </thead>-->
+      <tbody>
+      <tr *ngFor="let rent of holder.rentRequests">
+        <td> {{rent.cars}} </td>
+        <td> {{rent.startDateString}}</td>
+        <td> {{rent.endDateString}} </td>
+        <td> {{rent.senderId}}</td>
+        <td>
+          <button (click)="acceptOne(rent)" [disabled]=holder.bundle class="btn-primary">
+            <!--            <mat-icon>done</mat-icon>-->
+            Accept
+          </button>
+        </td>
+        <td>
+          <button (click)="rejectOne(rent)" [disabled]=holder.bundle class="btn-danger">
+            <!--            <mat-icon>close</mat-icon>-->
+            Reject
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="holder.bundle">
+        <td colspan="1"></td>
+        <td colspan="2">
+          <button (click)="acceptAll(holder)" class="btn-primary" style="margin-right: 10px">Accept all</button>
+          <button (click)="rejectAll(holder)" class="btn-danger">Reject all</button>
+        </td>
+        <td colspan="3"></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <br/><br/>
+</div>

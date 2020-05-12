@@ -18,7 +18,7 @@ export class AdvertisementListComponent implements OnInit {
   constructor() {
   }
   ngOnInit() {
-    this.numOfAds2 = this.numOfAds / 2;
+    this.numOfAds2 = this.numOfAds;
     this.show = true;
   }
 
