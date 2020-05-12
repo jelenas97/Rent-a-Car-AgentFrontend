@@ -20,6 +20,15 @@
    margin-right: auto;
    margin-left: auto;
 }
+
+.notifier {
+  display: flex;
+  justify-content: right;
+  margin-left: 67%;
+  margin-right: 10px;
+
+}
+
 .right{
   margin-top: 5px;
    display: flex;

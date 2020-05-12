@@ -7,10 +7,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RatingModule} from 'ng-starrating';
+import {NotifierModule, NotifierOptions} from 'angular-notifier';
 // services
 import {FooService} from './foo/foo.service';
 // angular material compoonents
-// Nephodno instalirati sa komandom ng add @angular/material , izabrati temu: "deeppurple-amber" ili samo npm install na pocetku
 import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormFieldModule,
@@ -61,10 +61,51 @@ import {AgentProfileComponent} from './agent-profile/agent-profile.component';
 import {HistoryRentsComponent} from './client-profile/history-rents/history-rents.component';
 import {ClientInfoComponent} from './client-profile/client-info/client-info.component';
 import {AgentInfoComponent} from './agent-profile/agent-info/agent-info.component';
-import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
-import {jqxChartModule} from "jqwidgets-ng/jqxchart";
+import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
+import {jqxChartModule} from 'jqwidgets-ng/jqxchart';
 import {ApprovingCommentsComponent} from './admin-profile/approving-comments/approving-comments.component';
 import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'top',
+      distance: 100,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 4000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: false,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 
 // @ts-ignore
@@ -133,7 +174,8 @@ import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-r
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    jqxChartModule
+    jqxChartModule,
+    NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [
     FooService,

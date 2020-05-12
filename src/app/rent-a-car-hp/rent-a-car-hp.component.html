@@ -186,7 +186,12 @@
           <div *ngIf="!opened"> Show</div>
         </button>
       </p>
+      <div class="notifier">
+        <notifier-container></notifier-container>
+      </div>
+
       <div *ngIf="showAdds" class="right">
+
         <select #mySelect (change)="change(mySelect.value)" style="width: 100%;">
           <option value="price">Price</option>
           <option value="rate">Rate</option>
@@ -219,3 +224,4 @@
   </mat-sidenav-container>
 
   <!--   -->
+
