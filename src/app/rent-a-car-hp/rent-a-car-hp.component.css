@@ -24,8 +24,8 @@
   margin-top: 5px;
    display: flex;
    justify-content: right;
-  margin-left: 87%;
-  margin-right: 10px;
+  margin-left: 80%;
+  margin-right: 60px;
 }
 .btn {
    margin-left: 15px;
@@ -48,9 +48,9 @@
 }
 .matContent{
   width: auto;
-  min-height: 635px;
-  background-image: url("../images/renta-car.jpg");
+  min-height: 56.1em;
+  background-image: url("../images/parts.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  height: auto;
 }
