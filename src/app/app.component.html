@@ -1,30 +1,32 @@
 <mat-toolbar color = "secondary">
 
-      <button mat-mini-fab aria-label="Example icon button with a home icon" routerLink="/homepage">
+      <button mat-mini-fab aria-label="Example icon button with a home icon" class="mr-2" routerLink="/homepage">
         <mat-icon>home</mat-icon>
       </button>
-      <button mat-mini-fab routerLink="/new-advertisement">
+      <button mat-mini-fab routerLink="/new-advertisement" *ngIf="client || admin" class="mr-2">
         <mat-icon>add_box</mat-icon>
       </button>
-      <button mat-mini-fab routerLink="/advertisement-statistics">
-        <mat-icon> show_chart</mat-icon>
+      <button mat-mini-fab routerLink="/advertisement-statistics" class="mr-2">
+        <mat-icon>show_chart</mat-icon>
+      </button>
+      <button mat-mini-fab routerLink="/admin/user" *ngIf="admin" class="mr-2">
+        <mat-icon>person_add</mat-icon>
       </button>
 
-    <a routerLink="/admin/user" class="text-white">Register User</a>
+      <span></span>
+      <span class = "filler"></span>
 
-  <span></span>
-  <span class = "filler"></span>
-
-      <button class="mr-2" mat-mini-fab routerLink="/profile"  >
-        <mat-icon>face</mat-icon>
+      <button *ngIf="!unauthorized" class="mr-2" mat-mini-fab routerLink="/profile">
+        <mat-icon >face</mat-icon>
       </button>
 
-      <a routerLink="/login" class="text-white mr-3">Login</a>
-      <a routerLink="/registration" class="text-white mr-3">Sign in</a>
-      <a class="text-white mr-3" routerLink="/client-profile">Profile</a>
+      <a routerLink="/login" *ngIf="unauthorized" class="text-white mr-3">Login</a>
+      <a routerLink="/registration" *ngIf="unauthorized" class="text-white mr-3">Sign in</a>
+      <a class="text-white mr-3" (click)="logout()" *ngIf="!unauthorized">Logout</a>
+      <a class="text-white mr-3" routerLink="/client-profile" *ngIf="!unauthorized">Profile</a>
 
 
-      <button mat-mini-fab style="margin-left:10px;" (click) = "openCart()">
+      <button mat-mini-fab style="margin-left:10px;" *ngIf="client" (click) = "openCart()">
         <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
       </button>
 

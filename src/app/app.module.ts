@@ -61,9 +61,12 @@ import { AgentProfileComponent } from './agent-profile/agent-profile.component';
 import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
 import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
 import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
-import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
-import {jqxChartModule} from "jqwidgets-ng/jqxchart";
+import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
+import {jqxChartModule} from 'jqwidgets-ng/jqxchart';
 import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
+import {AuthService} from './service/auth.service';
+import {ApiService} from './service/api.service';
+import {ConfigService} from './service/config.service';
 
 
 // @ts-ignore
@@ -140,6 +143,9 @@ import { ApprovingCommentsComponent } from './admin-profile/approving-comments/a
     RegistrationService,
     AdvertisementService,
     RegisterNewUserService,
+    AuthService,
+    ApiService,
+    ConfigService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],

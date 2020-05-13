@@ -4,18 +4,18 @@
   <div class="text-center">
     <h1 class="h2 mt-5">Login to your account</h1>
   </div>
-  <form id="loginForm" class="mt-5">
+  <form id="loginForm" class="mt-5" (ngSubmit)="onClickedLogin()">
     <p class="small mb-2 text-scarlet"></p>
     <div class="form-group position-relative">
       <fa-icon class="fa fa-user fa-lg position-absolute" [icon]="faUser"></fa-icon>
-      <input class="form-control rounded-0 pl-5" id="username"
+      <input class="form-control rounded-0 pl-5" id="username" [(ngModel)]="currUser.username"
              name="username"
              type="text"
              required="" placeholder="Username">
     </div>
     <div class="position-relative pt-3">
       <fa-icon class="fa fa-user fa-lg position-absolute pt-3" [icon]="faPassword"></fa-icon>
-      <input class="form-control rounded-0 pl-5" id="password"
+      <input class="form-control rounded-0 pl-5" id="password" [(ngModel)]="currUser.password"
              name="password"
              type="text"
              required="" placeholder="Password">
