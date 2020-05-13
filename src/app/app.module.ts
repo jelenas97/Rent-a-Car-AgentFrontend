@@ -67,6 +67,7 @@ import { ApprovingCommentsComponent } from './admin-profile/approving-comments/a
 import {AuthService} from './service/auth.service';
 import {ApiService} from './service/api.service';
 import {ConfigService} from './service/config.service';
+import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
 
 
 // @ts-ignore
@@ -102,7 +103,8 @@ import {ConfigService} from './service/config.service';
     HistoryRentsComponent,
     ClientInfoComponent,
     AgentInfoComponent,
-    ApprovingCommentsComponent
+    ApprovingCommentsComponent,
+    AcceptRequestsComponent
   ],
   imports: [
     BrowserModule,

@@ -21,8 +21,8 @@
     <tbody>
         <tr *ngFor='let historyRentRequest of _historyRentRequests'>
             <td> {{historyRentRequest.id}} </td>
-            <td> {{historyRentRequest.startDateTime}} </td>
-            <td> {{historyRentRequest.endDateTime}} </td>
+          <td> {{historyRentRequest.startDateString}} </td>
+          <td> {{historyRentRequest.endDateString}} </td>
             <td> {{historyRentRequest.rentRequestStatus}} </td>
             <td> {{historyRentRequest.cars}} </td>
             <td>

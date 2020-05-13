@@ -19,7 +19,7 @@ export class ShopCartComponent implements OnInit {
   advertisements: Rent[];
   empty = true;
   requestHolder: RequestHolder;
-  bundle: any;
+  bundle: any = 'false';
   ngOnInit() {
     this.advertisements = this.data;
  //   console.log(this.advertisements.length);
@@ -51,12 +51,12 @@ export class ShopCartComponent implements OnInit {
     this.requestHolder = new RequestHolder();
     this.requestHolder.bundle = this.bundle;
     this.requestHolder.rentRequests = GlobalCart.cartAds;
+    console.log(this.bundle);
     console.log(this.requestHolder);
     this.rentService.sentRequest(this.requestHolder).subscribe(foundAds => {
       this.Cancel();
+      this.advertisements = [];
     });
-
-
   }
 
 }

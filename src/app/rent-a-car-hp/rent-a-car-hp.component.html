@@ -3,7 +3,7 @@
   <mat-sidenav-container class="tp-container">
     <mat-sidenav #sidenav [(opened)]="opened" mode="side">
 
-
+      <br>
       <div id="picker">
         <mat-label>Start date</mat-label>
         <br>
@@ -26,7 +26,7 @@
       </div>
 
       <mat-divider></mat-divider>
-
+      <br>
       <mat-form-field>
         <mat-label>Place</mat-label>
         <mat-select [(value)]="searchDto.place">
@@ -168,13 +168,14 @@
 
       </div>
 
-
+      <br>
       <div class="center">
         --
         <button (click)="searchAds()" class="btn btn-primary"> Search</button>
         --
 
       </div>
+      <br>
     </mat-sidenav>
 
     <mat-sidenav-content class="matContent">

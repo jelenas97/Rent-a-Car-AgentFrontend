@@ -55,7 +55,7 @@ export class RentACarHpComponent implements OnInit {
   showModel: any = false;
   models: any;
   opened: any = true;
-  numOfAds: any = 12;
+  numOfAds: any = 6;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
               private advertisementService: AdvertisementService) {
   }
@@ -67,8 +67,11 @@ export class RentACarHpComponent implements OnInit {
       this.advanceSearch = true;
 
     });
-//Ovo ukloni
-  //  this.removeCartAds();
+
+    /*this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
+      this.all_ads = foundAds;
+      this.removeCartAds();
+    });*/
   }
 
   showAds() {
@@ -198,22 +201,8 @@ export class RentACarHpComponent implements OnInit {
     // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
     const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
     GlobalCart.cartAds.push(request);
-
   }
-
   public changeNumAd() {
-    console.log(this.opened);
-    if (this.opened) {
-      this.numOfAds = 12;
-
-    } else {
-      this.numOfAds = 10;
-    }
-    console.log(this.numOfAds);
-    this.showAdds = false;
-    this.showAdds = true;
-    // this.removeCartAds();
-
   }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {

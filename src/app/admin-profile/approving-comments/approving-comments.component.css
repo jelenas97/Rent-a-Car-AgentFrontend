@@ -29,3 +29,7 @@ tr:hover{
 .UNPROCESSED{
   background-color: #fff29d;
 }
+
+.card-body {
+  background-color: #48494B;
+}

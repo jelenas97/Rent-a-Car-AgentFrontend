@@ -1,8 +1,5 @@
-import { RentRequestService } from './../service/rent-request.service';
-import { HistoryRentsComponent } from './history-rents/history-rents.component';
-import { RequestedRentsComponent } from './requested-rents/requested-rents.component';
-import { Component, OnInit } from '@angular/core';
-import { RentRequest } from '../shared/model/rent-request';
+import {RentRequestService} from './../service/rent-request.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-client-profile',
@@ -13,33 +10,44 @@ export class ClientProfileComponent implements OnInit {
 
   constructor(private rentRequestService: RentRequestService) { }
 
-  showClientInfo=true;
-  show=false;
-  showHistoryRents=false;
-
+  showClientInfo = true;
+  show = false;
+  showHistoryRents = false;
+  showAccept = false;
 
   ngOnInit(): void {
   }
-  
-  openClientInfo(){
-    this.showClientInfo=true;
-    this.show=false;
-    this.showHistoryRents=false;
+
+  openClientInfo() {
+    this.hideAll();
+    this.showClientInfo = true;
   }
 
-  openRentRequests(){
-    this.showHistoryRents=false;
-    this.show=true;
-    this.showClientInfo=false;
+  openRentRequests() {
+    this.hideAll();
+    this.show = true;
+    this.showClientInfo = false;
   }
 
-  openHistoryRents(){
-    this.show=false;
-    this.showHistoryRents=true;
-    this.showClientInfo=false;
+  openHistoryRents() {
+    this.hideAll();
+    this.showHistoryRents = true;
+  }
+
+  acceptOrRejectRequests() {
+    this.hideAll();
+    this.showAccept = true;
+  }
+
+  hideAll() {
+    this.show = false;
+    this.showHistoryRents = false;
+    this.showClientInfo = false;
+    this.showAccept = false;
   }
 
   onNotify() {
+    this.acceptOrRejectRequests();
   }
 
 
