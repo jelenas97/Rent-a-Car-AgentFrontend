@@ -1,29 +1,49 @@
 .tp-container {
-
-    background: rgb(255, 255, 255);
-    min-height: 565px;
+  background: rgb(255, 255, 255);
+  min-height: 565px;
   height: 100%;
   width: 100%;
+ }
 
- }
- .tp-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
-    width:100px;
- }
- .center{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-right: auto;
-   margin-left: auto;
+.sidenav{
+  width: 330px;
+  padding-left: 17px;
 }
+
+.mat-datepicker-toggle {
+  position: absolute;
+  padding-left: 225px;
+  padding-top: 3px;
+}
+
+.select {
+  width: 220px;
+}
+
+.wrapper {
+  width: 250px;
+}
+
+.tp-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 50px;
+  width:100px;
+}
+
+.center{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-right: auto;
+ margin-left: auto;
+}
+
 .right{
   margin-top: 5px;
-   display: flex;
-   justify-content: right;
+  display: flex;
+  justify-content: right;
   margin-left: 80%;
   margin-right: 60px;
 }
@@ -35,16 +55,21 @@
    background-color: gray;
 }
 .mat-form-field, #picker{
-   margin-left : 10px;
+   margin-left : 7px;
 }
 
 .inpClass {
-   margin-left: 10px;
-   width : 120px;
+   width : 169px;
+}
+
+.menuToggle {
+  color: #48494B;
 }
 
 .dateInp{
-   width: 170px;
+   width: 250px;
+   color: #48494B;
+  height: 45px;
 }
 .matContent{
   width: auto;
@@ -53,4 +78,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.2em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.0em; }
+::ng-deep .mat-select { top: -1.0em; }
+
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.0em) scale(.15);
+  width: 133.33333%;
 }

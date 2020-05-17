@@ -1,116 +1,89 @@
 <div>
 
   <mat-sidenav-container class="tp-container">
-    <mat-sidenav #sidenav [(opened)]="opened" mode="side">
-
+    <mat-sidenav #sidenav [(opened)]="opened" mode="side" class="sidenav">
       <br>
       <div id="picker">
-        <mat-label>Start date</mat-label>
-        <br>
+        <div class="row">
+          <input [(ngModel)]="searchDto.startDate" [matDatepicker]="picker" class="dateInp ml-4"
+                 placeholder="Start date" disabled matInput>
+          <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker disabled="false"></mat-datepicker>
+        </div>
 
-        <input [(ngModel)]="searchDto.startDate" [matDatepicker]="picker" class="dateInp" disabled matInput>
-        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
-        <mat-datepicker #picker disabled="false"></mat-datepicker>
-
-        <mat-divider></mat-divider>
-        <mat-label>End date</mat-label>
-        <br>
-
-        <input [(ngModel)]="searchDto.endDate" [matDatepicker]="picker2" class="dateInp" disabled matInput>
-        <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
-        <mat-datepicker #picker2 disabled="false"></mat-datepicker>
-        <div>
+        <div class="row mt-4">
+          <input [(ngModel)]="searchDto.endDate" [matDatepicker]="picker2" class="dateInp ml-4" disabled
+                 placeholder="End date" matInput>
+          <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #picker2 disabled="false"></mat-datepicker>
         </div>
         <mat-divider></mat-divider>
-
       </div>
 
-      <mat-divider></mat-divider>
-      <br>
-      <mat-form-field>
+      <mat-form-field class="wrapper ml-3 mt-4">
         <mat-label>Place</mat-label>
-        <mat-select [(value)]="searchDto.place">
+        <mat-select class="select" [(value)]="searchDto.place" (selectionChange)="changeOption()">
           <mat-option value="Novi Sad">Novi Sad</mat-option>
           <mat-option value="Beograd">Beograd</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-divider></mat-divider>
-
       <div *ngIf="advanceSearch">
-
-        <mat-divider></mat-divider>
-        <mat-form-field>
+        <mat-form-field class="wrapper ml-3">
           <mat-label>Brand</mat-label>
-          <mat-select [(value)]="searchDto.brand">
+          <mat-select class="select" [(value)]="searchDto.brand">
             <mat-option>None</mat-option>
             <mat-option (click)="showModels(brand)" *ngFor="let brand of codeBook.carBrands; "
                         value="{{brand}}">{{brand}}</mat-option>
-            >
           </mat-select>
         </mat-form-field>
 
-        <mat-divider></mat-divider>
-
-        <mat-form-field>
+        <mat-form-field class="wrapper ml-3">
           <mat-label>Fuel</mat-label>
-          <mat-select [(value)]="searchDto.fuelType">
+          <mat-select class="select" [(value)]="searchDto.fuelType">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let type of codeBook.fuelTypes;" value="{{type}}">{{type}}</mat-option>
-            >
           </mat-select>
         </mat-form-field>
 
-        <mat-divider></mat-divider>
-
-        <mat-form-field>
+        <mat-form-field class="wrapper ml-3">
           <mat-label>Class</mat-label>
-          <mat-select [(value)]="searchDto.carClass">
+          <mat-select class="select" [(value)]="searchDto.carClass">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let classCar of codeBook.carClasses;" value="{{classCar}}">{{classCar}}</mat-option>
-            >
           </mat-select>
         </mat-form-field>
 
-        <mat-divider></mat-divider>
         <div *ngIf="showModel">
-
-
-          <mat-form-field>
+          <mat-form-field class="wrapper ml-3">
             <mat-label>Model</mat-label>
-            <mat-select [(value)]="searchDto.carModel">
+            <mat-select class="select" [(value)]="searchDto.carModel">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let model of models;" value="{{model}}">{{model}}</mat-option>
-              >
             </mat-select>
           </mat-form-field>
-
-          <mat-divider></mat-divider>
         </div>
-        <mat-form-field>
+
+        <mat-form-field class="wrapper ml-3">
           <mat-label>Transmission type</mat-label>
-          <mat-select [(value)]="searchDto.transmissionType">
+          <mat-select class="select" [(value)]="searchDto.transmissionType">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let type of codeBook.transmissionTypes;" value="{{type}}">{{type}}</mat-option>
-            >
           </mat-select>
         </mat-form-field>
 
-        <mat-divider></mat-divider>
-
-        <mat-form-field>
+        <mat-form-field class="wrapper ml-3">
           <mat-label>Collision damage</mat-label>
-          <mat-select [(value)]="searchDto.dmg">
+          <mat-select class="select" [(value)]="searchDto.dmg">
             <mat-option>None</mat-option>
             <mat-option value='true'>Yes</mat-option>
             <mat-option value='false'>No</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <mat-divider></mat-divider>
-        <mat-form-field>
+        <mat-form-field class="wrapper ml-3">
           <mat-label>Kid seats</mat-label>
-          <mat-select [(value)]="searchDto.seats">
+          <mat-select class="select" [(value)]="searchDto.seats">
             <mat-option>None</mat-option>
             <mat-option value="1">One</mat-option>
             <mat-option value="2">Two</mat-option>
@@ -118,14 +91,12 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-divider></mat-divider>
-
         <table>
-          <tr>
-            <td>
+          <tr >
+            <td class="pl-2">
               <mat-label style="margin-left:10px;">Mileage:</mat-label>
             </td>
-            <td><input [(ngModel)]="searchDto.mileage" class="inpClass" matInput></td>
+            <td class="pl-2"><input [(ngModel)]="searchDto.mileage" class="inpClass" matInput></td>
           </tr>
           <tr>
             <td colspan="2">
@@ -133,10 +104,10 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="pl-2">
               <mat-label style="margin-left:10px;">Limit:</mat-label>
             </td>
-            <td><input [(ngModel)]="searchDto.limitMileage" class="inpClass" matInput></td>
+            <td class="pl-2"><input [(ngModel)]="searchDto.limitMileage" class="inpClass" matInput></td>
           </tr>
 
           <tr>
@@ -145,10 +116,10 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="pl-2">
               <mat-label style="margin-left:10px;">Min price:</mat-label>
             </td>
-            <td><input [(ngModel)]="searchDto.minPrice" class="inpClass" matInput></td>
+            <td class="pl-2"><input [(ngModel)]="searchDto.minPrice" class="inpClass" matInput></td>
           </tr>
           <tr>
             <td colspan="2">
@@ -156,10 +127,10 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="pl-2">
               <mat-label style="margin-left:10px;">Max price:</mat-label>
             </td>
-            <td><input [(ngModel)]="searchDto.maxPrice" class="inpClass" matInput></td>
+            <td class="pl-2"><input [(ngModel)]="searchDto.maxPrice" class="inpClass" matInput></td>
           </tr>
         </table>
 
@@ -169,11 +140,13 @@
       </div>
 
       <br>
-      <div class="center">
-        --
-        <button (click)="searchAds()" class="btn btn-primary"> Search</button>
-        --
-
+      <div class="row">
+        <div class="text-left ml-2">
+          <button (click)="searchAds()" style="width: 250px" class="btn btn-primary">Search</button>
+          <mat-icon class="position-absolute" style="padding-left: 50px">search</mat-icon>
+        </div>
+        <div>
+        </div>
       </div>
       <br>
     </mat-sidenav>
@@ -182,9 +155,8 @@
       <div>
       </div>
       <p>
-        <button (click)="sidenav.toggle()" (mouseup)="changeNumAd()" mat-button>
-          <div *ngIf="opened"> Hide</div>
-          <div *ngIf="!opened"> Show</div>
+        <button (click)="sidenav.toggle()"  (mouseup)="changeNumAd()" mat-button>
+          <mat-icon class="menuToggle">menu</mat-icon>
         </button>
       </p>
       <div *ngIf="showAdds" class="right">
@@ -220,3 +192,4 @@
   </mat-sidenav-container>
 
   <!--   -->
+</div>

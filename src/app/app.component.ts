@@ -50,16 +50,19 @@ export class AppComponent implements OnInit {
         this.client = true;
         this.admin = false;
         this.agent = false;
+        console.log('klijent');
       } else if (this.currUser.roles.includes('ROLE_ADMIN')) {
         this.unauthorized = false;
         this.client = false;
         this.agent = false;
         this.admin = true;
+        console.log('admin');
       } else if (this.currUser.roles.includes('ROLE_AGENT')) {
         this.unauthorized = false;
         this.client = false;
         this.admin = false;
         this.agent = true;
+        console.log('agent');
       }
     }
 
