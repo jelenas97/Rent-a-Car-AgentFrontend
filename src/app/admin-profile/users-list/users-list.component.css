@@ -33,3 +33,6 @@ tr:hover{
   background-color: blueviolet;
 }
 
+.card-body {
+  background-color: #48494B;
+}

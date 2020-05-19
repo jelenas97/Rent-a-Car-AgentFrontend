@@ -23,7 +23,7 @@ td {
      background-color: lightgray;
  }
  .lastRow, .lastRow:hover {
-    background-color: white;
+   background-color: lightgray;
 
  }
  th:hover{
@@ -50,3 +50,7 @@ td {
   .carModels{
     width: 120px;
   }
+
+.card-body {
+  background-color: #48494B;
+}

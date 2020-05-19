@@ -11,13 +11,17 @@ import {Advertisement} from '../../shared/model/advertisement';
 export class AdvertisementListComponent implements OnInit {
 
   @Input('advertisements') advertisements: any;
+  @Input('numOfAds') numOfAds: any;
+  numOfAds2: any;
   @Output() notify = new EventEmitter<Advertisement>();
-
+  show: any = false;
   constructor() {
   }
   ngOnInit() {
-
+    this.numOfAds2 = this.numOfAds;
+    this.show = true;
   }
+
   public onNotify(ad: any): void {
     this.notify.emit(ad);
   }

@@ -1,8 +1,8 @@
 export class SearchDto {
 
   place: any;
-  startDate: Date;
-  endDate: Date;
+  startDate: any;
+  endDate: any;
   brand: any;
   fuelType: any;
   carClass: any;
