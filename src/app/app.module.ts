@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RatingModule} from 'ng-starrating';
@@ -68,6 +68,8 @@ import {AuthService} from './service/auth.service';
 import {ApiService} from './service/api.service';
 import {ConfigService} from './service/config.service';
 import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
+import {TokenInterceptor} from './interceptor/TokenInterceptor';
+import {UserService} from './service/user.service';
 
 
 // @ts-ignore
@@ -139,6 +141,11 @@ import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-r
     jqxChartModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     FooService,
     LoginService,
     MatDatepickerModule,
@@ -148,6 +155,7 @@ import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-r
     AuthService,
     ApiService,
     ConfigService,
+    UserService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],
