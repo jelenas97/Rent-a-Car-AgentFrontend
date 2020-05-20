@@ -26,7 +26,7 @@ export class AuthService {
 
   login(user) {
     const loginHeaders = new HttpHeaders({
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
     const body = {
@@ -38,7 +38,6 @@ export class AuthService {
         console.log('Login success');
         this.accessToken = res.accessToken;
         this.currUser = res.user;
-        localStorage.setItem('roles', res.user.roles);
       }));
   }
 
@@ -49,6 +48,14 @@ export class AuthService {
 
   getCurrUser() {
     return this.currUser;
+  }
+
+  tokenIsPresent() {
+    return this.accessToken !== undefined && this.accessToken != null;
+  }
+
+  getToken() {
+    return this.accessToken;
   }
 }
 
