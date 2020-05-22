@@ -28,7 +28,7 @@ export class RentACarHpComponent implements OnInit {
   arrow: any = 'arrow_downward';
   // car search params
   searchDto: SearchDto = new SearchDto();
-
+  showPlaceholder = true;
   codeBook: any;
   advanceSearch: any = false;
   showModel: any = false;
@@ -188,6 +188,10 @@ export class RentACarHpComponent implements OnInit {
     GlobalCart.cartAds.push(request);
   }
   public changeNumAd() {
+  }
+
+  changeOption() {
+    this.showPlaceholder = false;
   }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {

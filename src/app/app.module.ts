@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RatingModule} from 'ng-starrating';
@@ -54,17 +54,22 @@ import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
 import {RegisterNewUserService} from './admin-profile/register-new-user/registerNewUser.service';
-import {UsersListComponent} from './admin-profile/users-list/users-list.component';
-import {AdvertisementService} from './service/advertisement.service';
-import {ClientProfileComponent} from './client-profile/client-profile.component';
-import {AgentProfileComponent} from './agent-profile/agent-profile.component';
-import {HistoryRentsComponent} from './client-profile/history-rents/history-rents.component';
-import {ClientInfoComponent} from './client-profile/client-info/client-info.component';
-import {AgentInfoComponent} from './agent-profile/agent-info/agent-info.component';
+import { UsersListComponent } from './admin-profile/users-list/users-list.component';
+import { AdvertisementService } from './service/advertisement.service';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { AgentProfileComponent } from './agent-profile/agent-profile.component';
+import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
+import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
+import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
 import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
 import {jqxChartModule} from 'jqwidgets-ng/jqxchart';
-import {ApprovingCommentsComponent} from './admin-profile/approving-comments/approving-comments.component';
+import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
+import {AuthService} from './service/auth.service';
+import {ApiService} from './service/api.service';
+import {ConfigService} from './service/config.service';
 import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
+import {TokenInterceptor} from './interceptor/TokenInterceptor';
+import {UserService} from './service/user.service';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -178,12 +183,21 @@ const customNotifierOptions: NotifierOptions = {
     NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     FooService,
     LoginService,
     MatDatepickerModule,
     RegistrationService,
     AdvertisementService,
     RegisterNewUserService,
+    AuthService,
+    ApiService,
+    ConfigService,
+    UserService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],

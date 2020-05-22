@@ -7,9 +7,28 @@ import {HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+  currentUser;
 
   constructor(private apiService: ApiService, private config: ConfigService) {
 
+  }
+
+  initUser() {
+    const promise = this.apiService.get(this.config.refreshTokenUrl).toPromise()
+      .then(res => {
+        if (res.access_token !== null) {
+          return this.getMyInfo().toPromise()
+            .then(user => {
+              this.currentUser = user;
+            });
+        }
+      })
+      .catch(() => null);
+    return promise;
+  }
+
+  setupUser(user) {
+    this.currentUser = user;
   }
 
   getMyInfo() {
