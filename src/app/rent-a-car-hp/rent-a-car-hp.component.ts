@@ -149,10 +149,12 @@ export class RentACarHpComponent implements OnInit {
 
     } else {
       this.advertisementService.searchAdvertisements(this.searchDto).subscribe(foundAds => {
-        console.log('Founds ads :');
-        console.log(foundAds);
         this.all_ads = foundAds;
         this.removeCartAds();
+        this.notifier.notify('success', 'Searching finished :D');
+        setTimeout(() => {
+          this.notifier.hideAll();
+        }, 1000);
       });
     }
   }
@@ -165,6 +167,12 @@ export class RentACarHpComponent implements OnInit {
     this.sortedAdvertisements = this.all_ads;
     this.sortParameter = 'price';
     this.isAsc = false;
+    if (this.all_ads.length === 0) {
+      this.notifier.notify('error', 'We could not find any free car :(, try with other parameters!');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 1000);
+    }
     this.showAds();
   }
 
@@ -184,8 +192,20 @@ export class RentACarHpComponent implements OnInit {
     this.showAds();
     const senderId = 8;
     // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
+    // if(nije ulogovan){
+    //   this.notifier.notify('error', 'You have to log  in to rent a car!');
+    //   setTimeout(() => {
+    //     this.notifier.hideAll();
+    //   }, 2000);
+    // }
+    // if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
+    // }
     const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
     GlobalCart.cartAds.push(request);
+    this.notifier.notify('success', 'Car added in shop cart!');
+    setTimeout(() => {
+      this.notifier.hideAll();
+    }, 1000);
   }
   public changeNumAd() {
   }
