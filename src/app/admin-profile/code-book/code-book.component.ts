@@ -8,6 +8,7 @@ import {ClassService} from '../../service/class.service';
 import {FuelService} from '../../service/fuel.service';
 import {ModelService} from '../../service/model.service';
 import {TransmissionService} from '../../service/transmission.service';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-code-book',
@@ -21,7 +22,8 @@ export class CodeBookComponent implements OnInit {
   brand: any;
   selectedModel: any = false;
   constructor(private dialog: MatDialog, private brandService: BrandService, private classService: ClassService,
-              private fuelService: FuelService, private modelService: ModelService, private tranService: TransmissionService) {
+              private fuelService: FuelService, private modelService: ModelService, private tranService: TransmissionService,
+              private notifier: NotifierService) {
   }
 
   ngOnInit(): void {
@@ -154,6 +156,11 @@ export class CodeBookComponent implements OnInit {
   }
 
   public onNotify(): void {
+    this.notifier.notify('success', 'Action successfully done! :D');
+    setTimeout(() => {
+      this.notifier.hideAll();
+    }, 1000);
+
     this.notify.emit();
   }
 }
