@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators';
 import {HttpHeaders} from '@angular/common/http';
 import {ConfigService} from './config.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,6 +37,12 @@ export class AdvertisementService {
 
   getAllAdvertisements() {
     return this.apiService.get(this.configService.getAds_url).pipe(map(result => {
+      return result;
+    }));
+  }
+
+  getAgentAds(id: any) {
+    return this.apiService.get(this.configService.getAds_url + '/' + id).pipe(map(result => {
       return result;
     }));
   }
