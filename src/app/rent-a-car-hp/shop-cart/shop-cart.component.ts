@@ -4,6 +4,7 @@ import {Rent} from '../../shared/model/rent';
 import {RequestHolder} from '../../shared/model/request-holder';
 import {GlobalCart} from '../../shared/global';
 import {RentRequestService} from '../../service/rent-request.service';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-shop-cart',
@@ -13,7 +14,7 @@ import {RentRequestService} from '../../service/rent-request.service';
 export class ShopCartComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any,
-              private rentService: RentRequestService) {
+              private rentService: RentRequestService, private notifier: NotifierService) {
   }
 
   advertisements: Rent[];
@@ -54,6 +55,10 @@ export class ShopCartComponent implements OnInit {
     console.log(this.bundle);
     console.log(this.requestHolder);
     this.rentService.sentRequest(this.requestHolder).subscribe(foundAds => {
+      this.notifier.notify('success', 'Renting request sent! Please wait for answer :)');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 2000);
       this.Cancel();
       this.advertisements = [];
     });
