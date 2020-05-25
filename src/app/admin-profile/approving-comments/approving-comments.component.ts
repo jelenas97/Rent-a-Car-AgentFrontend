@@ -3,7 +3,8 @@ import {Comment} from '../../shared/model/comment';
 import {User} from '../../shared/model/user';
 import {ConfirmDialogComponent} from '../../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {CommentService} from "../../service/comment.service";
+import {CommentService} from '../../service/comment.service';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-approving-comments',
@@ -12,7 +13,8 @@ import {CommentService} from "../../service/comment.service";
 })
 export class ApprovingCommentsComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private commentService: CommentService) { }
+  constructor(private dialog: MatDialog, private commentService: CommentService, private notifier: NotifierService) {
+  }
   @Input('comments') comments: Comment[];
   ngOnInit(): void {
   }
@@ -29,6 +31,10 @@ export class ApprovingCommentsComponent implements OnInit {
       } else {
         comment.status = x.value;
         this.commentService.changeStatus(comment).subscribe(res => {
+          this.notifier.notify('success', 'Comment processed! :D');
+          setTimeout(() => {
+            this.notifier.hideAll();
+          }, 1000);
           console.log(res);
         });
       }

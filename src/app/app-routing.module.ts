@@ -1,6 +1,5 @@
-import {HistoryRentsComponent} from './client-profile/history-rents/history-rents.component';
-import { AgentProfileComponent } from './agent-profile/agent-profile.component';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
+import {AgentProfileComponent} from './agent-profile/agent-profile.component';
+import {ClientProfileComponent} from './client-profile/client-profile.component';
 import {RequestedRentsComponent} from './client-profile/requested-rents/requested-rents.component';
 import {CarProfilePageComponent} from './car-profile-page/car-profile-page.component';
 import {NgModule} from '@angular/core';
@@ -12,7 +11,7 @@ import {LoginComponent} from './login/login.component';
 import {AdminProfileComponent} from './admin-profile/admin-profile.component';
 import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-advertisement/new-advertisement.component';
 import {RegistrationComponent} from './registration/registration.component';
-import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
+import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
 
 const routes: Routes = [

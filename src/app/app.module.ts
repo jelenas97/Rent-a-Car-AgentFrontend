@@ -7,10 +7,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RatingModule} from 'ng-starrating';
+import {NotifierModule, NotifierOptions} from 'angular-notifier';
 // services
 import {FooService} from './foo/foo.service';
 // angular material compoonents
-// Nephodno instalirati sa komandom ng add @angular/material , izabrati temu: "deeppurple-amber" ili samo npm install na pocetku
 import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormFieldModule,
@@ -70,6 +70,47 @@ import {ConfigService} from './service/config.service';
 import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
 import {TokenInterceptor} from './interceptor/TokenInterceptor';
 import {UserService} from './service/user.service';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'top',
+      distance: 100,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 4000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: false,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 
 // @ts-ignore
@@ -138,7 +179,8 @@ import {UserService} from './service/user.service';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    jqxChartModule
+    jqxChartModule,
+    NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [
     {

@@ -40,10 +40,18 @@
  margin-left: auto;
 }
 
-.right{
-  margin-top: 5px;
+.notifier {
   display: flex;
   justify-content: right;
+  margin-left: 67%;
+  margin-right: 10px;
+
+}
+
+.right{
+  margin-top: 5px;
+   display: flex;
+   justify-content: right;
   margin-left: 80%;
   margin-right: 60px;
 }
@@ -74,7 +82,7 @@
 .matContent{
   width: auto;
   min-height: 56.1em;
-  background-image: url("../images/parts.jpg");
+  background-image: url("../images/partsDark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
