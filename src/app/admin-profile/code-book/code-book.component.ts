@@ -159,8 +159,9 @@ export class CodeBookComponent implements OnInit {
     this.notifier.notify('success', 'Action successfully done! :D');
     setTimeout(() => {
       this.notifier.hideAll();
+      this.notify.emit();
     }, 1000);
 
-    this.notify.emit();
+
   }
 }
