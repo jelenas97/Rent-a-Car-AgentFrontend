@@ -7,6 +7,7 @@ import {AuthService} from './service/auth.service';
 import {User} from './shared/model/user';
 import {Router} from '@angular/router';
 import {ConfirmDialogComponent} from './shared/dialogs/confirm-dialog/confirm-dialog.component';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
   admin: boolean;
   agent: boolean;
 
-  constructor(private dialog: MatDialog, private authService: AuthService, private router: Router) {
+  constructor(private dialog: MatDialog, private authService: AuthService, private router: Router,
+              private notifier: NotifierService) {
     this.unauthorized = true;
   }
 
@@ -47,7 +49,9 @@ export class AppComponent implements OnInit {
       this.admin = false;
       this.agent = false;
     } else {
-      this.set();
+      if (this.currUser.roles != null) {
+        this.set();
+      }
     }
     this.router.navigate(['homepage']);
   }
@@ -89,10 +93,19 @@ export class AppComponent implements OnInit {
         this.client = false;
         this.admin = false;
         this.agent = false;
-        this.ngOnInit();
+        this.removeCart();
+        this.notifier.notify('success', 'Successfully log out!');
+        setTimeout(() => {
+          this.notifier.hideAll();
+        }, 2000);
         console.log(this.currUser.roles);
       }
     });
+  }
+
+  removeCart() {
+    GlobalCart.cartAds = [];
+    this.cartAds = GlobalCart.cartAds;
   }
 }
 
