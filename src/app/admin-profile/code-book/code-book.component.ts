@@ -9,6 +9,7 @@ import {FuelService} from '../../service/fuel.service';
 import {ModelService} from '../../service/model.service';
 import {TransmissionService} from '../../service/transmission.service';
 import {NotifierService} from 'angular-notifier';
+import {CarModel} from '../../shared/model/car-model';
 
 @Component({
   selector: 'app-code-book',
@@ -16,9 +17,10 @@ import {NotifierService} from 'angular-notifier';
   styleUrls: ['./code-book.component.css']
 })
 export class CodeBookComponent implements OnInit {
+  // tslint:disable-next-line:no-input-rename
   @Input('codeBook') codeBook: CodeBook;
   @Output() notify = new EventEmitter();
-  models: any;
+  models: CarModel;
   brand: any;
   selectedModel: any = false;
   constructor(private dialog: MatDialog, private brandService: BrandService, private classService: ClassService,
@@ -72,14 +74,14 @@ export class CodeBookComponent implements OnInit {
       this.onNotify();
     });
   }
-  removeClass(model: any) {
+  removeClass(id: number) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      console.log(result);
+      console.log(id);
       if (result === 'yes') {
-        this.classService.deleteClass(model).subscribe(message => {
+        this.classService.deleteClass(id).subscribe(message => {
         });
         this.onNotify();
       }
@@ -95,14 +97,14 @@ export class CodeBookComponent implements OnInit {
       this.onNotify();
     });
   }
-  removeFuel(model: any) {
+  removeFuel(id: number) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(result);
       if (result === 'yes') {
-        this.fuelService.deleteFuel(model).subscribe(message => {
+        this.fuelService.deleteFuel(id).subscribe(message => {
         });
         this.onNotify();
       }
@@ -141,14 +143,14 @@ export class CodeBookComponent implements OnInit {
       this.onNotify();
     });
   }
-  removeTransmission(model: any) {
+  removeTransmission(id: number) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(result);
       if (result === 'yes') {
-        this.tranService.deleteTransmission(model).subscribe(message => {
+        this.tranService.deleteTransmission(id).subscribe(message => {
         });
         this.onNotify();
       }
