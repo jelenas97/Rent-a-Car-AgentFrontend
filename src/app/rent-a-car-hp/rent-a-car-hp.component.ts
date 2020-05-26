@@ -7,8 +7,8 @@ import {SearchDto} from '../shared/model/search-dto';
 import {AdvertisementService} from '../service/advertisement.service';
 import {Rent} from '../shared/model/rent';
 import {NotifierService} from 'angular-notifier';
-import {AuthService} from "../service/auth.service";
-import {User} from "../shared/model/user";
+import {AuthService} from '../service/auth.service';
+import {User} from '../shared/model/user';
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -51,15 +51,19 @@ export class RentACarHpComponent implements OnInit {
 
     });
     this.currUser = this.authService.getCurrUser();
-    if (this.currUser !== undefined || this.currUser.roles !== null) {
-      if (this.currUser.roles.includes('ROLE_AGENT')) {
-        // this.advertisementService.
-        this.advertisementService.getAgentAds(this.currUser.id).subscribe(foundAds => {
-          this.all_ads = foundAds;
-          this.removeCartAds();
-        });
+    let unregistered = true;
+    if (this.currUser.roles !== undefined) {
+      if (this.currUser.roles !== null) {
+        if (this.currUser.roles.includes('ROLE_AGENT')) {
+          this.advertisementService.getAgentAds(this.currUser.id).subscribe(foundAds => {
+            this.all_ads = foundAds;
+            unregistered = false;
+            this.removeCartAds();
+          });
+        }
       }
-    } else {
+    }
+    if (unregistered) {
       this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
         this.all_ads = foundAds;
         this.removeCartAds();

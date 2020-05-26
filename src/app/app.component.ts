@@ -98,7 +98,6 @@ export class AppComponent implements OnInit {
         setTimeout(() => {
           this.notifier.hideAll();
         }, 2000);
-        console.log(this.currUser.roles);
       }
     });
   }
