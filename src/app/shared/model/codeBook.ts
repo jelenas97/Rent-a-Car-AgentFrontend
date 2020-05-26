@@ -1,10 +1,17 @@
-export class CodeBook{
+import {CarBrand} from './car-brand';
+import {CarClass} from './car-class';
+import {FuelType} from './fuel-type';
+import {TransmissionType} from './transmission-type';
 
-    carBrands: any;
-    carClasses: any;
-    fuelTypes: any;
-    transmissionTypes: any;
-    constructor(){}
+export class CodeBook {
+
+  carBrands: CarBrand[];
+  carClasses: CarClass[];
+  fuelTypes: FuelType[];
+  transmissionTypes: TransmissionType[];
+
+  constructor() {
+  }
 
 
-    }
+}

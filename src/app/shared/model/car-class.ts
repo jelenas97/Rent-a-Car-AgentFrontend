@@ -1,8 +1,10 @@
-export class CarClass{
+export class CarClass {
 
-  id: Number;
-  name: String;
-  constructor(){}
+  id: number;
+  name: string;
+
+  constructor() {
+  }
 
 
 }
