@@ -13,30 +13,10 @@ export class UserService {
 
   }
 
-  initUser() {
-    const promise = this.apiService.get(this.config.refreshTokenUrl).toPromise()
-      .then(res => {
-        if (res.access_token !== null) {
-          return this.getMyInfo().toPromise()
-            .then(user => {
-              this.currentUser = user;
-            });
-        }
-      })
-      .catch(() => null);
-    return promise;
-  }
-
-  setupUser(user) {
-    this.currentUser = user;
-  }
-
   getMyInfo() {
-    return this.apiService.get(this.config.whoAmIUrl)
+    return this.apiService.get(this.config.whoAmI_url)
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user)); // sacuvaju se osnovni podaci o ulogovanom useru
-        console.log(JSON.parse(localStorage.getItem('currentUser')));
-        console.log(user.authorities[0].authority);
         return user;
       }));
   }
