@@ -3,14 +3,14 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RatingModule} from 'ng-starrating';
+import {NotifierModule, NotifierOptions} from 'angular-notifier';
 // services
 import {FooService} from './foo/foo.service';
 // angular material compoonents
-// Nephodno instalirati sa komandom ng add @angular/material , izabrati temu: "deeppurple-amber" ili samo npm install na pocetku
 import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormFieldModule,
@@ -54,17 +54,63 @@ import {RegistrationComponent} from './registration/registration.component';
 import {RegistrationService} from './registration/registration.service';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
 import {RegisterNewUserService} from './admin-profile/register-new-user/registerNewUser.service';
-import {UsersListComponent} from './admin-profile/users-list/users-list.component';
-import {AdvertisementService} from './service/advertisement.service';
-import {ClientProfileComponent} from './client-profile/client-profile.component';
-import {AgentProfileComponent} from './agent-profile/agent-profile.component';
-import {HistoryRentsComponent} from './client-profile/history-rents/history-rents.component';
-import {ClientInfoComponent} from './client-profile/client-info/client-info.component';
-import {AgentInfoComponent} from './agent-profile/agent-info/agent-info.component';
-import {AdvertisementStatisticsComponent} from "./advertisement-statistics/advertisement-statistics.component";
-import {jqxChartModule} from "jqwidgets-ng/jqxchart";
-import {ApprovingCommentsComponent} from './admin-profile/approving-comments/approving-comments.component';
+import { UsersListComponent } from './admin-profile/users-list/users-list.component';
+import { AdvertisementService } from './service/advertisement.service';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { AgentProfileComponent } from './agent-profile/agent-profile.component';
+import { HistoryRentsComponent } from './client-profile/history-rents/history-rents.component';
+import { ClientInfoComponent } from './client-profile/client-info/client-info.component';
+import { AgentInfoComponent } from './agent-profile/agent-info/agent-info.component';
+import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
+import {jqxChartModule} from 'jqwidgets-ng/jqxchart';
+import { ApprovingCommentsComponent } from './admin-profile/approving-comments/approving-comments.component';
+import {AuthService} from './service/auth.service';
+import {ApiService} from './service/api.service';
+import {ConfigService} from './service/config.service';
 import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
+import {TokenInterceptor} from './interceptor/TokenInterceptor';
+import {UserService} from './service/user.service';
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'right',
+      distance: 12
+    },
+    vertical: {
+      position: 'top',
+      distance: 100,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 4000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: false,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 
 // @ts-ignore
@@ -133,15 +179,25 @@ import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-r
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    jqxChartModule
+    jqxChartModule,
+    NotifierModule.withConfig(customNotifierOptions)
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     FooService,
     LoginService,
     MatDatepickerModule,
     RegistrationService,
     AdvertisementService,
     RegisterNewUserService,
+    AuthService,
+    ApiService,
+    ConfigService,
+    UserService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent, LoginComponent],

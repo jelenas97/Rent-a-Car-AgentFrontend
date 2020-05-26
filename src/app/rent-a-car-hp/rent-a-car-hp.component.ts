@@ -6,7 +6,7 @@ import {ModelService} from '../service/model.service';
 import {SearchDto} from '../shared/model/search-dto';
 import {AdvertisementService} from '../service/advertisement.service';
 import {Rent} from '../shared/model/rent';
-
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -15,28 +15,7 @@ import {Rent} from '../shared/model/rent';
 })
 export class RentACarHpComponent implements OnInit {
 
-  // tslint:disable-next-line:variable-name
   all_ads: Advertisement[];
-  // all_ads: Advertisement[] = [
-  //   // tslint:disable-next-line:max-line-length
-  //   {
-  //     id: 1,
-  //     kilometresLimit: 200,
-  //     discount: 10,
-  //     model: 'model',
-  //     cwd: true,
-  //     image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-  //     mileage: 4000,
-  //     kidSeats: 0,
-  //     availableTracking: true,
-  //     carClass: "SUV",
-  //     carBrand: "BMW",
-  //     price: 1,
-  //     transmissionType: "automatic",
-  //     fuelType: "petrol",
-  //     rate: 1,
-  //     name: "1"
-  //   }];
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -49,7 +28,7 @@ export class RentACarHpComponent implements OnInit {
   arrow: any = 'arrow_downward';
   // car search params
   searchDto: SearchDto = new SearchDto();
-
+  showPlaceholder = true;
   codeBook: any;
   advanceSearch: any = false;
   showModel: any = false;
@@ -57,7 +36,7 @@ export class RentACarHpComponent implements OnInit {
   opened: any = true;
   numOfAds: any = 6;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
-              private advertisementService: AdvertisementService) {
+              private advertisementService: AdvertisementService, private notifier: NotifierService) {
   }
 
 
@@ -162,12 +141,20 @@ export class RentACarHpComponent implements OnInit {
     console.log('Search DTO: ' + JSON.stringify(this.searchDto));
     if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
       console.log('ERROR');
+
+      this.notifier.notify('error', 'You have to insert Start date, End date and Place !!!');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 2000);
+
     } else {
       this.advertisementService.searchAdvertisements(this.searchDto).subscribe(foundAds => {
-        console.log('Founds ads :');
-        console.log(foundAds);
         this.all_ads = foundAds;
         this.removeCartAds();
+        this.notifier.notify('success', 'Searching finished :D');
+        setTimeout(() => {
+          this.notifier.hideAll();
+        }, 1000);
       });
     }
   }
@@ -180,6 +167,12 @@ export class RentACarHpComponent implements OnInit {
     this.sortedAdvertisements = this.all_ads;
     this.sortParameter = 'price';
     this.isAsc = false;
+    if (this.all_ads.length === 0) {
+      this.notifier.notify('error', 'We could not find any free car :(, try with other parameters!');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 1000);
+    }
     this.showAds();
   }
 
@@ -199,10 +192,26 @@ export class RentACarHpComponent implements OnInit {
     this.showAds();
     const senderId = 8;
     // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
+    // if(nije ulogovan){
+    //   this.notifier.notify('error', 'You have to log  in to rent a car!');
+    //   setTimeout(() => {
+    //     this.notifier.hideAll();
+    //   }, 2000);
+    // }
+    // if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
+    // }
     const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
     GlobalCart.cartAds.push(request);
+    this.notifier.notify('success', 'Car added in shop cart!');
+    setTimeout(() => {
+      this.notifier.hideAll();
+    }, 1000);
   }
   public changeNumAd() {
+  }
+
+  changeOption() {
+    this.showPlaceholder = false;
   }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {

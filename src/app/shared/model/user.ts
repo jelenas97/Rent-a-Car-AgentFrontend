@@ -3,7 +3,8 @@ export class User {
   email: string;
   username: string;
   status: string;
-
-
-  constructor(){}
+  password: string;
+  confirmPassword: string;
+  roles: string[];
+  constructor() {}
 }

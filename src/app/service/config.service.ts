@@ -10,7 +10,7 @@ export class ConfigService {
   private loginUrl = this.authUrl + '/login';
   private signUpUrl = this.authUrl + '/signup';
   passChangeUrl = this.authUrl + '/changePassword';
-  whoAmIUrl = this.serverUrl + '/users/currentUser';
+  whoAmIUrl = this.serverUrl + '/users/whoami';
   private userUrl = this.serverUrl + '/users';
   private adminUrl = this.serverUrl + '/admin';
   private codebookUrl = this.serverUrl + '/codebook';
@@ -18,8 +18,17 @@ export class ConfigService {
   private commentUrl = this.serverUrl + '/comments';
   private rentRequestUrl = this.serverUrl + '/rentRequest';
   private requestHolderUrl = this.serverUrl + '/requestHolder';
+  // tslint:disable-next-line:variable-name
+  private _refreshTokenUrl = this.serverUrl + '/refresh';
 
 
+  get refreshTokenUrl(): string {
+    return this._refreshTokenUrl;
+  }
+
+  set refreshTokenUrl(value: string) {
+    this._refreshTokenUrl = value;
+  }
 
   get login_url(): string {
     return this.loginUrl;
@@ -50,7 +59,7 @@ export class ConfigService {
   get getAds_url(): string {
     return this.advertisementUrl;
   }
-  get getComment_url(): string{
+  get getComment_url(): string {
     return this.commentUrl;
   }
   get getRentRequests(): string {
