@@ -36,9 +36,11 @@ export class CodeBookComponent implements OnInit {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      this.brandService.newBrand(result).subscribe(message => {
-      });
-      this.onNotify();
+      if (result !== undefined) {
+        this.brandService.newBrand(result).subscribe(message => {
+        });
+        this.onNotify();
+      }
     });
   }
   removeBrand(model: any) {
@@ -69,14 +71,17 @@ export class CodeBookComponent implements OnInit {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      this.classService.newClass(result).subscribe(message => {
-      });
-      this.onNotify();
+      if (result !== undefined) {
+        this.classService.newClass(result).subscribe(message => {
+        });
+        this.onNotify();
+      }
     });
   }
   removeClass(id: number) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
+      data: 'Delete',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(id);
@@ -92,14 +97,17 @@ export class CodeBookComponent implements OnInit {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      this.fuelService.newFuel(result).subscribe(message => {
-      });
-      this.onNotify();
+      if (result !== undefined) {
+        this.fuelService.newFuel(result).subscribe(message => {
+        });
+        this.onNotify();
+      }
     });
   }
   removeFuel(id: number) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
+      data: 'Delete',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(result);
@@ -115,14 +123,17 @@ export class CodeBookComponent implements OnInit {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      this.modelService.newModel(result, this.brand).subscribe(message => {
-      });
-      this.onNotify();
+      if (result !== undefined) {
+        this.modelService.newModel(result, this.brand).subscribe(message => {
+        });
+        this.onNotify();
+      }
     });
   }
   removeModel(model: any) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
+      data: 'Delete',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(result);
@@ -138,14 +149,17 @@ export class CodeBookComponent implements OnInit {
       width: '30%',
     });
     dialog.afterClosed().subscribe(result => {
-      this.tranService.newTransmission(result).subscribe(message => {
-      });
-      this.onNotify();
+      if (result !== undefined) {
+        this.tranService.newTransmission(result).subscribe(message => {
+        });
+        this.onNotify();
+      }
     });
   }
   removeTransmission(id: number) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '30%',
+      data: 'Delete',
     });
     dialog.afterClosed().subscribe(result => {
       console.log(result);

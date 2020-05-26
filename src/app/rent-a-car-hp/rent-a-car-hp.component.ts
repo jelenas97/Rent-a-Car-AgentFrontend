@@ -7,6 +7,8 @@ import {SearchDto} from '../shared/model/search-dto';
 import {AdvertisementService} from '../service/advertisement.service';
 import {Rent} from '../shared/model/rent';
 import {NotifierService} from 'angular-notifier';
+import {AuthService} from '../service/auth.service';
+import {User} from '../shared/model/user';
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -35,8 +37,10 @@ export class RentACarHpComponent implements OnInit {
   models: any;
   opened: any = true;
   numOfAds: any = 6;
+  currUser: User;
   constructor(private codebookService: CodebookService, private modelService: ModelService,
-              private advertisementService: AdvertisementService, private notifier: NotifierService) {
+              private advertisementService: AdvertisementService, private notifier: NotifierService,
+              private authService: AuthService) {
   }
 
 
@@ -46,11 +50,26 @@ export class RentACarHpComponent implements OnInit {
       this.advanceSearch = true;
 
     });
-
-    /*this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
-      this.all_ads = foundAds;
-      this.removeCartAds();
-    });*/
+    this.currUser = this.authService.getCurrUser();
+    console.log(this.currUser);
+    // let unregistered = true; let unregistered = true;
+    // if (this.currUser.roles !== undefined) {
+    //   if (this.currUser.roles !== null) {
+    //     if (this.currUser.roles.includes('ROLE_AGENT')) {
+    //       this.advertisementService.getAgentAds(this.currUser.id).subscribe(foundAds => {
+    //         this.all_ads = foundAds;
+    //         unregistered = false;
+    //         this.removeCartAds();
+    //       });
+    //     }
+    //   }
+    // }
+    // if (unregistered) {
+    this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
+        this.all_ads = foundAds;
+        this.removeCartAds();
+      });
+    // }
   }
 
   showAds() {
@@ -184,28 +203,74 @@ export class RentACarHpComponent implements OnInit {
     });
   }
 
-  public onNotify(ad: any): void {
-    const foundIndex = this.all_ads.findIndex(({id}) => id === ad.id);
-    this.all_ads = this.all_ads.filter((_, index) => index !== foundIndex);
-    this.advertisements = this.all_ads;
-    this.sortedAdvertisements = this.advertisements;
-    this.showAds();
-    const senderId = 8;
-    // TREBA NAM ID OD ONOGA KOJI POSALJE!!!!!!!!!!!!!
-    // if(nije ulogovan){
-    //   this.notifier.notify('error', 'You have to log  in to rent a car!');
-    //   setTimeout(() => {
-    //     this.notifier.hideAll();
-    //   }, 2000);
-    // }
-    // if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null) {
-    // }
-    const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
-    GlobalCart.cartAds.push(request);
-    this.notifier.notify('success', 'Car added in shop cart!');
-    setTimeout(() => {
-      this.notifier.hideAll();
-    }, 1000);
+  public onNotify(ad: Advertisement): void {
+    console.log('Vlasnik ovog oglasa je: ' + ad.ownerID);
+    // this.currUser = this.authService.getCurrUser();
+    console.log('Trenutno ulogovani korisnik je : ' + this.currUser);
+    let unregistered = true;
+    if (this.currUser.roles !== undefined) {
+      if (this.currUser.roles !== null) {
+        unregistered = false;
+        if (this.currUser.roles.includes('ROLE_AGENT')) {
+          if (this.currUser.id === ad.ownerID) {
+            console.log('OVO JE MOJ OGLAS!! fizicko rentiranje!!');
+            this.notifier.notify('success', 'Fizicko RENTIRANJE!!!!!');
+            setTimeout(() => {
+              this.notifier.hideAll();
+            }, 2000);
+          } else {
+            this.notifier.notify('error', 'You cant rent car that isn\'t yours!');
+            setTimeout(() => {
+              this.notifier.hideAll();
+            }, 2000);
+          }
+        } else if (this.currUser.roles.includes('ROLE_CLIENT')) {
+          if (this.currUser.id === ad.ownerID) {
+            this.notifier.notify('error', 'You can\'t rent your car!!');
+            setTimeout(() => {
+              this.notifier.hideAll();
+            }, 2000);
+
+          } else {
+            console.log('Try to put inside CART!!!');
+            this.putInCart(ad, this.currUser.id);
+          }
+        } else {
+          // Ne mozes rentirati!!!!!;
+        }
+      }
+    }
+    if (unregistered) {
+      this.notifier.notify('error', 'You have to log in to rent a car!!');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 2000);
+    }
+
+  }
+
+  public putInCart(ad: Advertisement, senderId: any) {
+    if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null ||
+      this.searchDto.place === undefined || this.searchDto.startDate === undefined || this.searchDto.endDate === undefined) {
+      this.notifier.notify('error', 'Please select Start Date, End Date and Place!');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 2000);
+    } else {
+      const foundIndex = this.all_ads.findIndex(({id}) => id === ad.id);
+      this.all_ads = this.all_ads.filter((_, index) => index !== foundIndex);
+      this.advertisements = this.all_ads;
+      this.sortedAdvertisements = this.advertisements;
+      this.showAds();
+
+      const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
+      GlobalCart.cartAds.push(request);
+      this.notifier.notify('success', 'Car added in your shop cart!');
+      setTimeout(() => {
+        this.notifier.hideAll();
+      }, 2000);
+
+    }
   }
   public changeNumAd() {
   }
