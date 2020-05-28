@@ -9,6 +9,7 @@ import {Rent} from '../shared/model/rent';
 import {NotifierService} from 'angular-notifier';
 import {AuthService} from '../service/auth.service';
 import {User} from '../shared/model/user';
+import {CodeBook} from '../shared/model/codeBook';
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -31,7 +32,7 @@ export class RentACarHpComponent implements OnInit {
   // car search params
   searchDto: SearchDto = new SearchDto();
   showPlaceholder = true;
-  codeBook: any;
+  codeBook: CodeBook;
   advanceSearch: any = false;
   showModel: any = false;
   models: any;
@@ -237,6 +238,10 @@ export class RentACarHpComponent implements OnInit {
           }
         } else {
           // Ne mozes rentirati!!!!!;
+          this.notifier.notify('error', 'You cant rent!!');
+          setTimeout(() => {
+            this.notifier.hideAll();
+          }, 2000);
         }
       }
     }
@@ -250,6 +255,9 @@ export class RentACarHpComponent implements OnInit {
   }
 
   public putInCart(ad: Advertisement, senderId: any) {
+
+    console.log(this.searchDto.place + ' ' + this.searchDto.startDate + ' ' + this.searchDto.endDate);
+
     if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null ||
       this.searchDto.place === undefined || this.searchDto.startDate === undefined || this.searchDto.endDate === undefined) {
       this.notifier.notify('error', 'Please select Start Date, End Date and Place!');
@@ -262,7 +270,6 @@ export class RentACarHpComponent implements OnInit {
       this.advertisements = this.all_ads;
       this.sortedAdvertisements = this.advertisements;
       this.showAds();
-
       const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
       GlobalCart.cartAds.push(request);
       this.notifier.notify('success', 'Car added in your shop cart!');

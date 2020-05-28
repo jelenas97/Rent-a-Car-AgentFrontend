@@ -1,6 +1,28 @@
 <div class="bg">
-  <div class="row">
-    <div class="col-lg-3 offset-3">
+  <div class="row ml-5 pl-5">
+    <div class="col-4 pl-5">
+      <table class="border-0 table table-striped table-sm">
+        <thead>
+        <tr><td class="text-left align-content-center">Car Brand</td> <td class="text-right"><button class="btn"><mat-icon>add_box</mat-icon></button></td></tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let brand of codeBook.carBrands" (click)="removeBrand(brand.id)"><td>{{brand.name}}</td><td></td></tr>
+        <tr><button (click) = "addNewBrand()">Add new brand!</button>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-4">
+      <table class="border-0 table table-striped">
+        <th>Car Class</th>
+        <tbody>
+        <tr *ngFor="let class of codeBook.carClasses" (click)="removeClass(class.id)">{{class.name}}</tr>
+        <tr><button (click) = "addNewClass()">Add new class!</button>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-4">
       <table class="border-0 table table-striped">
         <th>Car Brand</th>
         <tbody>
@@ -8,11 +30,6 @@
         <tr><button (click) = "addNewBrand()">Add new brand!</button>
         </tbody>
       </table>
-    </div>
-
-    <div class="col-lg-3">
-
-
     </div>
   </div>
 
