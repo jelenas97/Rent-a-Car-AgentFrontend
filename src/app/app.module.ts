@@ -1,3 +1,4 @@
+import { AgentService } from './service/agent.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
@@ -196,6 +197,7 @@ const customNotifierOptions: NotifierOptions = {
     ApiService,
     ConfigService,
     UserService,
+    AgentService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent],
