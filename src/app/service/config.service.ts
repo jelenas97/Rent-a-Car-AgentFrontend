@@ -10,8 +10,8 @@ export class ConfigService {
   private loginUrl = this.authUrl + '/login';
   private signUpUrl = this.authUrl + '/signup';
   passChangeUrl = this.authUrl + '/changePassword';
-  whoAmIUrl = this.serverUrl + '/users/whoami';
-  private userUrl = this.serverUrl + '/users';
+  whoAmIUrl = this.serverUrl + '/user/whoami';
+  private userUrl = this.serverUrl + '/user';
   private adminUrl = this.serverUrl + '/admin';
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
@@ -20,6 +20,7 @@ export class ConfigService {
   private requestHolderUrl = this.serverUrl + '/requestHolder';
   // tslint:disable-next-line:variable-name
   private _refreshTokenUrl = this.serverUrl + '/refresh';
+  agentUrl = this.serverUrl+'/agent';
 
 
   get refreshTokenUrl(): string {

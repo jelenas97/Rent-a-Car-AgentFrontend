@@ -1,3 +1,6 @@
+import { UserService } from './../../service/user.service';
+import { AuthService } from './../../service/auth.service';
+import { User } from './../../shared/model/user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-info.component.css']
 })
 export class ClientInfoComponent implements OnInit {
+  currUser: User;
+  userInfo: any;
 
-  constructor() { }
+  constructor(private authService: AuthService, private userService : UserService) { }
 
   ngOnInit(): void {
-  }
+    this.currUser = this.authService.getCurrUser();
+    console.log(this.currUser);
 
+  }
 }

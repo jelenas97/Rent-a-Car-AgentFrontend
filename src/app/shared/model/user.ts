@@ -6,5 +6,8 @@ export class User {
   password: string;
   confirmPassword: string;
   roles: string[];
+  firstName:string;
+  lastName: string;
+  address: string;
   constructor() {}
 }

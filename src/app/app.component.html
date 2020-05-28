@@ -24,7 +24,7 @@
   <a *ngIf="client" class="text-white mr-3" routerLink="/client-profile">Profile</a>
   <a *ngIf="admin" class="text-white mr-3" routerLink="/profile">Profile</a>
   <a *ngIf="agent" class="text-white mr-3" routerLink="/agent-profile">Profile</a>
-      <a class="text-white mr-3" (click)="logout()" *ngIf="!unauthorized">Logout</a>
+      <a class="text-white mr-3 logout" (click)="logout()" *ngIf="!unauthorized">Logout</a>
 
       <button mat-mini-fab style="margin-left:10px;" *ngIf="client" (click) = "openCart()">
         <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>

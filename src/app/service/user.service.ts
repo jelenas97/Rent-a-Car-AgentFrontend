@@ -8,18 +8,19 @@ import {HttpHeaders} from '@angular/common/http';
 })
 export class UserService {
   currentUser;
-
+  userr;
   constructor(private apiService: ApiService, private config: ConfigService) {
 
   }
 
-  initUser() {
+initUser() {
     const promise = this.apiService.get(this.config.refreshTokenUrl).toPromise()
       .then(res => {
         if (res.access_token !== null) {
           return this.getMyInfo().toPromise()
             .then(user => {
               this.currentUser = user;
+              console.log(this.currentUser);
             });
         }
       })
@@ -76,6 +77,14 @@ export class UserService {
       .pipe(map((res) => {
         console.log(res);
       }));
+  }
+
+  getCurrentUserInfo(currentUser){
+    return this.apiService.get(this.config.user_url +'/'+ currentUser.id ).pipe(map(userInfo => {
+          console.log(userInfo);
+          return userInfo;
+      })
+    )
   }
 
 }

@@ -25,3 +25,8 @@ navbar {
   height: auto;
 
 }
+
+a.logout:hover{
+   text-decoration: underline;
+}
+
