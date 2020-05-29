@@ -8,14 +8,14 @@ export class Car{
 
 id: Number;
 limit: Number;
-image: String;
 mileage: Number;
 kidSeats: Number;
 carClass: CarClass;
 carBrand: CarBrand;
+carModel: CarModel
 transmissionType: TransmissionType;
-fuelType: FuelType;
-collisionDamageWaiver: Boolean;
+fuelType: FuelType[];
+availableTracking: Boolean;
 imageGallery: any;
 
 constructor(){}

@@ -1,7 +1,7 @@
 <br/>
 <div class="row">
     <div class="column">
-        <img class="profile-image" mat-card-image name="profile-picture" src="{{car.image}}">
+        <img class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
     </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">
@@ -15,10 +15,9 @@
             <p class="border-bottom">Model:  {{car.carBrand.carModels[0].name}}</p>
             <p class="border-bottom">Transmission:  {{car.transmissionType.name}} </p>
             <p class="border-bottom">Class:  {{car.carClass.name}} </p>
-            <p class="border-bottom">Fuel:  {{car.fuelType.name}} </p>
+            <p class="border-bottom">Fuel:  {{car.fuelType[0].name}} </p>
             <p class="border-bottom">Mileage:  {{car.mileage}} </p>
             <p class="border-bottom">Limit:  {{car.limit}} </p>
-            <p class="border-bottom">Collision Damage Waiver:  {{car.collisionDamageWaiver}} </p>
             <p class="border-bottom">Kid seats:  {{car.kidSeats}} </p>
         </mat-card-content>
         <br/>
