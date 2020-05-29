@@ -15,3 +15,18 @@
 navbar {
   color: red;
 }
+
+.startBackground {
+  width: auto;
+  /*background-image: url("src/app/images/renta-car.jpg");*/
+  background-repeat: no-repeat;
+  min-height: 56.1em;
+  background-size: cover;
+  height: auto;
+
+}
+
+a.logout:hover{
+   text-decoration: underline;
+}
+

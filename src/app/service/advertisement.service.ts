@@ -5,6 +5,7 @@ import {HttpHeaders} from '@angular/common/http';
 import {ConfigService} from './config.service';
 import {Advertisement2} from "../shared/model/advertisement2";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -47,5 +48,11 @@ export class AdvertisementService {
     });
     return this.apiService.post(this.configService.getAds_url , advertisement, editHeaders).pipe(map(result => {
       console.log('New advertisement added' + result);    }));
+  }
+
+  getAgentAds(id: any) {
+    return this.apiService.get(this.configService.getAds_url + '/' + id).pipe(map(result => {
+      return result;
+    }));
   }
 }

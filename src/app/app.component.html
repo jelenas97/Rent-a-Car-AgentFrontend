@@ -3,10 +3,10 @@
       <button mat-mini-fab aria-label="Example icon button with a home icon" class="mr-2" routerLink="/homepage" class="mr-3">
         <mat-icon>home</mat-icon>
       </button>
-      <button mat-mini-fab routerLink="/new-advertisement" class="mr-2">
+  <button *ngIf="client || agent" class="mr-2" mat-mini-fab routerLink="/new-advertisement">
         <mat-icon>add_box</mat-icon>
       </button>
-      <button mat-mini-fab routerLink="/advertisement-statistics" class="mr-2">
+  <button *ngIf="agent" class="mr-2" mat-mini-fab routerLink="/advertisement-statistics">
         <mat-icon>show_chart</mat-icon>
       </button>
       <button mat-mini-fab routerLink="/admin/user" *ngIf="admin" class="mr-2">
@@ -16,15 +16,15 @@
       <span></span>
       <span class = "filler"></span>
 
-      <button *ngIf="!unauthorized" class="mr-2" mat-mini-fab routerLink="/profile">
-        <mat-icon >face</mat-icon>
-      </button>
+
 
       <a routerLink="/login" *ngIf="unauthorized" class="text-white mr-3">Login</a>
       <a routerLink="/registration" *ngIf="unauthorized" class="text-white mr-3">Sign in</a>
-      <a class="text-white mr-3" (click)="logout()" *ngIf="!unauthorized">Logout</a>
-      <a class="text-white mr-3" routerLink="/client-profile" *ngIf="!unauthorized">Profile</a>
 
+  <a *ngIf="client" class="text-white mr-3" routerLink="/client-profile">Profile</a>
+  <a *ngIf="admin" class="text-white mr-3" routerLink="/profile">Profile</a>
+  <a *ngIf="agent" class="text-white mr-3" routerLink="/agent-profile">Profile</a>
+      <a class="text-white mr-3 logout" (click)="logout()" *ngIf="!unauthorized">Logout</a>
 
       <button mat-mini-fab style="margin-left:10px;" *ngIf="client" (click) = "openCart()">
         <mat-icon matBadge="{{cartAds.length}}" matBadgePosition="above after" matBadgeColor="warn"  matBadgeOverlap="false"  matBadgeSize="medium">shopping_cart</mat-icon>
@@ -34,3 +34,4 @@
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+

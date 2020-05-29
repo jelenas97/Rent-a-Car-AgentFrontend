@@ -4,4 +4,5 @@ export class Agent {
   email: string;
   firstName: string;
   lastName: string;
+  businessRegistrationNumber: string;
 }

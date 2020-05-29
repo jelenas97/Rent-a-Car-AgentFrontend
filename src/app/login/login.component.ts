@@ -27,9 +27,7 @@ export class LoginComponent implements OnInit {
   onClickedLogin() {
     console.log('Username:' + this.currUser.username + ' and password: ' + this.currUser.password);
     this.authService.login(this.currUser).subscribe(data => {
-        console.log(this.userService.getMyInfo().subscribe());
         this.currUser = this.authService.getCurrUser();
-        this.userService.getMyInfo().subscribe();
         this.appComponent.ngOnInit();
         this.router.navigate(['/homepage']);
 

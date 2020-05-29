@@ -1,6 +1,6 @@
 <div>
   <div mat-dialog-content>
-    <div *ngIf="data!= 'User'">
+    <div *ngIf="data == 'Delete'">
       <h5>Do you want to delete item?</h5>
     </div>
 
@@ -9,6 +9,9 @@
     </div>
     <div *ngIf="data== 'User'">
       <h5>Are you sure you want to change status?</h5>
+    </div>
+    <div *ngIf="data== 'Logout'">
+      <h5>Are you sure you want to logout?</h5>
     </div>
   </div>
 </div>

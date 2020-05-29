@@ -4,11 +4,11 @@
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
             </mat-card-header>
-            <mat-card-title><b> Name Surname </b></mat-card-title>
+            <mat-card-title><b> {{this.currUser.firstName}} {{this.currUser.lastName}}  </b></mat-card-title>
             <mat-card-content>
                 <br/>
-                <p class="border-bottom info">Email:   </p>
-                <p class="border-bottom info">Address:  </p>
+                <p class="border-bottom info">Email: {{this.currUser.email}}  </p>
+                <p class="border-bottom info">Address: {{this.currUser.address}} </p>
 
             </mat-card-content>
             <br/>
