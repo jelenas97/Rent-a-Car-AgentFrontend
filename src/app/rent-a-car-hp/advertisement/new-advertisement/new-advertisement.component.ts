@@ -8,6 +8,11 @@ import {Advertisement} from "../../../shared/model/advertisement";
 import {Advertisement2} from "../../../shared/model/advertisement2";
 import {CodebookService} from "../../../service/codebook.service";
 import {CodeBook} from "../../../shared/model/codeBook";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {Car} from "../../../shared/model/car";
+import {AdvertisementListComponent} from "../../advertisement-list/advertisement-list.component";
+import {AdvertisementService} from "../../../service/advertisement.service";
+
 
 @Component({
   selector: 'app-new-advertisement',
@@ -18,17 +23,20 @@ export class NewAdvertisementComponent implements OnInit {
   images: [];
 
   carModels: CarModel[];
-
+  showDate;
   selectedCarBrand: CarBrand;
   selectedCarModel: CarModel;
   mileage: Number;
+  isVisible : boolean = false;
 
   advertisement: Advertisement2 = new Advertisement2();
   codeBook: CodeBook = new CodeBook();
 
 
-  constructor(private codebookService: CodebookService) {
-    this.advertisement.carBrand = new CarBrand();
+  constructor(private codebookService: CodebookService, private advertisementService: AdvertisementService) {
+    this.advertisement.car = new Car();
+    this.advertisement.car.carBrand = new CarBrand();
+    this.advertisement.car.fuelType = [];
   }
 
   ngOnInit() {
@@ -38,7 +46,7 @@ export class NewAdvertisementComponent implements OnInit {
   }
 
   updateBrand(value: CarBrand) {
-    this.selectedCarBrand = this.advertisement.carBrand;
+    this.selectedCarBrand = this.advertisement.car.carBrand;
     this.carModels = this.selectedCarBrand.carModels;
   }
 
@@ -48,6 +56,8 @@ export class NewAdvertisementComponent implements OnInit {
 
   onSubmit() {
     console.log(this.advertisement);
+    this.advertisementService.addAdvertisement(this.advertisement).subscribe(message => {
+    });;
   }
 
   onFileChange(event) {
@@ -56,17 +66,19 @@ export class NewAdvertisementComponent implements OnInit {
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
         var reader = new FileReader();
-
         reader.onload = (event:any) => {
-          console.log(event.target.result);
+          //console.log(event.target.result);
           // @ts-ignore
           this.images.push(event.target.result);
-          this.advertisement.imageGallery = this.images;
+          this.advertisement.car.imageGallery = this.images;
         };
 
         reader.readAsDataURL(event.target.files[i]);
       }
     }
+  }
+  ShowHide() {
+    this.isVisible = this.showDate;
   }
 
 }

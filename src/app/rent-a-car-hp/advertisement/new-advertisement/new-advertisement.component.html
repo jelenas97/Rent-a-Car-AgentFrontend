@@ -9,7 +9,7 @@
       <h5 class="card-header">Car information</h5>
         <label>Brand</label>
         <div class="ml-1">
-          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.carBrand"
+          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.car.carBrand"
                   (change)="updateBrand($event.target.value)" class="custom-select">
               <option disabled selected value> -- select an option -- </option>
               <option *ngFor="let brand of codeBook.carBrands" [ngValue]="brand" >
@@ -19,16 +19,16 @@
         </div>
         <label>Model</label>
         <div class="ml-1">
-          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.carModel"
+          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.car.carModel"
                  (change)="updateModel($event.target.value)" class="custom-select">
-              <option *ngFor="let model of advertisement.carBrand.carModels" [ngValue]="model">
+              <option *ngFor="let model of advertisement.car.carBrand.carModels" [ngValue]="model">
                 {{model.name}}
               </option>
             </select>
         </div>
         <label>Class</label>
         <div class="ml-1">
-          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.carClass"
+          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.car.carClass"
                    class="custom-select">
             <option *ngFor="let class of codeBook.carClasses" [ngValue]="class">
               {{class.name}}
@@ -37,7 +37,7 @@
         </div>
         <label>Transmission type</label>
         <div class="ml-1">
-          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.transmissionType"
+          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.car.transmissionType"
                    class="custom-select">
             <option *ngFor="let transmissionType of codeBook.transmissionTypes" [ngValue]="transmissionType">
               {{transmissionType.name}}
@@ -46,7 +46,7 @@
         </div>
         <label>Fuel type</label>
         <div class="ml-1">
-          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.fuelType"
+          <select [ngModelOptions]="{standalone: true}" [(ngModel)]="advertisement.car.fuelType[0]"
                    class="custom-select">
             <option *ngFor="let fuelType of codeBook.fuelTypes" [ngValue]="fuelType">
               {{fuelType.name}}
@@ -55,16 +55,16 @@
         </div>
         <label for="mileage">Mileage</label>
         <input type="number" class="form-control" id="mileage" min="0" oninput="validity.valid||(value='');"
-             [(ngModel)]="advertisement.mileage"
+             [(ngModel)]="advertisement.car.mileage"
              name="mileage" [ngModelOptions]="{standalone:true}">
         <label for="kidsSeats">Kids seats</label>
         <input type="number" class="form-control" id="kidsSeats" min="0" oninput="validity.valid||(value='');"
-             [(ngModel)]="advertisement.kidSeats"
+             [(ngModel)]="advertisement.car.kidSeats"
              name="kidsSeats" [ngModelOptions]="{standalone:true}">
         <label for="availableTracking">Available tracking</label>
         <div class="form-group ml-5 mr-5 m-1">
           <input type="checkbox" id="availableTracking" class="form-control"
-                 [(ngModel)]="advertisement.availableTracking"
+                 [(ngModel)]="advertisement.car.availableTracking"
                  name="availableTracking" [ngModelOptions]="{standalone:true}">
         </div>
 
@@ -92,13 +92,48 @@
     </div>
 
     <div class="form-group">
+      <label for="discount">Discount</label>
+      <input type="number" class="form-control" id="discount" min="0" oninput="validity.valid||(value='');"
+             [(ngModel)]="advertisement.discount"
+             name="discount" [ngModelOptions]="{standalone:true}">
+    </div>
+
+    <div class="form-group">
+      <label for="place">Place</label>
+      <input type="text" class="form-control" id="place"
+             [(ngModel)]="advertisement.place"
+             name="discount" [ngModelOptions]="{standalone:true}">
+    </div>
+
+    <div class="form-group">
       <label for="cdw">Collision damage waiver</label>
       <input type="checkbox" class="form-control" id="cdw"
-             [(ngModel)]="advertisement.cwd"
+             [(ngModel)]="advertisement.cdw"
              name="cdw" [ngModelOptions]="{standalone:true}">
+    </div>
+
+    <div class="form-group">
+      <label for="checkboxDate">Do you want to pick start and end date for your advertisement?</label>
+        <input type="checkbox" class="form-control" [(ngModel)] = "showDate" id="checkboxDate" (change)="ShowHide()"
+               [ngModelOptions]="{standalone:true}"/>
+    </div>
+
+    <div *ngIf="isVisible">
+        From :
+        <input type = "date" [(ngModel)]="advertisement.startDate" placeholder = "Start Date" [ngModelOptions]="{standalone:true}">
+        To :
+        <input type = "date" [(ngModel)]="advertisement.endDate" placeholder = "End Date" [ngModelOptions]="{standalone:true}">
+
+
+
+
+
+
+
     </div>
 
     <button type="submit" class="btn btn-success" style="margin-left: 46.5%;">Submit</button>
 
   </form>
+
 </div>
