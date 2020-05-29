@@ -6,7 +6,7 @@
         <img class="picture-card" src="{{advertisement.image}}" alt="Avatar">
       </div>
       <div class="flip-card-back">
-        <h3 style="background-color: #343961;" >{{advertisement.name}}</h3>
+        <h3 style="background-color: dimgrey;">{{advertisement.name}}</h3>
         <table style="width:100%">
           <tr>
             <td>Brand:</td>
@@ -46,12 +46,37 @@
     </div>
   </div>
 
-  <h1><a routerLink="/car-profile-page"> {{advertisement.name}} </a></h1>
+
+  <div class="greyColor">
+    <h1 class="greyColor"><a class="greyColor" routerLink="/car-profile-page"> {{advertisement.name}} </a></h1>
+  </div>
+
+
   <p class="price">{{advertisement.price}}$/day</p>
-  <p class="discount">Discount: -{{advertisement.discount}}% </p>
-  <p>
-    <button (click)="addToCart(advertisement)">Add to Cart</button>
-  </p>
+  <div class="blackFont">
+    Rate:
+
+    <ng-template #t let-fill="fill">
+            <span [class.full]="fill === 100" class="stars">
+                <span [style.width.%]="fill" class="half">✯</span>✯
+            </span>
+    </ng-template>
+
+    <ngb-rating [rate]="advertisement.rate" [readonly]="true" [starTemplate]="t" max="5"></ngb-rating>
+
+  </div>
+
+  <!--    <button class="blink" (click)="addToCart(advertisement)">-->
+
+  <!--  <div class="discount">Today only -{{advertisement.discount}}%!</div>-->
+
+  <!--    </button>-->
+  <button (click)="addToCart(advertisement)" [disabled]="true">
+
+    <div class="discount">Your car :)</div>
+
+  </button>
+
   <div class="notifier">
     <notifier-container></notifier-container>
   </div>
