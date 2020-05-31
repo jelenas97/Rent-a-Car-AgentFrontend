@@ -11,6 +11,7 @@ export class AgentProfileComponent implements OnInit {
 
   showAgentInfo = true;
   showAccept = false;
+  showCreatePricelist=false;
 
   ngOnInit(): void {
   }
@@ -25,9 +26,15 @@ export class AgentProfileComponent implements OnInit {
     this.showAccept = true;
   }
 
+  createPricelist(){
+    this.hideAll();
+    this.showCreatePricelist = true;
+  }
+
   hideAll() {
     this.showAgentInfo = false;
     this.showAccept = false;
+    this.showCreatePricelist=false;
   }
   onNotify() {
     this.acceptRequests();
