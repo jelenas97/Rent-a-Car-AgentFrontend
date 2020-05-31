@@ -11,9 +11,10 @@ export class ClientProfileComponent implements OnInit {
   constructor(private rentRequestService: RentRequestService) { }
 
   showClientInfo = true;
-  show = false;
+  showRequestedRents = false;
   showHistoryRents = false;
   showAccept = false;
+  showCreatePricelist=false;
 
   ngOnInit(): void {
   }
@@ -25,8 +26,7 @@ export class ClientProfileComponent implements OnInit {
 
   openRentRequests() {
     this.hideAll();
-    this.show = true;
-    this.showClientInfo = false;
+    this.showRequestedRents = true;
   }
 
   openHistoryRents() {
@@ -39,11 +39,17 @@ export class ClientProfileComponent implements OnInit {
     this.showAccept = true;
   }
 
+  createPricelist() {
+    this.hideAll();
+    this.showCreatePricelist = true;
+  }
+
   hideAll() {
-    this.show = false;
+    this.showRequestedRents = false;
     this.showHistoryRents = false;
     this.showClientInfo = false;
     this.showAccept = false;
+    this.showCreatePricelist=false;
   }
 
   onNotify() {
