@@ -1,0 +1,50 @@
+<div>
+    <div class="notifier">
+        <notifier-container></notifier-container>
+    </div>
+    <h2>Pricelist</h2>
+    <form #pricelistForm="ngForm">
+        <label>Price per day: </label>
+        <input [(ngModel)]='pricelist.pricePerDay' type="number" class="form-control" min="0" name="pricePerDay" required >
+        <label>Price per km:</label>
+        <input [(ngModel)]='pricelist.pricePerKm' type="number" class="form-control" min="0" name="pricePerKm" required>
+        <label class="container">Collision Damage Waiver option
+            <input type="checkbox" (change)="FieldsChange($event)">
+            <span class="checkmark"></span>
+        </label>
+        <div *ngIf="showCdw">
+            <label>Collision Damage Waiver price:</label>
+            <input [(ngModel)]='pricelist.cdw' type="number" class="form-control" min="0" name="cdw" required>
+        </div>
+        <div *ngIf="currUser.roles[0]=='ROLE_AGENT'">
+            <label>Discount: </label>
+            <input type="number" class="form-control" min="0" name="discount">
+        </div>
+        <br/>
+        <button (click)="addNewPricelist()" class="btn btn-secondary" [disabled]="!pricelistForm.form.valid">Create</button>
+    </form>
+
+    <br><br>
+    <table class="table pricelist-table">
+        <thead>
+            <tr>
+                <th scope="col" > Pricelist id</th>
+                <th scope="col"> Price per day </th>
+                <th scope="col"> Price per km </th>
+                <th scope="col"> CDW</th>
+                <th scope="col" *ngIf="currUser.roles[0]=='ROLE_AGENT'"> Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let pricelist of _pricelists'>
+              <td> {{pricelist.id}} </td>
+              <td> {{pricelist.pricePerDay}} </td>
+              <td> {{pricelist.pricePerKm}} </td>
+              <td *ngIf="pricelist.cdw!==0"> {{pricelist.cdw}} </td>
+              <td *ngIf="pricelist.cdw==0"> / </td>
+              <td  *ngIf="currUser.roles[0]=='ROLE_AGENT'">  </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
