@@ -10,6 +10,7 @@ import {NotifierService} from 'angular-notifier';
 import {AuthService} from '../service/auth.service';
 import {User} from '../shared/model/user';
 import {CodeBook} from '../shared/model/codeBook';
+import {RentRequestService} from '../service/rent-request.service';
 
 @Component({
   selector: 'app-rent-a-car-hp',
@@ -39,9 +40,10 @@ export class RentACarHpComponent implements OnInit {
   opened: any = true;
   numOfAds: any = 6;
   currUser: User;
+
   constructor(private codebookService: CodebookService, private modelService: ModelService,
               private advertisementService: AdvertisementService, private notifier: NotifierService,
-              private authService: AuthService) {
+              private authService: AuthService, private rentService: RentRequestService) {
   }
 
 
@@ -67,9 +69,9 @@ export class RentACarHpComponent implements OnInit {
     // }
     // if (unregistered) {
     this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
-        this.all_ads = foundAds;
-        this.removeCartAds();
-      });
+      this.all_ads = foundAds;
+      this.removeCartAds();
+    });
     // }
   }
 
@@ -178,6 +180,7 @@ export class RentACarHpComponent implements OnInit {
       });
     }
   }
+
   removeCartAds() {
     for (const ad of GlobalCart.cartAds) {
       const foundIndex = this.all_ads.findIndex(({id}) => id === ad.advertisementId);
@@ -215,6 +218,11 @@ export class RentACarHpComponent implements OnInit {
         if (this.currUser.roles.includes('ROLE_AGENT')) {
           if (this.currUser.id === ad.ownerID) {
             console.log('OVO JE MOJ OGLAS!! fizicko rentiranje!!');
+            const rent = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, this.currUser.id);
+
+            this.rentService.physicalRent(rent).subscribe(foundAds => {
+              console.log('WORK??');
+            });
             this.notifier.notify('success', 'Fizicko RENTIRANJE!!!!!');
             setTimeout(() => {
               this.notifier.hideAll();
@@ -255,9 +263,6 @@ export class RentACarHpComponent implements OnInit {
   }
 
   public putInCart(ad: Advertisement, senderId: any) {
-
-    console.log(this.searchDto.place + ' ' + this.searchDto.startDate + ' ' + this.searchDto.endDate);
-
     if (this.searchDto.place == null || this.searchDto.startDate == null || this.searchDto.endDate == null ||
       this.searchDto.place === undefined || this.searchDto.startDate === undefined || this.searchDto.endDate === undefined) {
       this.notifier.notify('error', 'Please select Start Date, End Date and Place!');
@@ -279,6 +284,7 @@ export class RentACarHpComponent implements OnInit {
 
     }
   }
+
   public changeNumAd() {
   }
 
@@ -286,6 +292,7 @@ export class RentACarHpComponent implements OnInit {
     this.showPlaceholder = false;
   }
 }
+
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

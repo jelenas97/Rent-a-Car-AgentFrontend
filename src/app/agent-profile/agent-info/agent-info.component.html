@@ -1,15 +1,15 @@
 <div class="client-profile">
-    <div class="column col-md-9 car-info">
+    <div class="column col-md-9 car-info" *ngIf="agent">
         <mat-card class="example-card">
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
             </mat-card-header>
-            <mat-card-title><b> Agent Name  </b></mat-card-title>
+            <mat-card-title><b> {{this.agent.firstName}} {{this.agent.lastName}}  </b></mat-card-title>
             <mat-card-content>
                 <br/>
-                <p class="border-bottom info">Email:   </p>
-                <p class="border-bottom info">Address:  </p>
-                <p class="border-bottom info">Business registration number: </p>
+                <p class="border-bottom info">Email: {{this.agent.email}}  </p>
+                <p class="border-bottom info">Address: {{this.agent.address}}  </p>
+                <p class="border-bottom info">Business registration number: {{this.agent.businessRegistrationNumber}}</p>
 
             </mat-card-content>
             <br/>

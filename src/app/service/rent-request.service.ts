@@ -64,4 +64,16 @@ export class RentRequestService {
     );
   }
 
+  physicalRent(rent: Rent) {
+    const editHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.post(this.configService.getRentRequests + '/physicalRent', rent, editHeaders).pipe(
+      map(result => {
+        console.log('Physical rent:' + result);
+      })
+    );
+  }
+
+
 }
