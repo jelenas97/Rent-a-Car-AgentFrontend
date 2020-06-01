@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Car} from '../shared/model/car';
+import {ActivatedRoute} from "@angular/router";
+import {CarService} from "../service/car.service";
+import {CarDto} from "../shared/model/car-dto";
 
 @Component({
   selector: 'app-car-profile-page',
@@ -8,32 +11,23 @@ import {Car} from '../shared/model/car';
 })
 export class CarProfilePageComponent implements OnInit {
 
-  // @Input("car") car: Car;
-  car: Car = {
-    id: 1,
-    limit: 300,
-    mileage: 50000,
-    kidSeats: 1,
-    carClass: {id: 1, name: 'SUV'},
-    carBrand: {id: 1, name: 'BMW', carModels: [{id: 1, name: 'M5'}]},
-    carModel: {id: 1, name: 'M5'},
-    transmissionType: {id: 1, name: 'Automatic'},
-    fuelType: [{id: 1, name: 'Petrol'}],
-    availableTracking: true,
-    imageGallery: [
-      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg'
+  car: CarDto;
+  carId: string;
 
-    ]
-  };
-
-  constructor() {
+  constructor(private route: ActivatedRoute, private carService: CarService) {
   }
 
   ngOnInit() {
+    this.car = new CarDto();
+    this.car.imageGallery = [];
+    this.car.fuelType = [];
+    this.route.paramMap.subscribe(params => {
+      this.carId = params.get('id');
+
+    });
+    this.carService.getCar(this.carId).subscribe(car => {
+      this.car = car;
+    });
   }
 
 }
