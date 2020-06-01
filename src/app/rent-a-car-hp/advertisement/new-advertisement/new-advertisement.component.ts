@@ -12,6 +12,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {Car} from "../../../shared/model/car";
 import {AdvertisementListComponent} from "../../advertisement-list/advertisement-list.component";
 import {AdvertisementService} from "../../../service/advertisement.service";
+import {NotifierService} from "angular-notifier";
+import {Router} from "@angular/router";
+import {AuthService} from "../../../service/auth.service";
+import {User} from "../../../shared/model/user";
 
 
 @Component({
@@ -31,15 +35,19 @@ export class NewAdvertisementComponent implements OnInit {
 
   advertisement: Advertisement2 = new Advertisement2();
   codeBook: CodeBook = new CodeBook();
+  currUser: User;
 
-
-  constructor(private codebookService: CodebookService, private advertisementService: AdvertisementService) {
+  constructor(private codebookService: CodebookService, private advertisementService: AdvertisementService, private notifier: NotifierService, private router: Router, private authService: AuthService) {
     this.advertisement.car = new Car();
     this.advertisement.car.carBrand = new CarBrand();
     this.advertisement.car.fuelType = [];
+    this.advertisement.car.availableTracking = false;
+    this.advertisement.cdw = false;
   }
 
   ngOnInit() {
+    this.currUser= this.authService.getCurrUser();
+
     this.codebookService.getCodeBookInfoModel().subscribe(codeBook => {
       this.codeBook = codeBook;
     });
@@ -56,7 +64,85 @@ export class NewAdvertisementComponent implements OnInit {
 
   onSubmit() {
     console.log(this.advertisement);
+    this.advertisement.owner = this.currUser;
+    if(this.advertisement.car.carBrand == null)
+    {
+      this.notifier.notify('warning','You must select car brand!');
+      return;
+    }
+    if(this.advertisement.car.carModel == null)
+    {
+      this.notifier.notify('warning','You must select car model!');
+      return;
+    }
+    if(this.advertisement.car.carClass == null)
+    {
+      this.notifier.notify('warning', 'You must select car class!');
+      return;
+    }
+    if(this.advertisement.car.transmissionType == null)
+    {
+      this.notifier.notify("warning","You must select transmission type!");
+      return;
+    }
+    if(this.advertisement.car.fuelType == null)
+    {
+      this.notifier.notify("warning","You must select car fuel type!");
+      return;
+    }
+    if(this.advertisement.car.mileage == null)
+    {
+      this.notifier.notify("warning","You must enter car mileage!");
+      return;
+    }
+    if(this.advertisement.car.kidSeats == null)
+    {
+      this.notifier.notify("warning","You must enter number of kids seats!");
+      return;
+    }
+
+    if(this.advertisement.car.imageGallery == null || this.advertisement.car.imageGallery == [])
+    {
+      this.notifier.notify("warning","You must import at least one image of your car!");
+      return;
+    }
+    if(this.advertisement.kilometresLimit == null)
+    {
+      this.notifier.notify("warning","You must define kilometres limit of your advertisement!");
+      return;
+    }
+    if(this.advertisement.discount == null)
+    {
+      this.notifier.notify("warning","You must define advertisement discount!");
+      return;
+    }
+    if(this.advertisement.place == null)
+    {
+      this.notifier.notify("warning","You must define place where your car is available!");
+      return;
+    }
+    if(this.advertisement.endDate == null || this.advertisement.endDate == undefined)
+    {
+      this.notifier.notify("warning","You must select end date of period of availability!");
+      return;
+    }
+    if(this.advertisement.startDate == null || this.advertisement.startDate == undefined)
+    {
+      this.notifier.notify("warning","You must select start date of period of availability!");
+      return;
+    }
+    if(this.advertisement.startDate > this.advertisement.endDate) {
+      this.notifier.notify("warning","Start date can not be after end date!");
+      return;
+    }
+
+
     this.advertisementService.addAdvertisement(this.advertisement).subscribe(message => {
+      this.notifier.notify("success","You have succesfully created advertisement for your car!");
+      setTimeout(() => {
+        this.notifier.hideAll();
+        this.router.navigate(['/homepage']);
+      }, 2000);
     });;
   }
 
@@ -66,14 +152,16 @@ export class NewAdvertisementComponent implements OnInit {
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
         var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[i]);
         reader.onload = (event:any) => {
           //console.log(event.target.result);
           // @ts-ignore
           this.images.push(event.target.result);
           this.advertisement.car.imageGallery = this.images;
+
         };
 
-        reader.readAsDataURL(event.target.files[i]);
+
       }
     }
   }

@@ -7,7 +7,6 @@ import {FuelType} from "./fuel-type";
 export class Car{
 
 id: Number;
-limit: Number;
 mileage: Number;
 kidSeats: Number;
 carClass: CarClass;

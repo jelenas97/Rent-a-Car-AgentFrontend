@@ -21,6 +21,7 @@ export class ConfigService {
   // tslint:disable-next-line:variable-name
   private _refreshTokenUrl = this.serverUrl + '/refresh';
   agentUrl = this.serverUrl+'/agent';
+  private _carUrl= this.serverUrl + '/car';
 
 
   get refreshTokenUrl(): string {
@@ -71,4 +72,8 @@ export class ConfigService {
     return this.requestHolderUrl;
   }
 
+
+  get getCarUrl(): string {
+    return this._carUrl;
+  }
 }

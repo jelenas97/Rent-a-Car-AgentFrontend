@@ -113,27 +113,16 @@
     </div>
 
     <div class="form-group">
-      <label for="checkboxDate">Do you want to pick start and end date for your advertisement?</label>
-        <input type="checkbox" class="form-control" [(ngModel)] = "showDate" id="checkboxDate" (change)="ShowHide()"
-               [ngModelOptions]="{standalone:true}"/>
-    </div>
-
-    <div *ngIf="isVisible">
+      Choose period of availability of your car: <br/>
         From :
         <input type = "date" [(ngModel)]="advertisement.startDate" placeholder = "Start Date" [ngModelOptions]="{standalone:true}">
         To :
         <input type = "date" [(ngModel)]="advertisement.endDate" placeholder = "End Date" [ngModelOptions]="{standalone:true}">
-
-
-
-
-
-
-
     </div>
-
     <button type="submit" class="btn btn-success" style="margin-left: 46.5%;">Submit</button>
 
   </form>
-
+  <div class="notifier">
+    <notifier-container></notifier-container>
+  </div>
 </div>
