@@ -14,7 +14,7 @@ export class RentRequestService {
   }
 
   getHistoryRentRequests(id: string){
-    return this.apiService.get('http://localhost:8080/rentRequest/history/' + id).pipe(
+    return this.apiService.get(this.configService.getRentRequests + '/history/' + id).pipe(
         map(historyRentRequests => {
             console.log(historyRentRequests);
             return historyRentRequests;

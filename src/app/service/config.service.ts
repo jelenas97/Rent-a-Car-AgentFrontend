@@ -20,7 +20,8 @@ export class ConfigService {
   private requestHolderUrl = this.serverUrl + '/requestHolder';
   // tslint:disable-next-line:variable-name
   private _refreshTokenUrl = this.serverUrl + '/refresh';
-  agentUrl = this.serverUrl+'/agent';
+  private agentUrl = this.serverUrl+'/agent';
+  private pricelistUrl = this.serverUrl+'/priceList';
   private _carUrl= this.serverUrl + '/car';
 
 
@@ -76,4 +77,12 @@ export class ConfigService {
   get getCarUrl(): string {
     return this._carUrl;
   }
+  get getPricelist_url(): string {
+    return this.pricelistUrl;
+  }
+
+  get getAgent_url(): string {
+    return this.agentUrl;
+  }
+
 }
