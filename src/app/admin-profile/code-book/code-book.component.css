@@ -1,0 +1,22 @@
+.td-name{
+  vertical-align: middle;
+}
+
+.garbage {
+  margin: 0;
+  padding: 0;
+  width: 50px;
+}
+
+
+.garbage-td {
+  width: 50px;
+}
+
+.brand-selected:active {
+  background-color: dimgray;
+}
+
+.msg {
+  color:  	#787878;
+}
