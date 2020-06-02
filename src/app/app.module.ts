@@ -1,4 +1,3 @@
-import { AgentService } from './service/agent.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
@@ -70,6 +69,9 @@ import {ConfigService} from './service/config.service';
 import {AcceptRequestsComponent} from './client-profile/accept-requests/accept-requests.component';
 import {TokenInterceptor} from './interceptor/TokenInterceptor';
 import {UserService} from './service/user.service';
+import { AgentService } from './service/agent.service';
+import { PricelistComponent } from './agent-profile/pricelist/pricelist.component';
+import { PricelistService } from './service/pricelist.service';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -147,7 +149,8 @@ const customNotifierOptions: NotifierOptions = {
     ClientInfoComponent,
     AgentInfoComponent,
     ApprovingCommentsComponent,
-    AcceptRequestsComponent
+    AcceptRequestsComponent,
+    PricelistComponent
   ],
   imports: [
     BrowserModule,
@@ -198,6 +201,7 @@ const customNotifierOptions: NotifierOptions = {
     ConfigService,
     UserService,
     AgentService,
+    PricelistService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent],

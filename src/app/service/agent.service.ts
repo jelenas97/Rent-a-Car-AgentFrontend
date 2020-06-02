@@ -16,7 +16,7 @@ export class AgentService {
   }
 
   getCurrentAgentInfo(currentUser){
-    return this.apiService.get(this.config.agentUrl +'/'+ currentUser.id ).pipe(map(agentInfo => {
+    return this.apiService.get(this.config.getAgent_url +'/'+ currentUser.id ).pipe(map(agentInfo => {
             console.log(agentInfo);
             return agentInfo;
         }))

@@ -2,9 +2,14 @@
     <mat-drawer mode="side" opened>
 
         <mat-list>
-            <mat-list-item> <button class="btn-primary" (click) = "openAgentInfo()" > Agent information</button> </mat-list-item>
+          <mat-list-item>
+              <button class="btn-primary" (click) = "openAgentInfo()" > Agent information</button>
+          </mat-list-item>
           <mat-list-item>
             <button (click)="acceptRequests()" class="btn-primary"> Accept requests</button>
+          </mat-list-item>
+          <mat-list-item>
+            <button class="btn-primary" (click) = "createPricelist()" > Create pricelist </button>
           </mat-list-item>
 
         </mat-list>
@@ -12,11 +17,14 @@
     </mat-drawer>
     <mat-drawer-content>
 
-        <div class="container" *ngIf = "showAgentInfo">
-            <app-agent-info (notify)="onNotify()"></app-agent-info>
-        </div>
+      <div class="container" *ngIf = "showAgentInfo">
+        <app-agent-info (notify)="onNotify()"></app-agent-info>
+      </div>
       <div *ngIf="showAccept" class="container">
         <app-accept-requests (notify)="onNotify()"></app-accept-requests>
+      </div>
+      <div class="container" *ngIf = "showCreatePricelist">
+        <app-pricelist (notify)="onNotify()"></app-pricelist>
       </div>
 
     </mat-drawer-content>
