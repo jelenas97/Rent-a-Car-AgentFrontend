@@ -5,6 +5,7 @@ export class Comment {
     date: any;
     advertisement_id: any;
     status: any;
+    rent_request_id:any;
 
     constructor(){}
 }
