@@ -15,13 +15,14 @@ export class ConfigService {
   private adminUrl = this.serverUrl + '/admin';
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
-  private commentUrl = this.serverUrl + '/comments';
+  private commentUrl = this.serverUrl + '/comment';
   private rentRequestUrl = this.serverUrl + '/rentRequest';
   private requestHolderUrl = this.serverUrl + '/requestHolder';
   // tslint:disable-next-line:variable-name
   private _refreshTokenUrl = this.serverUrl + '/refresh';
   private agentUrl = this.serverUrl+'/agent';
   private pricelistUrl = this.serverUrl+'/priceList';
+  private rateUrl = this.serverUrl+'/rate';
 
 
   get refreshTokenUrl(): string {
@@ -80,4 +81,7 @@ export class ConfigService {
     return this.agentUrl;
   }
 
+  get getRate_url(): string {
+    return this.rateUrl;
+  }
 }
