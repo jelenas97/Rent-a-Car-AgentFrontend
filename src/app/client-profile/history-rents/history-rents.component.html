@@ -1,43 +1,48 @@
-<div class="jumbotron requested-rents" >
-    <div class="requested-rents-title">
-        <h3>Rent history</h3>
-        <p class="lead">Here you can see a list of your rent history.</p>
+<div>
+    <div class="notifier">
+        <notifier-container></notifier-container>
     </div>
-</div>
-<br/>
-<div class=" requested-rents-table" >
-<table class="table requested-rents-table">
-    <thead>
-        <tr>
-            <th scope="col" > Request id</th>
-            <th scope="col"> Rent start </th>
-            <th scope="col"> Rent end </th>
-            <th scope="col"> Rent request status </th>
-            <th scope="col"> Car details</th>
-            <th scope="col">  </th>
-            <th scope="col">  </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor='let historyRentRequest of _historyRentRequests'>
-            <td> {{historyRentRequest.id}} </td>
-          <td> {{historyRentRequest.startDateString}} </td>
-          <td> {{historyRentRequest.endDateString}} </td>
-            <td> {{historyRentRequest.rentRequestStatus}} </td>
-            <td> {{historyRentRequest.cars}} </td>
-            <td>
-                <button class="btn btn-secondary" type="button" (click)="rateCar(historyRentRequest)">
-                    Rate
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-secondary" type="button" (click)="commentCar(historyRentRequest)">
-                   Add comment
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<br/><br/>
+    <div class="jumbotron requested-rents" >
+        <div class="requested-rents-title">
+            <h3>Rent history</h3>
+            <p class="lead">Here you can see a list of your rent history.</p>
+        </div>
+    </div>
+    <br/>
+    <div class=" requested-rents-table" >
+    <table class="table requested-rents-table">
+        <thead>
+            <tr>
+                <th scope="col" > Request id</th>
+                <th scope="col"> Rent start </th>
+                <th scope="col"> Rent end </th>
+                <th scope="col"> Rent request status </th>
+                <th scope="col"> Car details</th>
+                <th scope="col">  </th>
+                <th scope="col">  </th>
+            </tr>
+        </thead>
+        <tbody id="peca">
+            <tr id="oki" *ngFor='let historyRentRequest of _historyRentRequests'>
+                <td> {{historyRentRequest.id}} </td>
+                <td> {{historyRentRequest.startDateString}} </td>
+                <td> {{historyRentRequest.endDateString}} </td>
+                <td> {{historyRentRequest.rentRequestStatus}} </td>
+                <td> {{historyRentRequest.cars}} </td>
+                <td>
+                    <button class="btn btn-secondary" type="button" (click)="rateCar(historyRentRequest)" *ngIf="historyRentRequest.rated" id="historyRentRequest.id">
+                     Rate
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-secondary" type="button" (click)="commentCar(historyRentRequest)" *ngIf="historyRentRequest.commented">
+                    Add comment
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    </div>
 </div>
 

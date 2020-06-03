@@ -25,12 +25,12 @@ export class AdvertisementService {
 
   rateAdvertisement(rate: any) {
     const editHeaders = new HttpHeaders({
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
-    return this.apiService.put('' + rate.advertisement_id , rate, editHeaders).pipe(
-      map(updateAdv => {
-        return updateAdv;
+    return this.apiService.post(this.configService.getRate_url , rate, editHeaders).pipe(
+      map(result => {
+        return result;
       })
     );
   }
