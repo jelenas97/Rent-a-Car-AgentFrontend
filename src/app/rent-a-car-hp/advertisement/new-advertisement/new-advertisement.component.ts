@@ -48,7 +48,7 @@ export class NewAdvertisementComponent implements OnInit {
   ngOnInit() {
     this.currUser= this.authService.getCurrUser();
 
-    this.codebookService.getCodeBookInfoModel().subscribe(codeBook => {
+    this.codebookService.getCodeBookInfoModel(this.currUser.id).subscribe(codeBook => {
       this.codeBook = codeBook;
     });
   }
@@ -111,6 +111,11 @@ export class NewAdvertisementComponent implements OnInit {
       this.notifier.notify("warning","You must define kilometres limit of your advertisement!");
       return;
     }
+    if(this.advertisement.priceList == null)
+    {
+      this.notifier.notify("warning","You must choose price list for your advertisement!");
+      return;
+    }
     if(this.advertisement.discount == null)
     {
       this.notifier.notify("warning","You must define advertisement discount!");
@@ -143,7 +148,10 @@ export class NewAdvertisementComponent implements OnInit {
         this.notifier.hideAll();
         this.router.navigate(['/homepage']);
       }, 2000);
-    });;
+    },
+      error => {
+        this.notifier.notify("error", error.error);
+      });
   }
 
   onFileChange(event) {

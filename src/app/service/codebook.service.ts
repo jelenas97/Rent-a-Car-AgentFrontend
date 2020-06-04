@@ -15,9 +15,9 @@ export class CodebookService {
     }));
   }
 
-  getCodeBookInfoModel() {
+  getCodeBookInfoModel(id : Number) {
     console.log('Code book info');
-    return this.apiService.get(this.config.getCodebook + '/getCodeBookInfoModel').pipe(map(result => {
+    return this.apiService.get(this.config.getCodebook + '/getCodeBookInfoModel/'+ id).pipe(map(result => {
       return result;
     }));
   }

@@ -1,10 +1,6 @@
-import {CarClass} from "./car-class";
-import {CarBrand} from "./car-brand";
-import {TransmissionType} from "./transmission-type";
-import {FuelType} from "./fuel-type";
-import {CarModel} from "./car-model";
 import {Car} from "./car";
 import {User} from "./user";
+import {Pricelist} from "./pricelist";
 
 export class Advertisement2 {
 
@@ -17,6 +13,7 @@ export class Advertisement2 {
   endDate: Date;
   car : Car;
   owner: User;
+  priceList: Pricelist;
 
 
   constructor(){}
