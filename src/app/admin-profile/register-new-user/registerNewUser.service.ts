@@ -10,8 +10,8 @@ export class RegisterNewUserService {
   private readonly registerCompanyUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.registerAgentUrl = 'http://localhost:8080/agent/save';
-    this.registerCompanyUrl = 'http://localhost:8080/company/save';
+    this.registerAgentUrl = 'http://localhost:8083/agent/save';
+    this.registerCompanyUrl = 'http://localhost:8083/company/save';
   }
 
   public registerAgent(agent: Agent): Observable<Agent> {

@@ -4,6 +4,7 @@ import {map} from 'rxjs/operators';
 import {HttpHeaders} from '@angular/common/http';
 import {ConfigService} from './config.service';
 import {Advertisement2} from "../shared/model/advertisement2";
+import {AdvertisementMicro} from "../shared/model/advertisement-micro";
 
 
 @Injectable({
@@ -42,7 +43,7 @@ export class AdvertisementService {
     }));
   }
 
-  addAdvertisement(advertisement: Advertisement2) {
+  addAdvertisement(advertisement: AdvertisementMicro) {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });

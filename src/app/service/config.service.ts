@@ -5,8 +5,8 @@ import {Injectable} from '@angular/core';
 })
 export class ConfigService {
 
-  private authUrl = 'http://localhost:8080/auth';
-  private serverUrl = 'http://localhost:8080';
+  private authUrl = 'http://localhost:8083/auth';
+  private serverUrl = 'http://localhost:8083';
   private loginUrl = this.authUrl + '/login';
   private signUpUrl = this.authUrl + '/signup';
   passChangeUrl = this.authUrl + '/changePassword';

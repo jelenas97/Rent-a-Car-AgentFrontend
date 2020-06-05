@@ -13,7 +13,7 @@ export class ClassService {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.apiService.post('http://localhost:8080/class' , name, editHeaders).pipe(
+    return this.apiService.post('http://localhost:8083/class' , name, editHeaders).pipe(
       map(result => {
         console.log('New class added' + result);
 
@@ -22,7 +22,7 @@ export class ClassService {
   }
 
   deleteClass(name: string) {
-    return this.apiService.delete('http://localhost:8080/class/' + name).pipe(
+    return this.apiService.delete('http://localhost:8083/class/' + name).pipe(
       map(result => {
         console.log('Class deleted' + result);
       })
