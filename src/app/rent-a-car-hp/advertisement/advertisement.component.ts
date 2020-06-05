@@ -12,7 +12,7 @@ export class AdvertisementComponent implements OnInit {
   @Output() notify = new EventEmitter<Advertisement>();
   private agent = false;
   constructor() {
-    this.agent = true;
+   // this.agent = true;
   }
 
   ngOnInit() {
