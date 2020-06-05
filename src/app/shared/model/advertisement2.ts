@@ -1,28 +1,19 @@
-import {CarClass} from "./car-class";
-import {CarBrand} from "./car-brand";
-import {TransmissionType} from "./transmission-type";
-import {FuelType} from "./fuel-type";
-import {CarModel} from "./car-model";
+import {Car} from "./car";
+import {User} from "./user";
+import {Pricelist} from "./pricelist";
 
 export class Advertisement2 {
 
   id: Number;
-  name : String;
-  rate : Number;
   kilometresLimit: Number;
+  cdw: Boolean;
   discount : Number;
-  cwd : Boolean;
-  image : String;
-  mileage : Number;
-  kidSeats : Number;
-  availableTracking : Boolean;
-  carClass : CarClass;
-  carBrand : CarBrand;
-  carModel: CarModel;
-  transmissionType : TransmissionType;
-  fuelType : FuelType;
-  price : Number;
-  imageGallery: any;
+  place: String;
+  startDate: Date;
+  endDate: Date;
+  car : Car;
+  owner: User;
+  priceList: Pricelist;
 
 
   constructor(){}

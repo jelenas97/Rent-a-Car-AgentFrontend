@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'profile', component: AdminProfileComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'homepage', component: RentACarHpComponent},
-  {path: 'car-profile-page', component: CarProfilePageComponent},
+  {path: 'car-profile-page/:id', component: CarProfilePageComponent},
   {path: 'new-advertisement', component: NewAdvertisementComponent},
   {path: 'requested-and-history-rents', component: RequestedRentsComponent},
   {path: 'admin/user', component: RegisterNewUserComponent},
