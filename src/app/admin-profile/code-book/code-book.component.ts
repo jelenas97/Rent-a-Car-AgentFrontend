@@ -36,6 +36,7 @@ export class CodeBookComponent implements OnInit {
     this.codebookService.getCodeBookInfo().subscribe(codeBook => {
       this.codeBook = codeBook;
     });
+    console.log(this.codeBook.carBrands);
   }
 
   addNewBrand() {
