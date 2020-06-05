@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {HttpHeaders} from '@angular/common/http';
 import {ConfigService} from './config.service';
+import {Advertisement2} from "../shared/model/advertisement2";
 
 
 @Injectable({
@@ -39,6 +40,14 @@ export class AdvertisementService {
     return this.apiService.get(this.configService.getAds_url).pipe(map(result => {
       return result;
     }));
+  }
+
+  addAdvertisement(advertisement: Advertisement2) {
+    const editHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.post(this.configService.getAds_url , advertisement, editHeaders).pipe(map(result => {
+      console.log('New advertisement added' + result);    }));
   }
 
   getAgentAds(id: any) {

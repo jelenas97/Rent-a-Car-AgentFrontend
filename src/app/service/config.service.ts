@@ -23,6 +23,7 @@ export class ConfigService {
   private agentUrl = this.serverUrl+'/agent';
   private pricelistUrl = this.serverUrl+'/priceList';
   private rateUrl = this.serverUrl+'/rate';
+  private _carUrl= this.serverUrl + '/car';
 
 
   get refreshTokenUrl(): string {
@@ -73,6 +74,10 @@ export class ConfigService {
     return this.requestHolderUrl;
   }
 
+
+  get getCarUrl(): string {
+    return this._carUrl;
+  }
   get getPricelist_url(): string {
     return this.pricelistUrl;
   }

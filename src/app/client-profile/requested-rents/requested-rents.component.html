@@ -1,37 +1,117 @@
 <div class="jumbotron requested-rents" >
-    <div class="requested-rents-title">
-        <h3>Requested rents</h3>
-        <p class="lead">Here you can see a list of your requested rents.</p>
-    </div>
+  <div class="requested-rents-title">
+    <h3>Requested rents</h3>
+    <p class="lead">Here you can see a list of your requested rents.</p>
+  </div>
 </div>
 <br/>
 <div class=" requested-rents-table" >
-<table class="table requested-rents-table">
+  <table class="table requested-rents-table">
     <thead>
-        <tr>
-            <th scope="col" > Request id</th>
-            <th scope="col"> Rent start </th>
-            <th scope="col"> Rent end </th>
-            <th scope="col"> Rent request status </th>
-            <th scope="col"> Car details</th>
-            <th scope="col">  </th>
-        </tr>
+    <tr>
+      <th scope="col" > Request id</th>
+      <th scope="col"> Rent start </th>
+      <th scope="col"> Rent end </th>
+      <th scope="col"> Rent request status </th>
+      <th scope="col"> Car details</th>
+      <th scope="col">  </th>
+      <th scope="col">  </th>
+    </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let rentRequest of _rentRequests'>
-            <td> {{rentRequest.id}} </td>
-          <td> {{rentRequest.startDateString}} </td>
-          <td> {{rentRequest.endDateString}} </td>
-            <td> {{rentRequest.rentRequestStatus}} </td>
-            <td> {{rentRequest.cars}} </td>
-            <td>
-                <button class="btn btn-secondary cancel-btn" type="button" (click)="cancelRent(rentRequest)">
-                    Cancel
-                </button>
-            </td>
-        </tr>
+    <tr *ngFor='let rentRequest of _rentRequests'>
+      <td> {{rentRequest.id}} </td>
+      <td> {{rentRequest.startDateTime}} </td>
+      <td> {{rentRequest.endDateTime}} </td>
+      <td> {{rentRequest.rentRequestStatus}} </td>
+      <td> {{rentRequest.cars}} </td>
+      <td>
+        <button class="btn btn-secondary cancel-btn" type="button" (click)="cancelRent(rentRequest)">
+          Cancel
+        </button>
+      </td>
+      <td *ngIf="rentRequest.rentRequestStatus ==='RESERVED'">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Chat
+        </button>
+      </td>
+    </tr>
     </tbody>
-</table>
+  </table>
 </div>
-<br/>
+
+<div class="modal fade" data-backdrop="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="myModalLabel">Chat</h3>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="panel-body">
+          <ul class="chat">
+            <li>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <h5>Jack Sparrow </h5> <small class="pull-right text-muted">
+                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                  dolor, quis ullamcorper ligula sodales.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <h5>Jack Black </h5> <small class="pull-right text-muted">
+                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                  dolor, quis ullamcorper ligula sodales.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <h5>Jack Sparrow </h5> <small class="pull-right text-muted">
+                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                  dolor, quis ullamcorper ligula sodales.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="chat-body clearfix">
+                <div class="header">
+                  <h5>Jack Black </h5> <small class="pull-right text-muted">
+                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                  dolor, quis ullamcorper ligula sodales.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="input-group">
+          <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+          <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

@@ -4,7 +4,7 @@ export class CarBrand {
 
   id: number;
   name: string;
-  models: CarModel[];
+  carModels: CarModel[];
 
   constructor() {
   }

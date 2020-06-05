@@ -1,12 +1,13 @@
 export class Advertisement {
 
     id: any;
+    carId: any;
     name: string;
     rate: any;
     kilometresLimit: any;
     discount: any;
     cwd: any;
-    image: string;
+    imageGallery: string[];
     mileage: any;
     kidSeats: any;
     availableTracking: any;
