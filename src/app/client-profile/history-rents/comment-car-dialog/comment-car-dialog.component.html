@@ -2,10 +2,10 @@
     <p><b>Ad id: {{_historyRentRequest.advertisementId}} </b></p>
     <p><b>Car details:{{_historyRentRequest.cars}} </b></p>
     <br/>
-    <form (ngSubmit)="addComment()" #addCommentForm="ngForm">
+    <form #addCommentForm="ngForm">
         <label>Comment:</label>
-        <textarea name="content" [(ngModel)]="_content" rows="5" cols="70"></textarea>
+        <textarea name="content" [(ngModel)]="_content" rows="5" cols="70" required></textarea>
         <br/><br/>
-        <button [disabled]="!addCommentForm.form.valid" class="btn btn-secondary"  type="submit"> Submit </button>
+        <button [disabled]="!addCommentForm.form.valid" class="btn btn-secondary" (click)="addComment()"  type="submit"> Submit </button>
     </form>
 </div>

@@ -75,5 +75,16 @@ export class RentRequestService {
     );
   }
 
+  cancelRentRequest(id: String){
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.configService.getRentRequests + '/cancel/'+ id , editHeaders).pipe(
+      map(updateAdv => {
+        return updateAdv;
+      })
+    );
+  }
 
 }

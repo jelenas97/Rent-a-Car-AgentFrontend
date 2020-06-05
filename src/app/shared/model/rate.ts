@@ -1,7 +1,8 @@
 export class Rate {
     client_id: any;
-    rate: any;
+    value: any;
     advertisement_id: any;
+    rent_request_id: any;
     
     constructor(){}
 }

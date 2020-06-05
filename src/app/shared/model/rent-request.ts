@@ -6,7 +6,8 @@ export class RentRequest {
   startDateString: any;
   endDateString: any;
     cars: any;
-
+    rated: any;
+    commented:any;
   constructor() {
   }
 }

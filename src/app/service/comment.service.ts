@@ -28,4 +28,15 @@ export class CommentService{
       }));
   }
 
+  addComment(comment: Comment){
+    const editHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.post(this.configService.getComment_url , comment, editHeaders).pipe(
+      map(result => {
+        console.log('New comment added ' + result);
+      })
+    );
+  }
+
 }
