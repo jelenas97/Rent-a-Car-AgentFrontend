@@ -21,10 +21,10 @@ export class ClassService {
     );
   }
 
-  deleteClass(name: string) {
-    return this.apiService.delete('http://localhost:8083/class/' + name).pipe(
+  deleteClass(id: number) {
+    return this.apiService.delete('http://localhost:8083/class/' + id).pipe(
       map(result => {
-        console.log('Class deleted' + result);
+        console.log('Class deleted id: ' + id);
       })
     );
   }

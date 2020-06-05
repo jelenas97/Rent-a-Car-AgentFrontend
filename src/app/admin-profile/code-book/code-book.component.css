@@ -1,56 +1,22 @@
-
-td {
-  color:black;
+.td-name{
+  vertical-align: middle;
 }
- th {
-    margin-left: auto;
-    margin-right : auto;
-    text-align: center;
-    color: black;
-   border : 1px solid black;
- }
- h5{
-   color:black;
- }
- table {
-     margin-top : 20px;
-     margin-left : 20px;
-     margin-right : 30px;
- }
+
+.garbage {
+  margin: 0;
+  padding: 0;
+  width: 50px;
+}
 
 
- .firstRow, .firstRow:hover {
-     background-color: lightgray;
- }
- .lastRow, .lastRow:hover {
-   background-color: lightgray;
+.garbage-td {
+  width: 50px;
+}
 
- }
- th:hover{
-   background-color: snow;
- }
+.brand-selected:active {
+  background-color: dimgray;
+}
 
- button {
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    color: red;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
- table.coodebook-table{
-      width: 10em;
-      height: 10em;
-  }
-
-  div.card{
-      width: auto;
-  }
-  .carModels{
-    width: 120px;
-  }
-
-.card-body {
-  background-color: #48494B;
+.msg {
+  color:  	#787878;
 }

@@ -1,6 +1,8 @@
-export class TransmissionType{
+export class TransmissionType {
 
-  id: Number;
-  name: String;
-  constructor(){}
+  id: number;
+  name: string;
+
+  constructor() {
+  }
 }

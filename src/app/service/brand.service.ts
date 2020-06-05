@@ -21,8 +21,8 @@ export class BrandService {
     );
   }
 
-  deleteBrand(name: string) {
-    return this.apiService.delete('http://localhost:8083/brand/' + name).pipe(
+  deleteBrand(id: number) {
+    return this.apiService.delete('http://localhost:8083/brand/' + id).pipe(
       map(result => {
         console.log('New brand added' + result);
       })

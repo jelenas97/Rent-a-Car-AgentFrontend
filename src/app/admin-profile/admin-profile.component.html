@@ -1,18 +1,22 @@
 <mat-drawer-container class="tp-container" >
-    <mat-drawer mode="side" opened>
-
+    <mat-drawer mode="side" opened class="sidenav">
         <mat-list>
           <mat-list-item>
-            <button (click)="openCodebook()" class="btn-primary">Code book</button>
+            <button (click)="openCodebook()" class="btn text-white ml-5">Code book</button>
           </mat-list-item>
-            <mat-list-item> <button class="btn-primary" (click) = "showUsers()" >Users</button> </mat-list-item>
+          <mat-divider></mat-divider>
           <mat-list-item>
-            <button (click)="showComments()" class="btn-primary">Comments</button>
+            <button class="btn text-white ml-5" (click) = "showUsers()" >Users</button>
           </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>
+            <button (click)="showComments()" class="btn text-white ml-5">Comments</button>
+          </mat-list-item>
+          <mat-divider></mat-divider>
         </mat-list>
-
     </mat-drawer>
-    <mat-drawer-content>
+
+    <mat-drawer-content class="bg">
         <div class="container" *ngIf = "show">
             <app-code-book  [codeBook] = "codeBook" (notify)="onNotify()"></app-code-book>
         </div>
@@ -24,6 +28,7 @@
       </div>
 
     </mat-drawer-content>
+
   <div class="notifier">
     <notifier-container></notifier-container>
   </div>

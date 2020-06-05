@@ -21,8 +21,8 @@ export class TransmissionService {
     );
   }
 
-  deleteTransmission(name: string) {
-    return this.apiService.delete('http://localhost:8083/transmission/' + name).pipe(
+  deleteTransmission(id: number) {
+    return this.apiService.delete('http://localhost:8083/transmission/' + id).pipe(
       map(result => {
         console.log('Transmission deleted' + result);
       })

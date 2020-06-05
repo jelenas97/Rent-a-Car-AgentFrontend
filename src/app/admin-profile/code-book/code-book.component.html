@@ -1,59 +1,107 @@
-<div class="container register-form pt-lg-5" >
-<div class="card my-5">
+<div class="bg">
 
-  <div class="card-body">
-    <h5 class="card-header" style="text-align:center">You can select row to delete item, or click link to add new one.</h5>
-    <div class="notifier">
-      <notifier-container></notifier-container>
-    </div>
-  <table>
-    <tr>
+  <div class="row ml-5 pl-5 mt-3">
+    <h3 *ngIf="selectedModel" class="msg ml-4 pl-4">Currently selected Car Brand: {{this.brand.name}}</h3>
+    <h3 *ngIf="!selectedModel" class="msg ml-4 pl-4">You can select Car Brand to see Car Models</h3>
+  </div>
 
-     <td>
-      <table class="coodebook-table" >
-        <tr><th class="firstRow">-- Car class --</th> </tr>
-        <tr *ngFor="let class of codeBook.carClasses;" (click) = "removeClass(class)"><th> {{class}} </th></tr>
-        <tr> <th class="lastRow"><button (click) = "addNewClass()">Add new class!</button></th> </tr>
-      </table>
-    </td>
-     <td>
-      <table  class="coodebook-table" >
-        <tr><th class="firstRow">-- Fuel type --</th> </tr>
-        <tr *ngFor="let type of codeBook.fuelTypes;" (click) = "removeFuel(type)"><th> {{type}} </th></tr>
-        <tr> <th class="lastRow"><button (click) = "addNewFuel()">Add new fuel!</button></th> </tr>
-      </table>
-    </td>
-
-     <td>
-      <table  class="coodebook-table"  >
-        <tr><th class="firstRow">-- Transmission --</th> </tr>
-        <tr *ngFor="let type of codeBook.transmissionTypes;" (click) = "removeTransmission(type)"><th> {{type}} </th></tr>
-        <tr> <th class="lastRow"><button (click) = "addNewTransmission()">Add new type!</button></th> </tr>
-      </table>
-    </td>
-
-    <td>
-      <table  class="coodebook-table"  >
-        <tr><th class="firstRow">-- Brand --</th> </tr>
-        <tr *ngFor="let brand of codeBook.carBrands;" (click) = "removeBrand(brand)"><th> {{brand}} </th></tr>
-        <tr> <th class="lastRow"><button  (click) = "addNewBrand()">Add new brand!</button></th> </tr>
-      </table>
-    </td>
-          <td>
-            <table class="carModels" >
-            <div *ngIf="!selectedModel"> <h5>First select brand   </h5>    </div>
-              <tr><th class="firstRow " >-- Car models --</th> </tr>
-            <div *ngIf="selectedModel">
-                            <tr *ngFor="let model of models;" (click) = "removeModel(model)"><th> {{model}} </th></tr>
-                            <tr> <th class="lastRow"><button (click) = "addNewModel()">Add new model!</button></th> </tr>
-            </div>
-
-            </table>
+  <div class="row ml-5 pl-5 mt-4">
+    <div class="col-6 pl-5">
+      <table class="border-0 table table-striped table-sm">
+        <tr class="mt-3">
+          <td class="text-left td-name">Car Brand</td>
+          <td class="text-right">
+            <button class="btn" (click)="addNewBrand()">
+              <mat-icon>add_box</mat-icon>
+            </button>
           </td>
-    </tr>
-  </table>
+        </tr>
+        <tbody>
+        <tr *ngFor="let brand of codeBook.carBrands">
+          <td class="brand-selected" (click)="showModels(brand)">{{brand.name}}</td>
+          <td class="text-right garbage-td"><button class="btn garbage brand-selected" (click)="removeBrand(brand.id)"><mat-icon class="brand-selected">delete</mat-icon></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-6 pl-5">
+      <table class="border-0 table table-striped table-sm">
+        <tr class="mt-3">
+          <td class="text-left td-name">Car Model</td>
+          <td class="text-right">
+            <button class="btn" (click)="addNewModel()">
+              <mat-icon>add_box</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <tbody>
+        <tr *ngIf="!selectedModel">
+          <td class="text-center ml-3 pl-5">You need to select Car Brand first</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let model of models">
+          <td>{{model.name}}</td>
+          <td class="text-right garbage-td"><button class="btn garbage" (click)="removeModel(model.id)"><mat-icon class="">delete</mat-icon></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row ml-5 pl-5 pt-5">
+    <div class="col-4 pl-5 pt-3">
+      <table class="border-0 table table-striped table-sm">
+        <tr class="mt-3">
+          <td class="text-left td-name">Car Class</td>
+          <td class="text-right">
+            <button class="btn" (click)="addNewClass()">
+              <mat-icon>add_box</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <tbody>
+        <tr *ngFor="let class of codeBook.carClasses">
+          <td>{{class.name}}</td>
+          <td class="text-right garbage-td"><button class="btn garbage" (click)="removeClass(class.id)"><mat-icon class="">delete</mat-icon></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-4 pl-5 pt-3">
+      <table class="border-0 table table-striped table-sm">
+        <tr class="mt-3">
+          <td class="text-left td-name">Transmission Type</td>
+          <td class="text-right">
+            <button class="btn" (click)="addNewTransmission()">
+              <mat-icon>add_box</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <tbody>
+        <tr *ngFor="let transmissionType of codeBook.transmissionTypes" >
+          <td>{{transmissionType.name}}</td>
+          <td class="text-right garbage-td"><button class="btn garbage" (click)="removeTransmission(transmissionType.id)"><mat-icon class="">delete</mat-icon></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-4 pl-5 pt-3">
+      <table class="border-0 table table-striped table-sm">
+        <tr class="mt-3"><td class="text-left td-name">Fuel Type</td> <td class="text-right"><button class="btn" (click)="addNewFuel()"><mat-icon>add_box</mat-icon></button></td></tr>
+        <tbody>
+        <tr *ngFor="let fuelType of codeBook.fuelTypes" >
+          <td>{{fuelType.name}}</td>
+          <td class="text-right garbage-td"><button class="btn garbage" (click)="removeFuel(fuelType.id)"><mat-icon class="">delete</mat-icon></button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+
+<div class="notifier">
+  <notifier-container></notifier-container>
 </div>
-
-

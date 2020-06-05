@@ -11,9 +11,9 @@ export class ConfigService {
   private signUpUrl = this.authUrl + '/signup';
   passChangeUrl = this.authUrl + '/changePassword';
   whoAmIUrl = this.serverUrl + '/user/whoami';
-  private userUrl = this.serverUrl + '/user';
+  userUrl = 'http://localhost:8083/user';
   private adminUrl = this.serverUrl + '/admin';
-  private codebookUrl = this.serverUrl + '/codebook';
+  private codebookUrl = 'http://localhost:8083/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
   private commentUrl = this.serverUrl + '/comment';
   private rentRequestUrl = this.serverUrl + '/rentRequest';
