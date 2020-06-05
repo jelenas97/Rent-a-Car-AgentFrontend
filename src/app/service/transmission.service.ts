@@ -13,7 +13,7 @@ export class TransmissionService {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.apiService.post('http://localhost:8080/transmission' , name, editHeaders).pipe(
+    return this.apiService.post('http://localhost:8083/transmission' , name, editHeaders).pipe(
       map(result => {
         console.log('New transmission added' + result);
 
@@ -21,8 +21,8 @@ export class TransmissionService {
     );
   }
 
-  deleteTransmission(name: string) {
-    return this.apiService.delete('http://localhost:8080/transmission/' + name).pipe(
+  deleteTransmission(id: number) {
+    return this.apiService.delete('http://localhost:8083/transmission/' + id).pipe(
       map(result => {
         console.log('Transmission deleted' + result);
       })

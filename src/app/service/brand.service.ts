@@ -13,7 +13,7 @@ export class BrandService {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.apiService.post('http://localhost:8080/brand' , name, editHeaders).pipe(
+    return this.apiService.post('http://localhost:8083/brand' , name, editHeaders).pipe(
       map(result => {
         console.log('New brand added' + result);
 
@@ -21,8 +21,8 @@ export class BrandService {
     );
   }
 
-  deleteBrand(name: string) {
-    return this.apiService.delete('http://localhost:8080/brand/' + name).pipe(
+  deleteBrand(id: number) {
+    return this.apiService.delete('http://localhost:8083/brand/' + id).pipe(
       map(result => {
         console.log('New brand added' + result);
       })

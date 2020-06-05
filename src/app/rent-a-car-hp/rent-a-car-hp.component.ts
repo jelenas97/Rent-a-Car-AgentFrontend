@@ -9,6 +9,7 @@ import {Rent} from '../shared/model/rent';
 import {NotifierService} from 'angular-notifier';
 import {AuthService} from '../service/auth.service';
 import {User} from '../shared/model/user';
+import {CodeBook} from '../shared/model/codeBook';
 import {RentRequestService} from '../service/rent-request.service';
 
 @Component({
@@ -32,7 +33,7 @@ export class RentACarHpComponent implements OnInit {
   // car search params
   searchDto: SearchDto = new SearchDto();
   showPlaceholder = true;
-  codeBook: any;
+  codeBook: CodeBook;
   advanceSearch: any = false;
   showModel: any = false;
   models: any;
@@ -245,6 +246,10 @@ export class RentACarHpComponent implements OnInit {
           }
         } else {
           // Ne mozes rentirati!!!!!;
+          this.notifier.notify('error', 'You cant rent!!');
+          setTimeout(() => {
+            this.notifier.hideAll();
+          }, 2000);
         }
       }
     }
@@ -270,7 +275,6 @@ export class RentACarHpComponent implements OnInit {
       this.advertisements = this.all_ads;
       this.sortedAdvertisements = this.advertisements;
       this.showAds();
-
       const request = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, senderId);
       GlobalCart.cartAds.push(request);
       this.notifier.notify('success', 'Car added in your shop cart!');

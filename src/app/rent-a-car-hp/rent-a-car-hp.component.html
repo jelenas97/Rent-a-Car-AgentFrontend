@@ -33,8 +33,8 @@
           <mat-label>Brand</mat-label>
           <mat-select class="select" [(value)]="searchDto.brand">
             <mat-option>None</mat-option>
-            <mat-option (click)="showModels(brand)" *ngFor="let brand of codeBook.carBrands; "
-                        value="{{brand}}">{{brand}}</mat-option>
+            <mat-option (click)="showModels(brand.id)" *ngFor="let brand of codeBook.carBrands"
+                        value="{{brand.name}}">{{brand.name}}</mat-option>
             >
           </mat-select>
         </mat-form-field>
@@ -43,7 +43,7 @@
           <mat-label>Fuel</mat-label>
           <mat-select class="select" [(value)]="searchDto.fuelType">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let type of codeBook.fuelTypes;" value="{{type}}">{{type}}</mat-option>
+            <mat-option *ngFor="let type of codeBook.fuelTypes;" value="{{type.name}}">{{type.name}}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -51,7 +51,7 @@
           <mat-label>Class</mat-label>
           <mat-select class="select" [(value)]="searchDto.carClass">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let classCar of codeBook.carClasses;" value="{{classCar}}">{{classCar}}</mat-option>
+            <mat-option *ngFor="let classCar of codeBook.carClasses;" value="{{classCar.name}}">{{classCar.name}}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -60,7 +60,7 @@
             <mat-label>Model</mat-label>
             <mat-select class="select" [(value)]="searchDto.carModel">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let model of models;" value="{{model}}">{{model}}</mat-option>
+              <mat-option *ngFor="let model of models;" value="{{model.name}}">{{model.name}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -69,7 +69,7 @@
           <mat-label>Transmission type</mat-label>
           <mat-select class="select" [(value)]="searchDto.transmissionType">
             <mat-option>None</mat-option>
-            <mat-option *ngFor="let type of codeBook.transmissionTypes;" value="{{type}}">{{type}}</mat-option>
+            <mat-option *ngFor="let type of codeBook.transmissionTypes;" value="{{type.name}}">{{type.name}}</mat-option>
           </mat-select>
         </mat-form-field>
 
