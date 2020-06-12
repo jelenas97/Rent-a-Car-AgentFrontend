@@ -13,7 +13,7 @@ export class FuelService {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.apiService.post('http://localhost:8083/fuel' , name, editHeaders).pipe(
+    return this.apiService.post('http://localhost:8080/fuel' , name, editHeaders).pipe(
       map(result => {
         console.log('New fuel added' + result);
 
@@ -22,7 +22,7 @@ export class FuelService {
   }
 
   deleteFuel(id: number) {
-    return this.apiService.delete('http://localhost:8083/fuel/' + id).pipe(
+    return this.apiService.delete('http://localhost:8080/fuel/' + id).pipe(
       map(result => {
         console.log('Fuel deleted' + result);
       })
