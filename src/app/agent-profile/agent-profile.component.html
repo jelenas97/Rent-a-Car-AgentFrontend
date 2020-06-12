@@ -11,6 +11,9 @@
           <mat-list-item>
             <button class="btn-primary" (click) = "createPricelist()" > Create pricelist </button>
           </mat-list-item>
+          <mat-list-item>
+            <button class="btn-primary" (click) = showAllRents() >All rents</button>
+          </mat-list-item>
 
         </mat-list>
 
@@ -19,6 +22,9 @@
 
       <div class="container" *ngIf = "showAgentInfo">
         <app-agent-info (notify)="onNotify()"></app-agent-info>
+      </div>
+      <div class="container" *ngIf = "showAllRented">
+        <app-rent-report (notify)="onNotify()"></app-rent-report>
       </div>
       <div *ngIf="showAccept" class="container">
         <app-accept-requests (notify)="onNotify()"></app-accept-requests>
