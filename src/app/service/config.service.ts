@@ -5,15 +5,15 @@ import {Injectable} from '@angular/core';
 })
 export class ConfigService {
 
-  private authUrl = 'http://localhost:8083/auth';
-  private serverUrl = 'http://localhost:8083';
+  private authUrl = 'http://localhost:8080/auth';
+  private serverUrl = 'http://localhost:8080';
   private loginUrl = this.authUrl + '/login';
   private signUpUrl = this.authUrl + '/signup';
   passChangeUrl = this.authUrl + '/changePassword';
   whoAmIUrl = this.serverUrl + '/user/whoami';
-  userUrl = 'http://localhost:8083/user';
+  userUrl = this.serverUrl + '/user';
   private adminUrl = this.serverUrl + '/admin';
-  private codebookUrl = 'http://localhost:8083/codebook';
+  private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
   private commentUrl = this.serverUrl + '/comment';
   private rentRequestUrl = this.serverUrl + '/rentRequest';
