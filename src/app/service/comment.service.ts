@@ -39,4 +39,12 @@ export class CommentService{
     );
   }
 
+  getComments(id : String){
+    return this.apiService.get(this.configService.getComment_url+ '/' +id).pipe(
+      map(result => {
+        return result;
+      })
+    );
+  }
+
 }
