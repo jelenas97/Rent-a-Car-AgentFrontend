@@ -2,12 +2,14 @@
 <div class="row">
     <div class="column">
         <img class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
+        <h6  class="rating" *ngIf="rates">Rating: {{rates[0].average_rate}}</h6>  
+        <label class="rating" *ngIf="rates">Voted: {{rates[0].voted}}</label>
     </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-        </mat-card-header>
+        </mat-card-header>  
         <mat-card-title><b>Car name</b></mat-card-title>
         <mat-card-content>
             <br/>
@@ -29,6 +31,14 @@
             <div *ngFor="let image of car.imageGallery">
                 <img class="image-from-gallery" src="{{image}}"/>
             </div>
+        </div>
+    </div>
+    <div class="comments">
+        <h5>Comments:</h5>
+        <div *ngFor="let c of comments">
+            <hr>
+                <label><b>{{c.client}}</b>: {{c.content}}</label>
+                <label>{{c.dateString}}</label>
         </div>
     </div>
   </div>
