@@ -13,6 +13,7 @@ import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-adver
 import {RegistrationComponent} from './registration/registration.component';
 import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
+import {MessagesComponent} from "./messages/messages.component";
 
 const routes: Routes = [
   {path: 'foo', component: FooComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path: 'admin/user', component: RegisterNewUserComponent},
   {path: 'client-profile', component : ClientProfileComponent},
   {path: 'agent-profile', component: AgentProfileComponent},
-  {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent}
+  {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent},
+  {path: 'messages', component: MessagesComponent}
+
 ];
 
 @NgModule({

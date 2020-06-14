@@ -72,6 +72,7 @@ import {UserService} from './service/user.service';
 import { AgentService } from './service/agent.service';
 import { PricelistComponent } from './agent-profile/pricelist/pricelist.component';
 import { PricelistService } from './service/pricelist.service';
+import { MessagesComponent } from './messages/messages.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -150,7 +151,8 @@ const customNotifierOptions: NotifierOptions = {
     AgentInfoComponent,
     ApprovingCommentsComponent,
     AcceptRequestsComponent,
-    PricelistComponent
+    PricelistComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

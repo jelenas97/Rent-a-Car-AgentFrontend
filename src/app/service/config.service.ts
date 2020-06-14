@@ -24,6 +24,7 @@ export class ConfigService {
   private pricelistUrl = this.serverUrl+'/priceList';
   private rateUrl = this.serverUrl+'/rate';
   private _carUrl= this.serverUrl + '/car';
+  private messageUrl = this.serverUrl + '/message';
 
 
   get refreshTokenUrl(): string {
@@ -89,4 +90,9 @@ export class ConfigService {
   get getRate_url(): string {
     return this.rateUrl;
   }
+
+  get getMessage_url(): string{
+    return this.messageUrl;
+  }
+
 }
