@@ -31,6 +31,17 @@ export class RentRequestService {
         })
       );
   }
+
+  getRentRequestsReserved(id: string){
+    return this.apiService.get(this.configService.getRentRequests + '/user/' + id + '/reserved').pipe(
+      map(rentRequests => {
+        console.log(rentRequests);
+        return rentRequests;
+      })
+    );
+  }
+
+
   sentRequest(rent: any) {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'

@@ -15,7 +15,6 @@
       <th scope="col"> Rent request status </th>
       <th scope="col"> Car details</th>
       <th scope="col">  </th>
-      <th scope="col">  </th>
     </tr>
     </thead>
     <tbody>
@@ -30,88 +29,13 @@
           Cancel
         </button>
       </td>
-      <td *ngIf="rentRequest.rentRequestStatus ==='RESERVED'">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          Chat
-        </button>
-      </td>
     </tr>
     </tbody>
   </table>
 </div>
 
-<div class="modal fade" data-backdrop="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="myModalLabel">Chat</h3>
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <div class="panel-body">
-          <ul class="chat">
-            <li>
-              <div class="chat-body clearfix">
-                <div class="header">
-                  <h5>Jack Sparrow </h5> <small class="pull-right text-muted">
-                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                  dolor, quis ullamcorper ligula sodales.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="chat-body clearfix">
-                <div class="header">
-                  <h5>Jack Black </h5> <small class="pull-right text-muted">
-                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                  dolor, quis ullamcorper ligula sodales.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="chat-body clearfix">
-                <div class="header">
-                  <h5>Jack Sparrow </h5> <small class="pull-right text-muted">
-                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                  dolor, quis ullamcorper ligula sodales.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="chat-body clearfix">
-                <div class="header">
-                  <h5>Jack Black </h5> <small class="pull-right text-muted">
-                  <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                </div>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                  dolor, quis ullamcorper ligula sodales.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="input-group">
-          <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-          <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
-                                Send</button>
-                        </span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="notifier">
+  <notifier-container></notifier-container>
 </div>
 
