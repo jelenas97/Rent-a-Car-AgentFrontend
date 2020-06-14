@@ -30,3 +30,27 @@ div.star-rating{
     margin-top:30px;
     margin-left: 80px;
 }
+
+label{
+    margin-top: 2em;
+    margin-left: 32em;
+}
+
+hr{
+    margin-left: 30em;
+}
+
+h5{
+    margin-top: 3em;
+    margin-left:27em;
+}
+
+h6.rating{
+    margin-top: 3em;
+    margin-left: 6em;
+}
+
+label.rating{
+    margin-top: 0.5em;
+    margin-left: 6em;
+}
