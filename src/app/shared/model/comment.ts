@@ -1,7 +1,7 @@
 export class Comment {
     id: any;
-    client_id: any;
-    client: any;
+    commenter_id: any;
+    commenter: any;
     content: String;
     date: any;
     dateString:any;
