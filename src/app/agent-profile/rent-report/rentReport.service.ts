@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {ConfigService} from '../../service/config.service';
 import {AuthService} from '../../service/auth.service';
 import {User} from '../../shared/model/user';
-import {Rent} from '../../shared/model/rent';
+import {Term} from '../../shared/model/term';
 
 @Injectable()
 export class RentReportService {
@@ -15,9 +15,10 @@ export class RentReportService {
     this.currUser = new User();
   }
 
-  public getAllRented(): Observable<Rent[]> {
+  public getAllRented(): Observable<Term[]> {
     this.currUser = this.authService.getCurrUser();
-    return this.httpClient.get<Rent[]>(this.configService.getAgent_url + '/' + this.currUser.id + '/terms');
+    console.log(this.currUser);
+    return this.httpClient.get<Term[]>(this.configService.agentUrl + '/' + this.currUser.id + '/terms');
   }
 
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RentReportService} from './rentReport.service';
 import {Rent} from '../../shared/model/rent';
+import {Term} from "../../shared/model/term";
 
 @Component({
   selector: 'app-rent-report',
@@ -9,16 +10,16 @@ import {Rent} from '../../shared/model/rent';
 })
 
 export class RentReportComponent implements OnInit {
-  rented: Rent[] = [];
+  rentedTerms: Term[] = [];
 
   constructor(private rentReportService: RentReportService) {
   }
 
   ngOnInit(): void {
     this.rentReportService.getAllRented().subscribe(data => {
-      this.rented = data;
+      this.rentedTerms = data;
+      console.log(data);
     });
-    console.log(this.rented);
   }
 
 }
