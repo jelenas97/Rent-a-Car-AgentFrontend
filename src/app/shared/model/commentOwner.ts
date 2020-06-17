@@ -1,4 +1,4 @@
-export class Comment {
+export class CommentOwner {
     id: any;
     commenter_id: any;
     commenter: any;
@@ -7,7 +7,6 @@ export class Comment {
     dateString:any;
     advertisement_id: any;
     status: any;
-    rent_request_id:any;
 
     constructor(){}
 }

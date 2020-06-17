@@ -4,7 +4,7 @@
     <br/>
     <form #addCommentForm="ngForm">
         <label>Comment:</label>
-        <textarea name="content" [(ngModel)]="_content" rows="5" cols="70" required></textarea>
+        <textarea name="content" [(ngModel)]="_content" rows="5" cols="63" required></textarea>
         <br/><br/>
         <button [disabled]="!addCommentForm.form.valid" class="btn btn-secondary" (click)="addComment()"  type="submit"> Submit </button>
     </form>

@@ -39,6 +39,17 @@ export class CommentService{
     );
   }
 
+  addCommentOwner(comment: Comment){
+    const editHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.post(this.configService.getComment_url+"/owner" , comment, editHeaders).pipe(
+      map(result => {
+        console.log('New comment added ' + result);
+      })
+    );
+  }
+
   getComments(id : String){
     return this.apiService.get(this.configService.getComment_url+ '/' +id).pipe(
       map(result => {
