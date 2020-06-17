@@ -16,6 +16,8 @@ export class CarDto{
   fuelType: FuelType[];
   availableTracking: Boolean;
   imageGallery: any;
+  advertisementId: any;
+  ownerId: any;
 
   constructor(){}
 

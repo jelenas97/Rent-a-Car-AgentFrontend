@@ -35,7 +35,7 @@ _clientId: any;
   addComment(){
     if(this._content!=null){
       this._comment= new Comment();
-      this._comment.client_id= this._clientId;
+      this._comment.commenter_id= this._clientId;
       this._comment.content= this._content;
       let date = [this._date['year'],this._date['month'],this._date['day']];
       this._comment.date= date;
