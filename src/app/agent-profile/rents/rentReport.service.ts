@@ -5,6 +5,8 @@ import {ConfigService} from '../../service/config.service';
 import {AuthService} from '../../service/auth.service';
 import {User} from '../../shared/model/user';
 import {Term} from '../../shared/model/term';
+import {Report} from '../../shared/model/report';
+import {Advertisement} from '../../shared/model/advertisement';
 
 @Injectable()
 export class RentReportService {
@@ -21,4 +23,15 @@ export class RentReportService {
     return this.httpClient.get<Term[]>(this.configService.agentUrl + '/' + this.currUser.id + '/terms');
   }
 
+  public getAll(): Observable<Report[]> {
+    return this.httpClient.get<Report[]>(this.configService.reportUrl );
+  }
+
+  save(result: Report, term: Term) {
+    result.term = term;
+    result.advertisement = new Advertisement();
+    result.advertisement = term.advertisement;
+    console.log(term.advertisement);
+    return this.httpClient.post<Report>(this.configService.reportUrl, result);
+  }
 }
