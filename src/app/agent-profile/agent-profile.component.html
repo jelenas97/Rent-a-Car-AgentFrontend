@@ -1,30 +1,29 @@
 <mat-drawer-container class="tp-container" >
-    <mat-drawer mode="side" opened>
+    <mat-drawer mode="side" opened class="sidenav">
 
         <mat-list>
           <mat-list-item>
-              <button class="btn-primary" (click) = "openAgentInfo()" > Agent information</button>
+              <button class="btn text-white ml-5" (click) = "openAgentInfo()"> Agent information</button>
           </mat-list-item>
           <mat-list-item>
-            <button (click)="acceptRequests()" class="btn-primary"> Accept requests</button>
+            <button class="btn text-white ml-5" (click)="acceptRequests()"> Accept requests</button>
           </mat-list-item>
           <mat-list-item>
-            <button class="btn-primary" (click) = "createPricelist()" > Create pricelist </button>
+            <button class="btn text-white ml-5" (click) = "createPricelist()"> Create pricelist </button>
           </mat-list-item>
           <mat-list-item>
-            <button class="btn-primary" (click) = showAllRents() >All rents</button>
+            <button class="btn text-white ml-5" (click) = showAllRents()>All rents</button>
           </mat-list-item>
 
         </mat-list>
 
     </mat-drawer>
-    <mat-drawer-content>
-
-      <div class="container" *ngIf = "showAgentInfo">
+    <mat-drawer-content class="pl-5">
+      <div class="container pl-5" *ngIf = "showAgentInfo">
         <app-agent-info (notify)="onNotify()"></app-agent-info>
       </div>
       <div class="container" *ngIf = "showAllRented">
-        <app-rent-report (notify)="onNotify()"></app-rent-report>
+        <app-rents (notify)="onNotify()"></app-rents>
       </div>
       <div *ngIf="showAccept" class="container">
         <app-accept-requests (notify)="onNotify()"></app-accept-requests>

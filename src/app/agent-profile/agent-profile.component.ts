@@ -37,6 +37,7 @@ export class AgentProfileComponent implements OnInit {
     this.showAgentInfo = false;
     this.showAccept = false;
     this.showCreatePricelist = false;
+    this.showAllRented = false;
   }
 
   onNotify() {
