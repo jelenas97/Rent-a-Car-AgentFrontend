@@ -1,26 +1,41 @@
-div.client-profile{
-    margin-left: 10em;
-    margin-top: 5em;
+.tp-container {
+  height: 92.5%;
+  margin-top: 0;
+  padding-top: 0;
 }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 20em;
-    height: 25em;
-    text-align: center;
-    font-family: arial;
-    margin-top: 5em;
-  }
+.container{
+  /* border: 1px solid red; */
+  margin:40px;
+  height: 96%;
 
-mat-drawer-content{
-    height: 93vh;
 }
 
-p.info{
-    font-size: 1.4em;
+.bg{
+  width: auto;
+  background-image: url("../images/partsDark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
 
-button{
-    width: 150px;
-    border-radius: 100%;
+.sidenav{
+  width: 330px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.btn{
+  font-size: 1.3rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.mat-list-item:hover {
+  background-color: #48494B;
+  box-shadow: none;
+}
+
+.mat-list {
+  margin-top: 0;
+  padding-top: 0;
 }

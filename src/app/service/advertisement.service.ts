@@ -1,16 +1,17 @@
 import {ApiService} from './api.service';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ConfigService} from './config.service';
-import {Advertisement2} from "../shared/model/advertisement2";
+import {Advertisement2} from '../shared/model/advertisement2';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdvertisementService {
-  constructor(private apiService: ApiService, private configService: ConfigService) {
+  constructor(private apiService: ApiService, private configService: ConfigService,
+              private httpClient: HttpClient) {
   }
 
   searchAdvertisements(searchDto: any) {

@@ -4,6 +4,20 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
+  get termUrl(): string {
+    return this._termUrl;
+  }
+
+  set termUrl(value: string) {
+    this._termUrl = value;
+  }
+  get reportUrl(): string {
+    return this._reportUrl;
+  }
+
+  set reportUrl(value: string) {
+    this._reportUrl = value;
+  }
 
   private authUrl = 'http://localhost:8080/auth';
   private serverUrl = 'http://localhost:8080';
@@ -13,14 +27,16 @@ export class ConfigService {
   whoAmIUrl = this.serverUrl + '/user/whoami';
   userUrl = this.serverUrl + '/user';
   private adminUrl = this.serverUrl + '/admin';
+  private _reportUrl = this.serverUrl + '/report';
   private codebookUrl = this.serverUrl + '/codebook';
   private advertisementUrl = this.serverUrl + '/advertisement';
   private commentUrl = this.serverUrl + '/comment';
+  private _termUrl = this.serverUrl + '/terms';
   private rentRequestUrl = this.serverUrl + '/rentRequest';
   private requestHolderUrl = this.serverUrl + '/requestHolder';
   // tslint:disable-next-line:variable-name
   private _refreshTokenUrl = this.serverUrl + '/refresh';
-  private agentUrl = this.serverUrl+'/agent';
+  agentUrl = this.serverUrl + '/agent';
   private pricelistUrl = this.serverUrl+'/priceList';
   private rateUrl = this.serverUrl+'/rate';
   private _carUrl= this.serverUrl + '/car';
