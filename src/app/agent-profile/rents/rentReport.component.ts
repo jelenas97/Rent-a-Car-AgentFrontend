@@ -3,10 +3,7 @@ import {RentReportService} from './rentReport.service';
 import {Term} from '../../shared/model/term';
 import {MatDialog} from '@angular/material/dialog';
 import {WriteReportDialogComponent} from '../write-report-dialog/writeReportDialog.component';
-import {AdvertisementService} from '../../service/advertisement.service';
-import {Advertisement} from '../../shared/model/advertisement';
-import {Rent} from "../../shared/model/rent";
-import {TermService} from "../../service/term.service";
+import {TermService} from '../../service/term.service';
 
 @Component({
   selector: 'app-rents',

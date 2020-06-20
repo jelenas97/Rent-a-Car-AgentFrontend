@@ -19,8 +19,7 @@ export class RentReportService {
 
   public getAllRented(): Observable<Term[]> {
     this.currUser = this.authService.getCurrUser();
-    console.log(this.currUser);
-    return this.httpClient.get<Term[]>(this.configService.agentUrl + '/' + this.currUser.id + '/terms');
+    return this.httpClient.get<Term[]>(this.configService.termUrl + '/agent/' + this.currUser.id );
   }
 
   public getAll(): Observable<Report[]> {
@@ -31,7 +30,6 @@ export class RentReportService {
     result.term = term;
     result.advertisement = new Advertisement();
     result.advertisement = term.advertisement;
-    console.log(term.advertisement);
     return this.httpClient.post<Report>(this.configService.reportUrl, result);
   }
 }

@@ -18,10 +18,11 @@ export class TermService {
   }
 
   getAllTermsWithReport(): Observable<Term[]> {
-    return this.apiService.get(this.configService.termUrl + '/withReports').pipe(map(result => {
+    return this.apiService.get(this.configService.termUrl + '/withReports' ).pipe(map(result => {
       console.log(result);
       return result;
     }));
   }
+
 }
 
