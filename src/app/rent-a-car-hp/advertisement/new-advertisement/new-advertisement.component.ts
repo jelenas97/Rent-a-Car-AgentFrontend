@@ -65,6 +65,7 @@ export class NewAdvertisementComponent implements OnInit {
   onSubmit() {
     console.log(this.advertisement);
     this.advertisement.owner = this.currUser;
+    this.advertisement.ownerId = this.currUser.id;
     if(this.advertisement.car.carBrand == null)
     {
       this.notifier.notify('warning','You must select car brand!');
