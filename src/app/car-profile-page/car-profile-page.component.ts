@@ -52,10 +52,11 @@ export class CarProfilePageComponent implements OnInit {
       if(this.authService.getCurrUser().id==this.car.ownerId){
         this.carOwner=true;
       }
+      console.log(car);
+      this.getAverageAdvertisementRate(car.advertisementId);
+      this.getComments(car.advertisementId);
     });
 
-    this.getComments(this.carId);
-    this.getAverageAdvertisementRate(this.carId);
   }
 
   getComments(id){
