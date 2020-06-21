@@ -72,6 +72,7 @@ import {UserService} from './service/user.service';
 import { AgentService } from './service/agent.service';
 import { PricelistComponent } from './agent-profile/pricelist/pricelist.component';
 import { PricelistService } from './service/pricelist.service';
+import { MessagesComponent } from './messages/messages.component';
 import {RentReportComponent} from "./agent-profile/rents/rentReport.component";
 import {RentReportService} from "./agent-profile/rents/rentReport.service";
 import {WriteReportDialogComponent} from "./agent-profile/write-report-dialog/writeReportDialog.component";
@@ -153,6 +154,8 @@ const customNotifierOptions: NotifierOptions = {
     AgentInfoComponent,
     ApprovingCommentsComponent,
     AcceptRequestsComponent,
+    PricelistComponent,
+    MessagesComponent,
     PricelistComponent,
     RentReportComponent,
     WriteReportDialogComponent

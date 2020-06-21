@@ -5,6 +5,9 @@ import { RentRequestService } from './../../service/rent-request.service';
 import { CancelRentDialogComponent } from './cancel-rent-dialog/cancel-rent-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import {MessageService} from "../../service/message.service";
+import {Message} from "../../shared/model/message";
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-requested-rents',
@@ -16,12 +19,12 @@ export class RequestedRentsComponent implements OnInit {
   currUser : User;
   _rentRequests: RentRequest[];
 
-  constructor(private _dialog: MatDialog, private _rentRequestService : RentRequestService, private authService: AuthService) { }
+  constructor(private notifier: NotifierService, private _dialog: MatDialog, private _rentRequestService : RentRequestService, private authService: AuthService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.currUser=this.authService.getCurrUser();
     this.getRentRequests(this.authService.getCurrUser().id);
-  
+
   }
 
   cancelRent(rentRequest){
@@ -40,7 +43,8 @@ export class RequestedRentsComponent implements OnInit {
     this._rentRequestService.getRentRequests(id).subscribe(rentRequests=>{
       console.log(rentRequests);
       this._rentRequests=rentRequests;
-    })
+    });
   }
+
 
 }

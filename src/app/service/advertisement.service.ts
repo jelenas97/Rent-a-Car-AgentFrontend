@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ConfigService} from './config.service';
+import {AdvertisementMicro} from "../shared/model/advertisement-micro";
 import {Advertisement2} from '../shared/model/advertisement2';
 
 
@@ -43,7 +44,7 @@ export class AdvertisementService {
     }));
   }
 
-  addAdvertisement(advertisement: Advertisement2) {
+  addAdvertisement(advertisement: AdvertisementMicro) {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });

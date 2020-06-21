@@ -16,6 +16,7 @@ import {NotifierService} from "angular-notifier";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../service/auth.service";
 import {User} from "../../../shared/model/user";
+import {AdvertisementMicro} from "../../../shared/model/advertisement-micro";
 
 
 @Component({
@@ -33,7 +34,7 @@ export class NewAdvertisementComponent implements OnInit {
   mileage: Number;
   isVisible : boolean = false;
 
-  advertisement: Advertisement2 = new Advertisement2();
+  advertisement: AdvertisementMicro = new AdvertisementMicro();
   codeBook: CodeBook = new CodeBook();
   currUser: User;
 
@@ -64,7 +65,6 @@ export class NewAdvertisementComponent implements OnInit {
 
   onSubmit() {
     console.log(this.advertisement);
-    this.advertisement.owner = this.currUser;
     this.advertisement.ownerId = this.currUser.id;
     if(this.advertisement.car.carBrand == null)
     {

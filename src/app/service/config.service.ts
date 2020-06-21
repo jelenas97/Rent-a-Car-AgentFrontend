@@ -103,6 +103,7 @@ export class ConfigService {
   private pricelistUrl = this._serverUrl+'/priceList';
   private _rateUrl = this._serverUrl+'/rate';
   private _carUrl= this._serverUrl + '/car';
+  private messageUrl = this.serverUrl + '/message';
 
 
   get refreshTokenUrl(): string {
@@ -168,4 +169,9 @@ export class ConfigService {
   get getRate_url(): string {
     return this._rateUrl;
   }
+
+  get getMessage_url(): string{
+    return this.messageUrl;
+  }
+
 }
