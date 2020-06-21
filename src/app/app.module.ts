@@ -73,6 +73,9 @@ import { AgentService } from './service/agent.service';
 import { PricelistComponent } from './agent-profile/pricelist/pricelist.component';
 import { PricelistService } from './service/pricelist.service';
 import { MessagesComponent } from './messages/messages.component';
+import {RentReportComponent} from "./agent-profile/rents/rentReport.component";
+import {RentReportService} from "./agent-profile/rents/rentReport.service";
+import {WriteReportDialogComponent} from "./agent-profile/write-report-dialog/writeReportDialog.component";
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -152,7 +155,10 @@ const customNotifierOptions: NotifierOptions = {
     ApprovingCommentsComponent,
     AcceptRequestsComponent,
     PricelistComponent,
-    MessagesComponent
+    MessagesComponent,
+    PricelistComponent,
+    RentReportComponent,
+    WriteReportDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -204,6 +210,7 @@ const customNotifierOptions: NotifierOptions = {
     UserService,
     AgentService,
     PricelistService,
+    RentReportService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent],

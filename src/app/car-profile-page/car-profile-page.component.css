@@ -10,7 +10,7 @@ img.profile-image{
 }
 
 div.car-info{
-    margin-left: 110px;
+    margin-left: 105px;
 }
 
 img.image-from-gallery{
@@ -29,4 +29,38 @@ div.imageGallery{
 div.star-rating{
     margin-top:30px;
     margin-left: 80px;
+}
+
+label{
+    margin-top: 2em;
+    margin-left: 32em;
+}
+
+hr{
+    margin-left: 30em;
+}
+
+h5{
+    margin-top: 3em;
+    margin-left:27em;
+}
+
+h6.rating{
+    margin-top: 3em;
+    margin-left: 6em;
+}
+
+label.rating{
+    margin-top: 0.5em;
+    margin-left: 6em;
+}
+
+form{
+    margin-left: 35em;
+    margin-bottom: 5em;
+}
+
+button.btn{
+    margin-left: 2em;
+    margin-bottom: 2.5em;
 }

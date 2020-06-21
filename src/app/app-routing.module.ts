@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'new-advertisement', component: NewAdvertisementComponent},
   {path: 'requested-and-history-rents', component: RequestedRentsComponent},
   {path: 'admin/user', component: RegisterNewUserComponent},
-  {path: 'client-profile', component : ClientProfileComponent},
+  {path: 'client-profile', component: ClientProfileComponent},
   {path: 'agent-profile', component: AgentProfileComponent},
   {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent},
   {path: 'messages', component: MessagesComponent}
@@ -38,4 +38,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,0 +1,20 @@
+<table class="table mt-5">
+  <tr>
+    <th class="text-white">Car Name</th>
+    <th class="text-white">Car Brand</th>
+    <th class="text-white">Car Model</th>
+    <th class="text-white">Start Date</th>
+    <th class="text-white">End Date</th>
+    <th class="text-white">Report</th>
+  </tr>
+
+  <tr *ngFor="let term of rentedTerms">
+    <td class="text-white">{{term.advertisement.name}}</td>
+    <td class="text-white">{{term.advertisement.carBrand}}</td>
+    <td class="text-white">{{term.advertisement.model}}</td>
+    <td class="text-white">{{term.startDate | date: 'dd.MM.yyyy'}}</td>
+    <td class="text-white">{{term.endDate | date: 'dd.MM.yyyy'}}</td>
+    <td><button *ngIf="term.writeReport" (click)="writeReport(term)" class="btn btn-light">Write Report</button></td>
+  </tr>
+</table>
+

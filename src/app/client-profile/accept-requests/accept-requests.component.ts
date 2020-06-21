@@ -4,6 +4,8 @@ import {RequestHolderService} from '../../service/request-holder.service';
 import {Rent} from '../../shared/model/rent';
 import {RentRequestService} from '../../service/rent-request.service';
 import {NotifierService} from "angular-notifier";
+import {User} from "../../shared/model/user";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-accept-requests',
@@ -13,15 +15,17 @@ import {NotifierService} from "angular-notifier";
 export class AcceptRequestsComponent implements OnInit {
 
   requestHolders: RequestHolder[];
+  currUser: User;
 
   constructor(private holderService: RequestHolderService, private requestService: RentRequestService,
-              private notifier: NotifierService) {
+              private notifier: NotifierService, private authService: AuthService) {
+    this.currUser = new User();
   }
 
   @Output() notify = new EventEmitter();
   ngOnInit(): void {
-    // id logovanog treba!!!
-    this.holderService.getRequestHolders(3).subscribe(foundHolders => {
+    this.currUser = this.authService.getCurrUser();
+    this.holderService.getRequestHolders(this.currUser.id).subscribe(foundHolders => {
       this.requestHolders = foundHolders;
     });
   }
