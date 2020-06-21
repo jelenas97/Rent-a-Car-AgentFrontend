@@ -21,7 +21,8 @@ export class ApiService {
 
   headers = new HttpHeaders({
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"
   });
 
   constructor(private http: HttpClient) {

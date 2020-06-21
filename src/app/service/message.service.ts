@@ -17,7 +17,7 @@ export class MessageService {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.apiService.post('http://localhost:8080/message/',message, editHeaders).pipe(
+    return this.apiService.post(this.configService.getMessage_url + '/',message, editHeaders).pipe(
       map(result => {
         console.log('New message added' + result);
 
