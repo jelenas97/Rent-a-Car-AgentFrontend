@@ -5,8 +5,8 @@
     </div>
     <div class="column">
         <img class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
-        <h6  class="rating" *ngIf="rates">Rating: {{rates[0].average_rate}}</h6>  
-        <label class="rating" *ngIf="rates">Voted: {{rates[0].voted}}</label>
+        <h6  class="rating" *ngIf="rates[0]">Rating: {{rates[0].average_rate}}</h6>  
+        <label class="rating" *ngIf="rates[0]">Voted: {{rates[0].voted}}</label>
     </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">
