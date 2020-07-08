@@ -101,3 +101,7 @@ button.cancel-btn:hover {
   z-index: -1;
   background-color: #000000;
 }
+
+td.pay{
+  width: 15px;
+}
