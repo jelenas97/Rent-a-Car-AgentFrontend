@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {StatisticService} from "../service/statistic.service";
+import {User} from "../shared/model/user";
+import {AuthService} from "../service/auth.service";
+import {StatisticDto} from "../shared/model/statistic-dto";
 
 @Component({
   selector: 'app-advertisement-statistics',
@@ -6,14 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advertisement-statistics.component.css']
 })
 export class AdvertisementStatisticsComponent implements OnInit {
+  currUser : User;
+  statisticKm : StatisticDto [];
+  statisticRate : StatisticDto [];
+  statisticComments : StatisticDto [];
+
   padding: any = { left: 5, top: 5, right: 5, bottom: 5 };
   titlePadding: any  = { left: 0, top: 0, right: 0, bottom: 10 };
 
-  dataAdapter1:  any[] = [
-    { Car: 'Audi Q5', KM: 14423},
-    { Car: 'BMW M5', KM: 10056},
-    { Car: 'Audi TT', KM: 7054}
-  ];
+  dataAdapter1:  any[] = [];
   xAxis1: any =
     {
       position: 'top',
@@ -48,11 +53,7 @@ export class AdvertisementStatisticsComponent implements OnInit {
       }
     ];
 
-  dataAdapter2:  any[] = [
-    { Car: 'Audi Q5', Rating: 9},
-    { Car: 'BMW M5', Rating: 8.2},
-    { Car: 'Audi TT', Rating: 7.3}
-  ];
+  dataAdapter2:  any[] = [];
 
   seriesGroups2: any[] =
     [
@@ -79,11 +80,7 @@ export class AdvertisementStatisticsComponent implements OnInit {
       }
     ];
 
-  dataAdapter3:  any[] = [
-    { Car: 'Audi Q5', Comments: 341},
-    { Car: 'BMW M5', Comments: 124},
-    { Car: 'Audi TT', Comments: 56}
-  ];
+  dataAdapter3:  any[] = [];
 
   seriesGroups3: any[] =
     [
@@ -94,7 +91,7 @@ export class AdvertisementStatisticsComponent implements OnInit {
           {
             title: { text: 'Number of comments' },
             minValue: 0,
-            maxValue: 1000,
+            maxValue: 200,
           },
         series: [
           {
@@ -109,11 +106,81 @@ export class AdvertisementStatisticsComponent implements OnInit {
         ]
       }
     ];
+  private numberOfStats: number;
 
 
-  constructor() { }
+  constructor(private statisticService: StatisticService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.currUser=this.authService.getCurrUser();
+    this.statisticService.getBestRate(this.currUser.id).subscribe(statisticRate=> {
+      console.log(statisticRate);
+      this.statisticRate = statisticRate;
+      this.statisticService.getMostComments(this.currUser.id).subscribe(statisticComments=> {
+        console.log(statisticComments);
+        this.statisticComments = statisticComments;
+        this.statisticService.getMostKm(this.currUser.id).subscribe(statisticKm=> {
+          console.log(statisticKm);
+          this.statisticKm = statisticKm;
+          this.fill();
+        });
+      });
+    });
+
+  }
+
+  fill() {
+    this.numberOfStats = 0;
+    for (const statisticRate of this.statisticRate) {
+      if(this.numberOfStats == 3)
+      {
+        break;
+      } else {
+        this.dataAdapter2 = [
+          ...this.dataAdapter2,
+          {
+            Car: statisticRate.carName,
+            Rating: statisticRate.rate,
+          }
+        ];
+        this.numberOfStats++;
+      }
+
+    }
+    this.numberOfStats = 0;
+
+    for (const statisticKm of this.statisticKm) {
+      if(this.numberOfStats == 3)
+      {
+        break;
+      } else {
+      this.dataAdapter1 = [
+        ...this.dataAdapter1,
+        {
+          Car: statisticKm.carName,
+          KM: statisticKm.km,
+        }
+      ];
+        this.numberOfStats++;
+      }
+    }
+    this.numberOfStats = 0;
+
+    for (const statisticComment of this.statisticComments) {
+      if(this.numberOfStats == 3)
+      {
+        break;
+      } else {
+      this.dataAdapter3 = [
+        ...this.dataAdapter3,
+        {
+          Car: statisticComment.carName,
+          Comments: statisticComment.comment,
+        }
+      ];
+      this.numberOfStats++;
+      }
+    }
   }
 
 }

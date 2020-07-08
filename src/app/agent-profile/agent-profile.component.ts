@@ -7,10 +7,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AgentProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   showAgentInfo = true;
   showAccept = false;
+  showCreatePricelist = false;
+  showAllRented = false;
 
   ngOnInit(): void {
   }
@@ -25,11 +28,24 @@ export class AgentProfileComponent implements OnInit {
     this.showAccept = true;
   }
 
+  createPricelist() {
+    this.hideAll();
+    this.showCreatePricelist = true;
+  }
+
   hideAll() {
     this.showAgentInfo = false;
     this.showAccept = false;
+    this.showCreatePricelist = false;
+    this.showAllRented = false;
   }
+
   onNotify() {
     this.acceptRequests();
+  }
+
+  showAllRents() {
+    this.hideAll();
+    this.showAllRented = true;
   }
 }

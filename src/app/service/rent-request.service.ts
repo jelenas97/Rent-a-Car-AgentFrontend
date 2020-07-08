@@ -14,7 +14,7 @@ export class RentRequestService {
   }
 
   getHistoryRentRequests(id: string){
-    return this.apiService.get('http://localhost:8080/rentRequest/history/' + id).pipe(
+    return this.apiService.get(this.configService.getRentRequests + '/history/' + id).pipe(
         map(historyRentRequests => {
             console.log(historyRentRequests);
             return historyRentRequests;
@@ -31,6 +31,17 @@ export class RentRequestService {
         })
       );
   }
+
+  getRentRequestsReserved(id: string){
+    return this.apiService.get(this.configService.getRentRequests + '/user/' + id + '/reserved').pipe(
+      map(rentRequests => {
+        console.log(rentRequests);
+        return rentRequests;
+      })
+    );
+  }
+
+
   sentRequest(rent: any) {
     const editHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -75,5 +86,16 @@ export class RentRequestService {
     );
   }
 
+  cancelRentRequest(id: String){
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.configService.getRentRequests + '/cancel/'+ id , editHeaders).pipe(
+      map(updateAdv => {
+        return updateAdv;
+      })
+    );
+  }
 
 }

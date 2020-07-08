@@ -16,10 +16,9 @@ export class CarRatingDialogComponent implements OnInit {
 
   private _clientId : any;
   private rate : Rate;
- // private hide =true;
-
+  private advId;
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any,
-  private _rentRequestService : RentRequestService, private _advertisementService : AdvertisementService/*, private _notifier: NotifierService*/) { }
+  private _rentRequestService : RentRequestService, private _advertisementService : AdvertisementService, private _notifier: NotifierService) { }
 
   _historyRentRequest:any;
 
@@ -34,21 +33,21 @@ export class CarRatingDialogComponent implements OnInit {
       New Value: ${$event.newValue}`);
   }
 
-  onSubmit(){
+  rateAdv(){
     this.rate = new Rate();
     this.rate.client_id = this._clientId;
-    this.rate.rate = this._rate;
+    this.rate.value = this._rate;
     this.rate.advertisement_id=this._historyRentRequest.advertisementId;
+    this.rate.rent_request_id=this._historyRentRequest.id;
 
     console.log(this.rate);
 
-   /*this._advertisementService.rateAdvertisement(this.rate).subscribe(_advertisement => {
-      this._notifier.notify("success", "Thank you for your review! ");
-      setTimeout(() => {
+   this._advertisementService.rateAdvertisement(this.rate).subscribe(_advertisement => {
+    this._notifier.notify('success', 'Succesfully rated advertisement!');
+    setTimeout(() => {
       this._notifier.hideAll();
-      }, 2000)
-      this.dialogRef.close();
-    })*/
+    }, 2000);
+    })
     this.dialogRef.close();
   }
   

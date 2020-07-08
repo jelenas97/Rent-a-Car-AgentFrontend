@@ -1,24 +1,29 @@
 <br/>
 <div class="row">
+    <div class="notifier">
+        <notifier-container></notifier-container>
+    </div>
     <div class="column">
-        <img class="profile-image" mat-card-image name="profile-picture" src="{{car.image}}">
+        <img class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
+        <h6  class="rating" *ngIf="rates[0]">Rating: {{rates[0].average_rate}}</h6>  
+        <label class="rating" *ngIf="rates[0]">Voted: {{rates[0].voted}}</label>
     </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-        </mat-card-header>
+        </mat-card-header>  
         <mat-card-title><b>Car name</b></mat-card-title>
         <mat-card-content>
             <br/>
-            <p class="border-bottom">Brand:  {{car.carBrand.name}} </p>
-            <p class="border-bottom">Model:  {{car.carBrand.models[0].name}}</p>
-            <p class="border-bottom">Transmission:  {{car.transmissionType.name}} </p>
-            <p class="border-bottom">Class:  {{car.carClass.name}} </p>
-            <p class="border-bottom">Fuel:  {{car.fuelType.name}} </p>
+            <p class="border-bottom">Brand:  {{car.carBrand}} </p>
+            <p class="border-bottom">Model:  {{car.carModel}}</p>
+            <p class="border-bottom">Transmission:  {{car.transmissionType}} </p>
+            <p class="border-bottom">Class:  {{car.carClass}} </p>
+            <div *ngFor="let fuel of car.fuelType">
+              <p class="border-bottom">Fuel:  {{fuel.name}} </p>
+            </div>
             <p class="border-bottom">Mileage:  {{car.mileage}} </p>
-            <p class="border-bottom">Limit:  {{car.limit}} </p>
-            <p class="border-bottom">Collision Damage Waiver:  {{car.collisionDamageWaiver}} </p>
             <p class="border-bottom">Kid seats:  {{car.kidSeats}} </p>
         </mat-card-content>
         <br/>
@@ -30,5 +35,19 @@
                 <img class="image-from-gallery" src="{{image}}"/>
             </div>
         </div>
+    </div>
+    <div class="comments">
+        <h5>Comments:</h5>
+        <div *ngFor="let c of comments">
+            <hr>
+                <label><b>{{c.commenter}}</b>: {{c.content}}</label>
+                <label>{{c.dateString}}</label>
+        </div>
+        <hr>
+        <br/><br/>
+        <form *ngIf="carOwner==true">
+            <textarea name="content" [(ngModel)]="_content" rows="2" cols="70" ></textarea>
+            <button class="btn btn-secondary"  type="submit" (click)="addComment()"> Submit </button>
+        </form>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="flip-card-inner">
       <div class="flip-card-front">
 
-        <img class="picture-card" src="{{advertisement.image}}" alt="Avatar">
+        <img class="picture-card" src="{{advertisement.imageGallery[0]}}" alt="Avatar">
       </div>
       <div class="flip-card-back">
         <h3 style="background-color: dimgrey;">{{advertisement.name}}</h3>
@@ -46,6 +46,7 @@
     </div>
   </div>
 
+  <h1><a routerLink="/car-profile-page/{{advertisement.carId}}"> {{advertisement.name}} </a></h1>
 
   <div class="greyColor">
     <h1 class="greyColor"><a class="greyColor" routerLink="/car-profile-page"> {{advertisement.name}} </a></h1>

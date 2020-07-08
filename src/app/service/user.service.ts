@@ -33,11 +33,9 @@ initUser() {
   }
 
   getMyInfo() {
-    return this.apiService.get(this.config.whoAmIUrl)
+    return this.apiService.get(this.config.whoAmI_url)
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user)); // sacuvaju se osnovni podaci o ulogovanom useru
-        console.log(JSON.parse(localStorage.getItem('currentUser')));
-        console.log(user.authorities[0].authority);
         return user;
       }));
   }
@@ -84,7 +82,7 @@ initUser() {
           console.log(userInfo);
           return userInfo;
       })
-    )
+    );
   }
 
 }

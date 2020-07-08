@@ -1,0 +1,129 @@
+
+<div class="container">
+  <div class="jumbotron requested-rents" >
+    <div class="requested-rents-title">
+      <h3>Requested rents</h3>
+      <p class="lead">Here you can see a list of rent requests with reserved status</p>
+    </div>
+  </div>
+  <br/>
+  <div class=" requested-rents-table">
+    <h3>Table of rent requests i recieved</h3>
+    <table class="table requested-rents-table">
+      <thead>
+      <tr>
+        <th scope="col" > Request id</th>
+        <th scope="col"> Rent start </th>
+        <th scope="col"> Rent end </th>
+        <th scope="col"> Rent request status </th>
+        <th scope="col"> Car details</th>
+        <th scope="col">  </th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor='let rentRequest of rentRequests'>
+        <tr *ngIf="!isMyRequest(rentRequest.senderId)">
+            <td> {{rentRequest.id}} </td>
+            <td> {{rentRequest.startDateTime}} </td>
+            <td> {{rentRequest.endDateTime}} </td>
+            <td> {{rentRequest.rentRequestStatus}} </td>
+            <td> {{rentRequest.cars}} </td>
+            <td>
+              <button mat-raised-button type="button" class="btn btn-primary btn-lg"
+                      matBadge="{{rentRequest.numberOfUnseen}}" matBadgePosition="above after" matBadgeColor="red" data-toggle="modal" data-target="#myModal" (click) = "getMessages(rentRequest.id)">
+                Chat
+              </button>
+            </td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+
+    <h3  *ngIf="currUser.roles[0] == 'ROLE_CLIENT'">Table of rent requests i requested</h3>
+    <table class="table requested-rents-table" *ngIf="currUser.roles[0] == 'ROLE_CLIENT'">
+      <thead>
+      <tr>
+        <th scope="col" > Request id</th>
+        <th scope="col"> Rent start </th>
+        <th scope="col"> Rent end </th>
+        <th scope="col"> Rent request status </th>
+        <th scope="col"> Car details</th>
+        <th scope="col">  </th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor='let rentRequest of rentRequests'>
+        <tr *ngIf="isMyRequest(rentRequest.senderId)">
+            <td> {{rentRequest.id}} </td>
+            <td> {{rentRequest.startDateTime}} </td>
+            <td> {{rentRequest.endDateTime}} </td>
+            <td> {{rentRequest.rentRequestStatus}} </td>
+            <td> {{rentRequest.cars}} </td>
+            <td>
+              <button mat-raised-button type="button" class="btn btn-primary btn-lg"
+                      matBadge="{{rentRequest.numberOfUnseen}}" matBadgePosition="above after" matBadgeColor="red" data-toggle="modal" data-target="#myModal" (click) = "getMessages(rentRequest.id)">
+                Chat
+              </button>
+            </td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" data-backdrop="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="myModalLabel">Chat</h3>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click) = "ngOnInit()"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <div class="panel-body">
+            <ul class="chat">
+              <li *ngFor='let message of messages'>
+                <div *ngIf="sender(message)">
+                  <div class="chat-body clearfix">
+                    <div class="header">
+                      <h5 class="primary-font" style = "color: #2196F3"> {{message.senderUsername}} </h5> <small  class="fa-pull-right text-muted">
+                      <span class="glyphicon glyphicon-time"></span>{{message.dateString}}</small>
+                    </div>
+                    <p class="font-weight-bold">
+                      {{message.content}}
+                    </p>
+                  </div>
+                </div>
+                <div *ngIf="!sender(message)">
+                  <div class="chat-body clearfix">
+                    <div class="header">
+                      <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>{{message.dateString}}</small>
+                      <h5 class="fa-pull-right primary-font" style = "color: #343961"> {{message.senderUsername}} </h5>
+                    </div>
+                    <p class="font-weight-bold">
+                      {{message.content}}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="input-group">
+            <input id="btn-input" type="text" class="form-control input-group-sm" placeholder="Type your message here..." [(ngModel)]="newMessage.content"
+                   name="discount" [ngModelOptions]="{standalone:true}" />
+            <span class="input-group-btn">
+              <button class="btn btn-warning btn-group-sm" id="btn-chat" (click)="sendMessage()">Send</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notifier">
+    <notifier-container></notifier-container>
+  </div>
+</div>
+

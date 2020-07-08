@@ -21,8 +21,8 @@ export class FuelService {
     );
   }
 
-  deleteFuel(name: string) {
-    return this.apiService.delete('http://localhost:8080/fuel/' + name).pipe(
+  deleteFuel(id: number) {
+    return this.apiService.delete('http://localhost:8080/fuel/' + id).pipe(
       map(result => {
         console.log('Fuel deleted' + result);
       })

@@ -1,37 +1,41 @@
 <div class="jumbotron requested-rents" >
-    <div class="requested-rents-title">
-        <h3>Requested rents</h3>
-        <p class="lead">Here you can see a list of your requested rents.</p>
-    </div>
+  <div class="requested-rents-title">
+    <h3>Requested rents</h3>
+    <p class="lead">Here you can see a list of your requested rents.</p>
+  </div>
 </div>
 <br/>
 <div class=" requested-rents-table" >
-<table class="table requested-rents-table">
+  <table class="table requested-rents-table">
     <thead>
-        <tr>
-            <th scope="col" > Request id</th>
-            <th scope="col"> Rent start </th>
-            <th scope="col"> Rent end </th>
-            <th scope="col"> Rent request status </th>
-            <th scope="col"> Car details</th>
-            <th scope="col">  </th>
-        </tr>
+    <tr>
+      <th scope="col" > Request id</th>
+      <th scope="col"> Rent start </th>
+      <th scope="col"> Rent end </th>
+      <th scope="col"> Rent request status </th>
+      <th scope="col"> Car details</th>
+      <th scope="col">  </th>
+    </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let rentRequest of _rentRequests'>
-            <td> {{rentRequest.id}} </td>
-          <td> {{rentRequest.startDateString}} </td>
-          <td> {{rentRequest.endDateString}} </td>
-            <td> {{rentRequest.rentRequestStatus}} </td>
-            <td> {{rentRequest.cars}} </td>
-            <td>
-                <button class="btn btn-secondary cancel-btn" type="button" (click)="cancelRent(rentRequest)">
-                    Cancel
-                </button>
-            </td>
-        </tr>
+    <tr *ngFor='let rentRequest of _rentRequests'>
+      <td> {{rentRequest.id}} </td>
+      <td> {{rentRequest.startDateString}} </td>
+      <td> {{rentRequest.endDateString}} </td>
+      <td> {{rentRequest.rentRequestStatus}} </td>
+      <td> {{rentRequest.cars}} </td>
+      <td>
+        <button class="btn btn-secondary cancel-btn" type="button" (click)="cancelRent(rentRequest)">
+          Cancel
+        </button>
+      </td>
+    </tr>
     </tbody>
-</table>
+  </table>
 </div>
-<br/>
+
+
+<div class="notifier">
+  <notifier-container></notifier-container>
+</div>
 

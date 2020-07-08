@@ -1,12 +1,13 @@
+import {CarModel} from './car-model';
 
-import { CarModel } from './car-model';
+export class CarBrand {
 
-export class CarBrand{
+  id: number;
+  name: string;
+  carModels: CarModel[];
 
-  id: Number;
-  name: String;
-  models: CarModel[];
-  constructor(){}
+  constructor() {
+  }
 
 
 }

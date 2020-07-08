@@ -3,9 +3,13 @@ export class RentRequest {
     startDateTime: any;
     endDateTime: any;
     rentRequestStatus: any;
-  startDateString: any;
-  endDateString: any;
+    startDateString: any;
+    endDateString: any;
     cars: any;
+    rated: any;
+    commented:any;
+    senderId: any;
+    numberOfUnseen: number;
 
   constructor() {
   }

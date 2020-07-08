@@ -9,17 +9,17 @@ import {HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class AgentService {
-  currentUser:User;
+  currentUser: User;
 
   constructor(private apiService: ApiService, private config: ConfigService, private userService: UserService) {
-      this.currentUser=this.userService.currentUser;
+      this.currentUser = this.userService.currentUser;
   }
 
-  getCurrentAgentInfo(currentUser){
-    return this.apiService.get(this.config.agentUrl +'/'+ currentUser.id ).pipe(map(agentInfo => {
+  getCurrentAgentInfo(currentUser) {
+    return this.apiService.get(this.config.agentUrl + '/' + currentUser.id ).pipe(map(agentInfo => {
             console.log(agentInfo);
             return agentInfo;
-        }))
+        }));
     }
 
 }

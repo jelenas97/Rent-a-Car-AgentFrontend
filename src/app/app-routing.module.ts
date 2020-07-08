@@ -13,6 +13,7 @@ import {NewAdvertisementComponent} from './rent-a-car-hp/advertisement/new-adver
 import {RegistrationComponent} from './registration/registration.component';
 import {AdvertisementStatisticsComponent} from './advertisement-statistics/advertisement-statistics.component';
 import {RegisterNewUserComponent} from './admin-profile/register-new-user/registerNewUser.component';
+import {MessagesComponent} from "./messages/messages.component";
 
 const routes: Routes = [
   {path: 'foo', component: FooComponent},
@@ -22,17 +23,20 @@ const routes: Routes = [
   {path: 'profile', component: AdminProfileComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'homepage', component: RentACarHpComponent},
-  {path: 'car-profile-page', component: CarProfilePageComponent},
+  {path: 'car-profile-page/:id', component: CarProfilePageComponent},
   {path: 'new-advertisement', component: NewAdvertisementComponent},
   {path: 'requested-and-history-rents', component: RequestedRentsComponent},
   {path: 'admin/user', component: RegisterNewUserComponent},
-  {path: 'client-profile', component : ClientProfileComponent},
+  {path: 'client-profile', component: ClientProfileComponent},
   {path: 'agent-profile', component: AgentProfileComponent},
-  {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent}
+  {path: 'advertisement-statistics', component: AdvertisementStatisticsComponent},
+  {path: 'messages', component: MessagesComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

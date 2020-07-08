@@ -1,8 +1,13 @@
+import { AuthService } from './../../service/auth.service';
+import { User } from './../../shared/model/user';
 import { RentRequest } from './../../shared/model/rent-request';
 import { RentRequestService } from './../../service/rent-request.service';
 import { CancelRentDialogComponent } from './cancel-rent-dialog/cancel-rent-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import {MessageService} from "../../service/message.service";
+import {Message} from "../../shared/model/message";
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-requested-rents',
@@ -11,20 +16,21 @@ import { MatDialog } from '@angular/material';
 })
 export class RequestedRentsComponent implements OnInit {
 
-  _clientId: any =8;
+  currUser : User;
   _rentRequests: RentRequest[];
 
-  constructor(private _dialog: MatDialog, private _rentRequestService : RentRequestService) { }
+  constructor(private notifier: NotifierService, private _dialog: MatDialog, private _rentRequestService : RentRequestService, private authService: AuthService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.getRentRequests(this._clientId);
-  
+    this.currUser=this.authService.getCurrUser();
+    this.getRentRequests(this.authService.getCurrUser().id);
+
   }
 
   cancelRent(rentRequest){
     let dialog = this._dialog.open(CancelRentDialogComponent, {
       width: '30%',
-      data: {_rentRequest : rentRequest, _rentRequests : this._rentRequests, _clientId : this._clientId},
+      data: {_rentRequest : rentRequest, _rentRequests : this._rentRequests, _clientId : this.currUser.id},
 
     });
     dialog.afterClosed().subscribe(data => {
@@ -37,7 +43,8 @@ export class RequestedRentsComponent implements OnInit {
     this._rentRequestService.getRentRequests(id).subscribe(rentRequests=>{
       console.log(rentRequests);
       this._rentRequests=rentRequests;
-    })
+    });
   }
+
 
 }
