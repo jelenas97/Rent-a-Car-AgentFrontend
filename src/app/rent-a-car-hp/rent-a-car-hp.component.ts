@@ -18,31 +18,9 @@ import {RentRequestService} from '../service/rent-request.service';
 })
 export class RentACarHpComponent implements OnInit {
 
-  // all_ads: Advertisement[];
+  all_ads: Advertisement[];
   // @ts-ignore
-  all_ads: Advertisement[] = [
 
-    // tslint:disable-next-line:max-line-length
-    {
-      id: 1,
-      ownerID: 3,
-      kilometresLimit: 200,
-      discount: 10,
-      cwd: true,
-      image: 'https://pbs.twimg.com/profile_images/588433651144196096/nCXD0GOf_400x400.jpg',
-      mileage: 4000,
-      kidSeats: 0,
-      availableTracking: true,
-      carClass: 'SUV',
-      carBrand: 'BMW',
-      price: 100,
-      transmissionType: 'automatic',
-      fuelType: 'petrol',
-      rate: 4,
-      name: 'Ferrari',
-      model: 'model'
-    },
-  ];
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -91,12 +69,11 @@ export class RentACarHpComponent implements OnInit {
     //   }
     // }
     // if (unregistered) {
-    this.removeCartAds();
-    // this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
-    //   this.all_ads = foundAds;
-    //   this.removeCartAds();
-    // });
-    // }
+    this.advertisementService.getAllAdvertisements().subscribe(foundAds => {
+      this.all_ads = foundAds;
+      this.removeCartAds();
+    });
+
   }
 
   showAds() {
