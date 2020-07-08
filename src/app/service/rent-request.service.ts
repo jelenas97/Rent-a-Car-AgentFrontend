@@ -32,6 +32,16 @@ export class RentRequestService {
       );
   }
 
+  getPaidRentRequests(id: string){
+
+    return this.apiService.get(this.configService.getRentRequests + '/paid/' + id).pipe(
+        map(rentRequests => {
+            console.log(rentRequests);
+            return rentRequests;
+        })
+      );
+  }
+
   getRentRequestsReserved(id: string){
     return this.apiService.get(this.configService.getRentRequests + '/user/' + id + '/reserved').pipe(
       map(rentRequests => {
@@ -93,6 +103,19 @@ export class RentRequestService {
     });
     return this.apiService.put(this.configService.getRentRequests + '/cancel/'+ id , editHeaders).pipe(
       map(updateAdv => {
+        return updateAdv;
+      })
+    );
+  }
+
+  payRentRequest(id: String){
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.configService.getRentRequests + '/pay/'+ id , editHeaders).pipe(
+      map(updateAdv => {
+        console.log(updateAdv);
         return updateAdv;
       })
     );
