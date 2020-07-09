@@ -29,6 +29,43 @@
           Cancel
         </button>
       </td>
+      <td class="pay" >
+        <button *ngIf="rentRequest.rentRequestStatus==='RESERVED'"  class="btn btn-secondary pay-btn" type="button" (click)="payRent(rentRequest)">
+          Pay
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="jumbotron requested-rents" >
+  <div class="requested-rents-title">
+    <h3>Paid rents</h3>
+  </div>
+</div>
+<div class=" requested-rents-table" >
+  <table class="table requested-rents-table">
+    <thead>
+    <tr>
+      <th scope="col" > Request id</th>
+      <th scope="col"> Rent start </th>
+      <th scope="col"> Rent end </th>
+      <th scope="col"> Rent request status </th>
+      <th scope="col"> Car details</th>
+      <th scope="col">  </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor='let rentRequest of _paidRentRequests'>
+      <td> {{rentRequest.id}} </td>
+      <td> {{rentRequest.startDateString}} </td>
+      <td> {{rentRequest.endDateString}} </td>
+      <td> {{rentRequest.rentRequestStatus}} </td>
+      <td> {{rentRequest.cars}} </td>
+      <td class="pay" >
+        Paid
+      </td>
     </tr>
     </tbody>
   </table>
