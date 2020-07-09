@@ -4,6 +4,28 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
+  get companyUrl(): string {
+    return this._companyUrl;
+  }
+
+  set companyUrl(value: string) {
+    this._companyUrl = value;
+  }
+  get approveUrl(): string {
+    return this._approveUrl;
+  }
+
+  set approveUrl(value: string) {
+    this._approveUrl = value;
+  }
+
+  get rejectUrl(): string {
+    return this._rejectUrl;
+  }
+
+  set rejectUrl(value: string) {
+    this._rejectUrl = value;
+  }
   get authUrl(): string {
     return this._authUrl;
   }
@@ -85,7 +107,9 @@ export class ConfigService {
   private _authUrl = 'http://localhost:8080/auth';
   private _serverUrl = 'http://localhost:8080';
   private _loginUrl = this._authUrl + '/login';
-  private signUpUrl = this._authUrl + '/signup';
+  private signUpUrl = this._serverUrl + '/registerRequest';
+  private _approveUrl = this.signUpUrl + '/approve';
+  private _rejectUrl = this.signUpUrl + '/reject';
   passChangeUrl = this._authUrl + '/changePassword';
   whoAmIUrl = this._serverUrl + '/user/whoami';
   userUrl = this._serverUrl + '/user';
@@ -100,6 +124,7 @@ export class ConfigService {
   // tslint:disable-next-line:variable-name
   private _refreshTokenUrl = this._serverUrl + '/refresh';
   private _agentUrl = this._serverUrl + '/agent';
+  private _companyUrl = this._serverUrl + '/company';
   private pricelistUrl = this._serverUrl+'/priceList';
   private _rateUrl = this._serverUrl+'/rate';
   private _carUrl= this._serverUrl + '/car';

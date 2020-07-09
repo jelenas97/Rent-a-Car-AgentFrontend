@@ -76,6 +76,8 @@ import { MessagesComponent } from './messages/messages.component';
 import {RentReportComponent} from "./agent-profile/rents/rentReport.component";
 import {RentReportService} from "./agent-profile/rents/rentReport.service";
 import {WriteReportDialogComponent} from "./agent-profile/write-report-dialog/writeReportDialog.component";
+import {RegisterRequestComponent} from "./admin-profile/register-request/registerRequest.component";
+import {RegisterRequestService} from "./admin-profile/register-request/registerRequest.service";
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -158,7 +160,8 @@ const customNotifierOptions: NotifierOptions = {
     MessagesComponent,
     PricelistComponent,
     RentReportComponent,
-    WriteReportDialogComponent
+    WriteReportDialogComponent,
+    RegisterRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -211,6 +214,7 @@ const customNotifierOptions: NotifierOptions = {
     AgentService,
     PricelistService,
     RentReportService,
+    RegisterRequestService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent],
