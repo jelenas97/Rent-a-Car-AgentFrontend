@@ -13,6 +13,9 @@
             <button (click)="showComments()" class="btn text-white ml-5">Comments</button>
           </mat-list-item>
           <mat-divider></mat-divider>
+          <mat-list-item>
+            <button (click)="showRegisterRequest()" class="btn text-white ml-5">Register Request</button>
+          </mat-list-item>
         </mat-list>
     </mat-drawer>
 
@@ -25,6 +28,9 @@
       </div>
       <div class="container" *ngIf = "showCom">
         <app-approving-comments [comments]="comments" ></app-approving-comments>
+      </div>
+      <div class="container" *ngIf = "showReq">
+        <app-register-request [registerRequests]="registerRequests"></app-register-request>
       </div>
 
     </mat-drawer-content>
