@@ -12,19 +12,19 @@ export class AdvertisementComponent implements OnInit {
 
   @Input('advertisement') advertisement: Advertisement;
   @Output() notify = new EventEmitter<Advertisement>();
-  private agent: any = false;
-  private yourCar = false;
-  private currUser: User;
+  agent: any = false;
+  yourCar = false;
+  currUser: User;
 
   constructor(private authService: AuthService) {
     this.currUser = this.authService.getCurrUser();
+    console.log(this.currUser);
+    console.log("Oglas" + this.advertisement);
     if (this.currUser.roles !== undefined) {
       if (this.currUser.roles !== null) {
-        if (this.advertisement.ownerID === this.currUser.id) {
-          this.yourCar = true;
-        }
         if (this.currUser.roles.includes('ROLE_AGENT')) {
           this.agent = true;
+
         }
       }
     }

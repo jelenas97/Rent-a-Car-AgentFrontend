@@ -46,7 +46,11 @@
     </div>
   </div>
 
-  <h1><a routerLink="/car-profile-page/{{advertisement.carId}}"> {{advertisement.name}} </a></h1>
+  <h1><a routerLink="/car-profile-page/{{advertisement.carId}}"> {{advertisement.name}} </a>
+    {{advertisement.ownerID}} {{agent}}
+    {{currUser.id}}
+
+  </h1>
 
   <!--  <div class="greyColor">-->
   <!--    <h1 class="greyColor"><a class="greyColor" routerLink="/car-profile-page"> {{advertisement.name}} </a></h1>-->
@@ -67,17 +71,27 @@
 
   </div>
 
-  <button (click)="addToCart(advertisement)" *ngIf="!yourCar" class="blink">
+
+  <div *ngIf="currUser.id === undefined">
+    <button (click)="addToCart(advertisement)" class="blink">
+
+      <div class="discount">Today only -{{advertisement.discount}}%!</div>
+
+    </button>
+  </div>
+  <div *ngIf="currUser.id !== undefined">
+
+    <button (click)="addToCart(advertisement)" *ngIf="currUser.id !== advertisement.ownerID" class="blink">
 
     <div class="discount">Today only -{{advertisement.discount}}%!</div>
 
       </button>
-  <button (click)="addToCart(advertisement)" *ngIf="yourCar" [disabled]="!agent">
+    <button (click)="addToCart(advertisement)" *ngIf="currUser.id === advertisement.ownerID" [disabled]="!agent">
 
     <div class="discount">Your car</div>
 
   </button>
-
+  </div>
   <div class="notifier">
     <notifier-container></notifier-container>
   </div>
