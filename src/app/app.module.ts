@@ -76,6 +76,7 @@ import { MessagesComponent } from './messages/messages.component';
 import {RentReportComponent} from "./agent-profile/rents/rentReport.component";
 import {RentReportService} from "./agent-profile/rents/rentReport.service";
 import {WriteReportDialogComponent} from "./agent-profile/write-report-dialog/writeReportDialog.component";
+import { PayRentDialogComponent } from './client-profile/requested-rents/pay-rent-dialog/pay-rent-dialog.component';
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -156,9 +157,9 @@ const customNotifierOptions: NotifierOptions = {
     AcceptRequestsComponent,
     PricelistComponent,
     MessagesComponent,
-    PricelistComponent,
     RentReportComponent,
-    WriteReportDialogComponent
+    WriteReportDialogComponent,
+    PayRentDialogComponent
   ],
   imports: [
     BrowserModule,
