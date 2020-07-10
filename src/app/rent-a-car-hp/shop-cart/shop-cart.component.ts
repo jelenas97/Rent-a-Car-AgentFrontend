@@ -5,6 +5,11 @@ import {RequestHolder} from '../../shared/model/request-holder';
 import {GlobalCart} from '../../shared/global';
 import {RentRequestService} from '../../service/rent-request.service';
 import {NotifierService} from 'angular-notifier';
+import {User} from '../../shared/model/user';
+import {AuthService} from '../../service/auth.service';
+import {EmailService} from '../../service/email.service';
+import {EmailClass} from '../../shared/model/email';
+import {EmailConfig} from '../../service/email.config';
 
 @Component({
   selector: 'app-shop-cart',
@@ -13,17 +18,23 @@ import {NotifierService} from 'angular-notifier';
 })
 export class ShopCartComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any,
-              private rentService: RentRequestService, private notifier: NotifierService) {
-  }
+  currUser: User;
 
   advertisements: Rent[];
   empty = true;
   requestHolder: RequestHolder;
   bundle: any = 'false';
+
+  constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any,
+              private rentService: RentRequestService, private notifier: NotifierService,
+              private authService: AuthService, private emailService: EmailService,
+              private emailConfig: EmailConfig) {
+  }
+
   ngOnInit() {
     this.advertisements = this.data;
  //   console.log(this.advertisements.length);
+    this.currUser = this.authService.getCurrUser();
   }
 
   onCancelDialog() {
@@ -52,8 +63,19 @@ export class ShopCartComponent implements OnInit {
     this.requestHolder = new RequestHolder();
     this.requestHolder.bundle = this.bundle;
     this.requestHolder.rentRequests = GlobalCart.cartAds;
-    console.log(this.bundle);
-    console.log(this.requestHolder);
+    this.requestHolder.rentRequests.forEach((element) => {
+      console.log('Poslacu zahtjev za ovaj element ' + element);
+    });
+    const email = new EmailClass();
+    email.content = this.emailConfig.getRentRequestSendMessage;
+    console.log('Trenutni korisnik je : ' + this.currUser);
+    email.email = this.currUser.email;
+
+    console.log('Saljem email' + email);
+    this.emailService.sendEmail(email).subscribe(foundAds => {
+      console.log('Email sent');
+    });
+
     this.rentService.sentRequest(this.requestHolder).subscribe(foundAds => {
       this.notifier.notify('success', 'Renting request sent! Please wait for answer :)');
       setTimeout(() => {
