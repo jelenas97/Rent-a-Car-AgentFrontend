@@ -1,6 +1,4 @@
-
-
-  <mat-sidenav-container class="tp-container">
+ <mat-sidenav-container class="tp-container">
     <mat-sidenav #sidenav [(opened)]="opened" mode="side" class="sidenav">
       <br>
       <div id="picker">
@@ -144,8 +142,7 @@
       <br>
       <div class="row">
         <div class="text-left ml-2">
-          <button (click)="searchAds()" style="width: 250px" class="btn btn-primary" [disabled]="searchDto.startDate>searchDto.endDate">Search</button>
-
+          <button (click)="searchAds()" style="width: 260px" class="btn btn-primary" [disabled]="searchDto.startDate>searchDto.endDate">Search</button>
         </div>
         <div>
         </div>
@@ -194,8 +191,4 @@
       </div>
 
     </mat-sidenav-content>
-
-
   </mat-sidenav-container>
-
-

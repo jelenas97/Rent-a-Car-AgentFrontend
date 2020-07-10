@@ -1,16 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {
   faBuilding,
-  faCity, faEnvelope,
+  faCity,
+  faEnvelope,
   faIndustry,
   faLock,
   faMapMarkerAlt,
-  faUser,
-  faUserCircle
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
 import {Agent} from '../../shared/model/agent';
 import {Company} from '../../shared/model/company';
 import {RegisterNewUserService} from './registerNewUser.service';
+import {NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-register-new-user',
@@ -31,7 +32,7 @@ export class RegisterNewUserComponent implements OnInit {
   agentObj: Agent;
   companyObj: Company;
 
-  constructor(private registerNewUserService: RegisterNewUserService) {
+  constructor(private registerNewUserService: RegisterNewUserService, private notifier: NotifierService) {
     this.agentObj = new Agent();
     this.companyObj = new Company();
   }
@@ -51,10 +52,13 @@ export class RegisterNewUserComponent implements OnInit {
   }
 
   onCompanySubmit() {
+    this.notifier.notify('success', 'You registered a new company successfully');
     this.registerNewUserService.registerCompany(this.companyObj).subscribe();
   }
 
   onAgentSubmit() {
+    this.notifier.notify('success', 'You registered a new agent successfully');
     this.registerNewUserService.registerAgent(this.agentObj).subscribe();
+
   }
 }

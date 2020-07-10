@@ -79,7 +79,7 @@
 
   /* Style the back side */
   .flip-card-back {
-    background-color: gray;
+    background-color: grey;
     color: white;
     transform: rotateY(180deg);
   }
@@ -87,3 +87,113 @@
     color: rgb(0, 0, 0);
 
   }
+
+.blink {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+  0% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+  50% {
+    background-color: #2d2d2d;
+    -webkit-box-shadow: 0 0 40px #2d2d2d;
+  }
+  100% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+  50% {
+    background-color: #2d2d2d;
+    -webkit-box-shadow: 0 0 40px #2d2d2d;
+  }
+  100% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+  50% {
+    background-color: #2d2d2d;
+    -webkit-box-shadow: 0 0 40px #2d2d2d;
+  }
+  100% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+  50% {
+    background-color: #2d2d2d;
+    -webkit-box-shadow: 0 0 40px #2d2d2d;
+  }
+  100% {
+    background-color: #000000;
+    -webkit-box-shadow: 0 0 3px #000000;
+  }
+}
+
+.stars {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #a0a0a0;
+}
+
+.full {
+  color: #00240f;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #00240f;
+}
+
+.blackFont {
+  color: black;
+}
+
+.greyColor {
+  font-size: 35px;
+  color: gray;
+}
+
+.card button:disabled {
+  opacity: 0.7;
+}

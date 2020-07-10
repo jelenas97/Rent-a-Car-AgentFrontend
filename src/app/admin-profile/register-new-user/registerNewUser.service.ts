@@ -3,23 +3,21 @@ import {HttpClient} from '@angular/common/http';
 import {Agent} from '../../shared/model/agent';
 import {Observable} from 'rxjs';
 import {Company} from '../../shared/model/company';
+import {ConfigService} from '../../service/config.service';
 
 @Injectable()
 export class RegisterNewUserService {
-  private readonly registerAgentUrl: string;
-  private readonly registerCompanyUrl: string;
 
-  constructor(private httpClient: HttpClient) {
-    this.registerAgentUrl = 'http://localhost:8083/agent/save';
-    this.registerCompanyUrl = 'http://localhost:8083/company/save';
+  constructor(private httpClient: HttpClient, private configService: ConfigService) {
+
   }
 
   public registerAgent(agent: Agent): Observable<Agent> {
-    return this.httpClient.post<Agent>(this.registerAgentUrl, agent);
+    return this.httpClient.post<Agent>(this.configService.agentUrl, agent);
   }
 
   public registerCompany(company: Company): Observable<Company> {
-    return this.httpClient.post<Company>(this.registerCompanyUrl, company);
+    return this.httpClient.post<Company>(this.configService.companyUrl, company);
   }
 
 
