@@ -3,21 +3,21 @@
       <br>
       <div id="picker">
         <div class="row">
-          <input [(ngModel)]="searchDto.startDate" [matDatepicker]="picker" class="dateInp ml-4"
+          <input [(ngModel)]="searchDto.startDate" [min]="minDate" [matDatepicker]="picker" class="dateInp ml-4"
                  placeholder="Start date" disabled matInput>
           <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
           <mat-datepicker #picker disabled="false"></mat-datepicker>
         </div>
-
         <div class="row mt-4">
-          <input [(ngModel)]="searchDto.endDate" [matDatepicker]="picker2" class="dateInp ml-4" disabled
+          <input [(ngModel)]="searchDto.endDate" [min]="minDate" [matDatepicker]="picker2" class="dateInp ml-4" disabled
                  placeholder="End date" matInput>
           <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
           <mat-datepicker #picker2 disabled="false"></mat-datepicker>
         </div>
         <mat-divider></mat-divider>
       </div>
-
+      <br>
+      <label *ngIf="searchDto.startDate>searchDto.endDate" class="warning"> End date cant be lower than start date! </label>
       <mat-form-field class="wrapper ml-3 mt-4">
         <mat-label>Place</mat-label>
         <mat-select class="select" [(value)]="searchDto.place" (selectionChange)="changeOption()">
@@ -142,8 +142,7 @@
       <br>
       <div class="row">
         <div class="text-left ml-2">
-          <button (click)="searchAds()" style="width: 260px" class="btn btn-primary">Search</button>
-
+          <button (click)="searchAds()" style="width: 260px" class="btn btn-primary" [disabled]="searchDto.startDate>searchDto.endDate">Search</button>
         </div>
         <div>
         </div>
