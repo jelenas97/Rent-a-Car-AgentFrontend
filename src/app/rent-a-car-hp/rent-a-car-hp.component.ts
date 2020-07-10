@@ -40,10 +40,16 @@ export class RentACarHpComponent implements OnInit {
   opened: any = true;
   numOfAds: any = 6;
   currUser: User;
+  minDate: Date;
 
   constructor(private codebookService: CodebookService, private modelService: ModelService,
               private advertisementService: AdvertisementService, private notifier: NotifierService,
               private authService: AuthService, private rentService: RentRequestService) {
+
+                const currentYear = new Date().getFullYear();
+                const currentMonth = new Date().getMonth();
+                const currentDay = new Date().getDay();
+                this.minDate = new Date(currentYear, currentMonth, currentDay + 7);
   }
 
 
