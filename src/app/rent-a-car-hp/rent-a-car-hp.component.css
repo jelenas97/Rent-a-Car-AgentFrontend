@@ -96,3 +96,7 @@
   transform: translateY(-1.3em) scale(.75);
   width: 100%;
 }
+
+label.warning{
+  color: red;
+}
