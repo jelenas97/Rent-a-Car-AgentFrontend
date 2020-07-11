@@ -5,7 +5,8 @@ export class Pricelist{
     pricePerKm: Number;
     cdw: Number;
     creatorId: Number;
-    
+    discount: number;
+
     constructor(){}
-  
+
   }
