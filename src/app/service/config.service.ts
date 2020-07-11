@@ -4,6 +4,59 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
+  get commentUrl(): string {
+    return this._commentUrl;
+  }
+
+  set commentUrl(value: string) {
+    this._commentUrl = value;
+  }
+
+  get rateUrl(): string {
+    return this._rateUrl;
+  }
+
+  set rateUrl(value: string) {
+    this._rateUrl = value;
+  }
+  get fuelUrl(): string {
+    return this._fuelUrl;
+  }
+
+  set fuelUrl(value: string) {
+    this._fuelUrl = value;
+  }
+  get brandUrl(): string {
+    return this._brandUrl;
+  }
+
+  set brandUrl(value: string) {
+    this._brandUrl = value;
+  }
+
+  get modelUrl(): string {
+    return this._modelUrl;
+  }
+
+  set modelUrl(value: string) {
+    this._modelUrl = value;
+  }
+
+  get classUrl(): string {
+    return this._classUrl;
+  }
+
+  set classUrl(value: string) {
+    this._classUrl = value;
+  }
+
+  get transmissionUrl(): string {
+    return this._transmissionUrl;
+  }
+
+  set transmissionUrl(value: string) {
+    this._transmissionUrl = value;
+  }
   get companyUrl(): string {
     return this._companyUrl;
   }
@@ -82,13 +135,6 @@ export class ConfigService {
     this._agentUrl = value;
   }
 
-  get rateUrl(): string {
-    return this._rateUrl;
-  }
-
-  set rateUrl(value: string) {
-    this._rateUrl = value;
-  }
   get termUrl(): string {
     return this._termUrl;
   }
@@ -104,8 +150,8 @@ export class ConfigService {
     this._reportUrl = value;
   }
 
-  private _authUrl = 'http://localhost:8081/auth';
-  private _serverUrl = 'http://localhost:8081';
+  private _authUrl = 'http://localhost:8080/auth';
+  private _serverUrl = 'http://localhost:8080';
   private _loginUrl = this._authUrl + '/login';
   private signUpUrl = this._serverUrl + '/registerRequest';
   private _approveUrl = this.signUpUrl + '/approve';
@@ -117,7 +163,7 @@ export class ConfigService {
   private _reportUrl = this._serverUrl + '/report';
   private _codebookUrl = this._serverUrl + '/codebook';
   private _advertisementUrl = this._serverUrl + '/advertisement';
-  private commentUrl = this._serverUrl + '/comment';
+  private _commentUrl = this._serverUrl + '/comment';
   private _termUrl = this._serverUrl + '/term';
   private _rentRequestUrl = this._serverUrl + '/rentRequest';
   private requestHolderUrl = this._serverUrl + '/requestHolder';
@@ -126,8 +172,13 @@ export class ConfigService {
   private _agentUrl = this._serverUrl + '/agent';
   private _companyUrl = this._serverUrl + '/company';
   private pricelistUrl = this._serverUrl+'/priceList';
-  private _rateUrl = this._serverUrl+'/rate';
+  private _rateUrl = this._serverUrl + '/rate';
   private _carUrl= this._serverUrl + '/car';
+  private _brandUrl = this._serverUrl + '/brand';
+  private _modelUrl = this._serverUrl + '/model';
+  private _classUrl = this._serverUrl + '/class';
+  private _transmissionUrl = this._serverUrl + '/transmission';
+  private _fuelUrl = this._serverUrl + '/fuel';
   private messageUrl = this.serverUrl + '/message';
 
 
@@ -168,9 +219,7 @@ export class ConfigService {
   get getAds_url(): string {
     return this._advertisementUrl;
   }
-  get getComment_url(): string {
-    return this.commentUrl;
-  }
+
   get getRentRequests(): string {
     return this._rentRequestUrl;
   }
@@ -189,10 +238,6 @@ export class ConfigService {
 
   get getAgent_url(): string {
     return this._agentUrl;
-  }
-
-  get getRate_url(): string {
-    return this._rateUrl;
   }
 
   get getMessage_url(): string{

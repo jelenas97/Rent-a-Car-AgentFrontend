@@ -42,9 +42,11 @@
               <td> {{pricelist.pricePerKm}} </td>
               <td *ngIf="pricelist.cdw!==0"> {{pricelist.cdw}} </td>
               <td *ngIf="pricelist.cdw==0"> / </td>
-              <td  *ngIf="currUser.roles[0]=='ROLE_AGENT'">  </td>
+              <td  *ngIf="currUser.roles[0]=='ROLE_AGENT'">{{pricelist.discount}}</td>
             </tr>
         </tbody>
     </table>
-    
+  <div class="notifier">
+    <notifier-container></notifier-container>
+  </div>
 </div>

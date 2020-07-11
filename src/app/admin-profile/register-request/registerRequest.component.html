@@ -1,22 +1,26 @@
 
 <div class="bg">
-<table class="table table-sm table-striped">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-      <th>Email</th>
-    </tr>
-  </thead>
+  <table class="table table-sm table-striped">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Email</th>
+      </tr>
+    </thead>
 
-  <tr *ngFor="let registerRequest of registerRequests">
-    <td>{{registerRequest.firstName}}</td>
-    <td>{{registerRequest.lastName}}</td>
-    <td>{{registerRequest.username}}</td>
-    <td>{{registerRequest.email}}</td>
-    <td><button class="btn btn-success" type="button" (click)="approveRequest(registerRequest)">Approve</button></td>
-    <td><button class="btn btn-danger" type="button" (click)="rejectRequest(registerRequest)">Reject</button></td>
-  </tr>
-</table>
+    <tr *ngFor="let registerRequest of registerRequests">
+      <td>{{registerRequest.firstName}}</td>
+      <td>{{registerRequest.lastName}}</td>
+      <td>{{registerRequest.username}}</td>
+      <td>{{registerRequest.email}}</td>
+      <td><button class="btn btn-success" type="button" (click)="approveRequest(registerRequest)">Approve</button></td>
+      <td><button class="btn btn-danger" type="button" (click)="rejectRequest(registerRequest)">Reject</button></td>
+    </tr>
+  </table>
+
+  <div class="notifier">
+    <notifier-container></notifier-container>
+  </div>
 </div>
