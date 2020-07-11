@@ -1,4 +1,5 @@
 <div>
+<div>
   <div mat-dialog-content>
     <h5>Insert kilometers: <input [(ngModel)]="report.kilometers" class="inpClass" matInput></h5>
     <h5>Insert description: <input [(ngModel)]="report.description" class="inpClass" matInput></h5>
@@ -9,5 +10,9 @@
     <button (click)="Save()" class="btn btn-primary mr-1">Save</button>
     <button (click)="Cancel()" class="btn btn-secondary">Cancel</button>
   </div>
+</div>
+<div class="notifier">
+  <notifier-container></notifier-container>
+</div>
 </div>
 

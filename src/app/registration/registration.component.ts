@@ -20,7 +20,11 @@ export class RegistrationComponent {
   }
 
   register() {
-    this.registrationService.register(this.user).subscribe();
-    this.notifier.notify('success', 'Your sign in request is sent');
+    if (this.user.password !== this.user.confirmPassword) {
+      this.notifier.notify('error', 'Passwords must match!');
+    } else {
+      this.registrationService.register(this.user).subscribe();
+      this.notifier.notify('success', 'Your sign in request is sent');
+    }
   }
 }

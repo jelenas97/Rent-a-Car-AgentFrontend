@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { ConfigService } from './config.service';
 import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {User} from '../shared/model/user';
 
@@ -16,7 +16,8 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private config: ConfigService,
-    private router: Router
+    private router: Router,
+    private httpClient: HttpClient
   ) {
     this.currUser = new User();
   }
@@ -56,6 +57,10 @@ export class AuthService {
 
   getToken() {
     return this.accessToken;
+  }
+
+  getUserByUsername(username: string) {
+    return this.httpClient.post<User>(this.config.userUrl + '/username', username);
   }
 }
 
