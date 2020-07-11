@@ -6,7 +6,6 @@ export class Advertisement {
     rate: any;
     kilometresLimit: any;
     discount: any;
-    cwd: any;
     imageGallery: string[];
     mileage: any;
     kidSeats: any;

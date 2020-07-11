@@ -6,7 +6,6 @@ export class Advertisement2 {
 
   id: Number;
   kilometresLimit: Number;
-  cdw: Boolean;
   discount : Number;
   place: String;
   startDate: Date;
