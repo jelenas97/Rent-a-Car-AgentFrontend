@@ -17,5 +17,6 @@ export class Advertisement {
     price: any;
     model: any;
   ownerID: any;
+  ownerEmail: any;
     constructor() {}
 }

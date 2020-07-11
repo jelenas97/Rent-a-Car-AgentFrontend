@@ -1,13 +1,15 @@
 .tp-container {
   background: rgb(255, 255, 255);
   min-height: 565px;
-  height: 100%;
   width: 100%;
  }
 
 .sidenav{
   width: 330px;
   padding-left: 17px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
 }
 
 .mat-datepicker-toggle {
@@ -29,7 +31,6 @@
   align-content: center;
   align-items: center;
   height: 50px;
-  width:100px;
 }
 
 .center{
@@ -80,12 +81,10 @@
   height: 45px;
 }
 .matContent{
-  width: auto;
   min-height: 56.1em;
   background-image: url("../images/partsDark.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
 }
 
 ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.2em 0px !important;}
@@ -94,6 +93,10 @@
 
 
 ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-  transform: translateY(-1.0em) scale(.15);
-  width: 133.33333%;
+  transform: translateY(-1.3em) scale(.75);
+  width: 100%;
+}
+
+label.warning{
+  color: red;
 }

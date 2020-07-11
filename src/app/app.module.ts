@@ -77,6 +77,9 @@ import {RentReportComponent} from "./agent-profile/rents/rentReport.component";
 import {RentReportService} from "./agent-profile/rents/rentReport.service";
 import {WriteReportDialogComponent} from "./agent-profile/write-report-dialog/writeReportDialog.component";
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
+import { PayRentDialogComponent } from './client-profile/requested-rents/pay-rent-dialog/pay-rent-dialog.component';
+import {RegisterRequestComponent} from "./admin-profile/register-request/registerRequest.component";
+import {RegisterRequestService} from "./admin-profile/register-request/registerRequest.service";
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -157,9 +160,11 @@ const customNotifierOptions: NotifierOptions = {
     AcceptRequestsComponent,
     PricelistComponent,
     MessagesComponent,
-    PricelistComponent,
     RentReportComponent,
-    WriteReportDialogComponent
+    WriteReportDialogComponent,
+    PayRentDialogComponent,
+    RegisterRequestComponent
+
   ],
   imports: [
     BrowserModule,
@@ -214,6 +219,7 @@ const customNotifierOptions: NotifierOptions = {
     AgentService,
     PricelistService,
     RentReportService,
+    RegisterRequestService,
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'}}
   ],
   bootstrap: [AppComponent],

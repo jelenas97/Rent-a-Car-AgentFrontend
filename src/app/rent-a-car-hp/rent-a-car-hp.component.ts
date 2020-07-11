@@ -20,6 +20,8 @@ import {RentRequestService} from '../service/rent-request.service';
 export class RentACarHpComponent implements OnInit {
 
   all_ads: Advertisement[];
+  // @ts-ignore
+
   advertisements: any;
   startIndex: any;
   numberOfAds: any;
@@ -40,10 +42,17 @@ export class RentACarHpComponent implements OnInit {
   opened: any = true;
   numOfAds: any = 6;
   currUser: User;
+  minDate: Date;
+
 
   constructor(private codebookService: CodebookService, private modelService: ModelService,
               private advertisementService: AdvertisementService, private notifier: NotifierService,
               private authService: AuthService, private rentService: RentRequestService) {
+
+                const currentYear = new Date().getFullYear();
+                const currentMonth = new Date().getMonth();
+                const currentDay = new Date().getDay();
+                this.minDate = new Date(currentYear, currentMonth, currentDay + 7);
   }
 
 
@@ -55,6 +64,7 @@ export class RentACarHpComponent implements OnInit {
     });
     this.currUser = this.authService.getCurrUser();
     console.log(this.currUser);
+
     // let unregistered = true; let unregistered = true;
     // if (this.currUser.roles !== undefined) {
     //   if (this.currUser.roles !== null) {
@@ -72,7 +82,7 @@ export class RentACarHpComponent implements OnInit {
       this.all_ads = foundAds;
       this.removeCartAds();
     });
-    // }
+
   }
 
   showAds() {

@@ -49,7 +49,7 @@ export class CarProfilePageComponent implements OnInit {
   car: CarDto;
   carId: string;
   comments:CommentOwner[];
-  rates: Rate[];
+  rates: Rate;
   _content :String;
   _comment: Comment;
   currUser: User;
@@ -108,6 +108,7 @@ export class CarProfilePageComponent implements OnInit {
       console.log(car);
       this.getAverageAdvertisementRate(car.advertisementId);
       this.getComments(car.advertisementId);
+     
     });
 
     this.initializeWebSocketConnection();
@@ -162,7 +163,7 @@ export class CarProfilePageComponent implements OnInit {
   getAverageAdvertisementRate(id){
     this.rateService.getAverageAdvertisementRate(id).subscribe(rating=>{
       console.log(rating);
-      this.rates=rating;
+      this.rates=rating[0];
     })
   }
 

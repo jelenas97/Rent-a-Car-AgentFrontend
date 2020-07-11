@@ -11,8 +11,8 @@
         </agm-map>
       </div>
       <img *ngIf ="!showMap" class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
-      <h6  class="rating" *ngIf="rates">Rating: {{rates[0].average_rate}}</h6>
-        <label class="rating" *ngIf="rates">Voted: {{rates[0].voted}}</label>
+      <h6  class="rating" *ngIf="rates">Rating: {{rates.average_rate}}</h6>
+        <label class="rating" *ngIf="rates">Voted: {{rates.voted}}</label>
     </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">

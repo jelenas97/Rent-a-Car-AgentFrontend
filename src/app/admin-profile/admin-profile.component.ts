@@ -3,6 +3,7 @@ import {CodeBook} from '../shared/model/codeBook';
 import {CodebookService} from '../service/codebook.service';
 import {UserService} from '../service/user.service';
 import {CommentService} from '../service/comment.service';
+import {RegistrationService} from '../registration/registration.service';
 
 @Component({
   selector: 'app-admin-profile',
@@ -12,15 +13,17 @@ import {CommentService} from '../service/comment.service';
 export class AdminProfileComponent implements OnInit {
 
   constructor(private codebookService: CodebookService, private userService: UserService,
-              private commentService: CommentService) {
+              private commentService: CommentService, private registrationService: RegistrationService) {
   }
 
   codeBook: CodeBook;
   show = false;
   showUser = false;
   showCom = false;
+  showReq = false;
   users: any;
   comments: any;
+  registerRequests: any;
 
   ngOnInit(): void {
   }
@@ -53,5 +56,13 @@ export class AdminProfileComponent implements OnInit {
   }
   onNotify() {
     this.show = false;
+  }
+
+  showRegisterRequest() {
+    this.registrationService.getRegisterRequests().subscribe( request => {
+      this.registerRequests = request;
+    });
+    this.hideAll();
+    this.showReq = true;
   }
 }
