@@ -31,7 +31,7 @@ export class AdvertisementService {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     });
-    return this.apiService.post(this.configService.getRate_url , rate, editHeaders).pipe(
+    return this.apiService.post(this.configService.rateUrl , rate, editHeaders).pipe(
       map(result => {
         return result;
       })

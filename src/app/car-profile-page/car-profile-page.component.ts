@@ -1,20 +1,19 @@
-import { CommentOwner } from '../shared/model/commentOwner';
-import { User } from './../shared/model/user';
-import { Comment } from './../shared/model/comment';
-import { AuthService } from './../service/auth.service';
+import {CommentOwner} from '../shared/model/commentOwner';
+import {User} from './../shared/model/user';
+import {Comment} from './../shared/model/comment';
+import {AuthService} from './../service/auth.service';
 import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {Car} from '../shared/model/car';
 import {ActivatedRoute} from "@angular/router";
 import {CarService} from "../service/car.service";
 import {CarDto} from "../shared/model/car-dto";
-import { CommentService } from '../service/comment.service';
-import { RateService } from '../service/rate.service';
+import {CommentService} from '../service/comment.service';
+import {RateService} from '../service/rate.service';
 import {Rate} from '../shared/model/rate';
-import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
-import { NotifierService } from 'angular-notifier';
+import {NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import {NotifierService} from 'angular-notifier';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-import {GoogleMapsAPIWrapper, MapsAPILoader, AgmMap} from '@agm/core';
+import {AgmMap, GoogleMapsAPIWrapper, MapsAPILoader} from '@agm/core';
 
 declare var google: any;
 
@@ -48,13 +47,13 @@ export class CarProfilePageComponent implements OnInit {
 
   car: CarDto;
   carId: string;
-  comments:CommentOwner[];
+  comments: CommentOwner[];
   rates: Rate;
-  _content :String;
+  _content: String;
   _comment: Comment;
   currUser: User;
   _date: any;
-  carOwner:boolean;
+  carOwner: boolean;
 
   latlng: string[];
 
@@ -77,21 +76,21 @@ export class CarProfilePageComponent implements OnInit {
   @ViewChild(AgmMap) map: AgmMap;
 
   constructor(private route: ActivatedRoute, private carService: CarService, private commentService: CommentService,
-    private rateService : RateService, private authService: AuthService,  private _calendar: NgbCalendar,
-    private _notifier: NotifierService, public mapsApiLoader: MapsAPILoader,
-    private zone: NgZone, private wrapper: GoogleMapsAPIWrapper) {
+              private rateService: RateService, private authService: AuthService, private _calendar: NgbCalendar,
+              private _notifier: NotifierService, public mapsApiLoader: MapsAPILoader,
+              private zone: NgZone, private wrapper: GoogleMapsAPIWrapper) {
 
-      this._date =_calendar.getToday();
-      this.mapsApiLoader = mapsApiLoader;
-      this.zone = zone;
-      this.wrapper = wrapper;
-      this.mapsApiLoader.load().then(() => {
-        this.geocoder = new google.maps.Geocoder();
-      });
+    this._date = _calendar.getToday();
+    this.mapsApiLoader = mapsApiLoader;
+    this.zone = zone;
+    this.wrapper = wrapper;
+    this.mapsApiLoader.load().then(() => {
+      this.geocoder = new google.maps.Geocoder();
+    });
   }
 
   ngOnInit() {
-    //this.currUser=this.authService.getCurrUser();
+    this.currUser = this.authService.getCurrUser();
     this.car = new CarDto();
     this.car.imageGallery = [];
     this.car.fuelType = [];
@@ -101,14 +100,14 @@ export class CarProfilePageComponent implements OnInit {
     });
     this.carService.getCar(this.carId).subscribe(car => {
       this.car = car;
-      this.carOwner=false;
-      if(this.authService.getCurrUser().id==this.car.ownerId){
-        this.carOwner=true;
+      this.carOwner = false;
+      if (this.authService.getCurrUser().id === this.car.ownerId) {
+        this.carOwner = true;
       }
       console.log(car);
       this.getAverageAdvertisementRate(car.advertisementId);
       this.getComments(car.advertisementId);
-     
+
     });
 
     this.initializeWebSocketConnection();
@@ -131,9 +130,10 @@ export class CarProfilePageComponent implements OnInit {
   // Funckija za pretplatu na topic /socket-publisher (definise se u configureMessageBroker() metodi)
   // Globalni socket se otvara prilikom inicijalizacije klijentske aplikacije
   color: any;
+
   openGlobalSocket() {
     if (this.isLoaded) {
-      this.stompClient.subscribe("/socket-publisher",(message: { body: string; }) => {
+      this.stompClient.subscribe("/socket-publisher", (message: { body: string; }) => {
         this.handleResult(message);
       });
     }
@@ -144,7 +144,7 @@ export class CarProfilePageComponent implements OnInit {
     this.latlng = message.body.split(',');
     console.log(this.latlng);
     console.log(this.carId);
-    if(this.latlng[2] == this.carId && this.carOwner == true) {
+    if (this.latlng[2] === this.carId && this.carOwner === true) {
       this.showMap = true;
       this.location.marker.lat = Number(this.latlng[0]);
       this.location.marker.lng = Number(this.latlng[1]);
@@ -153,34 +153,34 @@ export class CarProfilePageComponent implements OnInit {
     }
   }
 
-  getComments(id){
-    this.commentService.getComments(id).subscribe(comments=>{
+  getComments(id) {
+    this.commentService.getComments(id).subscribe(comments => {
       console.log(comments);
-      this.comments=comments;
+      this.comments = comments;
     })
   }
 
-  getAverageAdvertisementRate(id){
-    this.rateService.getAverageAdvertisementRate(id).subscribe(rating=>{
+  getAverageAdvertisementRate(id) {
+    this.rateService.getAverageAdvertisementRate(id).subscribe(rating => {
       console.log(rating);
-      this.rates=rating[0];
+      this.rates = rating[0];
     })
   }
 
-  addComment(){
-    if(this._content!=null){
-      this._comment= new Comment();
-      this._comment.commenter_id= this.currUser.id;
-      this._comment.content= this._content;
-      let date = [this._date['year'],this._date['month'],this._date['day']];
-      this._comment.date= date;
-      this._comment.advertisement_id=this.car.advertisementId;
+  addComment() {
+    if (this._content != null) {
+      this._comment = new Comment();
+      this._comment.commenter_id = this.currUser.id;
+      this._comment.content = this._content;
+      let date = [this._date['year'], this._date['month'], this._date['day']];
+      this._comment.date = date;
+      this._comment.advertisement_id = this.car.advertisementId;
       console.log(this._comment);
 
-      this.commentService.addCommentOwner(this._comment).subscribe(result =>{
+      this.commentService.addCommentOwner(this._comment).subscribe(result => {
         this._notifier.notify('success', 'Succesfully added comment!');
         setTimeout(() => {
-        this._notifier.hideAll();
+          this._notifier.hideAll();
         }, 2000);
       });
     }
