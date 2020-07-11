@@ -8,7 +8,10 @@ img.profile-image{
     margin-left: 80px;
     margin-top: 20px;
 }
-
+.map{
+  margin-left: 80px;
+  margin-top: 20px;
+}
 div.car-info{
     margin-left: 105px;
 }
@@ -63,4 +66,9 @@ form{
 button.btn{
     margin-left: 2em;
     margin-bottom: 2.5em;
+}
+
+agm-map{
+  height: 400px;
+  width: 400px;
 }

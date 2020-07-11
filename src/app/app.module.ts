@@ -76,6 +76,7 @@ import { MessagesComponent } from './messages/messages.component';
 import {RentReportComponent} from "./agent-profile/rents/rentReport.component";
 import {RentReportService} from "./agent-profile/rents/rentReport.service";
 import {WriteReportDialogComponent} from "./agent-profile/write-report-dialog/writeReportDialog.component";
+import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import { PayRentDialogComponent } from './client-profile/requested-rents/pay-rent-dialog/pay-rent-dialog.component';
 import {RegisterRequestComponent} from "./admin-profile/register-request/registerRequest.component";
 import {RegisterRequestService} from "./admin-profile/register-request/registerRequest.service";
@@ -195,6 +196,7 @@ const customNotifierOptions: NotifierOptions = {
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBVyZk-4PJ5LNmXAYulTnaSs7QYUefqSK8'}),
     jqxChartModule,
     NotifierModule.withConfig(customNotifierOptions)
   ],
@@ -204,6 +206,7 @@ const customNotifierOptions: NotifierOptions = {
       useClass: TokenInterceptor,
       multi: true
     },
+    GoogleMapsAPIWrapper,
     FooService,
     MatDatepickerModule,
     RegistrationService,

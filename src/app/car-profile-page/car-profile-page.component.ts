@@ -2,7 +2,7 @@ import { CommentOwner } from '../shared/model/commentOwner';
 import { User } from './../shared/model/user';
 import { Comment } from './../shared/model/comment';
 import { AuthService } from './../service/auth.service';
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {Car} from '../shared/model/car';
 import {ActivatedRoute} from "@angular/router";
 import {CarService} from "../service/car.service";
@@ -12,6 +12,32 @@ import { RateService } from '../service/rate.service';
 import {Rate} from '../shared/model/rate';
 import {NgbDate, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 import { NotifierService } from 'angular-notifier';
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
+import {GoogleMapsAPIWrapper, MapsAPILoader, AgmMap} from '@agm/core';
+
+declare var google: any;
+
+interface Marker {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+}
+
+interface Location {
+  lat: number;
+  lng: number;
+  viewport?: object;
+  zoom: number;
+  address_level_1?: string;
+  address_level_2?: string;
+  address_country?: string;
+  address_zip?: string;
+  address_state?: string;
+  marker?: Marker;
+}
+
 
 @Component({
   selector: 'app-car-profile-page',
@@ -30,15 +56,42 @@ export class CarProfilePageComponent implements OnInit {
   _date: any;
   carOwner:boolean;
 
+  latlng: string[];
+
+  private stompClient;
+  isLoaded: boolean = false;
+  isCustomSocketOpened = false;
+  showMap: boolean = false;
+  geocoder: any;
+  public location: Location = {
+    lat: 45.275650,
+    lng: 19.849281,
+    marker: {
+      lat: 45.275650,
+      lng: 19.849281,
+      draggable: true
+    },
+    zoom: 14
+  };
+
+  @ViewChild(AgmMap) map: AgmMap;
+
   constructor(private route: ActivatedRoute, private carService: CarService, private commentService: CommentService,
     private rateService : RateService, private authService: AuthService,  private _calendar: NgbCalendar,
-    private _notifier: NotifierService) {
-      
+    private _notifier: NotifierService, public mapsApiLoader: MapsAPILoader,
+    private zone: NgZone, private wrapper: GoogleMapsAPIWrapper) {
+
       this._date =_calendar.getToday();
+      this.mapsApiLoader = mapsApiLoader;
+      this.zone = zone;
+      this.wrapper = wrapper;
+      this.mapsApiLoader.load().then(() => {
+        this.geocoder = new google.maps.Geocoder();
+      });
   }
 
   ngOnInit() {
-    this.currUser=this.authService.getCurrUser();
+    //this.currUser=this.authService.getCurrUser();
     this.car = new CarDto();
     this.car.imageGallery = [];
     this.car.fuelType = [];
@@ -58,6 +111,46 @@ export class CarProfilePageComponent implements OnInit {
      
     });
 
+    this.initializeWebSocketConnection();
+  }
+
+  // Funkcija za otvaranje konekcije sa serverom
+  initializeWebSocketConnection() {
+    // serverUrl je vrednost koju smo definisali u registerStompEndpoints() metodi na serveru
+    let ws = new SockJS("http://localhost:8084/socket");
+    this.stompClient = Stomp.over(ws);
+    let that = this;
+
+    this.stompClient.connect({}, function () {
+      that.isLoaded = true;
+      that.openGlobalSocket()
+    });
+
+  }
+
+  // Funckija za pretplatu na topic /socket-publisher (definise se u configureMessageBroker() metodi)
+  // Globalni socket se otvara prilikom inicijalizacije klijentske aplikacije
+  color: any;
+  openGlobalSocket() {
+    if (this.isLoaded) {
+      this.stompClient.subscribe("/socket-publisher",(message: { body: string; }) => {
+        this.handleResult(message);
+      });
+    }
+  }
+
+  handleResult(message: { body: string; }) {
+
+    this.latlng = message.body.split(',');
+    console.log(this.latlng);
+    console.log(this.carId);
+    if(this.latlng[2] == this.carId && this.carOwner == true) {
+      this.showMap = true;
+      this.location.marker.lat = Number(this.latlng[0]);
+      this.location.marker.lng = Number(this.latlng[1]);
+      this.location.lat = this.location.marker.lat;
+      this.location.lng = this.location.marker.lng;
+    }
   }
 
   getComments(id){

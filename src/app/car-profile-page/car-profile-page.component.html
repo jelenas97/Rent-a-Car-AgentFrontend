@@ -3,16 +3,22 @@
     <div class="notifier">
         <notifier-container></notifier-container>
     </div>
+
     <div class="column">
-        <img class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
-        <h6  class="rating" *ngIf="rates">Rating: {{rates.average_rate}}</h6>  
+      <div class = "map" *ngIf = "showMap">
+        <agm-map [latitude]="location.lat" [longitude]="location.lng" [(zoom)]="location.zoom" [disableDefaultUI]="true" [zoomControl]="true" [fitBounds]='location.viewport'>
+          <agm-circle [latitude]="location.marker.lat" [longitude]="location.marker.lng" [circleDraggable]="false" [visible]="true" [radius]="55" [fillColor]="'blue'" [fillOpacity]="0.7"></agm-circle>
+        </agm-map>
+      </div>
+      <img *ngIf ="!showMap" class="profile-image" mat-card-image name="profile-picture" src="{{car.imageGallery[0]}}">
+      <h6  class="rating" *ngIf="rates">Rating: {{rates.average_rate}}</h6>
         <label class="rating" *ngIf="rates">Voted: {{rates.voted}}</label>
     </div>
     <div class="column col-md-5 car-info">
     <mat-card class="example-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-        </mat-card-header>  
+        </mat-card-header>
         <mat-card-title><b>Car name</b></mat-card-title>
         <mat-card-content>
             <br/>

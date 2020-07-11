@@ -43,7 +43,6 @@ export class NewAdvertisementComponent implements OnInit {
     this.advertisement.car.carBrand = new CarBrand();
     this.advertisement.car.fuelType = [];
     this.advertisement.car.availableTracking = false;
-    this.advertisement.cdw = false;
   }
 
   ngOnInit() {
