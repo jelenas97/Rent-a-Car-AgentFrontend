@@ -43,6 +43,7 @@ export class AuthService {
 
   logout() {
     this.accessToken = null;
+    this.currUser = null;
     this.router.navigate(['/login']);
   }
 

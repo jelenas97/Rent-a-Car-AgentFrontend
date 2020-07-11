@@ -82,8 +82,8 @@ export class ConfigService {
     this._reportUrl = value;
   }
 
-  private _authUrl = 'http://localhost:8083/auth';
-  private _serverUrl = 'http://localhost:8083';
+  private _authUrl = 'http://localhost:8085/auth';
+  private _serverUrl = 'http://localhost:8084';
   private _loginUrl = this._authUrl + '/login';
   private signUpUrl = this._authUrl + '/signup';
   passChangeUrl = this._authUrl + '/changePassword';

@@ -6,7 +6,6 @@ export class AdvertisementMicro {
 
   id: Number;
   kilometresLimit: Number;
-  cdw: Boolean;
   discount : Number;
   place: String;
   startDate: Date;
