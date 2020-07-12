@@ -32,6 +32,7 @@ export class AcceptRequestsComponent implements OnInit {
 
   acceptOne(rent: Rent) {
     this.requestService.processRequest('YES', rent).subscribe(result => {
+      this.ngOnInit();
       console.log(result);
       this.notifier.notify('success', 'Request accepted! :D');
       setTimeout(() => {
@@ -43,6 +44,7 @@ export class AcceptRequestsComponent implements OnInit {
 
   rejectOne(rent: Rent) {
     this.requestService.processRequest('NO', rent).subscribe(result => {
+      this.ngOnInit();
       console.log(result);
       this.notifier.notify('success', 'Request rejected! :(');
       setTimeout(() => {
@@ -54,6 +56,7 @@ export class AcceptRequestsComponent implements OnInit {
 
   acceptAll(holder: RequestHolder) {
     this.requestService.processRequestsBundle('YES', holder).subscribe(result => {
+      this.ngOnInit();
       console.log(result);
       this.notifier.notify('success', 'All requests accepted! :D');
       setTimeout(() => {
@@ -65,6 +68,7 @@ export class AcceptRequestsComponent implements OnInit {
 
   rejectAll(holder: RequestHolder) {
     this.requestService.processRequestsBundle('NO', holder).subscribe(result => {
+      this.ngOnInit();
       console.log(result);
       this.notifier.notify('success', 'All requests rejected! :(');
       setTimeout(() => {

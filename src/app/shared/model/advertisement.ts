@@ -16,7 +16,7 @@ export class Advertisement {
     fuelType: string;
     price: any;
     model: any;
-  ownerID: any;
+  ownerId: any;
   ownerEmail: any;
     constructor() {}
 }

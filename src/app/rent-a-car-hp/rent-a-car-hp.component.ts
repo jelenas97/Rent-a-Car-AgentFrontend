@@ -218,7 +218,7 @@ export class RentACarHpComponent implements OnInit {
   }
 
   public onNotify(ad: Advertisement): void {
-    console.log('Vlasnik ovog oglasa je: ' + ad.ownerID);
+    console.log('Vlasnik ovog oglasa je: ' + ad.ownerId);
     // this.currUser = this.authService.getCurrUser();
     console.log('Trenutno ulogovani korisnik je : ' + this.currUser);
     let unregistered = true;
@@ -226,7 +226,7 @@ export class RentACarHpComponent implements OnInit {
       if (this.currUser.roles !== null) {
         unregistered = false;
         if (this.currUser.roles.includes('ROLE_AGENT')) {
-          if (this.currUser.id === ad.ownerID) {
+          if (this.currUser.id === ad.ownerId) {
             console.log('OVO JE MOJ OGLAS!! fizicko rentiranje!!');
             const rent = new Rent(ad.id, this.searchDto.startDate, this.searchDto.endDate, ad, this.currUser.id);
 
@@ -244,7 +244,7 @@ export class RentACarHpComponent implements OnInit {
             }, 2000);
           }
         } else if (this.currUser.roles.includes('ROLE_CLIENT')) {
-          if (this.currUser.id === ad.ownerID) {
+          if (this.currUser.id === ad.ownerId) {
             this.notifier.notify('error', 'You can\'t rent your car!!');
             setTimeout(() => {
               this.notifier.hideAll();
