@@ -47,9 +47,6 @@
   </div>
 
   <h3><a routerLink="/car-profile-page/{{advertisement.carId}}"> {{advertisement.name}} </a>
-    {{advertisement.ownerID}} {{agent}}
-    {{currUser.id}}
-
   </h3>
 
   <!--  <div class="greyColor">-->
@@ -79,14 +76,16 @@
 
     </button>
   </div>
+
+  {{advertisement.ownerId}}
   <div *ngIf="currUser.id !== undefined">
 
-    <button (click)="addToCart(advertisement)" *ngIf="currUser.id !== advertisement.ownerID" class="blink">
+    <button (click)="addToCart(advertisement)" *ngIf="currUser.id !== advertisement.ownerId" class="blink">
 
     <div class="discount">Today only -{{advertisement.discount}}%!</div>
 
       </button>
-    <button (click)="addToCart(advertisement)" *ngIf="currUser.id === advertisement.ownerID" [disabled]="!agent">
+    <button (click)="addToCart(advertisement)" *ngIf="currUser.id === advertisement.ownerId" [disabled]="!agent">
 
     <div class="discount">Your car</div>
 

@@ -150,8 +150,8 @@ export class ConfigService {
     this._reportUrl = value;
   }
 
-  private _authUrl = 'http://localhost:8080/auth';
-  private _serverUrl = 'http://localhost:8080';
+  private _authUrl = 'http://localhost:8083/auth';
+  private _serverUrl = 'http://localhost:8083';
   private _loginUrl = this._authUrl + '/login';
   private signUpUrl = this._serverUrl + '/registerRequest';
   private _approveUrl = this.signUpUrl + '/approve';

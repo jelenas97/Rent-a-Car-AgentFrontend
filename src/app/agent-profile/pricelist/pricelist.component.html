@@ -32,7 +32,6 @@
                 <th scope="col"> Price per day </th>
                 <th scope="col"> Price per km </th>
                 <th scope="col"> CDW</th>
-                <th scope="col" *ngIf="currUser.roles[0]=='ROLE_AGENT'"> Discount</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +41,6 @@
               <td> {{pricelist.pricePerKm}} </td>
               <td *ngIf="pricelist.cdw!==0"> {{pricelist.cdw}} </td>
               <td *ngIf="pricelist.cdw==0"> / </td>
-              <td  *ngIf="currUser.roles[0]=='ROLE_AGENT'">{{pricelist.discount}}</td>
             </tr>
         </tbody>
     </table>
