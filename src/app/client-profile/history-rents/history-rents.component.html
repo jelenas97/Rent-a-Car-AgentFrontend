@@ -20,15 +20,17 @@
                 <th scope="col"> Car details</th>
                 <th scope="col">  </th>
                 <th scope="col">  </th>
+                <th scope="col">  </th>
             </tr>
         </thead>
-        <tbody id="peca">
-            <tr id="oki" *ngFor='let historyRentRequest of _historyRentRequests'>
+        <tbody id="">
+            <tr id="" *ngFor='let historyRentRequest of _historyRentRequests'>
                 <td> {{historyRentRequest.id}} </td>
                 <td> {{historyRentRequest.startDateString}} </td>
                 <td> {{historyRentRequest.endDateString}} </td>
                 <td> {{historyRentRequest.rentRequestStatus}} </td>
-                <td> {{historyRentRequest.cars}} </td>
+                <td> {{historyRentRequest.cars}}</td>
+                
                 <td>
                     <button class="btn btn-secondary" type="button" (click)="rateCar(historyRentRequest)" *ngIf="historyRentRequest.rated" id="historyRentRequest.id">
                      Rate
@@ -37,6 +39,12 @@
                 <td>
                     <button class="btn btn-secondary" type="button" (click)="commentCar(historyRentRequest)" *ngIf="historyRentRequest.commented">
                     Add comment
+                    </button>
+                </td>
+                <td>
+                    
+                    <button class="btn btn-secondary red" type="button" (click)="extraPay(historyRentRequest)" *ngIf="historyRentRequest.rentRequestStatus=='EXTRA_PAY'" >
+                     Extra pay
                     </button>
                 </td>
             </tr>

@@ -10,6 +10,7 @@ export class RentRequest {
     commented:any;
     senderId: any;
     numberOfUnseen: number;
+    extraPay: any;
 
   constructor() {
   }

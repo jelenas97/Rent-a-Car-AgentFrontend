@@ -1,3 +1,4 @@
+import { ExtraPayDialogComponent } from './extra-pay-dialog/extra-pay-dialog.component';
 import { NotifierService } from 'angular-notifier';
 import { AuthService } from './../../service/auth.service';
 import { User } from './../../shared/model/user';
@@ -40,6 +41,17 @@ export class HistoryRentsComponent implements OnInit {
 
   commentCar(historyRentRequest) {
     let dialog = this._dialog.open(CommentCarDialogComponent, {
+      width: '30%',
+      data:  { _historyRentRequest : historyRentRequest,  _clientId : this.currUser.id}
+
+    });
+    dialog.afterClosed().subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  extraPay(historyRentRequest) {
+    let dialog = this._dialog.open(ExtraPayDialogComponent, {
       width: '30%',
       data:  { _historyRentRequest : historyRentRequest,  _clientId : this.currUser.id}
 

@@ -80,6 +80,8 @@ import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import { PayRentDialogComponent } from './client-profile/requested-rents/pay-rent-dialog/pay-rent-dialog.component';
 import {RegisterRequestComponent} from "./admin-profile/register-request/registerRequest.component";
 import {RegisterRequestService} from "./admin-profile/register-request/registerRequest.service";
+import {ExtraPayDialogComponent} from './client-profile/history-rents/extra-pay-dialog/extra-pay-dialog.component';
+
 
 const customNotifierOptions: NotifierOptions = {
   position: {
@@ -163,8 +165,8 @@ const customNotifierOptions: NotifierOptions = {
     RentReportComponent,
     WriteReportDialogComponent,
     PayRentDialogComponent,
-    RegisterRequestComponent
-
+    RegisterRequestComponent,
+    ExtraPayDialogComponent
   ],
   imports: [
     BrowserModule,

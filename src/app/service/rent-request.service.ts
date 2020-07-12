@@ -121,4 +121,17 @@ export class RentRequestService {
     );
   }
 
+  extraPayRentRequest(id: String){
+    const editHeaders = new HttpHeaders({
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    });
+    return this.apiService.put(this.configService.getRentRequests + '/extraPay/'+ id , editHeaders).pipe(
+      map(updateAdv => {
+        console.log(updateAdv);
+        return updateAdv;
+      })
+    );
+  }
+
 }
